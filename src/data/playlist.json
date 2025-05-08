@@ -299,5 +299,12 @@
     "pinned": true,
     "color": "#9400D3",
     "whatColoris": "DarkViolet"
+  },
+  {
+    "slug": "filmsost",
+    "title": "Films OST",
+    "pinned": true,
+    "color": "#FF1493",
+    "whatColoris": "DeepPink"
   }
 ]
