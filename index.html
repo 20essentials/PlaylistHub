@@ -1,0 +1,998 @@
+<!DOCTYPE html><script type="module">
+  import AtroposComponent from './modules/atropos.js';
+  import { setAnimation } from './modules/setAnimation.js';
+  customElements.define('atropos-component', AtroposComponent);
+
+  class CoverCard extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+    }
+
+    static get styles() {
+      return /* css */ `
+        :host {
+          display: block;
+          position: absolute;
+          inset: 0;
+          bottom: -10px;
+          background: #0004;
+          z-index: 50;
+          backdrop-filter: blur(0.5vmax);
+          height: calc(100vh - var(--player-height));
+        }
+
+        atropos-component {
+          --size: 22vmax;
+          width: var(--size);
+          height: var(--size);
+          z-index: 5;
+          padding: 0;
+          border: 0;
+          position: absolute;
+          left: calc(50% - var(--size) / 2);
+          top: calc(50% - var(--size) / 2);
+
+          & .cover {
+            max-width: var(--size);
+            max-height: var(--size);
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &::after {
+              content: "";
+              background: url("./assets/cover-texture.avif");
+              width: var(--size);
+              height: var(--size);
+              background-size: var(--size);
+              top: 0;
+              left: 0;
+              background-position: center;
+              mix-blend-mode: screen;
+              opacity: 15%;
+              position: absolute;
+              pointer-events: none;
+            }
+
+            &::before {
+              content: "";
+              width: calc(var(--size) + 60px);
+              height: calc(var(--size) + 60px);
+              background: radial-gradient(#0000 50%, #000);
+              background-size: cover;
+              background-position: center;
+              position: absolute;
+              mix-blend-mode: overlay;
+              z-index: 10;
+              top: 0;
+              left: 0;
+              pointer-events: none;
+            }
+          }
+
+ 
+          img {
+            width: var(--size);
+            height: var(--size);
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      `;
+    }
+
+    connectedCallback() {
+      this.image = this.getAttribute('src');
+      this.render();
+      this.addEventListener('click', () => this.remove());
+
+      const atroposComponent = this.shadowRoot.querySelector('atropos-component');
+      setAnimation(atroposComponent);
+    }
+
+    render() {
+      this.shadowRoot.innerHTML = /* html */ `
+        <style>${CoverCard.styles}</style>
+        <atropos-component>
+          <img src="${this.image}" alt="Cover Single Image">
+          <div class="cover"></div>
+        </atropos-component>
+      `;
+    }
+  }
+
+  customElements.define('cover-card', CoverCard);
+</script>  <html lang="en" data-astro-cid-upqv7g22> <head><meta charset="utf-8"><link rel="shortcut icon" href="./assets/favicon.webp" type="image/x-icon"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PlaylistHub</title><link rel="stylesheet" href="index.XUqiK9Xf.css"></head> <body data-astro-cid-upqv7g22>  <div class="container" data-astro-cid-j7pv25f6> <div class="content-container" data-astro-cid-j7pv25f6> <div class="sidebar" data-astro-cid-j7pv25f6> <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('search-input');
+    const playlistContainer = document.querySelector('.sidebarPlaylist');
+    const originalPlaylists = [...playlistContainer.children];
+    input.addEventListener('input', () => {
+      const searchTerm = input.value.toLowerCase();
+      playlistContainer.scrollTop = 0;
+
+      const sortedPlaylists = [...originalPlaylists].sort((a, b) => {
+        const aText = a.textContent.toLowerCase();
+        const bText = b.textContent.toLowerCase();
+
+        const aMatch = aText.includes(searchTerm);
+        const bMatch = bText.includes(searchTerm);
+
+        if (aMatch && !bMatch) return -1;
+        if (!aMatch && bMatch) return 1;
+        return aText.localeCompare(bText);
+      });
+
+      playlistContainer.innerHTML = '';
+      sortedPlaylists.forEach(item => playlistContainer.appendChild(item));
+    });
+  });
+</script><div class="container" data-astro-cid-6b5ihhfi> <div class="top-sidebar" data-astro-cid-6b5ihhfi> <button class="btn" data-astro-cid-6b5ihhfi> <input spellcheck="false" autocomplete="off" id="search-input" type="text" maxlength="20" placeholder="Seach Playlist" data-astro-cid-6b5ihhfi> </button> </div> <div class="main-sidebar" data-astro-cid-6b5ihhfi> <section class="the-container" data-astro-cid-6b5ihhfi> <div class="playlist-container" data-astro-cid-6b5ihhfi> <div class="playlist sidebarPlaylist" data-astro-cid-6b5ihhfi> <aside class="playlist-item" data-id="alternative" data-color="#5F9EA0" tabindex="0" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/jet-ost/assets/n1.avif" alt="Alternative" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Alternative</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ALT</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="alternativerock" data-color="#ff0200" tabindex="1" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/kaiser-chiefs-ost/assets/n1.avif" alt="Alternative Rock" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Alternative Rock</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ALT</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="altpop" data-color="#FFF8DC" tabindex="2" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/lady-gaga-ost/assets/n1.avif" alt="Alt Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Alt Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ALT</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="ambient" data-color="#9932CC" tabindex="3" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/the-amazing-spiderman/assets/n3.avif" alt="Ambient" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Ambient</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - AMB</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="avantgarde" data-color="#e0c3fc" tabindex="4" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/breaking-bad/assets/n1.avif" alt="Avant Garde" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Avant Garde</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - AVA</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="background" data-color="#A52A2A" tabindex="5" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/hans-zimmer-ost/assets/n2.avif" alt="Background" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Background</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - BAC</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="bluepop" data-color="#2929dc" tabindex="6" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/ana-gabriel-ost/assets/n1.avif" alt="Blue Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Blue Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - BLU</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="bluerock" data-color="#f007c3" tabindex="7" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/u2-band/assets/n1.avif" alt="Blue Rock" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Blue Rock</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - BLU</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="darkfolk" data-color="#00CED1" tabindex="8" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/yeah-yeah-yeahs-band/assets/n2.avif" alt="Dark Folk" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Dark Folk</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - DAR</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="darknight" data-color="#8B0000" tabindex="9" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/rush-ost/assets/n1.avif" alt="Dark Night" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Dark Night</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - DAR</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="discopop" data-color="#008B8B" tabindex="10" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/phineas-and-ferb/assets/n1.avif" alt="Disco Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Disco Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - DIS</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="electroacid" data-color="#6495ED" tabindex="11" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/mr-kitty/assets/n1.avif" alt="Electro Acid" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Electro Acid</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ELE</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="electronic" data-color="#08d437" tabindex="12" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/sunstroke-project-ost/assets/n1.avif" alt="Electronic" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Electronic</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ELE</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="electropop" data-color="#7d1fe9" tabindex="13" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/glude-ost/assets/n1.avif" alt="Electro Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Electro Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ELE</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="englishpop" data-color="#dccf08" tabindex="14" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/barbie-soundtrack/assets/n3.avif" alt="English Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>English Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ENG</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="eurodance" data-color="#FFA500" tabindex="15" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/queen-latifah-band/assets/n3.avif" alt="Eurodance" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Eurodance</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - EUR</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="funk" data-color="#FAEBD7" tabindex="16" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/daft-punk-band/assets/n4.avif" alt="Funk" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Funk</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - FUN</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="garage" data-color="#FF7F50" tabindex="17" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/avenida-larco/assets/n1.avif" alt="Garage" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Garage</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - GAR</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="guitar" data-color="#FF8C00" tabindex="18" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/rush-ost/assets/n1.avif" alt="Guitar" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Guitar</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - GUI</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="hauntology" data-color="#9400D3" tabindex="19" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/zara-larsson-soundtrack/assets/n2.avif" alt="Hauntology" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Hauntology</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - HAU</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="hyperpop" data-color="#B8860B" tabindex="20" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/rude-ost/assets/n1.avif" alt="Hyperpop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Hyperpop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - HYP</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="indiepop" data-color="#7FFFD4" tabindex="21" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/hombres-g/assets/n1.avif" alt="Indie Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Indie Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - IND</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="indierock" data-color="#7FFF00" tabindex="22" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/velvet-revolver-band/assets/n2.avif" alt="Indie Rock" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Indie Rock</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - IND</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="instrumental" data-color="#0dbce7" tabindex="23" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/tron-soundtrack/assets/n1.avif" alt="Instrumental" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Instrumental</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - INS</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="melodicrock" data-color="#2ab240" tabindex="24" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/twenty-one-pilots-ost/assets/n2.avif" alt="Melodic Rock" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Melodic Rock</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - MEL</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="ncs" data-color="#00FFFF" tabindex="25" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/prismo/assets/n1.avif" alt="NCS" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>NCS</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - NCS</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="newage" data-color="#006400" tabindex="26" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/thirty-seconds-to-mars-band/assets/n1.avif" alt="New Age" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>New Age</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - NEW</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="popcore" data-color="#BDB76B" tabindex="27" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/paul-mccartney-ost/assets/n1.avif" alt="Popcore" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Popcore</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - POP</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="progressivepop" data-color="#9708ef" tabindex="28" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/phillip-phillips/assets/n2.avif" alt="Progressive Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Progressive Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - PRO</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="retrowave" data-color="#A9A9A9" tabindex="29" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/unknown-brain-soundtrack/assets/n1.avif" alt="Retrowave" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Retrowave</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - RET</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="rockandroll" data-color="#DC143C" tabindex="30" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/los-violadores-band/assets/n2.avif" alt="Rock and Roll" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Rock and Roll</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ROC</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="rockpop" data-color="#D2691E" tabindex="31" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/weezer-band/assets/n1.avif" alt="Rock Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Rock Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ROC</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="romantic" data-color="#f5576c" tabindex="32" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/rhcp-lives-ost/assets/n1.avif" alt="Romantic" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Romantic</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - ROM</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="skweee" data-color="#483D8B" tabindex="33" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/your-favorite-enemies-band/assets/n1.avif" alt="Skweee" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Skweee</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - SKW</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="softrock" data-color="#8B008B" tabindex="34" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/warpaint-band/assets/n3.avif" alt="Soft Rock" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Soft Rock</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - SOF</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="soul" data-color="#E9967A" tabindex="35" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/yardbirds-band/assets/n1.avif" alt="Soul" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Soul</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - SOU</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="soulpop" data-color="#556B2F" tabindex="36" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/pet-shop-boys-band/assets/n3.avif" alt="Soul Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Soul Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - SOU</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="spanishpop" data-color="#52e2d5" tabindex="37" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/avenida-larco/assets/n1.avif" alt="Spanish Pop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Spanish Pop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - SPA</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="surfrock" data-color="#DEB887" tabindex="38" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/loreen/assets/n1.avif" alt="Surf Rock" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Surf Rock</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - SUR</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="synthpop" data-color="#00FFFF" tabindex="39" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/flume/assets/n1.avif" alt="Synthpop" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Synthpop</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - SYN</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="synthwave" data-color="#94f15b" tabindex="40" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/cartoon-soundtrack/assets/n1.avif" alt="Synthwave" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Synthwave</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - SYN</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="techno" data-color="#2F4F4F" tabindex="41" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/billy-idol-soundtrack/assets/n2.avif" alt="Techno" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Techno</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - TEC</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside><aside class="playlist-item" data-id="vaporwave" data-color="#8FBC8F" tabindex="42" data-astro-cid-4ht3nsfd> <img src="https://20essentials.github.io/autechre-band/assets/n1.avif" alt="Vaporwave" data-astro-cid-4ht3nsfd> <div class="data" data-astro-cid-4ht3nsfd> <strong class="title" data-astro-cid-4ht3nsfd>Vaporwave</strong> <div class="subtitle-container" data-astro-cid-4ht3nsfd> <svg width="0.7vmax" color="springgreen" data-astro-cid-4ht3nsfd data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg> <span class="subtitle" data-astro-cid-4ht3nsfd>Playlist - VAP</span> </div> </div> <svg class="volume-icon2" data-astro-cid-4ht3nsfd xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg> </aside> </div> </div> </section> </div> </div> </div> <div class="content" data-astro-cid-j7pv25f6> <div class="container" data-astro-cid-aqhblxhm> <list-header></list-header> <script type="module">
+  import { formatTime, convertToSeconds } from './modules/formatTime.js';
+
+  class ListHeader extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      this.currentIndex = 0;
+    }
+
+    static get styles() {
+      return /* css */ `
+        :host {
+          mix-blend-mode: normal;
+          z-index: 5;
+        }
+
+        .texting-strong {
+          font-size: 1.5vmax;
+
+          @media (width <= 1111px) and (orientation: portrait) {
+            font-size: 1.1vmax;
+          }
+        }
+
+        .container-anchors {
+          position: absolute;
+          top: 1.5vmax;
+          right: 1.5vmax;
+          display: flex;
+          gap: 0.5vmax;
+          
+          button {
+            width: 2.5vmax;
+            height: 2.5vmax;
+            border: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            border-radius: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            place-content: center;
+            text-align: center;
+            cursor: pointer;
+            background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
+            backdrop-filter: blur(5px);
+            transition: opacity .3s ease;
+
+            &:active {
+              opacity: 0.5;
+            }
+
+            img {
+              pointer-events: none;
+              --s-image: 1.9vmax;
+              width: var(--s-image);
+              height: var(--s-image);
+            }
+          }
+        }
+
+        header {
+          display: flex;
+          flex-direction: column;
+          padding: 0.5vmax;
+          position: relative;
+          
+          
+          & .data {
+            display: flex;
+            gap: 0 1.2vmax;
+            padding: 1.3vmax;
+
+            .container-cover {
+              --size: 11.5vmax;
+              position: relative;
+              overflow: hidden;
+              width: var(--size);
+              height: var(--size);
+              aspect-ratio: 1;
+              outline: 0.15vmax var(--theme-color) solid;
+
+              @media (width <= 1111px) and (orientation: portrait) {
+                --size: 10vmax;
+              }
+
+              * {
+                pointer-events: none;
+              }
+
+                &::before {
+                  content: "";
+                  background: url('./assets/album-cover.avif');
+                  width: var(--size);
+                  height: var(--size);
+                  background-size: var(--size);
+                  top: 0;
+                  left: 0;
+                  background-position: center;
+                  mix-blend-mode: screen;
+                  opacity: 55%;
+                  z-index: 2;
+                  position: absolute;
+                  pointer-events: none;
+                }
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index:3;
+                background-image:  radial-gradient(
+                  circle 8vmax at var(--x) var(--y),
+                  #fff1 40%,
+                  transparent 75%
+                );
+                background-blend-mode: overlay;
+                filter: contrast(1.1) brightness(1.5) saturate(1.1);
+              }
+            }
+
+            .cover {
+              width: var(--size);
+              height: var(--size);
+              background-color: #fff1;
+              position: absolute;
+              aspect-ratio: 1;
+            }
+
+            & .avatar {
+              --size: 1vmax;
+              width: var(--size);
+              height: var(--size);
+              background-image: url("./assets/favicon.webp");
+              background-size: cover;
+              border-radius: 50%;
+            }
+
+            .esconder {
+              @media (width <= 1111px) and (orientation: portrait) {
+                display: none;
+              }
+            }
+
+            & .info {
+              display: flex;
+              flex-direction: column;
+              justify-content: end;
+              font-family: var(--default-font);
+
+              & .row {
+                display: grid;
+                grid-auto-flow: column;
+                justify-content: start;
+                gap: 0.5vmax;
+                align-items: center;
+              }
+
+              & h1 {
+                margin: 0;
+                font-weight: 800;
+                letter-spacing: -0.1vmax;
+                font-size: 3.5vmax;
+
+                  @media (width <= 1111px) and (orientation: portrait) {
+                    font-size: 2vmax;
+                    overflow-wrap: anywhere;
+                  }
+              }
+
+              & .total-duration {
+                color: var(--dark-textcolor);
+
+                @media (width <= 1111px) {
+                  filter: brightness(200%);
+                }
+              }
+
+              .info-subtitle,
+              .total-duration {
+                font-size: 0.95vmax;
+              }
+            }
+          }
+        }
+      `;
+    }
+
+    setData(title, songs) {
+      const slug = title.toLowerCase().replaceAll(' ', '');
+      const total = songs.length;
+      const duration = songs
+        .map(song => convertToSeconds(song.duration))
+        .reduce((first, acc) => first + acc, 0);
+      const [min] = formatTime(duration).split(':');
+      const time = `${min} min `;
+
+      this.shadowRoot.querySelector('h1').textContent = title;
+      this.shadowRoot.querySelector('.info-subtitle').textContent =
+        `PlaylistHub · ${total} songs,`;
+      this.shadowRoot.querySelector('.total-duration').textContent =
+        `${time} of duration approximately`;
+
+      setTimeout(() => {
+        const result = `.playlist-item[data-id=${slug}] img`;
+        this.shadowRoot.querySelector('img.cover').src =
+          document.querySelector(result)?.src;
+      }, 20);
+    }
+
+    addCoverMouseAnimation() {
+      const containerCover = this.shadowRoot.querySelector('.container-cover');
+
+      function handleMover(e) {
+        e.preventDefault();
+
+        let clientX, clientY;
+
+        if (e.type === 'touchmove') {
+          clientX = e.touches[0].clientX;
+          clientY = e.touches[0].clientY;
+        } else {
+          clientX = e.clientX;
+          clientY = e.clientY;
+        }
+
+        const { left, top } = containerCover.getBoundingClientRect();
+        const x = clientX - left;
+        const y = clientY - top;
+
+        containerCover.style.setProperty('--x', `${x}px`);
+        containerCover.style.setProperty('--y', `${y}px`);
+      }
+
+      containerCover.addEventListener('pointermove', handleMover);
+      containerCover.addEventListener('touchmove', handleMover, {
+        passive: false
+      });
+    }
+
+    connectedCallback() {
+      this.render();
+      this.addCoverMouseAnimation();
+      const prev = this.shadowRoot.querySelector('.prev-list');
+      const next = this.shadowRoot.querySelector('.next-list');
+      let playlistItems = document.querySelectorAll('.playlist-item');
+      let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
+      const { length } = playlistItems;
+      const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
+
+      function clickOnPlaylist(targetIndex) {
+        const slug = slugs[targetIndex];
+        const theTarget = document.querySelector(
+          `.playlist-item[data-id="${slug}"]`
+        );
+        theTarget.click();
+        theTarget.focus();
+      }
+
+      const input = document.getElementById('search-input');
+
+      document.addEventListener('keydown', ({ key }) => {
+        const inputHasFocus = document.activeElement === input;
+        const clickEnter = inputHasFocus && key === 'Enter';
+        const clickArrowDown = inputHasFocus && key === 'ArrowDown';
+        const selecttFirsPlaylist = () => {
+          const firstPlaylist = sidebarPlaylist.firstElementChild;
+          if (firstPlaylist) {
+            firstPlaylist.click();
+            firstPlaylist.focus();
+            this.currentIndex = 0;
+            playlistItems = document.querySelectorAll('.playlist-item');
+            slugs = [...playlistItems].map(playlist => playlist.dataset.id);
+          }
+        };
+
+        if (clickEnter) {
+          selecttFirsPlaylist();
+        }
+
+        if (clickArrowDown) {
+          setTimeout(() => {
+            selecttFirsPlaylist();
+          }, 1);
+        }
+      });
+
+      prev?.addEventListener('click', () => {
+        const prevIndex = (this.currentIndex - 1 + length) % length;
+        clickOnPlaylist(prevIndex);
+        this.currentIndex = prevIndex;
+      });
+
+      next?.addEventListener('click', () => {
+        const nextIndex = (this.currentIndex + 1) % length;
+        clickOnPlaylist(nextIndex);
+        this.currentIndex = nextIndex;
+      });
+
+      document.addEventListener('click', e => {
+        if (e.target.matches('.playlist-item')) {
+          e.target.focus();
+          playlistItems = document.querySelectorAll('.playlist-item');
+          slugs = [...playlistItems].map(playlist => playlist.dataset.id);
+          let index = [...playlistItems].indexOf(e.target);
+          this.currentIndex = index;
+        }
+      });
+
+      function existCoverCard() {
+        return document.querySelector('cover-card');
+      }
+
+      document.addEventListener('keydown', ({ key }) => {
+        if (key === 'ArrowRight') {
+          if (existCoverCard()) {
+            const nextSongButton = document.querySelector('button.next');
+            nextSongButton.click();
+            return;
+          }
+          const nextIndex = (this.currentIndex + 1) % length;
+          clickOnPlaylist(nextIndex);
+          this.currentIndex = nextIndex;
+          sidebarPlaylist.scrollTop += 50;
+          if (nextIndex === 0) sidebarPlaylist.scrollTop = 0;
+        } else if (key === 'ArrowLeft') {
+          if (existCoverCard()) {
+            const prevSongButton = document.querySelector('button.prev');
+            prevSongButton.click();
+            return;
+          }
+          const prevIndex = (this.currentIndex - 1 + length) % length;
+          clickOnPlaylist(prevIndex);
+          this.currentIndex = prevIndex;
+          sidebarPlaylist.scrollTop -= 50;
+          if (prevIndex === length - 1)
+            sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
+        }
+
+        if (key === 'ArrowDown') {
+          if (existCoverCard()) return;
+          if (document.activeElement.classList.contains('playlist-item')) {
+            const nextIndex = (this.currentIndex + 1) % length;
+            clickOnPlaylist(nextIndex);
+            this.currentIndex = nextIndex;
+            sidebarPlaylist.scrollTop += 50;
+            if (nextIndex === 0) {
+              setTimeout(() => {
+                sidebarPlaylist.scrollTop = 10;
+              }, 1);
+            }
+          }
+        } else if (key === 'ArrowUp') {
+          if (existCoverCard()) return;
+          if (document.activeElement.classList.contains('playlist-item')) {
+            const prevIndex = (this.currentIndex - 1 + length) % length;
+            clickOnPlaylist(prevIndex);
+            this.currentIndex = prevIndex;
+            sidebarPlaylist.scrollTop -= 50;
+
+            if (prevIndex === length - 1) {
+              setTimeout(() => {
+                sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
+              }, 1);
+            }
+          }
+        }
+      });
+    }
+
+    render() {
+      this.shadowRoot.innerHTML = /* html */ `
+        <style>${ListHeader.styles}</style>
+        <header>
+          <div class="data">
+            <article class="container-cover">
+              <img draggable="false" class="cover" src="./assets/transparent.png" alt="cover" />
+            </article>
+            <div class="info">
+              <strong class="texting-strong">Playlist</strong>
+              <h1 class="texting-h1">Electronic</h1>
+              <div class="row">
+                <div class="avatar esconder"></div>
+                <span class="info-subtitle esconder">PlaylistHub · 20 canciones,</span>
+                <span class="total-duration">80 min de duración aproximadamente</span>
+              </div>
+            </div>
+          </div>
+          <aside class="container-anchors">
+            <button class='prev-list' >
+              <img src='./assets/prev.svg' alt='prev' />
+            </button>
+            <button class='next-list' >
+              <img src='./assets/next.svg' alt='next' />
+            </button>
+          </aside>
+        </header>
+      `;
+    }
+  }
+
+  customElements.define('list-header', ListHeader);
+</script> <div class="song playlist" data-astro-cid-mlamalio> <script type="module">
+  import { setAnimation } from './modules/setAnimation.js';
+
+  class SongItem extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+    }
+
+    static get styles() {
+      return /* css */ `
+        .row-item {
+          display: grid;
+          grid-template-columns: var(--playlist-format);
+          font-family: var(--default-font);
+          align-items: center;
+          padding: 0.3vmax 0.5vmax;
+          border-radius: calc(var(--pad-gap) / 2);
+          user-select: none;
+          cursor: pointer;
+          transition: background-color .2s ease;
+
+          &.title-green {
+            .titulin {
+              color: var(--theme-color);
+              filter: brightness(150%);
+            }
+
+            .num {
+                display: none;
+              }
+
+            .wave-icon {
+                display: flex;
+            }
+          }
+
+          .wave-icon {
+            width: 1vmax;
+            display: none;
+            color: var(--theme-color);
+          }
+
+          div:nth-child(4),
+          div:nth-child(5) {
+            text-align: center;
+          }
+
+          &:hover {
+            background-color: #ffffff15;
+          }
+        }
+
+        .text {
+          font-size:1vmax;
+        }
+
+        .esconder {
+          @media (width <= 1111px) and (orientation: portrait) {
+            display: none;
+          }
+        }
+
+        .title-container {
+          display: flex;
+          align-items: center;
+          gap: 1vmax;
+
+          & img {
+            --size: 3.5vmax;
+            width: var(--size);
+            height: var(--size);
+            border-radius: calc(var(--pad-gap) / 2);
+
+            @media (width <= 800px) and (orientation: landscape) {
+              --size: 2.5vmax;
+            }
+          }
+
+          & .group {
+            display: inline-flex;
+            flex-direction: column;
+
+            & .artist {
+              color: var(--dark-textcolor);
+
+        
+            }
+          }
+        }
+      `;
+    }
+
+    connectedCallback() {
+      this.slug = this.getAttribute('slug');
+      this.title = this.getAttribute('title');
+      this.artist = this.getAttribute('artist');
+      this.album = this.getAttribute('album');
+      this.date = this.getAttribute('date');
+      this.duration = this.getAttribute('duration');
+      this.index = Number(this.getAttribute('index'));
+      this.urlPoster = this.getAttribute('urlPoster');
+      this.urlSong = this.getAttribute('urlSong');
+      this.image = this.urlPoster;
+      this.thumb = this.urlPoster;
+      this.render();
+      const rowItem = this.shadowRoot.querySelector('.row-item');
+      setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
+    }
+
+    getData() {
+      return {
+        index: this.index,
+        album: this.album,
+        artist: this.artist,
+        date: this.date,
+        duration: this.duration,
+        slug: this.slug,
+        title: this.title,
+        urlPoster: this.urlPoster,
+        urlSong: this.urlSong
+      };
+    }
+
+    render() {
+      this.shadowRoot.innerHTML = /* html */ `
+        <style>${SongItem.styles}</style>
+        <div class="row-item" data-id=${this.index}>
+          <div class=" text">
+            <aside class="num">${(this.index + 1).toString().padStart(2, '0')}</aside>
+            <svg class="wave-icon"  viewBox="0 0 135 140" fill="currentColor"><rect y="10" width="15" height="120" rx="6"><animate attributeName="height" begin="0.5s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/><animate attributeName="y" begin="0.5s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/></rect><rect x="30" y="10" width="15" height="120" rx="6"><animate attributeName="height" begin="0.25s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/><animate attributeName="y" begin="0.25s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/></rect><rect x="60" width="15" height="140" rx="6"><animate attributeName="height" begin="0s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/><animate attributeName="y" begin="0s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/></rect><rect x="90" y="10" width="15" height="120" rx="6"><animate attributeName="height" begin="0.25s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/><animate attributeName="y" begin="0.25s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/></rect><rect x="120" y="10" width="15" height="120" rx="6"><animate attributeName="height" begin="0.5s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/><animate attributeName="y" begin="0.5s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/></rect></svg>
+          </div>
+          
+          <div class="title-container">
+            <img class="img-thumb" src=${this.thumb} alt=${this.title}>
+            <div class="group">
+              <div class="text titulin">${this.title}</div>
+              <div class="artist text">${this.artist}</div>
+            </div>
+          </div>
+          <div class="text esconder">${this.album}</div>
+          <div class="text esconder">${this.date.substring(0, 10)}</div>
+          <div class="text">${this.duration}</div>
+        </div>
+      `;
+    }
+  }
+
+  customElements.define('song-item', SongItem);
+</script> <header data-astro-cid-mlamalio> <div class="cell" data-astro-cid-mlamalio>#</div> <div class="cell" data-astro-cid-mlamalio>Title</div> <div class="cell esconder" data-astro-cid-mlamalio>Album</div> <div class="cell esconder" data-astro-cid-mlamalio>Date of Addition</div> <div class="cell centrar" data-astro-cid-mlamalio> <svg class="clock" data-astro-cid-mlamalio data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" class="Svg-sc-ytk21e-0 dYnaPI"> <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path> <path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z"></path> </svg> </div> <div class="cell" data-astro-cid-mlamalio></div> </header> <hr data-astro-cid-mlamalio> </div> </div> </div> </div> <div class="player" data-astro-cid-j7pv25f6> <div class="container" data-astro-cid-lxeybmsx> <script type="module">
+  const addCoverCard = link => {
+    const existentCoverCard = document.querySelector('cover-card');
+    if (existentCoverCard) existentCoverCard.remove();
+
+    const coverCard = document.createElement('cover-card');
+    coverCard.setAttribute('src', link);
+    document.body.append(coverCard);
+  };
+
+  const image = document.querySelector('.song-info-container img');
+  image.addEventListener('click', () => addCoverCard(image.src));
+
+  document.addEventListener('player:update-info', ({ detail }) => {
+    const {
+      songData: { title, artist, urlPoster, slug, album },
+      autoplay
+    } = detail;
+    
+
+    const container = document.querySelector('.song-info-container');
+    const titleTag = container.querySelector('.title');
+    const artistTag = container.querySelector('.artist');
+    const imageTag = container.querySelector('img');
+
+    titleTag.textContent = title;
+    artistTag.textContent = artist;
+    imageTag.src = urlPoster;
+    imageTag.alt = title;
+    document.body.style.setProperty('--song-image', `url(${imageTag.src})`);
+
+    autoplay && addCoverCard(imageTag.src);
+  });
+</script><div class="song-info-container" data-astro-cid-777hvpqc> <img src="./assets/transparent.png" class="left" data-astro-cid-777hvpqc> <div class="right" data-astro-cid-777hvpqc> <p class="title" data-astro-cid-777hvpqc></p> <p class="artist" data-astro-cid-777hvpqc></p> </div> </div> <script type="module">
+  import { emitEvent } from './modules/emitter.js';
+
+  class ProgressSlider extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+      this.render();
+      this.setValue(this.getAttribute('value') ?? 0);
+
+      const barContainer = this.shadowRoot.querySelector('.bar-container');
+
+      const STEP = 0.01;
+      let isDragging = false;
+
+      const updateProgress = ({ clientX }) => {
+        const { left, width } = barContainer.getBoundingClientRect();
+        const clamped = Math.min(Math.max(0, clientX - left), width);
+        const percentage = (clamped * 100) / width;
+
+        this.setValue(percentage);
+
+        if (this.id === 'current-song')
+          emitEvent('song:changetime', this, percentage);
+        if (this.id === 'volume') emitEvent('volume:change', this, percentage);
+      };
+
+      // Click to set
+      barContainer.addEventListener('click', ({ offsetX }) => {
+        const width = barContainer.getBoundingClientRect().width;
+        const percentage = (Math.min(Math.max(0, offsetX), width) * 100) / width;
+
+        this.setValue(percentage);
+
+        if (this.id === 'current-song')
+          emitEvent('song:changetime', this, percentage);
+        if (this.id === 'volume') emitEvent('volume:change', this, percentage);
+      });
+
+      // Wheel scroll to adjust
+      barContainer.addEventListener(
+        'wheel',
+        ({ deltaY }) => {
+          const direction = deltaY < 0 ? STEP : -STEP;
+          const current = parseFloat(this.getAttribute('value')) || 0;
+          const nextValue = Math.max(0, Math.min(current + direction * 100, 100));
+
+          this.setValue(nextValue);
+
+          if (this.id === 'current-song')
+            emitEvent('song:slidetime', this, direction);
+          if (this.id === 'volume') emitEvent('volume:slide', this, direction);
+        },
+        { passive: true }
+      );
+
+      // Mouse drag
+      barContainer.addEventListener('mousedown', e => {
+        isDragging = true;
+        updateProgress(e);
+      });
+
+      document.addEventListener('mousemove', e => {
+        if (isDragging) updateProgress(e);
+      });
+
+      document.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // Volume external update
+      document.addEventListener('volumeNewProgress', ({ detail }) => {
+        if (this.id !== 'volume') return;
+
+        const { muteado, lastVolume } = detail;
+        const volume = muteado ? 0 : lastVolume * 100;
+        this.setValue(volume);
+      });
+    }
+
+    setValue(value) {
+      const rounded = Math.round(value * 100) / 100;
+      const current = parseFloat(this.style.getPropertyValue('--progress')) || 0;
+
+      // Solo actualiza si hay diferencia visual clara (> 0.5%)
+      if (Math.abs(rounded - current) > 0.5) {
+        this.style.setProperty('--progress', `${rounded}%`);
+      }
+
+      this.setAttribute('value', rounded);
+    }
+
+    render() {
+      this.shadowRoot.innerHTML = /* html */ `
+    <style>${ProgressSlider.styles}</style>
+    <div class="bar-container">
+      <div class="bar"></div>
+    </div>
+  `;
+    }
+
+    static get styles() {
+      return /* css */ `
+    :host {
+      --progress: 0%;
+    }
+
+    * {
+      cursor: pointer;
+    }
+
+    .bar-container {
+      background: #555;
+      height: 0.28vmax;
+      border-radius: 1vmax;
+    }
+
+    .bar-container .bar {
+      width: var(--progress);
+      height: 100%;
+      background-color: var(--theme-color);
+      transition: background-color 0.2s ease;
+      position: relative;
+      border-radius: 1vmax;
+    }
+
+    .bar-container .bar::before {
+      content: '';
+      --circle-size: 0.8vmax;
+      width: var(--circle-size);
+      height: var(--circle-size);
+      position: absolute;
+      top: 50%;
+      transform: translateX(40%) translateY(-50%);
+      right: 0%;
+      background: #fff;
+      border-radius: 50%;
+      z-index: 50;
+    }
+  `;
+    }
+  }
+
+  customElements.define('progress-slider', ProgressSlider);
+</script>  <script type="module">
+  import { MusicPlayer } from './modules/MusicPlayer.js';
+  import NamesOfPlaylists from './data/playlist.json' with { type: 'json' };
+  const allSlugs = NamesOfPlaylists.map(({ slug }) => slug);
+  const randomSlug = ~~(Math.random() * allSlugs.length);
+  const slug = allSlugs[randomSlug];
+  const playlistCorriente = await import(`./data/${slug}.json`, {
+    with: { type: 'json' }
+  });
+  const playlistCorrienteJson = playlistCorriente.default;
+  const randonNumSong = ~~(Math.random() * playlistCorrienteJson.length);
+  const playlistName = slug;
+  const id = randonNumSong + 1;
+  const musicPlayer = new MusicPlayer(playlistName, id);
+
+  const buttons = {
+    play: document.querySelector('.song-player-container .play'),
+    prev: document.querySelector('.song-player-container .prev'),
+    next: document.querySelector('.song-player-container .next'),
+    shuffle: document.querySelector('.song-player-container .shuffle'),
+    repeat: document.querySelector('.song-player-container .repeat')
+  };
+
+  buttons.play.addEventListener('click', () => musicPlayer.play());
+  buttons.prev.addEventListener('click', () => musicPlayer.prev());
+  buttons.next.addEventListener('click', () => musicPlayer.next());
+  buttons.repeat.addEventListener('click', () =>
+    buttons.repeat.classList.toggle('disabled')
+  );
+  buttons.shuffle.addEventListener('click', () => {
+    buttons.shuffle.classList.toggle('disabled');
+    musicPlayer.sortSongs();
+    
+  });
+
+  setTimeout(() => {
+    let { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();
+    musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
+    document.querySelector('.title-green').classList.add('playlist-item-active')
+  }, 50);
+
+  const playlistItems = document.querySelectorAll('.playlist-item');
+  playlistItems.forEach(playlist => {
+    playlist.addEventListener('click', async () => {
+      const slug = playlist.dataset.id;
+      let title = playlist.querySelector('.title').textContent;
+
+      document.querySelectorAll('.playlist-item-active').forEach(el => el.classList.remove('playlist-item-active'))
+      playlist.classList.add('playlist-item-active');
+
+      setTimeout(() => {
+        const { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();
+        musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
+      }, 300);
+
+      await musicPlayer.selectList(
+        slug,
+        title,
+        playlist.dataset.color
+      );
+
+    });
+  });
+
+  const songPlaylist = document.querySelector('.song.playlist');
+  songPlaylist.addEventListener('click', ev => {
+    const isClick = ev.detail === 1;
+
+    if (isClick) {
+      const newSongs = [...document.querySelectorAll('song-item')].map(song =>
+        song.getData()
+      );
+      musicPlayer.setSongs(newSongs);
+      const rowItem = ev
+        .composedPath()
+        .find(tag => tag.classList?.contains('row-item'));
+      let id = Number(rowItem.dataset?.id);
+      let newIndex = id;
+      if (musicPlayer.isShuffle) {
+        newIndex = musicPlayer.songList.findIndex(song => song.index === id);
+      }
+
+      if (rowItem) {
+        musicPlayer.prepare(newIndex);
+        musicPlayer.play();
+        musicPlayer.togglePlayPause(true);
+      }
+    }
+  });
+</script> <div class="song-player-container" data-astro-cid-aomgrfx3> <div class="buttons" data-astro-cid-aomgrfx3> <button class="shuffle disabled" data-astro-cid-aomgrfx3> <svg class="btn-icon" data-astro-cid-aomgrfx3 data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor"> <path d="M13.151.922a.75.75 0 1 0-1.06 1.06L13.109 3H11.16a3.75 3.75 0 0 0-2.873 1.34l-6.173 7.356A2.25 2.25 0 0 1 .39 12.5H0V14h.391a3.75 3.75 0 0 0 2.873-1.34l6.173-7.356a2.25 2.25 0 0 1 1.724-.804h1.947l-1.017 1.018a.75.75 0 0 0 1.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 0 0 .39 3.5z"></path> <path d="m7.5 10.723.98-1.167.957 1.14a2.25 2.25 0 0 0 1.724.804h1.947l-1.017-1.018a.75.75 0 1 1 1.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 1 1-1.06-1.06L13.109 13H11.16a3.75 3.75 0 0 1-2.873-1.34l-.787-.938z"></path> </svg> </button> <button class="prev" data-astro-cid-aomgrfx3> <svg class="btn-icon" data-astro-cid-aomgrfx3 data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor"> <path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"></path> </svg> </button> <button class="play circle" data-astro-cid-aomgrfx3> <div class="play" data-astro-cid-aomgrfx3> <svg class="btn-in-circle" data-astro-cid-aomgrfx3 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z"></path></svg> </div> <div class="pause" hidden data-astro-cid-aomgrfx3> <svg class="btn-in-circle" data-astro-cid-aomgrfx3 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path fill="currentColor" d="M6 5h4v14H6zm8 0h4v14h-4z"></path> </svg> </div> </button> <button class="next" data-astro-cid-aomgrfx3> <svg class="btn-icon" data-astro-cid-aomgrfx3 data-encore-id="icon" fill="currentColor" role="img" aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"> <path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"></path> </svg> </button> <button class="repeat disabled" data-astro-cid-aomgrfx3> <svg class="btn-icon" data-astro-cid-aomgrfx3 data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor"> <path d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z"></path> </svg> </button> </div> <div class="time-container" data-astro-cid-aomgrfx3> <time data-astro-cid-aomgrfx3>00:00</time> <progress-slider id="current-song" data-astro-cid-aomgrfx3></progress-slider> <time data-astro-cid-aomgrfx3>00:00</time> </div> </div> <div class="song-volume-container" data-astro-cid-243r45sf> <svg class="volume-icon" data-astro-cid-243r45sf xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"> <path fill="currentColor" d="m3.5 10.494l.257-.429l-.119-.07H3.5zm0-5.996v.5h.138l.12-.071zm5-2.998H9a.5.5 0 0 0-.757-.429zm0 11.992l-.257.429A.5.5 0 0 0 9 13.492zm-5-3.498h-2v1h2zm-2 0a.5.5 0 0 1-.5-.5H0c0 .83.672 1.5 1.5 1.5zm-.5-.5V5.498H0v3.998zm0-3.997a.5.5 0 0 1 .5-.499v-1a1.5 1.5 0 0 0-1.5 1.5zm.5-.499h2v-1h-2zm2.257-.071l5-2.998l-.514-.858l-5 2.998zM8 1.5v11.992h1V1.5zm.757 11.563l-5-2.998l-.514.858l5 2.998zM10 6v3h1V6zm2-2v7h1V4zm2-2v11h1V2z"></path> </svg> <svg class="volume-icon hidden" hidden data-astro-cid-243r45sf xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"> <path fill="currentColor" d="m3.5 10.494l.257-.429l-.119-.07H3.5zm0-5.996v.5h.138l.12-.071zm5-2.998H9a.5.5 0 0 0-.757-.429zm0 11.992l-.257.429A.5.5 0 0 0 9 13.492zm2.94-7.763l-.354-.353l-.707.707l.354.354zm2.12 3.534l.354.353l.707-.707l-.354-.353zm.708-2.826l.353-.354l-.707-.707l-.353.353zm-3.535 2.119l-.354.353l.707.707l.354-.353zM3.5 9.994h-2v1h2zm-2 0a.499.499 0 0 1-.5-.5H0c0 .83.671 1.5 1.5 1.5zm-.5-.5V5.498H0v3.998zm0-3.997c0-.276.223-.499.5-.499v-1c-.829 0-1.5.67-1.5 1.5zm.5-.499h2v-1h-2zm2.257-.071l5-2.998l-.514-.858l-5 2.998zM8 1.5v11.992h1V1.5zm.757 11.563l-5-2.998l-.514.858l5 2.998zm1.976-6.626l2.827 2.826l.707-.707l-2.828-2.827zm2.828-.708l-2.828 2.827l.707.707l2.828-2.826z"></path> </svg> <progress-slider class="slider" id="volume" value="100" data-astro-cid-243r45sf></progress-slider> </div> <script type="module">
+  const [volume, mute] = document.querySelectorAll('.volume-icon');
+
+  const toggleVolumeIcon = (value = null) => {
+    if (value) {
+      volume.classList.remove('hidden');
+      mute.classList.add('hidden');
+    } else if (value === false) {
+      volume.classList.add('hidden');
+      mute.classList.remove('hidden');
+    }
+  };
+
+  document.addEventListener('click', e => {
+    if (e.target === volume) {
+      toggleVolumeIcon(false);
+      document.dispatchEvent(
+        new CustomEvent('mutedByClick', {
+          composed: true,
+          bubbles: true,
+          detail: { muteado: true}
+        })
+      );
+    }
+    if (e.target === mute) {
+      toggleVolumeIcon(true);
+      document.dispatchEvent(
+        new CustomEvent('mutedByClick', {
+          composed: true,
+          bubbles: true,
+          detail: { muteado: false}
+        })
+      );
+    }
+  });
+
+  document.addEventListener('volume:mute', () => toggleVolumeIcon(false));
+  document.addEventListener('volume:unmute', () => toggleVolumeIcon(true));
+</script> </div> </div> </div>   <!-- <script>
+  window.addEventListener('resize', e => {
+    document.title = `${window.innerWidth}`;
+  });
+</script> --></body></html>

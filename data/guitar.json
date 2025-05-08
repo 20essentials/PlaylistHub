@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Alive",
+    "artist": "Pearl Jam",
+    "album": "Guitar",
+    "date": "2027-05-01T00:00:00",
+    "duration": "05:41",
+    "urlSong": "https://20essentials.github.io/pearl-jam-ost/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/pearl-jam-ost/assets/n4.avif"
+  },
+  {
+    "title": "Judas",
+    "artist": "Lady Gaga",
+    "album": "Guitar",
+    "date": "2027-05-02T00:00:00",
+    "duration": "04:09",
+    "urlSong": "https://20essentials.github.io/lady-gaga-ost/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/lady-gaga-ost/assets/n1.avif"
+  },
+  {
+    "title": "Confortably Numb",
+    "artist": "Pink Floyd",
+    "album": "Guitar",
+    "date": "2027-05-03T00:00:00",
+    "duration": "09:02",
+    "urlSong": "https://20essentials.github.io/pink-floyd-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/pink-floyd-band/assets/n4.avif"
+  },
+  {
+    "title": "Fall Back Down",
+    "artist": "Rancid",
+    "album": "Guitar",
+    "date": "2027-05-04T00:00:00",
+    "duration": "03:43",
+    "urlSong": "https://20essentials.github.io/rancid-ost/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/rancid-ost/assets/n1.avif"
+  },
+  {
+    "title": "Woking Man",
+    "artist": "Rush",
+    "album": "Guitar",
+    "date": "2027-05-05T00:00:00",
+    "duration": "07:10",
+    "urlSong": "https://20essentials.github.io/rush-ost/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/rush-ost/assets/n1.avif"
+  },
+  {
+    "title": "Stand By Me",
+    "artist": "Oasis",
+    "album": "Guitar",
+    "date": "2027-05-06T00:00:00",
+    "duration": "05:58",
+    "urlSong": "https://20essentials.github.io/oasis-ost/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/oasis-ost/assets/n1.avif"
+  },
+  {
+    "title": "Undercover Martyn",
+    "artist": "Two Door Cinema Club",
+    "album": "Guitar",
+    "date": "2027-05-07T00:00:00",
+    "duration": "02:48",
+    "urlSong": "https://20essentials.github.io/two-door-cinema-club-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/two-door-cinema-club-band/assets/n1.avif"
+  },
+  {
+    "title": "Jimmy Olsen's Blues",
+    "artist": "Spin Doctors",
+    "album": "Guitar",
+    "date": "2027-05-08T00:00:00",
+    "duration": "04:24",
+    "urlSong": "https://20essentials.github.io/spin-doctors-ost/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/spin-doctors-ost/assets/n1.avif"
+  },
+  {
+    "title": "Y Es Que Sucede Así",
+    "artist": "Pedro Suárez-Vértiz",
+    "album": "Guitar",
+    "date": "2027-05-09T00:00:00",
+    "duration": "03:38",
+    "urlSong": "https://20essentials.github.io/pedro-suarez-vertiz-ost/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/pedro-suarez-vertiz-ost/assets/n3.avif"
+  },
+  {
+    "title": "Mayor Of Simpleton",
+    "artist": "XTC",
+    "album": "Guitar",
+    "date": "2027-05-10T00:00:00",
+    "duration": "03:58",
+    "urlSong": "https://20essentials.github.io/xtc-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/xtc-band/assets/n4.avif"
+  },
+  {
+    "title": "Heart Full Of Soul",
+    "artist": "The Yardbirds",
+    "album": "Guitar",
+    "date": "2027-05-11T00:00:00",
+    "duration": "02:29",
+    "urlSong": "https://20essentials.github.io/yardbirds-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/yardbirds-band/assets/n1.avif"
+  },
+  {
+    "title": "N.I.B.",
+    "artist": "Black Sabbath",
+    "album": "Guitar",
+    "date": "2027-05-12T00:00:00",
+    "duration": "06:06",
+    "urlSong": "https://20essentials.github.io/black-sabbath-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/black-sabbath-band/assets/n1.avif"
+  },
+  {
+    "title": "Blackwater",
+    "artist": "Opeth",
+    "album": "Guitar",
+    "date": "2027-05-13T00:00:00",
+    "duration": "12:09",
+    "urlSong": "https://20essentials.github.io/opeth-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/opeth-album/assets/n1.avif"
+  },
+  {
+    "title": "I Luv The Valley Oh",
+    "artist": "Xiu Xiu",
+    "album": "Guitar",
+    "date": "2027-05-14T00:00:00",
+    "duration": "03:00",
+    "urlSong": "https://20essentials.github.io/xiu-xiu-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/xiu-xiu-band/assets/n1.avif"
+  },
+  {
+    "title": "The 11th",
+    "artist": "Rancid",
+    "album": "Guitar",
+    "date": "2027-05-15T00:00:00",
+    "duration": "02:28",
+    "urlSong": "https://20essentials.github.io/rancid-ost/songs/n9.mp3",
+    "urlPoster": "https://20essentials.github.io/rancid-ost/assets/n2.avif"
+  },
+  {
+    "title": "Another Rainy Night",
+    "artist": "Queensrÿche",
+    "album": "Guitar",
+    "date": "2027-05-16T00:00:00",
+    "duration": "04:27",
+    "urlSong": "https://20essentials.github.io/queensryche-band/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/queensryche-band/assets/n1.avif"
+  },
+  {
+    "title": "Common Blue",
+    "artist": "Warpaint",
+    "album": "Guitar",
+    "date": "2027-05-17T00:00:00",
+    "duration": "03:55",
+    "urlSong": "https://20essentials.github.io/warpaint-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/warpaint-band/assets/n3.avif"
+  },
+  {
+    "title": "Anthem",
+    "artist": "Rush",
+    "album": "Guitar",
+    "date": "2027-05-18T00:00:00",
+    "duration": "04:21",
+    "urlSong": "https://20essentials.github.io/rush-ost/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/rush-ost/assets/n2.avif"
+  },
+  {
+    "title": "Journey To End Of East Bay",
+    "artist": "Rancid",
+    "album": "Guitar",
+    "date": "2027-05-19T00:00:00",
+    "duration": "03:11",
+    "urlSong": "https://20essentials.github.io/rancid-ost/songs/n10.mp3",
+    "urlPoster": "https://20essentials.github.io/rancid-ost/assets/n3.avif"
+  },
+  {
+    "title": "Bleak",
+    "artist": "Opeth",
+    "album": "Guitar",
+    "date": "2027-05-20T00:00:00",
+    "duration": "09:16",
+    "urlSong": "https://20essentials.github.io/opeth-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/opeth-album/assets/n2.avif"
+  }
+]

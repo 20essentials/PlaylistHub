@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Only You",
+    "artist": "Yazoo",
+    "album": "Soul",
+    "date": "2027-07-01T00:00:00",
+    "duration": "03:15",
+    "urlSong": "https://20essentials.github.io/yazoo-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/yazoo-band/assets/n1.avif"
+  },
+  {
+    "title": "I'm A Man",
+    "artist": "Yardbirds",
+    "album": "Soul",
+    "date": "2027-07-02T00:00:00",
+    "duration": "02:39",
+    "urlSong": "https://20essentials.github.io/yardbirds-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/yardbirds-band/assets/n1.avif"
+  },
+  {
+    "title": "Wolf",
+    "artist": "Yeah Yeah Yeahs",
+    "album": "Soul",
+    "date": "2027-07-03T00:00:00",
+    "duration": "04:13",
+    "urlSong": "https://20essentials.github.io/yeah-yeah-yeahs-band/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/yeah-yeah-yeahs-band/assets/n3.avif"
+  },
+  {
+    "title": "No Time Left",
+    "artist": "Your Favorite Enemies",
+    "album": "Soul",
+    "date": "2027-07-04T00:00:00",
+    "duration": "03:52",
+    "urlSong": "https://20essentials.github.io/your-favorite-enemies-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/your-favorite-enemies-band/assets/n1.avif"
+  },
+  {
+    "title": "A Track 11",
+    "artist": "Zoids Chaotic Century",
+    "album": "Soul",
+    "date": "2027-07-05T00:00:00",
+    "duration": "04:10",
+    "urlSong": "https://20essentials.github.io/zoids-chaotic-century-ost/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/zoids-chaotic-century-ost/assets/n4.avif"
+  },
+  {
+    "title": "Funeral",
+    "artist": "Zara Larsson",
+    "album": "Soul",
+    "date": "2027-07-06T00:00:00",
+    "duration": "03:35",
+    "urlSong": "https://20essentials.github.io/zara-larsson-soundtrack/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/zara-larsson-soundtrack/assets/n3.avif"
+  },
+  {
+    "title": "Ily",
+    "artist": "Axol",
+    "album": "Soul",
+    "date": "2027-07-07T00:00:00",
+    "duration": "03:19",
+    "urlSong": "https://20essentials.github.io/axol-soundtrack/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/axol-soundtrack/assets/n4.avif"
+  },
+  {
+    "title": "Reborn",
+    "artist": "Ahrix",
+    "album": "Soul",
+    "date": "2027-07-08T00:00:00",
+    "duration": "03:40",
+    "urlSong": "https://20essentials.github.io/ahrix-soundtrack/songs/n7.mp3",
+    "urlPoster": "https://20essentials.github.io/ahrix-soundtrack/assets/n1.avif"
+  },
+  {
+    "title": "Sweet Emotion",
+    "artist": "Aerosmith",
+    "album": "Soul",
+    "date": "2027-07-09T00:00:00",
+    "duration": "04:34",
+    "urlSong": "https://20essentials.github.io/aerosmith-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/aerosmith-band/assets/n1.avif"
+  },
+  {
+    "title": "My Whole World",
+    "artist": "Alexander Rybak",
+    "album": "Soul",
+    "date": "2027-07-10T00:00:00",
+    "duration": "04:17",
+    "urlSong": "https://20essentials.github.io/alexander-rybak-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/alexander-rybak-album/assets/n2.avif"
+  },
+  {
+    "title": "Fuel To Fire",
+    "artist": "Agnes Obel",
+    "album": "Soul",
+    "date": "2027-07-11T00:00:00",
+    "duration": "05:29",
+    "urlSong": "https://20essentials.github.io/agnes-obel-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/agnes-obel-album/assets/n3.avif"
+  },
+  {
+    "title": "Tangerine",
+    "artist": "Adam Goldman",
+    "album": "Soul",
+    "date": "2027-07-12T00:00:00",
+    "duration": "04:26",
+    "urlSong": "https://20essentials.github.io/adam-goldman-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/adam-goldman-album/assets/n2.avif"
+  },
+  {
+    "title": "Bad Connection",
+    "artist": "Yazoo",
+    "album": "Soul",
+    "date": "2027-07-13T00:00:00",
+    "duration": "03:17",
+    "urlSong": "https://20essentials.github.io/yazoo-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/yazoo-band/assets/n2.avif"
+  },
+  {
+    "title": "Bronchusevenm",
+    "artist": "Autechre",
+    "album": "Soul",
+    "date": "2027-07-14T00:00:00",
+    "duration": "09:44",
+    "urlSong": "https://20essentials.github.io/autechre-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/autechre-band/assets/n3.avif"
+  },
+  {
+    "title": "Natural Mystic",
+    "artist": "Bob Marley",
+    "album": "Soul",
+    "date": "2027-07-15T00:00:00",
+    "duration": "03:27",
+    "urlSong": "https://20essentials.github.io/bob-marley-album/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/bob-marley-album/assets/n1.avif"
+  },
+  {
+    "title": "Things We Lost In The Fire",
+    "artist": "Bastille",
+    "album": "Soul",
+    "date": "2027-07-16T00:00:00",
+    "duration": "04:05",
+    "urlSong": "https://20essentials.github.io/bastille-ost/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/bastille-ost/assets/n1.avif"
+  },
+  {
+    "title": "Rebel Yell",
+    "artist": "Billy Idol",
+    "album": "Soul",
+    "date": "2027-07-17T00:00:00",
+    "duration": "04:45",
+    "urlSong": "https://20essentials.github.io/billy-idol-soundtrack/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/billy-idol-soundtrack/assets/n2.avif"
+  },
+  {
+    "title": "Iron Man",
+    "artist": "Black Sabbath",
+    "album": "Soul",
+    "date": "2027-07-18T00:00:00",
+    "duration": "05:53",
+    "urlSong": "https://20essentials.github.io/black-sabbath-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/black-sabbath-band/assets/n1.avif"
+  },
+  {
+    "title": "Chit Chat",
+    "artist": "Beach Weather",
+    "album": "Soul",
+    "date": "2027-07-19T00:00:00",
+    "duration": "03:21",
+    "urlSong": "https://20essentials.github.io/beach-weather-soundtrack/songs/n7.mp3",
+    "urlPoster": "https://20essentials.github.io/beach-weather-soundtrack/assets/n2.avif"
+  },
+  {
+    "title": "Heart Of Glass",
+    "artist": "Blondie",
+    "album": "Soul",
+    "date": "2027-07-20T00:00:00",
+    "duration": "03:43",
+    "urlSong": "https://20essentials.github.io/blondie-soundtrack/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/blondie-soundtrack/assets/n1.avif"
+  }
+]
