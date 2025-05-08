@@ -1,0 +1,148 @@
+<script type='module'>
+  import { emitEvent } from './modules/emitter.js';
+
+  class ProgressSlider extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+      this.render();
+      this.setValue(this.getAttribute('value') ?? 0);
+
+      const barContainer = this.shadowRoot.querySelector('.bar-container');
+
+      const STEP = 0.01;
+      let isDragging = false;
+
+      const updateProgress = ({ clientX }) => {
+        const { left, width } = barContainer.getBoundingClientRect();
+        const clamped = Math.min(Math.max(0, clientX - left), width);
+        const percentage = (clamped * 100) / width;
+
+        this.setValue(percentage);
+
+        if (this.id === 'current-song')
+          emitEvent('song:changetime', this, percentage);
+        if (this.id === 'volume') emitEvent('volume:change', this, percentage);
+      };
+
+      // Click to set
+      barContainer.addEventListener('click', ({ offsetX }) => {
+        const width = barContainer.getBoundingClientRect().width;
+        const percentage = (Math.min(Math.max(0, offsetX), width) * 100) / width;
+
+        this.setValue(percentage);
+
+        if (this.id === 'current-song')
+          emitEvent('song:changetime', this, percentage);
+        if (this.id === 'volume') emitEvent('volume:change', this, percentage);
+      });
+
+      // Wheel scroll to adjust
+      barContainer.addEventListener(
+        'wheel',
+        ({ deltaY }) => {
+          const direction = deltaY < 0 ? STEP : -STEP;
+          const current = parseFloat(this.getAttribute('value')) || 0;
+          const nextValue = Math.max(0, Math.min(current + direction * 100, 100));
+
+          this.setValue(nextValue);
+
+          if (this.id === 'current-song')
+            emitEvent('song:slidetime', this, direction);
+          if (this.id === 'volume') emitEvent('volume:slide', this, direction);
+        },
+        { passive: true }
+      );
+
+      // Mouse drag
+      barContainer.addEventListener('mousedown', e => {
+        isDragging = true;
+        updateProgress(e);
+      });
+
+      document.addEventListener('mousemove', e => {
+        if (isDragging) updateProgress(e);
+      });
+
+      document.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // Volume external update
+      document.addEventListener('volumeNewProgress', ({ detail }) => {
+        if (this.id !== 'volume') return;
+
+        const { muteado, lastVolume } = detail;
+        const volume = muteado ? 0 : lastVolume * 100;
+        this.setValue(volume);
+      });
+    }
+
+    setValue(value) {
+      const rounded = Math.round(value * 100) / 100;
+      const current = parseFloat(this.style.getPropertyValue('--progress')) || 0;
+
+      // Solo actualiza si hay diferencia visual clara (> 0.5%)
+      if (Math.abs(rounded - current) > 0.5) {
+        this.style.setProperty('--progress', `${rounded}%`);
+      }
+
+      this.setAttribute('value', rounded);
+    }
+
+    render() {
+      this.shadowRoot.innerHTML = /* html */ `
+    <style>${ProgressSlider.styles}</style>
+    <div class="bar-container">
+      <div class="bar"></div>
+    </div>
+  `;
+    }
+
+    static get styles() {
+      return /* css */ `
+    :host {
+      --progress: 0%;
+    }
+
+    * {
+      cursor: pointer;
+    }
+
+    .bar-container {
+      background: #555;
+      height: 0.28vmax;
+      border-radius: 1vmax;
+    }
+
+    .bar-container .bar {
+      width: var(--progress);
+      height: 100%;
+      background-color: var(--theme-color);
+      transition: background-color 0.2s ease;
+      position: relative;
+      border-radius: 1vmax;
+    }
+
+    .bar-container .bar::before {
+      content: '';
+      --circle-size: 0.8vmax;
+      width: var(--circle-size);
+      height: var(--circle-size);
+      position: absolute;
+      top: 50%;
+      transform: translateX(40%) translateY(-50%);
+      right: 0%;
+      background: #fff;
+      border-radius: 50%;
+      z-index: 50;
+    }
+  `;
+    }
+  }
+
+  customElements.define('progress-slider', ProgressSlider);
+</script>
