@@ -62,70 +62,78 @@ import {
     visibility: hidden;
   }
 
-  button {
-    &.profile {
-      animation: none;
-      overflow: hidden;
-      transition:
-        transform 0.5s ease,
-        box-shadow 0.2s ease;
-      will-change: transform, filter;
-      z-index: 10;
-      touch-action: none;
-      isolation: isolate;
-      width: 100%;
+  @keyframes desaparecer {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  button.profile {
+    animation: none;
+    overflow: hidden;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.2s ease;
+    will-change: transform, filter;
+    z-index: 10;
+    touch-action: none;
+    isolation: isolate;
+    width: 100%;
+    width: 2.5vmax;
+    height: 2.5vmax;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
+    backdrop-filter: blur(0.2vmax);
+    transition: opacity 0.3s ease;
+    aspect-ratio: 1;
+    position: fixed;
+    top: 2.5vmax;
+    right: 5.9vmax;
+
+
+    @media (width >= 1111px) {
+      right: 6.2vmax;
+    }
+
+    &::after {
+      content: '';
       position: absolute;
-      width: 2.5vmax;
-      height: 2.5vmax;
-      border: none;
-      outline: none;
-      margin: 0;
-      padding: 0;
-      border-radius: 50%;
-      display: flex;
-      flex-wrap: wrap;
-      place-content: center;
-      text-align: center;
-      cursor: pointer;
-      background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
-      backdrop-filter: blur(0.2vmax);
-      transition: opacity 0.3s ease;
-      aspect-ratio: 1;
-      top: 2.5vmax;
-      right: 5.9vmax;
-
-      @media (width >= 1111px) {
-        right: 6.2vmax;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        pointer-events: none;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        background-repeat: no-repeat;
-        background-image: url('assets/profile1.png'), var(--bg),
-          linear-gradient(
-            125deg,
-            #ff008450 15%,
-            #fca40040 30%,
-            #ffff0030 40%,
-            #00ff8a20 60%,
-            #00cfff40 70%,
-            #cc4cfa50 85%
-          );
-        background-position: 50% 50%;
-        background-size: 200%;
-        background-blend-mode: overlay;
-        z-index: 15;
-        filter: brightness(1) contrast(1.5);
-        transition: all 0.33s ease;
-        mix-blend-mode: color-dodge;
-        opacity: 0.8;
-      }
+      pointer-events: none;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      background-image: url('assets/profile1.png'), var(--bg),
+        linear-gradient(
+          125deg,
+          #ff008450 15%,
+          #fca40040 30%,
+          #ffff0030 40%,
+          #00ff8a20 60%,
+          #00cfff40 70%,
+          #cc4cfa50 85%
+        );
+      background-position: 50% 50%;
+      background-size: 200%;
+      background-blend-mode: overlay;
+      z-index: 15;
+      filter: brightness(1) contrast(1.5);
+      transition: all 0.33s ease;
+      mix-blend-mode: color-dodge;
+      opacity: 0.8;
     }
 
     &:active {
@@ -405,47 +413,111 @@ import {
 
   /* Reset PopoverCard */
   :global(.cl-userButtonPopoverCard) {
+    top: 6vmax !important;
+    right: 5vmax !important;
+    width: 23.5vmax;
+    max-width: calc(-2vmax + 100vw);
+    border-radius: 0.5vmax;
+    box-shadow:
+      rgba(0, 0, 0, 0.08) 0px 0.325vmax 1vmax 0px,
+      rgba(25, 28, 33, 0.2) 0px 0.975vmax 2.3vmax -0.325vmax,
+      rgba(0, 0, 0, 0.07) 0px 0px 0px 0.06vmax;
+
     * {
       font-family: 'Open Sans';
-      font-size: 1.1vmax;
+      font-size: 0.9vmax;
     }
 
     div.cl-userButtonPopoverMain {
-      --offset: 0.5rem;
-      border-radius: 0.5rem;
+      --offset: 0.0052vmax;
+      border-radius: 0vmax;
       box-shadow:
-        rgba(0, 0, 0, 0.08) 0px 0px 2px 0px,
-        rgba(25, 28, 33, 0.06) 0px 1px 2px 0px,
-        rgba(0, 0, 0, 0.03) 0px 0px 0px 1px;
+        rgba(0, 0, 0, 0.08) 0px 0px 0.125vmax 0px,
+        rgba(25, 28, 33, 0.06) 0px 0.065vmax 0.125vmax 0px,
+        rgba(0, 0, 0, 0.03) 0px 0px 0px 0.0625vmax;
 
       span.cl-userPreview {
+        gap: 1.04vmax;
+        padding: 1.04vmax 1.3vmax;
+
         span.cl-userPreviewAvatarContainer {
           span.cl-avatarBox {
+            width: 2.44vmax;
+            height: 2.44vmax;
+
             img.cl-avatarImage {
             }
             span.cl-internal-gpirto {
             }
           }
         }
+
         span.cl-userPreviewTextContainer {
           span.cl-userPreviewMainIdentifier {
+            gap: 0.16vmax;
+
             span.cl-internal-3gh7hq {
             }
           }
+
           span.cl-userPreviewSecondaryIdentifier {
           }
         }
       }
+
       div.cl-userButtonPopoverActions {
-        button.cl-userButtonPopoverActionButton__manageAccount {
+        border-top: 0.06vmax solid rgba(0, 0, 0, 0.07);
+
+        button.cl-userButtonPopoverActionButton {
+          border-width: 0.00065vmax 0px 0px;
+
+          gap: 0.5vmax;
+          padding: 1vmax;
+          padding-left: 1.5vmax;
+
           span.cl-userButtonPopoverActionButtonIconBox {
+            flex: 0 0 0.145vmax;
+            gap: 2vmax;
+
             svg {
+              width: 1.6vmax;
+              height: 1.6vmax;
             }
           }
         }
-        button.cl-userButtonPopoverActionButton__signOut {
-          span.cl-userButtonPopoverActionButtonIconBox {
-            svg {
+      }
+    }
+
+    .cl-userButtonPopoverFooter {
+      &.cl-internal-d50gl1 {
+        .cl-internal-1hp5nqm {
+          padding: 1.04vmax 2.08vmax;
+
+          .cl-internal-piyvrh {
+          }
+
+          .cl-internal-df7v37 {
+            gap: 0.52vmax;
+
+            .cl-internal-y44tp9 {
+              .cl-internal-16mc20d {
+                gap: 0.26vmax;
+
+                p.cl-internal-wf8x4b {
+                  font-size: 0.9vmax;
+                }
+
+                a.cl-internal-1fcj7sw {
+                  svg {
+                    width: 3.12vmax;
+                    height: 0.92vmax;
+                  }
+                }
+              }
+            }
+
+            p.cl-internal-16vtwdp {
+              display: none !important;
             }
           }
         }
