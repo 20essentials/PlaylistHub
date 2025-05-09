@@ -12,9 +12,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "4.9.2",
-    "astro-icon": "1.1.0",
-    "colorthief": "2.4.0"
+    "@astrojs/vercel": "^8.1.4",
+    "@clerk/astro": "2.7.1",
+    "astro": "5.7.12"
   },
   "devDependencies": {
     "gh-pages": "6.3.0"

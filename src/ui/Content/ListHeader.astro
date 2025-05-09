@@ -1,3 +1,7 @@
+---
+
+---
+
 <list-header></list-header>
 
 <script type='module'>
@@ -46,8 +50,50 @@
             text-align: center;
             cursor: pointer;
             background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(0.2vmax);
             transition: opacity .3s ease;
+            aspect-ratio: 1;
+
+
+            &.profile {
+              animation: none;
+              overflow: hidden;
+              transition: transform 0.5s ease, box-shadow 0.2s ease;
+              will-change: transform, filter;
+              z-index: 10;
+              touch-action: none;
+              isolation: isolate;
+              width: 100%;
+              position: relative;
+
+              &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                background-repeat: no-repeat;
+                background-image: url('assets/profile1.png'), var(--bg),
+                  linear-gradient(
+                    125deg,
+                    #ff008450 15%,
+                    #fca40040 30%,
+                    #ffff0030 40%,
+                    #00ff8a20 60%,
+                    #00cfff40 70%,
+                    #cc4cfa50 85%
+                  );
+                background-position: 50% 50%;
+                background-size: 200%;
+                background-blend-mode: overlay;
+                z-index: 15;
+                filter: brightness(1) contrast(1.5);
+                transition: all 0.33s ease;
+                mix-blend-mode: color-dodge;
+                opacity: 0.8;
+              }
+            }
 
             &:active {
               opacity: 0.5;
@@ -249,10 +295,20 @@
       this.addCoverMouseAnimation();
       const prev = this.shadowRoot.querySelector('.prev-list');
       const next = this.shadowRoot.querySelector('.next-list');
+      const profile = this.shadowRoot.querySelector('.profile');
       let playlistItems = document.querySelectorAll('.playlist-item');
       let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
       const { length } = playlistItems;
       const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
+
+      profile.addEventListener('click', e => {
+        const $signinButton = document.querySelector('.buttonModalSignin');
+        setTimeout(() => {
+          $signinButton.click();
+        }, 5);
+      });
+
+
 
       function clickOnPlaylist(targetIndex) {
         const slug = slugs[targetIndex];
@@ -395,6 +451,9 @@
           <aside class="container-anchors">
             <button class='prev-list' >
               <img src='./assets/prev.svg' alt='prev' />
+            </button>
+            <button class='profile' style="--bg: url('./assets/v1.gif')">
+              <img src='./assets/profile1.png' alt='profile' />
             </button>
             <button class='next-list' >
               <img src='./assets/next.svg' alt='next' />

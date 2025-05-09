@@ -1,6 +1,7 @@
 ---
 const { title } = Astro.props;
 import '@/styles/globalStyles.css';
+import { SignInButton } from '@clerk/astro/components';
 ---
 
 <html lang='en'>
@@ -13,14 +14,219 @@ import '@/styles/globalStyles.css';
   </head>
   <body>
     <slot />
+
+    <SignInButton
+      class={'buttonModalSignin'}
+      mode='modal'
+      forceRedirectUrl='/private/'
+    />
   </body>
 </html>
 
 <style>
+  .buttonModalSignin {
+    position: absolute;
+    top: 3vmax;
+    left: 50%;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
   @font-face {
     font-family: 'Open Sans';
     src: url('./fonts/open-sans.woff2') format('woff2');
     font-display: swap;
+  }
+
+  /* Reset Form */
+  :global(.cl-modalBackdrop) {
+    align-items: center;
+
+    * {
+      font-family: 'Open Sans';
+      font-size: 1.1vmax;
+    }
+
+    .cl-modalContent {
+      margin: 0;
+
+      .cl-rootBox.cl-signIn-root {
+        display: flex;
+        justify-content: center;
+        .cl-cardBox.cl-signIn-start {
+          width: fit-content;
+          border-style: solid;
+          border-color: rgba(0, 0, 0, 0.07);
+          border-radius: 0.78vmax;
+          color: rgb(33, 33, 38);
+          position: relative;
+          overflow: hidden;
+          border-width: 0;
+          box-shadow:
+            rgba(0, 0, 0, 0.08) 0vmax 0.33vmax 0.98vmax 0vmax,
+            rgba(25, 28, 33, 0.2) 0vmax 0.98vmax 2.28vmax -0.33vmax,
+            rgba(0, 0, 0, 0.07) 0vmax 0vmax 0vmax 0.07vmax;
+          max-width: 80%;
+
+          .cl-card.cl-signIn-start {
+            gap: 2.0833vmax;
+            border-radius: 0.5214vmax;
+            padding: 2.0833vmax 2.6071vmax;
+            box-shadow:
+              rgba(0, 0, 0, 0.08) 0px 0px 2px 0px,
+              rgba(25, 28, 33, 0.06) 0px 1px 2px 0px,
+              rgba(0, 0, 0, 0.03) 0px 0px 0px 1px;
+
+            .cl-modalCloseButton {
+              box-shadow: none !important;
+              top: 0.5214vmax;
+              right: 0.5214vmax;
+              padding: 0.7813vmax;
+
+              svg {
+                width: 1.1vmax !important;
+                height: 1.1vmax !important;
+              }
+            }
+
+            .cl-header {
+              gap: 1.5625vmax;
+
+              .cl-headerTitle {
+                /* // h1 styles */
+              }
+              .cl-headerSubtitle {
+                /* // p styles */
+              }
+            }
+
+            .cl-main {
+              gap: 1.5625vmax;
+              .cl-socialButtonsRoot {
+                gap: 0.5214vmax;
+                .cl-socialButtons {
+                  gap: 0.5214vmax;
+
+                  button {
+                    padding: 0.3906vmax 0.7813vmax;
+                    border-width: 0.0651vmax;
+                    border-radius: 0.3906vmax;
+                    box-shadow:
+                      rgba(0, 0, 0, 0.08) 0px 0.1302vmax 0.1953vmax -0.0651vmax,
+                      rgba(0, 0, 0, 0.02) 0px 0.0651vmax 0px 0px;
+                    min-height: 2.0833vmax;
+                    position: relative;
+                    transition: none;
+
+                    &:hover {
+                      &::before,
+                      &::after {
+                        visibility: visible;
+                      }
+                    }
+
+                    &::after {
+                      content: '';
+                      position: absolute;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      top: 0;
+                      border-radius: inherit;
+                      background-repeat: no-repeat;
+                      background-image: url('/assets/v1.gif'), var(--bg);
+                      background-position: 50% 50%;
+                      background-size: 100%;
+                      background-blend-mode: overlay;
+                      z-index: -3;
+                      filter: brightness(1) contrast(1.5);
+                      transition: visibility 0.3s ease;
+                      mix-blend-mode: color-dodge;
+                      opacity: 0.7;
+                      visibility: hidden;
+                    }
+                  }
+
+                  .cl-socialButtonsIconButton__github {
+                    --bg: linear-gradient(135deg, #555, #f2f2f2, #6cc24a);
+                    img.cl-socialButtonsProviderIcon__github {
+                      width: 1vmax;
+                      height: 1vmax;
+                    }
+                  }
+
+                  .cl-socialButtonsIconButton__google {
+                    --bg: linear-gradient(135deg, #34a853, #f2f2f2, #4285f4);
+                    img.cl-socialButtonsProviderIcon__google {
+                      width: 1vmax;
+                      height: 1vmax;
+                    }
+                  }
+                  .cl-socialButtonsIconButton__twitch {
+                    --bg: linear-gradient(135deg, #9146ff, #f2f2f2, #9b59b6);
+                    img.cl-socialButtonsProviderIcon__twitch {
+                      width: 1vmax;
+                      height: 1vmax;
+                    }
+                  }
+                }
+              }
+
+              #clerk-captcha {
+                display: none !important;
+              }
+            }
+          }
+
+          .cl-footer {
+            margin-top: -0.5214vmax;
+            padding-top: 0.5214vmax;
+
+            .cl-footerAction__signIn {
+              display: none;
+              .cl-footerActionText {
+                /* // text styles */
+              }
+              .cl-footerActionLink {
+                /* // link styles */
+              }
+            }
+
+            .cl-internal-1dauvpw {
+              padding: 1.0434vmax 2.0833vmax;
+              border-top: 0.0651vmax solid rgba(0, 0, 0, 0.07);
+
+              .cl-internal-piyvrh {
+              }
+
+              .cl-internal-df7v37 {
+                gap: 0.5214vmax;
+
+                .cl-internal-16vtwdp {
+                  display: none;
+                }
+
+                .cl-internal-y44tp9 {
+                  .cl-internal-16mc20d {
+                    gap: 0.2602vmax;
+
+                    p.cl-internal-wf8x4b {
+                      font-size: 0.9vmax;
+                    }
+                    a.cl-internal-1fcj7sw {
+                      svg.cl-internal-5ghyhf {
+                        width: 3.125vmax;
+                        height: 0.9122vmax;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   :root {
@@ -61,6 +267,7 @@ import '@/styles/globalStyles.css';
     height: 100vh;
     position: relative;
     overflow: hidden;
+    overflow-x: hidden;
 
     @media (width <= 1111px) {
       overflow-y: auto;

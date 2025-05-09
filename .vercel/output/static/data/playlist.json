@@ -1,0 +1,310 @@
+[
+  {
+    "slug": "electronic",
+    "title": "Electronic",
+    "pinned": true,
+    "color": "#08d437",
+    "whatColoris": "Clear Green"
+  },
+  {
+    "slug": "bluerock",
+    "title": "Blue Rock",
+    "pinned": true,
+    "color": "#f007c3",
+    "whatColoris": "Pink"
+  },
+  {
+    "slug": "englishpop",
+    "title": "English Pop",
+    "pinned": true,
+    "color": "#dccf08",
+    "whatColoris": "Yellow"
+  },
+  {
+    "slug": "melodicrock",
+    "title": "Melodic Rock",
+    "pinned": true,
+    "color": "#2ab240",
+    "whatColoris": "Green"
+  },
+  {
+    "slug": "progressivepop",
+    "title": "Progressive Pop",
+    "pinned": true,
+    "color": "#9708ef",
+    "whatColoris": "Purple Clear"
+  },
+  {
+    "slug": "alternativerock",
+    "title": "Alternative Rock",
+    "pinned": true,
+    "color": "#ff0200",
+    "whatColoris": "Red"
+  },
+  {
+    "slug": "instrumental",
+    "title": "Instrumental",
+    "pinned": true,
+    "color": "#0dbce7",
+    "whatColoris": "Celeste"
+  },
+  {
+    "slug": "spanishpop",
+    "title": "Spanish Pop",
+    "pinned": true,
+    "color": "#52e2d5",
+    "whatColoris": "aqua verde"
+  },
+  {
+    "slug": "eurodance",
+    "title": "Eurodance",
+    "pinned": true,
+    "color": "#FFA500",
+    "whatColoris": "orange"
+  },
+  {
+    "slug": "bluepop",
+    "title": "Blue Pop",
+    "pinned": true,
+    "color": "#2929dc",
+    "whatColoris": "blue"
+  },
+  {
+    "slug": "romantic",
+    "title": "Romantic",
+    "pinned": true,
+    "color": "#f5576c",
+    "whatColoris": "rosado rojizo"
+  },
+  {
+    "slug": "avantgarde",
+    "title": "Avant Garde",
+    "pinned": true,
+    "color": "#e0c3fc",
+    "whatColoris": "morado claro"
+  },
+  {
+    "slug": "synthwave",
+    "title": "Synthwave",
+    "pinned": true,
+    "color": "#94f15b",
+    "whatColoris": "verde lima claro"
+  },
+  {
+    "slug": "electropop",
+    "title": "Electro Pop",
+    "pinned": true,
+    "color": "#7d1fe9",
+    "whatColoris": "morado oscuro"
+  },
+  {
+    "slug": "funk",
+    "title": "Funk",
+    "pinned": true,
+    "color": "#FAEBD7",
+    "whatColoris": "AntiqueWhite"
+  },
+  {
+    "slug": "ncs",
+    "title": "NCS",
+    "pinned": true,
+    "color": "#00FFFF",
+    "whatColoris": "Aqua"
+  },
+  {
+    "slug": "indiepop",
+    "title": "Indie Pop",
+    "pinned": true,
+    "color": "#7FFFD4",
+    "whatColoris": "Aquamarine"
+  },
+  {
+    "slug": "background",
+    "title": "Background",
+    "pinned": true,
+    "color": "#A52A2A",
+    "whatColoris": "brown"
+  },
+  {
+    "slug": "surfrock",
+    "title": "Surf Rock",
+    "pinned": true,
+    "color": "#DEB887",
+    "whatColoris": "BurlyWood"
+  },
+  {
+    "slug": "alternative",
+    "title": "Alternative",
+    "pinned": true,
+    "color": "#5F9EA0",
+    "whatColoris": "Cadetblue"
+  },
+  {
+    "slug": "indierock",
+    "title": "Indie Rock",
+    "pinned": true,
+    "color": "#7FFF00",
+    "whatColoris": "Chartreuse"
+  },
+  {
+    "slug": "rockpop",
+    "title": "Rock Pop",
+    "pinned": true,
+    "color": "#D2691E",
+    "whatColoris": "Chocolate"
+  },
+  {
+    "slug": "garage",
+    "title": "Garage",
+    "pinned": true,
+    "color": "#FF7F50",
+    "whatColoris": "Coral"
+  },
+  {
+    "slug": "electroacid",
+    "title": "Electro Acid",
+    "pinned": true,
+    "color": "#6495ED",
+    "whatColoris": "CornflowerBlue"
+  },
+  {
+    "slug": "altpop",
+    "title": "Alt Pop",
+    "pinned": true,
+    "color": "#FFF8DC",
+    "whatColoris": "CornSilk"
+  },
+  {
+    "slug": "rockandroll",
+    "title": "Rock and Roll",
+    "pinned": true,
+    "color": "#DC143C",
+    "whatColoris": "Crimson"
+  },
+  {
+    "slug": "synthpop",
+    "title": "Synthpop",
+    "pinned": true,
+    "color": "#00FFFF",
+    "whatColoris": "Cyan"
+  },
+  {
+    "slug": "darknight",
+    "title": "Dark Night",
+    "pinned": true,
+    "color": "#8B0000",
+    "whatColoris": "Dark Red"
+  },
+  {
+    "slug": "discopop",
+    "title": "Disco Pop",
+    "pinned": true,
+    "color": "#008B8B",
+    "whatColoris": "DarkCyan"
+  },
+  {
+    "slug": "hyperpop",
+    "title": "Hyperpop",
+    "pinned": true,
+    "color": "#B8860B",
+    "whatColoris": "DarkGoldenRod"
+  },
+  {
+    "slug": "retrowave",
+    "title": "Retrowave",
+    "pinned": true,
+    "color": "#A9A9A9",
+    "whatColoris": "DarkGray"
+  },
+  {
+    "slug": "newage",
+    "title": "New Age",
+    "pinned": true,
+    "color": "#006400",
+    "whatColoris": "DarkGreen"
+  },
+  {
+    "slug": "popcore",
+    "title": "Popcore",
+    "pinned": true,
+    "color": "#BDB76B",
+    "whatColoris": "DarkKhaki"
+  },
+  {
+    "slug": "softrock",
+    "title": "Soft Rock",
+    "pinned": true,
+    "color": "#8B008B",
+    "whatColoris": "DarkMagenta"
+  },
+  {
+    "slug": "soulpop",
+    "title": "Soul Pop",
+    "pinned": true,
+    "color": "#556B2F",
+    "whatColoris": "DarkOliveGreen"
+  },
+  {
+    "slug": "guitar",
+    "title": "Guitar",
+    "pinned": true,
+    "color": "#FF8C00",
+    "whatColoris": "DarkOrange"
+  },
+  {
+    "slug": "ambient",
+    "title": "Ambient",
+    "pinned": true,
+    "color": "#9932CC",
+    "whatColoris": "DarkOrchid"
+  },
+  {
+    "slug": "soul",
+    "title": "Soul",
+    "pinned": true,
+    "color": "#E9967A",
+    "whatColoris": "DarkSalmon"
+  },
+  {
+    "slug": "vaporwave",
+    "title": "Vaporwave",
+    "pinned": true,
+    "color": "#8FBC8F",
+    "whatColoris": "DarkSeaGreen"
+  },
+  {
+    "slug": "skweee",
+    "title": "Skweee",
+    "pinned": true,
+    "color": "#483D8B",
+    "whatColoris": "DarkSlateBlue"
+  },
+  {
+    "slug": "techno",
+    "title": "Techno",
+    "pinned": true,
+    "color": "#2F4F4F",
+    "whatColoris": "DarkSlateGray"
+  },
+  {
+    "slug": "darkfolk",
+    "title": "Dark Folk",
+    "pinned": true,
+    "color": "#00CED1",
+    "whatColoris": "DarkTurquoise"
+  },
+  {
+    "slug": "hauntology",
+    "title": "Hauntology",
+    "pinned": true,
+    "color": "#9400D3",
+    "whatColoris": "DarkViolet"
+  },
+  {
+    "slug": "filmsost",
+    "title": "Films OST",
+    "pinned": true,
+    "color": "#FF1493",
+    "whatColoris": "DeepPink"
+  }
+]
