@@ -30,13 +30,21 @@
   buttons.shuffle.addEventListener('click', () => {
     buttons.shuffle.classList.toggle('disabled');
     musicPlayer.sortSongs();
-    
   });
 
   setTimeout(() => {
-    let { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();
-    musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
-    document.querySelector('.title-green').classList.add('playlist-item-active')
+    const songInfo = musicPlayer.getInfoSong();
+    if (songInfo) {
+      let { title: ButtonTitle, artist, album } = songInfo;
+      musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
+      document
+        .querySelector('.title-green')
+        ?.classList.add('playlist-item-active');
+    } else {
+      document
+        .querySelector('.title-green')
+        ?.classList.add('playlist-item-active');
+    }
   }, 50);
 
   const playlistItems = document.querySelectorAll('.playlist-item');
@@ -45,20 +53,18 @@
       const slug = playlist.dataset.id;
       let title = playlist.querySelector('.title').textContent;
 
-      document.querySelectorAll('.playlist-item-active').forEach(el => el.classList.remove('playlist-item-active'))
+      document
+        .querySelectorAll('.playlist-item-active')
+        .forEach(el => el.classList.remove('playlist-item-active'));
       playlist.classList.add('playlist-item-active');
 
       setTimeout(() => {
         const { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();
+
         musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
       }, 300);
 
-      await musicPlayer.selectList(
-        slug,
-        title,
-        playlist.dataset.color
-      );
-
+      await musicPlayer.selectList(slug, title, playlist.dataset.color);
     });
   });
 

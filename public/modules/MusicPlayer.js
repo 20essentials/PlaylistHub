@@ -294,6 +294,7 @@ export class MusicPlayer {
   }
 
   getInfoSong() {
+    
     return this.songList[this.currentSongIndex];
   }
 
