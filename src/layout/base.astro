@@ -1,12 +1,7 @@
 ---
 const { title } = Astro.props;
 import '@/styles/globalStyles.css';
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/astro/components';
+import { SignInButton } from '@clerk/astro/components';
 ---
 
 <html lang='en'>
@@ -21,35 +16,6 @@ import {
     <slot />
 
     <SignInButton class={'buttonModalSignin'} mode='modal' />
-
-    <SignedIn>
-      <button class='profile' style="--bg: url('./assets/v1.gif')">
-        <UserButton />
-        <!-- <UserButton
-          appearance={{
-            elements: {
-              userButtonAvatarBox: {
-                width: '2vmax',
-                height: '2vmax',
-                borderRadius: '50%',
-                overflow: 'hidden'
-              },
-              avatarImage: {
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }
-            }
-          }}
-        /> -->
-      </button>
-    </SignedIn>
-
-    <SignedOut>
-      <button class='profile openLogin' style="--bg: url('./assets/v1.gif')">
-        <img src='./assets/profile1.png' alt='profile' />
-      </button>
-    </SignedOut>
   </body>
 </html>
 
@@ -60,92 +26,6 @@ import {
     left: 50%;
     pointer-events: none;
     visibility: hidden;
-  }
-
-  @keyframes desaparecer {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  button.profile {
-    animation: none;
-    overflow: hidden;
-    transition:
-      transform 0.5s ease,
-      box-shadow 0.2s ease;
-    will-change: transform, filter;
-    z-index: 10;
-    touch-action: none;
-    isolation: isolate;
-    width: 100%;
-    width: 2.5vmax;
-    height: 2.5vmax;
-    border: none;
-    outline: none;
-    margin: 0;
-    padding: 0;
-    border-radius: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    place-content: center;
-    text-align: center;
-    cursor: pointer;
-    background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
-    backdrop-filter: blur(0.2vmax);
-    transition: opacity 0.3s ease;
-    aspect-ratio: 1;
-    position: fixed;
-    top: 2.5vmax;
-    right: 5.9vmax;
-
-
-    @media (width >= 1111px) {
-      right: 6.2vmax;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      pointer-events: none;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      background-repeat: no-repeat;
-      background-image: url('assets/profile1.png'), var(--bg),
-        linear-gradient(
-          125deg,
-          #ff008450 15%,
-          #fca40040 30%,
-          #ffff0030 40%,
-          #00ff8a20 60%,
-          #00cfff40 70%,
-          #cc4cfa50 85%
-        );
-      background-position: 50% 50%;
-      background-size: 200%;
-      background-blend-mode: overlay;
-      z-index: 15;
-      filter: brightness(1) contrast(1.5);
-      transition: all 0.33s ease;
-      mix-blend-mode: color-dodge;
-      opacity: 0.8;
-    }
-
-    &:active {
-      opacity: 0.5;
-    }
-
-    img {
-      pointer-events: none;
-      --s-image: 1.9vmax;
-      width: var(--s-image);
-      height: var(--s-image);
-    }
   }
 
   @font-face {
@@ -525,33 +405,63 @@ import {
     }
   }
 
+  /* Sabiendo que 1536px = 100vmax 
+  Y que 1rem = 16
+  Convierte a vmax lo siguiente, dime la respuesta solamente */
+
   /* Reset Modal User */
   :global(.cl-modalContent) {
-    /* Estilos generales del modal */
+    * {
+      font-family: 'Open Sans';
+      font-size: 1.1vmax;
+    }
 
     .cl-rootBox.cl-userProfile-root {
       .cl-cardBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 0.78vmax;
+        width: 57.29vmax;
+        height: 36.83vmax;
+
         .cl-internal-186wk34 {
+          top: 0.52vmax;
+          right: 0.52vmax;
+
           .cl-modalCloseButton {
-            /* Estilo para el botón de cerrar */
+            border-radius: 0.39vmax;
+            padding: 0.78vmax;
+            box-shadow: none;
 
             svg {
-              path {
-                /* Estilo del ícono "X" */
-              }
+              width: 1vmax;
+              height: 1vmax;
             }
           }
         }
 
         .cl-navbar {
+          flex: 0 0 15.31vmax;
+          max-width: 15.31vmax;
+          padding: 1.8vmax 1.2vmax;
+          margin-right: -0.33vmax;
+
           .cl-internal-13u79ez {
             /* Placeholder vacío, puede contener otro contenido dinámico */
           }
 
           .cl-internal-1mm78hd {
+            gap: 1.95vmax;
+            flex: 0 0 9.8vmax;
+
             .cl-internal-1agciv4 {
+              gap: 0.19vmax;
+              padding: 0px 0.97vmax;
+
               h1.cl-internal-pp7u0o {
-                /* Título "Account" */
+                font-size: 1.2vmax;
               }
 
               p.cl-internal-168uxhv {
@@ -560,6 +470,20 @@ import {
             }
 
             .cl-navbarButtons {
+              gap: 0.19vmax;
+
+              .cl-navbarButton {
+                border-radius: 0.39vmax;
+                gap: 0.78vmax;
+                padding: 0.39vmax 0.78vmax;
+                min-height: 1.3vmax;
+
+                svg {
+                  width: 1.3vmax;
+                  height: 1.3vmax;
+                }
+              }
+
               .cl-navbarButton__account {
                 &.cl-active {
                   /* Botón "Profile" activo */

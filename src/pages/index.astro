@@ -5,6 +5,7 @@ import Content from '@/ui/Content/index.astro';
 import Player from '@/ui/Player/index.astro';
 import CoverCard from '@/components/CoverCard.astro';
 
+
 const title = 'PlaylistHub';
 ---
 
@@ -35,13 +36,14 @@ const title = 'PlaylistHub';
     background-color: #111;
   }
 
+ 
   .content-container {
     display: grid;
     grid-template-columns: 18% 1fr;
     height: calc(100vh - var(--player-height));
     gap: var(--pad-gap);
     overflow: hidden;
-  
+    
 
     @media (width <= 1111px) and (orientation: portrait) {
       grid-template-columns: 32% 1fr;
@@ -51,11 +53,14 @@ const title = 'PlaylistHub';
   .sidebar {
     height: calc(100vh - var(--player-height) - 2vmax);
   }
+
+ 
 </style>
 
 <BaseLayout title={title}>
   <div class='container'>
     <div class='content-container'>
+      
       <div class='sidebar'>
         <Sidebar />
       </div>
@@ -68,3 +73,4 @@ const title = 'PlaylistHub';
     </div>
   </div>
 </BaseLayout>
+

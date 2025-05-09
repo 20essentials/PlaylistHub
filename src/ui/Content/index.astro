@@ -1,9 +1,20 @@
 ---
 import Playlist from './Playlist.astro';
 import ListHeader from './ListHeader.astro';
+import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
 ---
 
 <style>
+  @keyframes desaparecer {
+    0% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-5vmax);
+    }
+  }
 
   .container {
     --dark-theme-color: color-mix(in srgb, var(--theme-color), #000 75%);
@@ -17,6 +28,7 @@ import ListHeader from './ListHeader.astro';
     max-height: calc(100vh - var(--player-height) - 2vmax);
     overflow-y: scroll;
     height: 100%;
+    scroll-timeline: --hidden;
 
     &::before {
       content: '';
@@ -41,6 +53,85 @@ import ListHeader from './ListHeader.astro';
       transition: opacity 0.25s;
       overflow: hidden;
       display: none;
+    }
+  }
+
+  button.profile {
+    animation: none;
+    overflow: hidden;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.2s ease;
+    will-change: transform, filter;
+    z-index: 10;
+    touch-action: none;
+    isolation: isolate;
+    width: 100%;
+    width: 2.5vmax;
+    height: 2.5vmax;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
+    backdrop-filter: blur(0.2vmax);
+    transition: opacity 0.3s ease;
+    aspect-ratio: 1;
+    position: fixed;
+    top: 2.5vmax;
+    right: 5.9vmax;
+    animation: desaparecer auto ease both;
+    animation-timeline: --hidden;
+    animation-range: 0 9vmax;
+
+    @media (width >= 1111px) {
+      right: 6.2vmax;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      background-image: url('assets/profile1.png'), var(--bg),
+        linear-gradient(
+          125deg,
+          #ff008450 15%,
+          #fca40040 30%,
+          #ffff0030 40%,
+          #00ff8a20 60%,
+          #00cfff40 70%,
+          #cc4cfa50 85%
+        );
+      background-position: 50% 50%;
+      background-size: 200%;
+      background-blend-mode: overlay;
+      z-index: 15;
+      filter: brightness(1) contrast(1.5);
+      transition: all 0.33s ease;
+      mix-blend-mode: color-dodge;
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+
+    img {
+      pointer-events: none;
+      --s-image: 1.9vmax;
+      width: var(--s-image);
+      height: var(--s-image);
     }
   }
 
@@ -70,10 +161,18 @@ import ListHeader from './ListHeader.astro';
   }
 </style>
 
-
 <div class='container'>
+  <SignedIn>
+    <button class='profile' style="--bg: url('./assets/v1.gif')">
+      <UserButton />
+    </button>
+  </SignedIn>
+
+  <SignedOut>
+    <button class='profile openLogin' style="--bg: url('./assets/v1.gif')">
+      <img src='./assets/profile1.png' alt='profile' />
+    </button>
+  </SignedOut>
   <ListHeader />
   <Playlist />
 </div>
-
-
