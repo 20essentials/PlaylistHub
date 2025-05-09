@@ -1,6 +1,7 @@
 ---
 import Playlist from './Playlist.astro';
 import ListHeader from './ListHeader.astro';
+
 ---
 
 <style>
@@ -60,9 +61,18 @@ import ListHeader from './ListHeader.astro';
   .container::-webkit-scrollbar-track {
     background: transparent;
   }
+
+  :global(.userButton) {
+    position: absolute;
+    top: 1vmax;
+    right: 1vmax;
+    z-index: 50;
+  }
 </style>
 
 <div class='container'>
   <ListHeader />
   <Playlist />
 </div>
+
+

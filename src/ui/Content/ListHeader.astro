@@ -1,7 +1,3 @@
----
-
----
-
 <list-header></list-header>
 
 <script type='module'>
@@ -65,34 +61,7 @@
               isolation: isolate;
               width: 100%;
               position: relative;
-
-              &::after {
-                content: '';
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                top: 0;
-                background-repeat: no-repeat;
-                background-image: url('assets/profile1.png'), var(--bg),
-                  linear-gradient(
-                    125deg,
-                    #ff008450 15%,
-                    #fca40040 30%,
-                    #ffff0030 40%,
-                    #00ff8a20 60%,
-                    #00cfff40 70%,
-                    #cc4cfa50 85%
-                  );
-                background-position: 50% 50%;
-                background-size: 200%;
-                background-blend-mode: overlay;
-                z-index: 15;
-                filter: brightness(1) contrast(1.5);
-                transition: all 0.33s ease;
-                mix-blend-mode: color-dodge;
-                opacity: 0.8;
-              }
+              visibility: hidden;
             }
 
             &:active {
@@ -295,18 +264,11 @@
       this.addCoverMouseAnimation();
       const prev = this.shadowRoot.querySelector('.prev-list');
       const next = this.shadowRoot.querySelector('.next-list');
-      const profile = this.shadowRoot.querySelector('.profile');
       let playlistItems = document.querySelectorAll('.playlist-item');
       let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
       const { length } = playlistItems;
       const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
-
-      profile.addEventListener('click', e => {
-        const $signinButton = document.querySelector('.buttonModalSignin');
-        setTimeout(() => {
-          $signinButton.click();
-        }, 5);
-      });
+    
 
       function clickOnPlaylist(targetIndex) {
         const slug = slugs[targetIndex];
