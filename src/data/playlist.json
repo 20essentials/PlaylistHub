@@ -313,5 +313,12 @@
     "pinned": true,
     "color": "#00BFFF",
     "whatColorIs": "DeepSkyBlue"
+  },
+  {
+    "slug": "witchhouse",
+    "title": "Witch House",
+    "pinned": true,
+    "color": "#696969",
+    "whatColorIs": "DimGrey"
   }
 ]

@@ -680,6 +680,7 @@ import { SignInButton } from '@clerk/astro/components';
                       button.cl-menuButtonEllipsis.cl-menuButton.cl-button {
                         border-radius: 0.39vmax;
                         padding: 0.13vmax;
+                        box-shadow: none !important;
 
                         svg {
                           width: auto;
@@ -765,6 +766,7 @@ import { SignInButton } from '@clerk/astro/components';
             padding-top: 0.52vmax;
 
             .cl-internal-1hp5nqm {
+              zoom: 1.2;
               padding: 1.4vmax 2.08vmax;
 
               .cl-internal-df7v37 {
@@ -795,6 +797,30 @@ import { SignInButton } from '@clerk/astro/components';
           }
         }
       }
+    }
+  }
+
+  /* Remove button */
+  :global(.cl-menuList.cl-internal-6lplep) {
+    border-radius: 0.3906vmax;
+    padding: 0;
+    gap: 0;
+    box-shadow:
+      rgba(0, 0, 0, 0.08) 0px 0.3255vmax 0.9766vmax 0px,
+      rgba(25, 28, 33, 0.2) 0px 0.9766vmax 2.2786vmax -0.3255vmax,
+      rgba(0, 0, 0, 0.07) 0px 0px 0px 0.0651vmax;
+    top: 4.6289vmax;
+    left: 7.0776vmax;
+
+    .cl-internal-1okq43f {
+      border-radius: 0.3906vmax;
+      padding: 0.5vmax;
+      gap: 0.1302vmax;
+      box-shadow:
+        0px 0.3255vmax 0.9765vmax 0px rgba(0, 0, 0, 0.08),
+        0px 0.9765vmax 2.2799vmax -0.3255vmax rgba(25, 28, 33, 0.2),
+        0px 0px 0px 0.0651vmax rgba(0, 0, 0, 0.07);
+      font-size: 1vmax;
     }
   }
 
