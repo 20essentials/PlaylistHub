@@ -633,6 +633,90 @@ import { SignInButton } from '@clerk/astro/components';
                         border-radius: 0.39vmax;
                         gap: 0.52vmax;
                         padding: 0.39vmax 0.78vmax 0.39vmax 0.65vmax;
+                        box-shadow: none;
+                      }
+                    }
+
+                    .cl-actionCard {
+                      gap: 1.0417vmax;
+                      border-radius: 0.5208vmax;
+                      padding: 1.0417vmax 1.3021vmax;
+                      box-shadow:
+                        rgba(0, 0, 0, 0.12) 0 0.0651vmax 0.2604vmax 0,
+                        rgba(106, 115, 133, 0.12) 0 0.2604vmax 0.5208vmax 0,
+                        rgba(0, 0, 0, 0.07) 0 0 0 0.0651vmax;
+
+                      .cl-formContainer {
+                        gap: 1.0417vmax;
+
+                        .cl-internal-1df5v2y {
+                          gap: 2.0833vmax;
+
+                          .cl-form {
+                            gap: 1.5625vmax;
+
+                            .cl-internal-keygyz {
+                              gap: 1.0417vmax;
+
+                              .cl-internal-8024ga {
+                                gap: 1.0417vmax;
+
+                                .cl-avatarBox {
+                                  width: 3.125vmax;
+                                  height: 3.125vmax;
+                                }
+
+                                .cl-internal-1pr5xvn {
+                                  gap: 0.2604vmax;
+
+                                  .cl-avatarImageActions {
+                                    gap: 0.5208vmax;
+
+                                    .cl-button {
+                                      padding: 0.2604vmax 0.7813vmax;
+                                      border-radius: 0.5vmax;
+                                    }
+
+                                    .cl-avatarImageActionsUpload {
+                                      box-shadow:
+                                        rgba(0, 0, 0, 0.07) 0 0 0 0.0651vmax,
+                                        rgba(0, 0, 0, 0.08) 0 0.1302vmax
+                                          0.1953vmax -0.0651vmax,
+                                        rgba(0, 0, 0, 0.02) 0 0.0651vmax 0 0;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+
+                            .cl-internal-1qtx1c6 {
+                              gap: 0.5208vmax;
+
+                              .cl-button {
+                                padding: 0.3906vmax 0.7813vmax;
+                                border-radius: 0.3906vmax;
+                                box-shadow: none;
+
+                                &.cl-formButtonPrimary {
+                                  background: rgb(30, 144, 255);
+                                  color: #333;
+                                  box-shadow:
+                                    rgb(30, 144, 255) 0 0 0 0.0651vmax,
+                                    /* Dodgerblue con opacidad 1 */
+                                      rgba(30, 144, 255, 0.07) 0 0.0651vmax
+                                      0.0651vmax 0 inset,
+                                    /* Dodgerblue con opacidad 0.07 */
+                                      rgba(30, 144, 255, 0.2) 0 0.1302vmax
+                                      0.1953vmax 0,
+                                    /* Dodgerblue con opacidad 0.2 */
+                                      rgba(30, 144, 255, 0.24) 0 0.0651vmax
+                                      0.0651vmax 0; /* Dodgerblue con opacidad 0.24 */
+                                  opacity: 1;
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -657,6 +741,51 @@ import { SignInButton } from '@clerk/astro/components';
                   .cl-profileSectionContent.cl-profileSectionContent__connectedAccounts {
                     .cl-profileSectionItemList {
                       gap: 0.13vmax;
+
+                      .cl-actionCard {
+                        gap: 1.0417vmax;
+                        border-radius: 0.5208vmax;
+                        padding: 1.0417vmax 1.3021vmax;
+                        box-shadow:
+                          rgba(0, 0, 0, 0.12) 0 0.0651vmax 0.2604vmax 0,
+                          rgba(106, 115, 133, 0.12) 0 0.2604vmax 0.5208vmax 0,
+                          rgba(0, 0, 0, 0.07) 0 0 0 0.0651vmax;
+                        background-color: red;
+
+                        .cl-formContainer {
+                          gap: 1.0417vmax;
+
+                          .cl-internal-1df5v2y {
+                            gap: 2.0833vmax;
+
+                            .cl-form {
+                              gap: 1.5625vmax;
+
+                              .cl-internal-1qtx1c6 {
+                                gap: 0.5208vmax;
+
+                                .cl-formButtonPrimary {
+                                  box-shadow:
+                                    rgb(239, 68, 68) 0 0 0 0.0651vmax,
+                                    rgba(255, 255, 255, 0.07) 0 0.0651vmax
+                                      0.0651vmax 0 inset,
+                                    rgba(34, 42, 53, 0.2) 0 0.1302vmax 0.1953vmax
+                                      0,
+                                    rgba(0, 0, 0, 0.24) 0 0.0651vmax 0.0651vmax 0;
+                                  padding: 0.3906vmax 0.7813vmax;
+                                  border-radius: 0.3906vmax;
+                                }
+
+                                .cl-formButtonReset {
+                                  padding: 0.3906vmax 0.7813vmax;
+                                  border-radius: 0.3906vmax;
+                                  box-shadow: none !important;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
 
                     .cl-profileSectionItem.cl-profileSectionItem__connectedAccounts {
@@ -811,6 +940,11 @@ import { SignInButton } from '@clerk/astro/components';
       rgba(0, 0, 0, 0.07) 0px 0px 0px 0.0651vmax;
     top: 4.6289vmax;
     left: 7.0776vmax;
+    transition: transform 0.1s ease;
+
+    @media (width <= 770px) {
+      transform: translateY(-3vmax);
+    }
 
     .cl-internal-1okq43f {
       border-radius: 0.3906vmax;
