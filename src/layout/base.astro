@@ -193,7 +193,7 @@ import { SignInButton } from '@clerk/astro/components';
                   }
 
                   .cl-socialButtonsIconButton__google {
-                    --bg: linear-gradient(135deg, #34a853, #f2f2f2, #4285f4);
+                    --bg: linear-gradient(135deg, orange, #f2f2f2, #34a853);
                     img.cl-socialButtonsProviderIcon__google {
                       width: 1vmax;
                       height: 1vmax;
@@ -427,8 +427,9 @@ import { SignInButton } from '@clerk/astro/components';
         height: 36.83vmax;
 
         .cl-internal-186wk34 {
-          top: 0.52vmax;
+          top: 0.35vmax;
           right: 0.52vmax;
+          padding: 0vmax !important;
 
           .cl-modalCloseButton {
             border-radius: 0.39vmax;
@@ -516,21 +517,279 @@ import { SignInButton } from '@clerk/astro/components';
             .cl-internal-df7v37 {
               .cl-internal-1t1d062 {
                 .cl-internal-16mc20d {
+                  scale: 1.1;
+                  gap: 0.26vmax;
+
                   p.cl-internal-wf8x4b {
-                    /* Texto "Secured by" */
+                    font-size: 0.9vmax;
                   }
 
                   a.cl-internal-1fcj7sw {
-                    /* Enlace a Clerk */
-
                     svg.cl-internal-5ghyhf {
-                      ellipse,
-                      path {
-                        /* Logo de Clerk */
+                      width: 3.12vmax;
+                      height: 0.91vmax;
+                    }
+                  }
+                }
+              }
+
+              .cl-internal-lk7758 {
+                display: none;
+              }
+            }
+          }
+        }
+
+        .cl-navbarMobileMenuRow {
+          padding: 0.52vmax 0.78vmax 1.04vmax;
+          margin-bottom: -0.52vmax;
+
+          .cl-navbarMobileMenuButton {
+            padding: 0.26vmax 0.78vmax;
+            border-radius: 0.39vmax;
+            gap: 0.65vmax;
+
+            .cl-navbarMobileMenuButtonIcon {
+              width: 1.1vmax;
+              height: 1.1vmax;
+            }
+          }
+        }
+
+        .cl-scrollBox {
+          border-radius: 0.52vmax;
+          box-shadow:
+            rgba(0, 0, 0, 0.08) 0px 0px 0.13vmax 0px,
+            rgba(25, 28, 33, 0.06) 0px 0.065vmax 0.13vmax 0px,
+            rgba(0, 0, 0, 0.03) 0px 0px 0px 0.065vmax;
+          scrollbar-width: thin;
+
+          .cl-pageScrollBox::-webkit-scrollbar {
+            width: 0.7vmax;
+          }
+          .cl-pageScrollBox::-webkit-scrollbar-thumb {
+            background-color: #0005;
+          }
+
+          .cl-pageScrollBox::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          .cl-pageScrollBox {
+            padding: 1.89vmax 1.63vmax 1.89vmax 2.17vmax;
+
+            .cl-page {
+              gap: 2.08vmax;
+
+              .cl-profilePage {
+                .cl-header {
+                  gap: 1.56vmax;
+                  max-height: 2.5vmax;
+
+                  .cl-internal-1pr5xvn {
+                    gap: 0.26vmax;
+
+                    .cl-headerTitle {
+                      font-size: 1.2vmax;
+                    }
+                  }
+                }
+
+                .cl-profileSection {
+                  border-top: 0.065vmax solid rgba(0, 0, 0, 0.07);
+                  padding-top: 1.04vmax;
+                  padding-bottom: 1.04vmax;
+                  gap: 1.56vmax;
+
+                  .cl-profileSectionContent {
+                    gap: 0.52vmax;
+
+                    .cl-profileSectionItem {
+                      padding: 0.26vmax 0.26vmax 0.26vmax 0.65vmax;
+                      gap: 0.52vmax;
+
+                      .cl-userPreview {
+                        gap: 1.04vmax;
+
+                        .cl-userPreviewAvatarContainer {
+                          .cl-avatarBox {
+                            width: 2.7vmax;
+                            height: 2.7vmax;
+
+                            .cl-avatarImage {
+                              /* Aquí irían los estilos para .cl-avatarImage */
+                            }
+                          }
+                        }
+                        .cl-userPreviewTextContainer {
+                          .cl-userPreviewMainIdentifier {
+                            .cl-userPreviewMainIdentifierText {
+                              /* Aquí irían los estilos para .cl-userPreviewMainIdentifierText */
+                            }
+                          }
+                        }
+                      }
+                      .cl-profileSectionPrimaryButton {
+                        border-radius: 0.39vmax;
+                        gap: 0.52vmax;
+                        padding: 0.39vmax 0.78vmax 0.39vmax 0.65vmax;
+                      }
+                    }
+                  }
+                  .cl-profileSectionHeader {
+                    gap: 0.26vmax;
+                    width: 17.16vmax;
+                    top: 50%;
+                    margin-top: 0;
+                    transform: translateY(0%);
+                    display: flex;
+                    justify-content: center;
+                    height: 100%;
+
+                    .cl-profileSectionTitle {
+                      .cl-profileSectionTitleText {
                       }
                     }
                   }
                 }
+
+                .cl-profileSection.cl-profileSection__connectedAccounts {
+                  .cl-profileSectionContent.cl-profileSectionContent__connectedAccounts {
+                    .cl-profileSectionItemList {
+                      gap: 0.13vmax;
+                    }
+
+                    .cl-profileSectionItem.cl-profileSectionItem__connectedAccounts {
+                      .cl-internal-160m63s {
+                        gap: 0.52vmax;
+
+                        img {
+                          width: 1.1vmax;
+                        }
+                      }
+                      .cl-internal-1hrok3x {
+                        .cl-internal-14bdj0h {
+                          gap: 0.26vmax;
+
+                          p.cl-internal-1pz8pdy {
+                          }
+                          span.cl-internal-1v9xsvw {
+                          }
+                        }
+                      }
+                      button.cl-menuButtonEllipsis.cl-menuButton.cl-button {
+                        border-radius: 0.39vmax;
+                        padding: 0.13vmax;
+
+                        svg {
+                          width: auto;
+                          height: 1.3vmax;
+                        }
+                      }
+                    }
+
+                    .cl-internal-1aovd6g {
+                      button.cl-menuButton.cl-button.cl-menuButton__connectedAccounts.cl-button__connectedAccounts {
+                        border-radius: 0.39vmax;
+                        gap: 0.26vmax;
+                        padding: 0.39vmax 0.78vmax 0.39vmax 0.65vmax;
+                        height: 2.08vmax;
+                        box-shadow: none !important;
+                        --arrow-transform: translateX(-0.52vmax);
+
+                        .cl-internal-eukaea {
+                          flex: 0 0 1.3vmax;
+
+                          svg {
+                            width: 1.1vmax;
+                            height: 1.1vmax;
+                          }
+                        }
+
+                        .cl-internal-hd6eiz {
+                          gap: 0.52vmax;
+                        }
+
+                        .cl-internal-xkj3jj {
+                          min-width: 1.1vmax;
+                          min-height: 1.1vmax;
+                          width: 1.1vmax;
+                          height: 1.1vmax;
+                          margin-left: 0.5vmax;
+                          display: none;
+                        }
+                      }
+
+                      .cl-menuList__connectedAccounts {
+                        top: 2.4vmax !important;
+                        border-radius: 0.39vmax;
+                        gap: 0.13vmax;
+                        padding: 0.2vmax;
+                        box-shadow:
+                          rgba(0, 0, 0, 0.03) 0px 0.52vmax 1vmax 0px,
+                          rgba(25, 28, 33, 0.2) 0px 1vmax 3.65vmax -0.52vmax,
+                          rgba(0, 0, 0, 0.03) 0px 0px 0px 0.1vmax;
+
+                        .cl-menuItem {
+                          border-radius: 0.26vmax;
+                          padding: 0.39vmax 0.42vmax;
+                          gap: 0.52vmax;
+
+                          .cl-internal-1lerq0t {
+                            flex: 0 0 1.04vmax;
+
+                            img {
+                              width: 1.1vmax;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  .cl-profileSectionHeader.cl-profileSectionHeader__connectedAccounts {
+                    .cl-profileSectionTitle.cl-profileSectionTitle__connectedAccounts {
+                      p.cl-profileSectionTitleText.cl-profileSectionTitleText__connectedAccounts {
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .cl-footer {
+          &.cl-internal-to9o31 {
+            margin-top: -0.52vmax;
+            padding-top: 0.52vmax;
+
+            .cl-internal-1hp5nqm {
+              padding: 1.4vmax 2.08vmax;
+
+              .cl-internal-df7v37 {
+                gap: 0.52vmax;
+
+                .cl-internal-y44tp9 {
+                  .cl-internal-16mc20d {
+                    gap: 0.26vmax;
+
+                    p.cl-internal-wf8x4b {
+                      font-size: 0.9vmax;
+                    }
+
+                    a.cl-internal-1fcj7sw {
+                      svg.cl-internal-5ghyhf {
+                        width: 3.12vmax;
+                        height: 0.91vmax;
+                      }
+                    }
+                  }
+                }
+              }
+
+              p.cl-internal-16vtwdp {
+                display: none !important;
               }
             }
           }

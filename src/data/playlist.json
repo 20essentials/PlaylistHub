@@ -66,8 +66,8 @@
     "slug": "bluepop",
     "title": "Blue Pop",
     "pinned": true,
-    "color": "#2929dc",
-    "whatColorIs": "blue"
+    "color": "#3f3fee",
+    "whatColorIs": "MediumBlue"
   },
   {
     "slug": "romantic",
@@ -101,7 +101,7 @@
     "slug": "funk",
     "title": "Funk",
     "pinned": true,
-    "color": "#FAEBD7",
+    "color": "#cdb798",
     "whatColorIs": "AntiqueWhite"
   },
   {
@@ -171,7 +171,7 @@
     "slug": "altpop",
     "title": "Alt Pop",
     "pinned": true,
-    "color": "#FFF8DC",
+    "color": "#b7ae8a",
     "whatColorIs": "CornSilk"
   },
   {
@@ -192,7 +192,7 @@
     "slug": "darknight",
     "title": "Dark Night",
     "pinned": true,
-    "color": "#8B0000",
+    "color": "#bd1d1d",
     "whatColorIs": "Dark Red"
   },
   {
@@ -220,8 +220,8 @@
     "slug": "newage",
     "title": "New Age",
     "pinned": true,
-    "color": "#006400",
-    "whatColorIs": "DarkGreen"
+    "color": "#01b401",
+    "whatColorIs": "MediumGreen"
   },
   {
     "slug": "popcore",
@@ -241,8 +241,8 @@
     "slug": "soulpop",
     "title": "Soul Pop",
     "pinned": true,
-    "color": "#556B2F",
-    "whatColorIs": "DarkOliveGreen"
+    "color": "#90ab5f",
+    "whatColorIs": "MediumOliveGreen"
   },
   {
     "slug": "guitar",
@@ -276,15 +276,15 @@
     "slug": "skweee",
     "title": "Skweee",
     "pinned": true,
-    "color": "#483D8B",
-    "whatColorIs": "DarkSlateBlue"
+    "color": "#685cb3",
+    "whatColorIs": "MediumSlateBlue"
   },
   {
     "slug": "techno",
     "title": "Techno",
     "pinned": true,
-    "color": "#2F4F4F",
-    "whatColorIs": "DarkSlateGray"
+    "color": "#6c9e9e",
+    "whatColorIs": "MediumSlateGray"
   },
   {
     "slug": "darkfolk",
