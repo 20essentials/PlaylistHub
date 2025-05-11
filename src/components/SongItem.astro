@@ -61,6 +61,8 @@
           display: flex;
           justify-content: right;
           text-align: right;
+          position: relative;
+          z-index: 300;
           
           &.escondido {
             display: none;
@@ -124,6 +126,14 @@
       this.render();
       const rowItem = this.shadowRoot.querySelector('.row-item');
       setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
+      this.playlistIconListeners();
+    }
+
+    playlistIconListeners() {
+      const playlistIcon = this.shadowRoot.querySelector('.playlist-icon');
+      playlistIcon.addEventListener('click', e => {
+        // alert('')
+      })
     }
 
     getData() {

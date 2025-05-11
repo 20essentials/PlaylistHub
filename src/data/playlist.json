@@ -320,5 +320,12 @@
     "pinned": true,
     "color": "#696969",
     "whatColorIs": "DimGrey"
+  },
+  {
+    "slug": "phonk",
+    "title": "Phonk",
+    "pinned": true,
+    "color": "#1E90FF",
+    "whatColorIs": "DodgerBlue"
   }
 ]
