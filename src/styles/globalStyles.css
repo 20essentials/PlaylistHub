@@ -18,3 +18,13 @@ button, svg {
     outline: none;
   }
 }
+
+@font-face {
+  font-family: 'Game Bubble';
+  src: url('/assets/GameBubble.woff2') format(woff2);
+  font-display: swap;
+}
+
+:root {
+  --font-bubble: 'Game Bubble', Impact, sans-serif;
+}

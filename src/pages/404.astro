@@ -1,0 +1,100 @@
+---
+import BaseLayout from '@/layout/base.astro';
+---
+
+<BaseLayout title='404 😅'>
+  <main class='bg'>
+    <h1></h1>
+    <h2>404 NOT FOUND</h2>
+    <a href='/' class='container-go-back'>
+      <img src='/assets/goback.png' alt='go back' />
+    </a>
+  </main>
+</BaseLayout>
+
+<script>
+  import { $ } from '@/utils/functions';
+  document.addEventListener('keydown', ({ key }) => {
+    if (['ArrowLeft'].includes(key)) {
+      const $return = $('.container-go-back') as HTMLAnchorElement;
+      if ($return) {
+        $return.click();
+      }
+    }
+  });
+</script>
+
+<style>
+  .bg {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100dvh;
+    background-color: black;
+    background-image: url('/assets/404fondo.avif');
+    background-position: center;
+    background-size: cover;
+    place-content: center;
+    flex-direction: column;
+    gap: 1vmax;
+
+    h1 {
+      z-index: 9999;
+      mix-blend-mode: overlay;
+      inset: 0;
+      position: absolute;
+      animation: moveTitle 15s ease infinite alternate;
+      pointer-events: none;
+    }
+
+    h2 {
+      font-family: var(--font-bubble);
+      color: #e9e9e9;
+      font-size: 3vmax;
+      top: 50%;
+      left: 50%;
+      text-wrap: balance;
+      width: 35%;
+      text-align: center;
+    }
+
+    .container-go-back {
+      width: 3vmax;
+      height: 3vmax;
+      margin-inline: auto;
+      display: flex;
+      flex-wrap: wrap;
+      place-content: center;
+      z-index: 500;
+      position: relative;
+      transform: scaleY(-1);
+
+      img {
+        width: 80%;
+        height: 80%;
+        pointer-events: none;
+      }
+    }
+  }
+
+  @keyframes moveTitle {
+    0% {
+      background-color: #f0f;
+    }
+
+    25% {
+      background-color: #0f0;
+    }
+
+    50% {
+      background-color: #00f;
+    }
+
+    75% {
+      background-color: #f00;
+    }
+
+    100% {
+      background-color: #ff0;
+    }
+  }
+</style>
