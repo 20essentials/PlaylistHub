@@ -115,14 +115,34 @@ const columnsPlaylists = user
 
 <script>
   import { $ } from '@/utils/functions';
-  const headerDataClass = $('.header-data-items-class') as HTMLElement;
-  const existUser = headerDataClass.dataset.lastColumn;
-  setTimeout(() => {
+
+  function showPlaylisIcon() {
+    const headerDataClass = $('.header-data-items-class') as HTMLElement;
+    const existUser = headerDataClass.dataset.lastColumn;
     const songItems = document.querySelectorAll('song-item');
     songItems.forEach(el => {
       const row = el.shadowRoot?.querySelector('.row-item');
       const playListIcon = row?.querySelector('.playlist-icon');
-      playListIcon?.classList.toggle('escondido', !(existUser === 'true'));
+      console.log(playListIcon);
+      console.log(existUser);
+      if (existUser === 'true') {
+        playListIcon?.classList.remove('escondido');
+      } else {
+        playListIcon?.classList.add('escondido');
+      }
     });
+  }
+
+  setTimeout(() => {
+    showPlaylisIcon();
   }, 100);
+
+  document.addEventListener('click', e => {
+    const target = e.target as HTMLElement;
+    if (target.matches('.playlist-item')) {
+      setTimeout(() => {
+        showPlaylisIcon();
+      }, 100);
+    }
+  });
 </script>

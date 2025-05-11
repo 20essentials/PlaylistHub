@@ -1,4 +1,3 @@
-
 <script type='module'>
   import { setAnimation } from './modules/setAnimation.js';
 
@@ -20,6 +19,7 @@
           user-select: none;
           cursor: pointer;
           transition: background-color .2s ease;
+        
 
           &.title-green {
             .titulin {
@@ -54,6 +54,11 @@
 
         .text {
           font-size:1vmax;
+
+          &.fecha {
+            position: relative;
+            z-index: 50;
+          }
         }
 
         .playlist-icon {
@@ -61,9 +66,7 @@
           display: flex;
           justify-content: right;
           text-align: right;
-          position: relative;
-          z-index: 300;
-          
+       
           &.escondido {
             display: none;
           }
@@ -72,6 +75,59 @@
             width: 1.3vmax;
             height: 1.3vmax;
             opacity: 0.7;
+          }
+        }
+
+        .playlist-nav-options {
+          position: absolute;
+          z-index: 800;
+          right: 3.4vmax;
+          top: 0
+          background-color: #0f08;
+          display: flex;
+          flex-direction: column;
+          visibility: hidden;
+          pointer-events: none;
+          transition: visibility .3s ease, opacity .3s ease;
+          opacity: 0;
+          border-radius: 0.7vmax;
+          transform: translateY(-2.7vmax);
+          gap: 0;
+
+          &.playListNavActive {
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+          }
+          
+          .option {
+            font-size: 1vmax;
+            text-align: left;
+            display: flex;
+            gap: 0.5vmax;
+            background-color: #000;
+            border: none;
+            outline: none;
+            padding: 0.6vmax;
+            position: relative;
+            z-index: 1500;
+            transition: background-color .2s ease;
+            border-bottom: 0.1vmax solid #fff2;
+
+            &:hover {
+              background-color: color-mix(in srgb, var(--theme-color), black 50%);
+            }
+
+            .left {
+              width: 1.1vmax;
+              height: 1.1vmax;
+              pointer-events: none;
+
+              svg {
+                width: 100%;
+                height: 100%;
+              }
+            }
           }
         }
 
@@ -132,8 +188,11 @@
     playlistIconListeners() {
       const playlistIcon = this.shadowRoot.querySelector('.playlist-icon');
       playlistIcon.addEventListener('click', e => {
-        // alert('')
-      })
+        e.stopPropagation();
+        const rowItem = e.target.closest('.row-item');
+        const playListNavOption = rowItem.querySelector('.playlist-nav-options');
+        playListNavOption.classList.add('playListNavActive');
+      });
     }
 
     getData() {
@@ -167,7 +226,7 @@
             </div>
           </div>
           <div class="text esconder">${this.album}</div>
-          <div class="text esconder">${this.date.substring(0, 10)}</div>
+          <div class="text esconder fecha">${this.date.substring(0, 10)}</div>
           <div class="text">${this.duration}</div>
           <aside class="playlist-icon escondido" >
               <svg
@@ -180,6 +239,64 @@
                   data-name='Layer 2'></path>
               </svg>
           </aside>
+          <nav class="playlist-nav-options">
+            <button class="option">
+              <span class="left">
+                <svg
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M12 5l0 14'
+                  ></path><path d='M5 12l14 0'></path></svg
+                >  
+              </span>
+              <span class="right">Add to Playlist</span>
+            </button>
+            <button class="option">
+               <span class="left">
+                <svg
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M4 7l16 0'
+                  ></path><path d='M10 11l0 6'></path><path d='M14 11l0 6'></path><path
+                    d='M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12'></path><path
+                    d='M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3'></path></svg
+                >
+               </span>
+               <span class="right">Remove from this Playlist</span>
+              </button>
+            <button class="option">
+              <span class="left">
+                <svg viewBox='0 0 24 24'
+                  >
+                  <path
+                    fill='currentColor'
+                    d='M1 8.475q0-2.35 1.575-3.912T6.5 3q1.3 0 2.475.55T11 5.1q.85-1 2.025-1.55T15.5 3q1.775 0 3.05.888t1.925 2.287q.175.375.025.763t-.525.562t-.763.025T18.65 7q-.45-1-1.325-1.5T15.5 5q-1.15 0-2.1.65t-1.65 1.6q-.125.2-.325.288T11 7.624t-.425-.1t-.325-.275q-.7-.95-1.65-1.6T6.5 5q-1.425 0-2.462.988T3 8.474q0 .825.35 1.675t1.25 1.963t2.45 2.6T11 18.3l2.225-1.95q.3-.275.7-.25t.675.3q.3.3.288.738t-.338.712l-2.225 1.975q-.275.25-.625.375t-.7.125t-.7-.125t-.625-.4q-1.125-1-2.612-2.275t-2.838-2.737t-2.287-3.063T1 8.475M18 14h-2q-.425 0-.712-.288T15 13t.288-.712T16 12h2v-2q0-.425.288-.712T19 9t.713.288T20 10v2h2q.425 0 .713.288T23 13t-.288.713T22 14h-2v2q0 .425-.288.713T19 17t-.712-.288T18 16z'
+                  ></path></svg
+                >
+              </span>
+              <span class="right"> Add to Your Favorite Brands </span>
+            </button>
+            <button class="option">
+              <span class="left">
+                  <svg  viewBox='0 0 24 24'
+                    >
+                    <path
+                      fill='currentColor'
+                      d='m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z'
+                    ></path></svg
+                  >
+              </span>
+              <span class="right"> Download Audio</span>
+            </button>
+          </nav>
         </div>
       `;
     }
