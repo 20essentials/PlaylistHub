@@ -326,13 +326,17 @@ import { SignInButton } from '@clerk/astro/components';
   :global(.cl-userButtonPopoverCard) {
     top: 6vmax !important;
     right: 5vmax !important;
-    width: 23.5vmax;
+    width: 19vmax;
     max-width: calc(-2vmax + 100vw);
     border-radius: 0.5vmax;
     box-shadow:
       rgba(0, 0, 0, 0.08) 0px 0.325vmax 1vmax 0px,
       rgba(25, 28, 33, 0.2) 0px 0.975vmax 2.3vmax -0.325vmax,
       rgba(0, 0, 0, 0.07) 0px 0px 0px 0.06vmax;
+
+    @media (width <= 900px) {
+      width: 15vmax;
+    }
 
     * {
       font-family: 'Open Sans';
@@ -456,6 +460,10 @@ import { SignInButton } from '@clerk/astro/components';
         border-radius: 0.78vmax;
         width: 57.29vmax;
         height: 36.83vmax;
+
+        @media (width <= 900px) {
+          width: 40vmax;
+        }
 
         .cl-internal-186wk34 {
           top: 0.35vmax;
