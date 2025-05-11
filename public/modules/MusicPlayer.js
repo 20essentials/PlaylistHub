@@ -63,7 +63,7 @@ export class MusicPlayer {
       currentTimeTag.textContent = time;
       const percentage = (mstime * 100) / this.currentSong.duration;
 
-      songProgress.setValue(percentage + 1); // Fix for progress slider UI
+      songProgress.setValue(percentage + 1); 
     });
 
     document.addEventListener('song:changetime', ({ detail }) => {

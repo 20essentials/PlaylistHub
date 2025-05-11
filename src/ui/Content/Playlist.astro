@@ -1,19 +1,26 @@
 ---
 import Clock from '@/icons/clock.astro';
 import SongItem from '@/components/SongItem.astro';
+import Config from '@/icons/config.astro';
+const user = await Astro.locals.currentUser();
+const hiddenColumn = user ? 'flex' : 'none';
+const classLastColumn = user ? 'true' : 'false';
+const columnsPlaylists = user
+  ? `3% 1fr 0.7fr 0.7fr 0.1fr 0.1fr`
+  : '3% 1fr 0.7fr 0.7fr 0.1fr';
 ---
 
-<style>
+<style define:vars={{ columns: columnsPlaylists, hiddenColumn }}>
   .playlist {
     --translucid-color: color-mix(
       in srgb,
       var(--medium-bgcolor),
       transparent 65%
     );
-    --playlist-format: 3%  1fr 0.7fr 0.7fr 0.1fr;
+    --playlist-format: var(--columns);
     display: flex;
     flex-direction: column;
-    padding: 1.25vmax ;
+    padding: 1.25vmax;
     gap: 0.15vmax;
     background: linear-gradient(
       to bottom,
@@ -27,11 +34,20 @@ import SongItem from '@/components/SongItem.astro';
       .centrar {
         padding-left: 0.7vmax;
       }
-      
     }
 
     .cell {
       font-size: 1vmax;
+
+      &.last-cell {
+        justify-content: center;
+        display: var(--hiddenColumn);
+
+        svg {
+          width: 1.2vmax;
+          height: 1.2vmax;
+        }
+      }
     }
 
     .clock {
@@ -76,18 +92,37 @@ import SongItem from '@/components/SongItem.astro';
   }
 </style>
 
-<div class='song playlist'>
+<div
+  class='song playlist header-data-items-class'
+  data-last-column={classLastColumn}
+>
   <SongItem />
 
   <header>
-    <div class="cell">#</div>
-    <div class="cell">Title</div>
-    <div class="cell esconder">Album</div>
-    <div class="cell esconder">Date of Addition</div>
-    <div class="cell centrar">
-      <Clock class="clock" />
+    <div class='cell'>#</div>
+    <div class='cell'>Title</div>
+    <div class='cell esconder'>Album</div>
+    <div class='cell esconder'>Date of Addition</div>
+    <div class='cell centrar'>
+      <Clock class='clock' />
     </div>
-    <div class="cell"></div>
+    <div class='cell last-cell last-cell-of-header'>
+      <Config />
+    </div>
   </header>
   <hr />
 </div>
+
+<script>
+  import { $ } from '@/utils/functions';
+  const headerDataClass = $('.header-data-items-class') as HTMLElement;
+  const existUser = headerDataClass.dataset.lastColumn;
+  setTimeout(() => {
+    const songItems = document.querySelectorAll('song-item');
+    songItems.forEach(el => {
+      const row = el.shadowRoot?.querySelector('.row-item');
+      const playListIcon = row?.querySelector('.playlist-icon');
+      playListIcon?.classList.toggle('escondido', !(existUser === 'true'));
+    });
+  }, 100);
+</script>
