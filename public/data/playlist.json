@@ -327,5 +327,12 @@
     "pinned": true,
     "color": "#1E90FF",
     "whatColorIs": "DodgerBlue"
+  },
+  {
+    "slug": "spacedisco",
+    "title": "Space Disco",
+    "pinned": true,
+    "color": "#B22222",
+    "whatColorIs": "FireBrick"
   }
 ]
