@@ -123,8 +123,6 @@ const columnsPlaylists = user
     songItems.forEach(el => {
       const row = el.shadowRoot?.querySelector('.row-item');
       const playListIcon = row?.querySelector('.playlist-icon');
-      console.log(playListIcon);
-      console.log(existUser);
       if (existUser === 'true') {
         playListIcon?.classList.remove('escondido');
       } else {

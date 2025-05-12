@@ -1,9 +1,20 @@
 ---
-  const title = '';
-  const artist = '';
+const title = '';
+const artist = '';
+import HeartEmpty from '@/icons/heartvoid.astro';
+import HeartFull from '@/icons/heartfull.astro';
 ---
 
 <style>
+  @keyframes showConffeti {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
   .song-info-container {
     display: flex;
     width: fit-content;
@@ -34,6 +45,52 @@
         text-wrap: balance;
       }
     }
+
+    .last {
+      width: 2vmax;
+      display: flex;
+      padding-left: 0.7vmax;
+      position: relative;
+
+      .confetti {
+        position: absolute;
+        left: -0.8vmax;
+        background-blend-mode: multiply;
+        box-shadow: none;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      svg {
+        width: 1.3vmax;
+        height: 1.3vmax;
+        opacity: 0.8;
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 0.5vmax);
+        transform: translate(-50%, -50%);
+
+        &.heartEmpty {
+          &.isSaved {
+            opacity: 0;
+
+            & + .heartFull {
+              opacity: 1;
+            }
+
+            & ~ .confetti {
+              animation: showConffeti 1.3s ease forwards;
+            }
+          }
+        }
+
+        &.heartFull {
+          opacity: 0;
+          pointer-events: none;
+          color: var(--theme-color);
+        }
+      }
+    }
   }
 </style>
 
@@ -55,7 +112,6 @@
       songData: { title, artist, urlPoster, slug, album },
       autoplay
     } = detail;
-    
 
     const container = document.querySelector('.song-info-container');
     const titleTag = container.querySelector('.title');
@@ -78,4 +134,18 @@
     <p class='title'>{title}</p>
     <p class='artist'>{artist}</p>
   </div>
+  <aside class='last'>
+    <HeartEmpty class='heartEmpty' />
+    <HeartFull class='heartFull' />
+    <img class='confetti' src='/assets/confetti.gif' alt='Confetti Image' />
+  </aside>
 </div>
+
+<script is:inline>
+  document.addEventListener('click', e => {
+    if (e.target.matches('.heartEmpty')) {
+      const heartEmpty = e.target;
+      heartEmpty.classList.toggle('isSaved');
+    }
+  });
+</script>

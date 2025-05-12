@@ -91,7 +91,7 @@
           transition: visibility .3s ease, opacity .3s ease;
           opacity: 0;
           border-radius: 0.7vmax;
-          transform: translateY(-2.7vmax);
+          transform: translateY(-1.5vmax);
           gap: 0;
 
           &.playListNavActive {
@@ -108,7 +108,8 @@
             background-color: #000;
             border: none;
             outline: none;
-            padding: 0.6vmax;
+            padding: 0.5vmax;
+            padding-right: 1.5vmax;
             position: relative;
             z-index: 1500;
             transition: background-color .2s ease;
@@ -190,7 +191,21 @@
       playlistIcon.addEventListener('click', e => {
         e.stopPropagation();
         const rowItem = e.target.closest('.row-item');
+        const songItems = document.querySelectorAll('song-item');
         const playListNavOption = rowItem.querySelector('.playlist-nav-options');
+        if (playListNavOption.classList.contains('playListNavActive')) {
+          playListNavOption.classList.remove('playListNavActive');
+          return;
+        }
+
+        songItems.forEach(el => {
+          const row = el.shadowRoot?.querySelector('.row-item');
+          const playListNavActive = row?.querySelector('.playListNavActive');
+          if (playListNavActive) {
+            playListNavActive.classList.remove('playListNavActive');
+          }
+        });
+
         playListNavOption.classList.add('playListNavActive');
       });
     }
