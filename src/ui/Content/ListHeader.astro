@@ -31,6 +31,9 @@
           right: 1.5vmax;
           display: flex;
           gap: 0.5vmax;
+          visibility: hidden;
+          pointer-events:none;
+          
           
           button {
             width: 2.5vmax;
@@ -268,7 +271,6 @@
       let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
       const { length } = playlistItems;
       const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
-    
 
       function clickOnPlaylist(targetIndex) {
         const slug = slugs[targetIndex];

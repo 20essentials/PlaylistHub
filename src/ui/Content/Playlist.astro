@@ -29,7 +29,7 @@ const columnsPlaylists = user
     );
 
     @media (width <= 1111px) and (orientation: portrait) {
-      --playlist-format: 8% 1fr 14% 2%;
+      --playlist-format: 8% 1fr 14% 10%;
 
       .centrar {
         padding-left: 0.7vmax;
@@ -43,9 +43,10 @@ const columnsPlaylists = user
         justify-content: center;
         display: var(--hiddenColumn);
 
-        @media (width <= 1111px) and (orientation: portrait) {
-          display: none;
-        }
+       /*  @media (width <= 1111px) and (orientation: portrait) {
+          justify-content: center;
+          background-color: red;
+        } */
 
         svg {
           width: 1.2vmax;
@@ -117,11 +118,11 @@ const columnsPlaylists = user
   <hr />
 </div>
 
-<script>
+<script is:inline>
   import { $ } from '@/utils/functions';
 
   function showPlaylisIcon() {
-    const headerDataClass = $('.header-data-items-class') as HTMLElement;
+    const headerDataClass = $('.header-data-items-class') ;
     const existUser = headerDataClass.dataset.lastColumn;
     const songItems = document.querySelectorAll('song-item');
     songItems.forEach(el => {
@@ -137,14 +138,14 @@ const columnsPlaylists = user
 
   setTimeout(() => {
     showPlaylisIcon();
-  }, 100);
+  }, 200);
 
   document.addEventListener('click', e => {
-    const target = e.target as HTMLElement;
+    const target = e.target ;
     if (target.matches('.playlist-item')) {
       setTimeout(() => {
         showPlaylisIcon();
-      }, 100);
+      }, 200);
     }
   });
 </script>

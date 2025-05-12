@@ -29,6 +29,7 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
     overflow-y: scroll;
     height: 100%;
     scroll-timeline: --hidden;
+    position: relative;
 
     &::before {
       content: '';
@@ -56,85 +57,6 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
     }
   }
 
-  button.profile {
-    animation: none;
-    overflow: hidden;
-    transition:
-      transform 0.5s ease,
-      box-shadow 0.2s ease;
-    will-change: transform, filter;
-    z-index: 10;
-    touch-action: none;
-    isolation: isolate;
-    width: 100%;
-    width: 2.6vmax;
-    height: 2.6vmax;
-    border: none;
-    outline: none;
-    margin: 0;
-    padding: 0;
-    border-radius: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    place-content: center;
-    text-align: center;
-    cursor: pointer;
-    background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
-    backdrop-filter: blur(0.2vmax);
-    transition: opacity 0.3s ease;
-    aspect-ratio: 1;
-    position: fixed;
-    top: 2.5vmax;
-    right: 5.85vw;
-    animation: desaparecer auto ease both;
-    animation-timeline: --hidden;
-    animation-range: 0 9vmax;
-
-    @media (width >= 1111px) and (orientation: landscape) {
-      right: 6.2vmax;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      pointer-events: none;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      background-repeat: no-repeat;
-      background-image: url('/assets/profile1.png'), var(--bg),
-        linear-gradient(
-          125deg,
-          #ff008450 15%,
-          #fca40040 30%,
-          #ffff0030 40%,
-          #00ff8a20 60%,
-          #00cfff40 70%,
-          #cc4cfa50 85%
-        );
-      background-position: 50% 50%;
-      background-size: 200%;
-      background-blend-mode: overlay;
-      z-index: 15;
-      filter: brightness(1) contrast(1.5);
-      transition: all 0.33s ease;
-      mix-blend-mode: color-dodge;
-      opacity: 0.8;
-    }
-
-    &:active {
-      opacity: 0.5;
-    }
-
-    img {
-      pointer-events: none;
-      --s-image: 1.9vmax;
-      width: var(--s-image);
-      height: var(--s-image);
-    }
-  }
-
   .container::-webkit-scrollbar {
     width: 0.7vmax;
 
@@ -159,21 +81,135 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
     right: 1vmax;
     z-index: 50;
   }
+
+  .container-anchors {
+    position: absolute;
+    top: 1.5vmax;
+    right: 1.5vmax;
+    display: flex;
+    gap: 0.5vmax;
+    z-index: 30;
+
+    button {
+      width: 2.5vmax;
+      height: 2.5vmax;
+      border: none;
+      outline: none;
+      margin: 0;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      place-content: center;
+      text-align: center;
+      cursor: pointer;
+      background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
+      backdrop-filter: blur(0.2vmax);
+      transition: opacity 0.3s ease;
+      aspect-ratio: 1;
+
+      &.profile {
+        animation: none;
+        overflow: hidden;
+        transition:
+          transform 0.5s ease,
+          box-shadow 0.2s ease;
+        will-change: transform, filter;
+        z-index: 10;
+        touch-action: none;
+        isolation: isolate;
+        width: 100%;
+        position: relative;
+        scale: 1.05;
+
+        &::after {
+          content: '';
+          position: absolute;
+          pointer-events: none;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          background-repeat: no-repeat;
+          background-image: url('/assets/profile1.png'), var(--bg),
+            linear-gradient(
+              125deg,
+              #ff008450 15%,
+              #fca40040 30%,
+              #ffff0030 40%,
+              #00ff8a20 60%,
+              #00cfff40 70%,
+              #cc4cfa50 85%
+            );
+          background-position: 50% 50%;
+          background-size: 200%;
+          background-blend-mode: overlay;
+          z-index: 15;
+          filter: brightness(1) contrast(1.5);
+          transition: all 0.33s ease;
+          mix-blend-mode: color-dodge;
+          opacity: 0.8;
+        }
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
+
+      img {
+        pointer-events: none;
+        --s-image: 1.9vmax;
+        width: var(--s-image);
+        height: var(--s-image);
+      }
+    }
+  }
 </style>
 
 <div class='container'>
-  <SignedIn>
-    <button class='profile' style="--bg: url('/assets/v1.gif')">
-      <UserButton />
+  <aside class='container-anchors'>
+    <button class='prev-list prev-list-visible'>
+      <img src='/assets/prev.svg' alt='prev' />
     </button>
-  </SignedIn>
 
-  <SignedOut>
-    <button class='profile openLogin' style="--bg: url('/assets/v1.gif')">
-      <img src='/assets/profile1.png' alt='profile' />
+    <SignedIn>
+      <button class='profile' style="--bg: url('/assets/v1.gif')">
+        <UserButton />
+      </button>
+    </SignedIn>
+    <SignedOut>
+      <button class='profile openLogin' style="--bg: url('/assets/v1.gif')">
+        <img src='/assets/profile1.png' alt='profile' />
+      </button>
+    </SignedOut>
+
+    <button class='next-list next-list-visible'>
+      <img src='/assets/next.svg' alt='next' />
     </button>
-  </SignedOut>
+  </aside>
 
   <ListHeader />
   <Playlist />
 </div>
+
+<script>
+  import { $ } from '@/utils/functions';
+
+  document.addEventListener('click', e => {
+    const target = e.target as HTMLButtonElement;
+    if (target.matches('.prev-list-visible')) {
+      const lisHeader = $('list-header');
+      const prev = lisHeader?.shadowRoot?.querySelector(
+        '.prev-list'
+      ) as HTMLButtonElement;
+      prev.click();
+    }
+    if (target.matches('.next-list-visible')) {
+      const lisHeader = $('list-header');
+      const next = lisHeader?.shadowRoot?.querySelector(
+        '.next-list'
+      ) as HTMLButtonElement;
+      next.click();
+    }
+  });
+</script>
