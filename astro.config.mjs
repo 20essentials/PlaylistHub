@@ -4,10 +4,13 @@ import clerk from '@clerk/astro';
 
 // https://astro.build/config
 export default defineConfig({
+  // build: {
+  //   esbuild: {
+  //     logLevel: 'silent'
+  //   }
+  // },
   build: {
-    esbuild: {
-      logLevel: 'silent'
-    }
+    assets: 'static'
   },
   output: 'server',
   integrations: [clerk()],

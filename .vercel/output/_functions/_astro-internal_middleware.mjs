@@ -1,7 +1,7 @@
 import { webcrypto } from "node:crypto";
-import { a4 as getAugmentedNamespace, aq as getDefaultExportFromCjs } from "./chunks/astro/server_zk9zilKh.mjs";
-import { a as distExports } from "./chunks/astro-designed-error-pages_B405Ps-p.mjs";
-import { s as sequence } from "./chunks/index_6I1ULqhW.mjs";
+import { ad as getAugmentedNamespace, av as getDefaultExportFromCjs } from "./chunks/astro/server_dK_ejg3u.mjs";
+import { a as distExports } from "./chunks/astro-designed-error-pages_BEppmd_u.mjs";
+import { s as sequence } from "./chunks/index_8j84VY9G.mjs";
 var DEV_OR_STAGING_SUFFIXES = [
   ".lcl.dev",
   ".stg.dev",
@@ -301,7 +301,7 @@ function buildErrorThrower({ packageName, customMessages }) {
     }
   };
 }
-var errorThrower = buildErrorThrower({ packageName: "@clerk/backend" });
+var errorThrower$1 = buildErrorThrower({ packageName: "@clerk/backend" });
 var TokenVerificationErrorCode = {
   InvalidSecretKey: "clerk_key_invalid"
 };
@@ -5231,7 +5231,7 @@ var createRedirect = (params) => {
   };
   const redirectToSignUp = ({ returnBackUrl } = {}) => {
     if (!signUpUrl && !accountsBaseUrl) {
-      errorThrower.throwMissingPublishableKeyError();
+      errorThrower$1.throwMissingPublishableKeyError();
     }
     const accountsSignUpUrl = `${accountsBaseUrl}/sign-up`;
     function buildSignUpUrl(signIn) {
@@ -5250,7 +5250,7 @@ var createRedirect = (params) => {
   };
   const redirectToSignIn = ({ returnBackUrl } = {}) => {
     if (!signInUrl && !accountsBaseUrl) {
-      errorThrower.throwMissingPublishableKeyError();
+      errorThrower$1.throwMissingPublishableKeyError();
     }
     const accountsSignInUrl = `${accountsBaseUrl}/sign-in`;
     const targetUrl = signInUrl || accountsSignInUrl;
@@ -5329,7 +5329,10 @@ var versionSelector = (clerkJSVersion, packageVersion = "5.64.1") => {
 var getPrereleaseTag = (packageVersion) => packageVersion.trim().replace(/^v/, "").match(/-(.+?)(\.|$)/)?.[1];
 var getMajorVersion = (packageVersion) => packageVersion.trim().replace(/^v/, "").split(".")[0];
 var { isDevOrStagingUrl } = createDevOrStagingUrlCache();
-buildErrorThrower({ packageName: "@clerk/shared" });
+var errorThrower = buildErrorThrower({ packageName: "@clerk/shared" });
+function setClerkJsLoadingErrorPackageName(packageName) {
+  errorThrower.setPackageName({ packageName });
+}
 var clerkJsScriptUrl = (opts) => {
   const { clerkJSUrl, clerkJSVariant, clerkJSVersion, proxyUrl, domain, publishableKey } = opts;
   if (clerkJSUrl) {
@@ -5359,13 +5362,13 @@ function setDevBrowserJWTInURL(url, jwt) {
   }
   return resultURL;
 }
-const __vite_import_meta_env__ = { "ASSETS_PREFIX": void 0, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_CLERK_PUBLISHABLE_KEY": "pk_test_YWxlcnQtYnVjay0yNi5jbGVyay5hY2NvdW50cy5kZXYk", "SITE": void 0, "SSR": true };
+const __vite_import_meta_env__ = { "ASSETS_PREFIX": void 0, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_CLERK_PUBLISHABLE_KEY": "pk_test_cHJlbWl1bS1yZXB0aWxlLTU5LmNsZXJrLmFjY291bnRzLmRldiQ", "SITE": void 0, "SSR": true };
 function getContextEnvVar(envVarName, contextOrLocals) {
   const locals = "locals" in contextOrLocals ? contextOrLocals.locals : contextOrLocals;
   if (locals?.runtime?.env) {
     return locals.runtime.env[envVarName];
   }
-  return Object.assign(__vite_import_meta_env__, { CLERK_SECRET_KEY: "sk_test_PSdlBxuncuBx9Ime3D6NM39TBlJUpkg6FpsNNGX421", PUBLIC: process.env.PUBLIC })[envVarName];
+  return Object.assign(__vite_import_meta_env__, { CLERK_SECRET_KEY: "sk_test_MQQShCfMpH5SzWaBWcWRnHQ8EOPv62eqQ8dZgAlqSR", PUBLIC: process.env.PUBLIC })[envVarName];
 }
 function getSafeEnv(context) {
   return {
@@ -5430,7 +5433,7 @@ var createClerkClientWithOptions = (context, options) => createClerkClient({
     name: "@clerk/astro",
     version: "2.7.1",
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    environment: Object.assign(__vite_import_meta_env__, { CLERK_SECRET_KEY: "sk_test_PSdlBxuncuBx9Ime3D6NM39TBlJUpkg6FpsNNGX421", PUBLIC: process.env.PUBLIC }).MODE
+    environment: Object.assign(__vite_import_meta_env__, { CLERK_SECRET_KEY: "sk_test_MQQShCfMpH5SzWaBWcWRnHQ8EOPv62eqQ8dZgAlqSR", PUBLIC: process.env.PUBLIC }).MODE
   },
   telemetry: {
     disabled: getSafeEnv(context).telemetryDisabled,

@@ -1,328 +1,466 @@
-import { ah as createComponent, ai as createAstro, f as renderTemplate, ar as renderSlot, as as renderHead, ak as maybeRenderHead, am as spreadAttributes, al as addAttribute, r as renderComponent } from "../chunks/astro/server_zk9zilKh.mjs";
+import { c as createComponent, e as createAstro, r as renderComponent, a as renderScript, b as renderTemplate, g as renderSlot, f as defineScriptVars, ar as addAttribute, m as maybeRenderHead, as as spreadAttributes, aw as defineStyleVars } from "../chunks/astro/server_dK_ejg3u.mjs";
+import { g as generateSafeId, $ as $$Base } from "../chunks/base_zbUf8r-R.mjs";
 /* empty css                                 */
 import { r } from "../chunks/internal_CWyUhqTg.mjs";
+const $$Astro$s = createAstro();
+const $$SignedInCSR = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$s, $$props, $$slots);
+  Astro2.self = $$SignedInCSR;
+  const { class: className } = Astro2.props;
+  return renderTemplate`${renderComponent($$result, "clerk-signed-in", "clerk-signed-in", { "class": className, "hidden": true }, { "default": () => renderTemplate` ${renderSlot($$result, $$slots["default"])} ` })} ${renderScript($$result, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/control/SignedInCSR.astro?astro&type=script&index=0&lang.ts")}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/control/SignedInCSR.astro", void 0);
+const $$Astro$r = createAstro();
+const $$SignedInSSR = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$r, $$props, $$slots);
+  Astro2.self = $$SignedInSSR;
+  const { userId } = Astro2.locals.auth();
+  return renderTemplate`${userId ? renderTemplate`${renderSlot($$result, $$slots["default"])}` : null}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/control/SignedInSSR.astro", void 0);
+const configOutput = "server";
+function isStaticOutput(forceStatic) {
+  if (forceStatic !== void 0) {
+    return forceStatic;
+  }
+  return configOutput === "static";
+}
+const $$Astro$q = createAstro();
+const $$SignedIn = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$q, $$props, $$slots);
+  Astro2.self = $$SignedIn;
+  const { isStatic, class: className } = Astro2.props;
+  const SignedInComponent = isStaticOutput(isStatic) ? $$SignedInCSR : $$SignedInSSR;
+  return renderTemplate`${renderComponent($$result, "SignedInComponent", SignedInComponent, { "class": className }, { "default": ($$result2) => renderTemplate` ${renderSlot($$result2, $$slots["default"])} ` })}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/control/SignedIn.astro", void 0);
+const $$Astro$p = createAstro();
+const $$SignedOutCSR = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$p, $$props, $$slots);
+  Astro2.self = $$SignedOutCSR;
+  const { class: className } = Astro2.props;
+  return renderTemplate`${renderComponent($$result, "clerk-signed-out", "clerk-signed-out", { "class": className, "hidden": true }, { "default": () => renderTemplate` ${renderSlot($$result, $$slots["default"])} ` })} ${renderScript($$result, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/control/SignedOutCSR.astro?astro&type=script&index=0&lang.ts")}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/control/SignedOutCSR.astro", void 0);
+const $$Astro$o = createAstro();
+const $$SignedOutSSR = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$o, $$props, $$slots);
+  Astro2.self = $$SignedOutSSR;
+  const { userId } = Astro2.locals.auth();
+  return renderTemplate`${!userId ? renderTemplate`${renderSlot($$result, $$slots["default"])}` : null}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/control/SignedOutSSR.astro", void 0);
+const $$Astro$n = createAstro();
+const $$SignedOut = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$n, $$props, $$slots);
+  Astro2.self = $$SignedOut;
+  const { isStatic, class: className } = Astro2.props;
+  const SignedOutComponent = isStaticOutput(isStatic) ? $$SignedOutCSR : $$SignedOutSSR;
+  return renderTemplate`${renderComponent($$result, "SignedOutComponent", SignedOutComponent, { "class": className }, { "default": ($$result2) => renderTemplate` ${renderSlot($$result2, $$slots["default"])} ` })}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/control/SignedOut.astro", void 0);
+var __freeze$a = Object.freeze;
+var __defProp$a = Object.defineProperty;
+var __template$a = (cooked, raw) => __freeze$a(__defProp$a(cooked, "raw", { value: __freeze$a(raw || cooked.slice()) }));
+var _a$a;
+const $$Astro$m = createAstro();
+const $$InternalUIComponentRenderer = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$m, $$props, $$slots);
+  Astro2.self = $$InternalUIComponentRenderer;
+  const { component, id, ...props } = Astro2.props;
+  const safeId = id || generateSafeId();
+  return renderTemplate(_a$a || (_a$a = __template$a(["", "<div", "></div> <script>(function(){", "\n  /**\n   * Store the id and the props for the Astro component in order to mount the correct UI component once clerk is loaded.\n   * The above is handled by `mountAllClerkAstroJSComponents`.\n   */\n  const setOrCreatePropMap = ({ category, id, props }) => {\n    if (!window.__astro_clerk_component_props) {\n      window.__astro_clerk_component_props = new Map();\n    }\n\n    if (!window.__astro_clerk_component_props.has(category)) {\n      const _ = new Map();\n      _.set(id, props);\n      window.__astro_clerk_component_props.set(category, _);\n    }\n\n    window.__astro_clerk_component_props.get(category)?.set(id, props);\n  };\n\n  setOrCreatePropMap({\n    category: component,\n    id: `clerk-${component}-${safeId}`,\n    props,\n  });\n})();<\/script>"], ["", "<div", "></div> <script>(function(){", "\n  /**\n   * Store the id and the props for the Astro component in order to mount the correct UI component once clerk is loaded.\n   * The above is handled by \\`mountAllClerkAstroJSComponents\\`.\n   */\n  const setOrCreatePropMap = ({ category, id, props }) => {\n    if (!window.__astro_clerk_component_props) {\n      window.__astro_clerk_component_props = new Map();\n    }\n\n    if (!window.__astro_clerk_component_props.has(category)) {\n      const _ = new Map();\n      _.set(id, props);\n      window.__astro_clerk_component_props.set(category, _);\n    }\n\n    window.__astro_clerk_component_props.get(category)?.set(id, props);\n  };\n\n  setOrCreatePropMap({\n    category: component,\n    id: \\`clerk-\\${component}-\\${safeId}\\`,\n    props,\n  });\n})();<\/script>"])), maybeRenderHead(), addAttribute(`clerk-${component}-${safeId}`, "data-clerk-id"), defineScriptVars({ props, component, safeId }));
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/interactive/InternalUIComponentRenderer.astro", void 0);
+const $$Astro$l = createAstro();
+const $$UserButton = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$l, $$props, $$slots);
+  Astro2.self = $$UserButton;
+  return renderTemplate`${renderComponent($$result, "InternalUIComponentRenderer", $$InternalUIComponentRenderer, { ...Astro2.props, "component": "user-button" })} ${renderSlot($$result, $$slots["default"])}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/interactive/UserButton/UserButton.astro", void 0);
+var __freeze$9 = Object.freeze;
+var __defProp$9 = Object.defineProperty;
+var __template$9 = (cooked, raw) => __freeze$9(__defProp$9(cooked, "raw", { value: __freeze$9(raw || cooked.slice()) }));
+var _a$9;
+const $$Astro$k = createAstro();
+const $$MenuItemRenderer = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$k, $$props, $$slots);
+  Astro2.self = $$MenuItemRenderer;
+  const { label, href, open, clickIdentifier, parent } = Astro2.props;
+  let labelIcon = "";
+  if (Astro2.slots.has("label-icon")) {
+    labelIcon = await Astro2.slots.render("label-icon");
+  }
+  const isDevMode = false;
+  return renderTemplate(_a$9 || (_a$9 = __template$9(["<script>(function(){", "\nconst parentElement = document.currentScript.parentElement;\n\n// We used a web component in the `<UserButton.MenuItems>` component.\nconst hasParentMenuItem = parentElement.tagName.toLowerCase() === 'clerk-user-button-menu-items';\nif (!hasParentMenuItem) {\n  if (isDevMode) {\n    throw new Error(\n      `Clerk: <UserButton.MenuItems /> component can only accept <UserButton.Action /> and <UserButton.Link /> as its children. Any other provided component will be ignored.`\n    );\n  }\n  return\n}\n\n// Get the user button map from window that we set in the `<InternalUIComponentRenderer />`.\nconst userButtonComponentMap = window.__astro_clerk_component_props.get('user-button');\n\nlet userButton\nif (parent) {\n  userButton = document.querySelector(`[data-clerk-id=\"clerk-user-button-${parent}\"]`);\n} else {\n  userButton = document.querySelector('[data-clerk-id^=\"clerk-user-button\"]');\n}\n\nconst safeId = userButton.getAttribute('data-clerk-id');\nconst currentOptions = userButtonComponentMap.get(safeId);\n\nconst reorderItemsLabels = ['manageAccount', 'signOut'];\nconst isReorderItem = reorderItemsLabels.includes(label);\n\nlet newMenuItem = {\n  label,\n}\n\nif (!isReorderItem) {\n  newMenuItem = {\n    ...newMenuItem,\n    mountIcon: (el) => {\n      el.innerHTML = labelIcon\n    },\n    unmountIcon: () => { /* What to clean up? */}\n  }\n\n  if (href) {\n    newMenuItem.href = href;\n  } else if (open) {\n    newMenuItem.open = open.startsWith('/') ? open : `/${open}`;\n  } else if (clickIdentifier) {\n    const clickEvent = new CustomEvent('clerk:menu-item-click', { detail: clickIdentifier });\n    newMenuItem.onClick = () => {\n      document.dispatchEvent(clickEvent);\n    }\n  }\n}\n\nuserButtonComponentMap.set(safeId, {\n  ...currentOptions,\n  customMenuItems: [\n    ...(currentOptions?.customMenuItems ?? []),\n    newMenuItem,\n  ]\n})\n})();<\/script>"], ["<script>(function(){", "\nconst parentElement = document.currentScript.parentElement;\n\n// We used a web component in the \\`<UserButton.MenuItems>\\` component.\nconst hasParentMenuItem = parentElement.tagName.toLowerCase() === 'clerk-user-button-menu-items';\nif (!hasParentMenuItem) {\n  if (isDevMode) {\n    throw new Error(\n      \\`Clerk: <UserButton.MenuItems /> component can only accept <UserButton.Action /> and <UserButton.Link /> as its children. Any other provided component will be ignored.\\`\n    );\n  }\n  return\n}\n\n// Get the user button map from window that we set in the \\`<InternalUIComponentRenderer />\\`.\nconst userButtonComponentMap = window.__astro_clerk_component_props.get('user-button');\n\nlet userButton\nif (parent) {\n  userButton = document.querySelector(\\`[data-clerk-id=\"clerk-user-button-\\${parent}\"]\\`);\n} else {\n  userButton = document.querySelector('[data-clerk-id^=\"clerk-user-button\"]');\n}\n\nconst safeId = userButton.getAttribute('data-clerk-id');\nconst currentOptions = userButtonComponentMap.get(safeId);\n\nconst reorderItemsLabels = ['manageAccount', 'signOut'];\nconst isReorderItem = reorderItemsLabels.includes(label);\n\nlet newMenuItem = {\n  label,\n}\n\nif (!isReorderItem) {\n  newMenuItem = {\n    ...newMenuItem,\n    mountIcon: (el) => {\n      el.innerHTML = labelIcon\n    },\n    unmountIcon: () => { /* What to clean up? */}\n  }\n\n  if (href) {\n    newMenuItem.href = href;\n  } else if (open) {\n    newMenuItem.open = open.startsWith('/') ? open : \\`/\\${open}\\`;\n  } else if (clickIdentifier) {\n    const clickEvent = new CustomEvent('clerk:menu-item-click', { detail: clickIdentifier });\n    newMenuItem.onClick = () => {\n      document.dispatchEvent(clickEvent);\n    }\n  }\n}\n\nuserButtonComponentMap.set(safeId, {\n  ...currentOptions,\n  customMenuItems: [\n    ...(currentOptions?.customMenuItems ?? []),\n    newMenuItem,\n  ]\n})\n})();<\/script>"])), defineScriptVars({ label, href, open, clickIdentifier, labelIcon, isDevMode, parent }));
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/interactive/UserButton/MenuItemRenderer.astro", void 0);
+const $$Astro$j = createAstro();
+const $$UserButtonLink = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$j, $$props, $$slots);
+  Astro2.self = $$UserButtonLink;
+  const { label, href, parent } = Astro2.props;
+  return renderTemplate`${renderComponent($$result, "MenuItemRenderer", $$MenuItemRenderer, { "label": label, "href": href, "parent": parent }, { "label-icon": ($$result2) => renderTemplate`${renderSlot($$result2, $$slots["label-icon"])}` })}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/interactive/UserButton/UserButtonLink.astro", void 0);
+const $$Astro$i = createAstro();
+const $$UserButtonAction = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$i, $$props, $$slots);
+  Astro2.self = $$UserButtonAction;
+  const { label, open, clickIdentifier, parent } = Astro2.props;
+  return renderTemplate`${renderComponent($$result, "MenuItemRenderer", $$MenuItemRenderer, { "label": label, "open": open, "clickIdentifier": clickIdentifier, "parent": parent }, { "label-icon": ($$result2) => renderTemplate`${renderSlot($$result2, $$slots["label-icon"])}` })}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/interactive/UserButton/UserButtonAction.astro", void 0);
+const $$UserButtonMenuItems = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "clerk-user-button-menu-items", "clerk-user-button-menu-items", {}, { "default": () => renderTemplate` ${renderSlot($$result, $$slots["default"])} ` })} ${renderScript($$result, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/interactive/UserButton/UserButtonMenuItems.astro?astro&type=script&index=0&lang.ts")}`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/interactive/UserButton/UserButtonMenuItems.astro", void 0);
 var __freeze$8 = Object.freeze;
 var __defProp$8 = Object.defineProperty;
 var __template$8 = (cooked, raw) => __freeze$8(__defProp$8(cooked, "raw", { value: __freeze$8(raw || cooked.slice()) }));
 var _a$8;
-const $$Astro$c = createAstro();
-const $$Base = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$c, $$props, $$slots);
-  Astro2.self = $$Base;
-  const { title } = Astro2.props;
-  return renderTemplate(_a$8 || (_a$8 = __template$8(['<html lang="en" data-astro-cid-upqv7g22> <head><meta charset="utf-8"><link rel="shortcut icon" href="./assets/favicon.webp" type="image/x-icon"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>', "</title>", "</head> <body data-astro-cid-upqv7g22> ", "  <!-- <script>\n  window.addEventListener('resize', e => {\n    document.title = `${window.innerWidth}`;\n  });\n<\/script> --></body></html>"], ['<html lang="en" data-astro-cid-upqv7g22> <head><meta charset="utf-8"><link rel="shortcut icon" href="./assets/favicon.webp" type="image/x-icon"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>', "</title>", "</head> <body data-astro-cid-upqv7g22> ", "  <!-- <script>\n  window.addEventListener('resize', e => {\n    document.title = \\`\\${window.innerWidth}\\`;\n  });\n<\/script> --></body></html>"])), title, renderHead(), renderSlot($$result, $$slots["default"]));
-}, "C:/Users/amoil/Desktop/PlaylistHub/src/layout/base.astro", void 0);
+const $$Astro$h = createAstro();
+const $$UserButtonUserProfilePage = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$h, $$props, $$slots);
+  Astro2.self = $$UserButtonUserProfilePage;
+  const { url, label, parent } = Astro2.props;
+  let labelIcon = "";
+  let content = "";
+  if (Astro2.slots.has("label-icon")) {
+    labelIcon = await Astro2.slots.render("label-icon");
+  }
+  if (Astro2.slots.has("default")) {
+    content = await Astro2.slots.render("default");
+  }
+  return renderTemplate(_a$8 || (_a$8 = __template$8(["<script>(function(){", "\n// Get the user button map from window that we set in the `<InternalUIComponentRenderer />`.\nconst userButtonComponentMap = window.__astro_clerk_component_props.get('user-button');\n\nlet userButton\nif (parent) {\n  userButton = document.querySelector(`[data-clerk-id=\"clerk-user-button-${parent}\"]`);\n} else {\n  userButton = document.querySelector('[data-clerk-id^=\"clerk-user-button\"]');\n}\n\nconst safeId = userButton.getAttribute('data-clerk-id');\nconst currentOptions = userButtonComponentMap.get(safeId);\n\nconst newCustomPage = {\n  label,\n  url,\n  mountIcon: (el) => {\n    el.innerHTML = labelIcon\n  },\n  unmountIcon: () => { /* What to clean up? */},\n  mount: (el) => {\n    el.innerHTML = content\n  },\n  unmount: () => { /* What to clean up? */},\n}\n\nuserButtonComponentMap.set(safeId, {\n  ...currentOptions,\n  userProfileProps: {\n    customPages: [\n      ...(currentOptions?.userProfileProps?.customPages ?? []),\n      newCustomPage,\n    ]\n  }\n})\n})();<\/script>"], ["<script>(function(){", "\n// Get the user button map from window that we set in the \\`<InternalUIComponentRenderer />\\`.\nconst userButtonComponentMap = window.__astro_clerk_component_props.get('user-button');\n\nlet userButton\nif (parent) {\n  userButton = document.querySelector(\\`[data-clerk-id=\"clerk-user-button-\\${parent}\"]\\`);\n} else {\n  userButton = document.querySelector('[data-clerk-id^=\"clerk-user-button\"]');\n}\n\nconst safeId = userButton.getAttribute('data-clerk-id');\nconst currentOptions = userButtonComponentMap.get(safeId);\n\nconst newCustomPage = {\n  label,\n  url,\n  mountIcon: (el) => {\n    el.innerHTML = labelIcon\n  },\n  unmountIcon: () => { /* What to clean up? */},\n  mount: (el) => {\n    el.innerHTML = content\n  },\n  unmount: () => { /* What to clean up? */},\n}\n\nuserButtonComponentMap.set(safeId, {\n  ...currentOptions,\n  userProfileProps: {\n    customPages: [\n      ...(currentOptions?.userProfileProps?.customPages ?? []),\n      newCustomPage,\n    ]\n  }\n})\n})();<\/script>"])), defineScriptVars({ url, label, content, labelIcon, parent }));
+}, "C:/Users/amoil/Desktop/PlaylistHub/node_modules/.pnpm/@clerk+astro@2.7.1_astro@5._a6916d7ff689849485acb776c6d9a1d5/node_modules/@clerk/astro/components/interactive/UserButton/UserButtonUserProfilePage.astro", void 0);
+const UserButton = Object.assign($$UserButton, {
+  MenuItems: $$UserButtonMenuItems,
+  Link: $$UserButtonLink,
+  Action: $$UserButtonAction,
+  UserProfilePage: $$UserButtonUserProfilePage
+});
 const playlist = [
   {
     slug: "electronic",
     title: "Electronic",
     pinned: true,
     color: "#08d437",
-    whatColoris: "Clear Green"
+    whatColorIs: "Clear Green"
   },
   {
     slug: "bluerock",
     title: "Blue Rock",
     pinned: true,
     color: "#f007c3",
-    whatColoris: "Pink"
+    whatColorIs: "Pink"
   },
   {
     slug: "englishpop",
     title: "English Pop",
     pinned: true,
     color: "#dccf08",
-    whatColoris: "Yellow"
+    whatColorIs: "Yellow"
   },
   {
     slug: "melodicrock",
     title: "Melodic Rock",
     pinned: true,
     color: "#2ab240",
-    whatColoris: "Green"
+    whatColorIs: "Green"
   },
   {
     slug: "progressivepop",
     title: "Progressive Pop",
     pinned: true,
     color: "#9708ef",
-    whatColoris: "Purple Clear"
+    whatColorIs: "Purple Clear"
   },
   {
     slug: "alternativerock",
     title: "Alternative Rock",
     pinned: true,
     color: "#ff0200",
-    whatColoris: "Red"
+    whatColorIs: "Red"
   },
   {
     slug: "instrumental",
     title: "Instrumental",
     pinned: true,
     color: "#0dbce7",
-    whatColoris: "Celeste"
+    whatColorIs: "Celeste"
   },
   {
     slug: "spanishpop",
     title: "Spanish Pop",
     pinned: true,
     color: "#52e2d5",
-    whatColoris: "aqua verde"
+    whatColorIs: "aqua verde"
   },
   {
     slug: "eurodance",
     title: "Eurodance",
     pinned: true,
     color: "#FFA500",
-    whatColoris: "orange"
+    whatColorIs: "orange"
   },
   {
     slug: "bluepop",
     title: "Blue Pop",
     pinned: true,
-    color: "#2929dc",
-    whatColoris: "blue"
+    color: "#3f3fee",
+    whatColorIs: "MediumBlue"
   },
   {
     slug: "romantic",
     title: "Romantic",
     pinned: true,
     color: "#f5576c",
-    whatColoris: "rosado rojizo"
+    whatColorIs: "rosado rojizo"
   },
   {
     slug: "avantgarde",
     title: "Avant Garde",
     pinned: true,
     color: "#e0c3fc",
-    whatColoris: "morado claro"
+    whatColorIs: "morado claro"
   },
   {
     slug: "synthwave",
     title: "Synthwave",
     pinned: true,
     color: "#94f15b",
-    whatColoris: "verde lima claro"
+    whatColorIs: "verde lima claro"
   },
   {
     slug: "electropop",
     title: "Electro Pop",
     pinned: true,
     color: "#7d1fe9",
-    whatColoris: "morado oscuro"
+    whatColorIs: "morado oscuro"
   },
   {
     slug: "funk",
     title: "Funk",
     pinned: true,
-    color: "#FAEBD7",
-    whatColoris: "AntiqueWhite"
+    color: "#cdb798",
+    whatColorIs: "AntiqueWhite"
   },
   {
     slug: "ncs",
     title: "NCS",
     pinned: true,
     color: "#00FFFF",
-    whatColoris: "Aqua"
+    whatColorIs: "Aqua"
   },
   {
     slug: "indiepop",
     title: "Indie Pop",
     pinned: true,
     color: "#7FFFD4",
-    whatColoris: "Aquamarine"
+    whatColorIs: "Aquamarine"
   },
   {
     slug: "background",
     title: "Background",
     pinned: true,
     color: "#A52A2A",
-    whatColoris: "brown"
+    whatColorIs: "brown"
   },
   {
     slug: "surfrock",
     title: "Surf Rock",
     pinned: true,
     color: "#DEB887",
-    whatColoris: "BurlyWood"
+    whatColorIs: "BurlyWood"
   },
   {
     slug: "alternative",
     title: "Alternative",
     pinned: true,
     color: "#5F9EA0",
-    whatColoris: "Cadetblue"
+    whatColorIs: "Cadetblue"
   },
   {
     slug: "indierock",
     title: "Indie Rock",
     pinned: true,
     color: "#7FFF00",
-    whatColoris: "Chartreuse"
+    whatColorIs: "Chartreuse"
   },
   {
     slug: "rockpop",
     title: "Rock Pop",
     pinned: true,
     color: "#D2691E",
-    whatColoris: "Chocolate"
+    whatColorIs: "Chocolate"
   },
   {
     slug: "garage",
     title: "Garage",
     pinned: true,
     color: "#FF7F50",
-    whatColoris: "Coral"
+    whatColorIs: "Coral"
   },
   {
     slug: "electroacid",
     title: "Electro Acid",
     pinned: true,
     color: "#6495ED",
-    whatColoris: "CornflowerBlue"
+    whatColorIs: "CornflowerBlue"
   },
   {
     slug: "altpop",
     title: "Alt Pop",
     pinned: true,
-    color: "#FFF8DC",
-    whatColoris: "CornSilk"
+    color: "#b7ae8a",
+    whatColorIs: "CornSilk"
   },
   {
     slug: "rockandroll",
     title: "Rock and Roll",
     pinned: true,
     color: "#DC143C",
-    whatColoris: "Crimson"
+    whatColorIs: "Crimson"
   },
   {
     slug: "synthpop",
     title: "Synthpop",
     pinned: true,
     color: "#00FFFF",
-    whatColoris: "Cyan"
+    whatColorIs: "Cyan"
   },
   {
     slug: "darknight",
     title: "Dark Night",
     pinned: true,
-    color: "#8B0000",
-    whatColoris: "Dark Red"
+    color: "#bd1d1d",
+    whatColorIs: "Dark Red"
   },
   {
     slug: "discopop",
     title: "Disco Pop",
     pinned: true,
     color: "#008B8B",
-    whatColoris: "DarkCyan"
+    whatColorIs: "DarkCyan"
   },
   {
     slug: "hyperpop",
     title: "Hyperpop",
     pinned: true,
     color: "#B8860B",
-    whatColoris: "DarkGoldenRod"
+    whatColorIs: "DarkGoldenRod"
   },
   {
     slug: "retrowave",
     title: "Retrowave",
     pinned: true,
     color: "#A9A9A9",
-    whatColoris: "DarkGray"
+    whatColorIs: "DarkGray"
   },
   {
     slug: "newage",
     title: "New Age",
     pinned: true,
-    color: "#006400",
-    whatColoris: "DarkGreen"
+    color: "#01b401",
+    whatColorIs: "MediumGreen"
   },
   {
     slug: "popcore",
     title: "Popcore",
     pinned: true,
     color: "#BDB76B",
-    whatColoris: "DarkKhaki"
+    whatColorIs: "DarkKhaki"
   },
   {
     slug: "softrock",
     title: "Soft Rock",
     pinned: true,
     color: "#8B008B",
-    whatColoris: "DarkMagenta"
+    whatColorIs: "DarkMagenta"
   },
   {
     slug: "soulpop",
     title: "Soul Pop",
     pinned: true,
-    color: "#556B2F",
-    whatColoris: "DarkOliveGreen"
+    color: "#90ab5f",
+    whatColorIs: "MediumOliveGreen"
   },
   {
     slug: "guitar",
     title: "Guitar",
     pinned: true,
     color: "#FF8C00",
-    whatColoris: "DarkOrange"
+    whatColorIs: "DarkOrange"
   },
   {
     slug: "ambient",
     title: "Ambient",
     pinned: true,
     color: "#9932CC",
-    whatColoris: "DarkOrchid"
+    whatColorIs: "DarkOrchid"
   },
   {
     slug: "soul",
     title: "Soul",
     pinned: true,
     color: "#E9967A",
-    whatColoris: "DarkSalmon"
+    whatColorIs: "DarkSalmon"
   },
   {
     slug: "vaporwave",
     title: "Vaporwave",
     pinned: true,
     color: "#8FBC8F",
-    whatColoris: "DarkSeaGreen"
+    whatColorIs: "DarkSeaGreen"
   },
   {
     slug: "skweee",
     title: "Skweee",
     pinned: true,
-    color: "#483D8B",
-    whatColoris: "DarkSlateBlue"
+    color: "#685cb3",
+    whatColorIs: "MediumSlateBlue"
   },
   {
     slug: "techno",
     title: "Techno",
     pinned: true,
-    color: "#2F4F4F",
-    whatColoris: "DarkSlateGray"
+    color: "#6c9e9e",
+    whatColorIs: "MediumSlateGray"
   },
   {
     slug: "darkfolk",
     title: "Dark Folk",
     pinned: true,
     color: "#00CED1",
-    whatColoris: "DarkTurquoise"
+    whatColorIs: "DarkTurquoise"
   },
   {
     slug: "hauntology",
     title: "Hauntology",
     pinned: true,
     color: "#9400D3",
-    whatColoris: "DarkViolet"
+    whatColorIs: "DarkViolet"
   },
   {
     slug: "filmsost",
     title: "Films OST",
     pinned: true,
     color: "#FF1493",
-    whatColoris: "DeepPink"
+    whatColorIs: "DeepPink"
+  },
+  {
+    slug: "chiptune",
+    title: "Chiptune",
+    pinned: true,
+    color: "#00BFFF",
+    whatColorIs: "DeepSkyBlue"
+  },
+  {
+    slug: "witchhouse",
+    title: "Witch House",
+    pinned: true,
+    color: "#696969",
+    whatColorIs: "DimGrey"
+  },
+  {
+    slug: "phonk",
+    title: "Phonk",
+    pinned: true,
+    color: "#1E90FF",
+    whatColorIs: "DodgerBlue"
   }
 ];
-const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: playlist
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1833,6 +1971,192 @@ const __vite_glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
   __proto__: null,
   default: bluerock
 }, Symbol.toStringTag, { value: "Module" }));
+const chiptune = [
+  {
+    title: "Imperial Army Theme",
+    artist: "Zoids Chaotic Century",
+    album: "Chiptune",
+    date: "2028-02-01T00:00:00",
+    duration: "01:38",
+    urlSong: "https://20essentials.github.io/zoids-chaotic-century-ost/songs/n8.mp3",
+    urlPoster: "https://20essentials.github.io/zoids-chaotic-century-ost/assets/n1.avif"
+  },
+  {
+    title: "Ruin My Life",
+    artist: "Zara Larsson",
+    album: "Chiptune",
+    date: "2028-02-02T00:00:00",
+    duration: "03:14",
+    urlSong: "https://20essentials.github.io/zara-larsson-soundtrack/songs/n4.mp3",
+    urlPoster: "https://20essentials.github.io/zara-larsson-soundtrack/assets/n2.avif"
+  },
+  {
+    title: "Hold Me",
+    artist: "Your Favorite Enemies",
+    album: "Chiptune",
+    date: "2028-02-03T00:00:00",
+    duration: "03:56",
+    urlSong: "https://20essentials.github.io/your-favorite-enemies-band/songs/n4.mp3",
+    urlPoster: "https://20essentials.github.io/your-favorite-enemies-band/assets/n2.avif"
+  },
+  {
+    title: "Dear Mr. President",
+    artist: "4 Non Blondes",
+    album: "Chiptune",
+    date: "2028-02-04T00:00:00",
+    duration: "04:40",
+    urlSong: "https://20essentials.github.io/4-non-blondes/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/4-non-blondes/assets/n1.avif"
+  },
+  {
+    title: "Bad Blood",
+    artist: "Bastille",
+    album: "Chiptune",
+    date: "2028-02-05T00:00:00",
+    duration: "03:32",
+    urlSong: "https://20essentials.github.io/bastille-ost/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/bastille-ost/assets/n3.avif"
+  },
+  {
+    title: "Children Of The Grave",
+    artist: "Black Sabbath",
+    album: "Chiptune",
+    date: "2028-02-06T00:00:00",
+    duration: "05:15",
+    urlSong: "https://20essentials.github.io/black-sabbath-band/songs/n5.mp3",
+    urlPoster: "https://20essentials.github.io/black-sabbath-band/assets/n2.avif"
+  },
+  {
+    title: "Atomic",
+    artist: "Blondie",
+    album: "Chiptune",
+    date: "2028-02-07T00:00:00",
+    duration: "04:35",
+    urlSong: "https://20essentials.github.io/blondie-soundtrack/songs/n4.mp3",
+    urlPoster: "https://20essentials.github.io/blondie-soundtrack/assets/n1.avif"
+  },
+  {
+    title: "Clouds",
+    artist: "Borns",
+    album: "Chiptune",
+    date: "2028-02-08T00:00:00",
+    duration: "03:08",
+    urlSong: "https://20essentials.github.io/borns-band/songs/n10.mp3",
+    urlPoster: "https://20essentials.github.io/borns-band/assets/n4.avif"
+  },
+  {
+    title: "Irreplaceable",
+    artist: "Beyonce",
+    album: "Chiptune",
+    date: "2028-02-09T00:00:00",
+    duration: "03:53",
+    urlSong: "https://20essentials.github.io/beyonce-album/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/beyonce-album/assets/n2.avif"
+  },
+  {
+    title: "The Universal",
+    artist: "Blur",
+    album: "Chiptune",
+    date: "2028-02-10T00:00:00",
+    duration: "04:00",
+    urlSong: "https://20essentials.github.io/blur-band/songs/n4.mp3",
+    urlPoster: "https://20essentials.github.io/blur-band/assets/n2.avif"
+  },
+  {
+    title: "Stay The Same",
+    artist: "Bonobo",
+    album: "Chiptune",
+    date: "2028-02-11T00:00:00",
+    duration: "04:44",
+    urlSong: "https://20essentials.github.io/bonobo/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/bonobo/assets/n3.avif"
+  },
+  {
+    title: "A Horse With No Name",
+    artist: "Bojack Horseman",
+    album: "Chiptune",
+    date: "2028-02-12T00:00:00",
+    duration: "04:35",
+    urlSong: "https://20essentials.github.io/bojack-horseman-soundtrack/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/bojack-horseman-soundtrack/assets/n1.avif"
+  },
+  {
+    title: "Beautiful Things",
+    artist: "Benson Boone",
+    album: "Chiptune",
+    date: "2028-02-13T00:00:00",
+    duration: "03:00",
+    urlSong: "https://20essentials.github.io/benson-boone-band/songs/n1.mp3",
+    urlPoster: "https://20essentials.github.io/benson-boone-band/assets/n1.avif"
+  },
+  {
+    title: "Smoking",
+    artist: "Boston",
+    album: "Chiptune",
+    date: "2028-02-14T00:00:00",
+    duration: "04:23",
+    urlSong: "https://20essentials.github.io/boston-band/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/boston-band/assets/n4.avif"
+  },
+  {
+    title: "Knocking On Heaven's Door",
+    artist: "Bob Dylan",
+    album: "Chiptune",
+    date: "2028-02-15T00:00:00",
+    duration: "03:05",
+    urlSong: "https://20essentials.github.io/bob-dylan-album/songs/n2.mp3",
+    urlPoster: "https://20essentials.github.io/bob-dylan-album/assets/n2.avif"
+  },
+  {
+    title: "Tallking To The Moon",
+    artist: "Bruno Mars",
+    album: "Chiptune",
+    date: "2028-02-16T00:00:00",
+    duration: "03:34",
+    urlSong: "https://20essentials.github.io/bruno-mars-album/songs/n16.mp3",
+    urlPoster: "https://20essentials.github.io/bruno-mars-album/assets/n4.avif"
+  },
+  {
+    title: "So Demanding",
+    artist: "Bag Raiders",
+    album: "Chiptune",
+    date: "2028-02-17T00:00:00",
+    duration: "01:42",
+    urlSong: "https://20essentials.github.io/bag-raiders-band/songs/n5.mp3",
+    urlPoster: "https://20essentials.github.io/bag-raiders-band/assets/n4.avif"
+  },
+  {
+    title: "The Lonely One",
+    artist: "Alice Deejay",
+    album: "Chiptune",
+    date: "2028-02-18T00:00:00",
+    duration: "03:30",
+    urlSong: "https://20essentials.github.io/alice-deejay/songs/n4.mp3",
+    urlPoster: "https://20essentials.github.io/alice-deejay/assets/n1.avif"
+  },
+  {
+    title: "I Drove All Night",
+    artist: "Unknown Brain",
+    album: "Chiptune",
+    date: "2028-02-19T00:00:00",
+    duration: "02:43",
+    urlSong: "https://20essentials.github.io/unknown-brain-soundtrack/songs/n14.mp3",
+    urlPoster: "https://20essentials.github.io/unknown-brain-soundtrack/assets/n4.avif"
+  },
+  {
+    title: "Cigarrete Daydreams",
+    artist: "Cage The Elephant",
+    album: "Chiptune",
+    date: "2028-02-20T00:00:00",
+    duration: "03:31",
+    urlSong: "https://20essentials.github.io/cage-the-elephant-band/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/cage-the-elephant-band/assets/n2.avif"
+  }
+];
+const __vite_glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: chiptune
+}, Symbol.toStringTag, { value: "Module" }));
 const darkfolk = [
   {
     title: "Would You Believe",
@@ -2015,7 +2339,7 @@ const darkfolk = [
     urlPoster: "https://20essentials.github.io/bag-raiders-band/assets/n1.avif"
   }
 ];
-const __vite_glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: darkfolk
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2201,7 +2525,7 @@ const darknight = [
     urlPoster: "https://20essentials.github.io/ofdream/assets/n2.avif"
   }
 ];
-const __vite_glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: darknight
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2387,7 +2711,7 @@ const discopop = [
     urlPoster: "https://20essentials.github.io/warriyo-ost/assets/n1.avif"
   }
 ];
-const __vite_glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: discopop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2573,7 +2897,7 @@ const electroacid = [
     urlPoster: "https://20essentials.github.io/selena-gomez-ost/assets/n1.avif"
   }
 ];
-const __vite_glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: electroacid
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2759,7 +3083,7 @@ const electronic = [
     urlPoster: "https://20essentials.github.io/underworld-ost/assets/n1.avif"
   }
 ];
-const __vite_glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: electronic
 }, Symbol.toStringTag, { value: "Module" }));
@@ -2945,7 +3269,7 @@ const electropop = [
     urlPoster: "https://20essentials.github.io/imagine--dragons/assets/n1.avif"
   }
 ];
-const __vite_glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: electropop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -3151,7 +3475,7 @@ const englishpop = [
     urlPoster: "https://20essentials.github.io/barbie-soundtrack/assets/n3.avif"
   }
 ];
-const __vite_glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: englishpop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -3337,7 +3661,7 @@ const eurodance = [
     urlPoster: "https://20essentials.github.io/clint-mansell/assets/n1.avif"
   }
 ];
-const __vite_glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: eurodance
 }, Symbol.toStringTag, { value: "Module" }));
@@ -3453,7 +3777,7 @@ const filmsost = [
   {
     title: "Over Under Sideways Down",
     artist: "Yardbirds",
-    album: "Rock Classics",
+    album: "Films OST",
     date: "2028-01-13T00:00:00",
     duration: "02:31",
     urlSong: "https://20essentials.github.io/yardbirds-band/songs/n6.mp3",
@@ -3480,7 +3804,7 @@ const filmsost = [
   {
     title: "Against Time",
     artist: "Ben 10",
-    album: "TV Series OST",
+    album: "Films OST",
     date: "2028-01-16T00:00:00",
     duration: "01:06",
     urlSong: "https://20essentials.github.io/ben-10-album/songs/n3.mp3",
@@ -3523,7 +3847,7 @@ const filmsost = [
     urlPoster: "https://20essentials.github.io/how-to-train-your-dragon-soundtrack/assets/n4.avif"
   }
 ];
-const __vite_glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: filmsost
 }, Symbol.toStringTag, { value: "Module" }));
@@ -3709,7 +4033,7 @@ const funk = [
     urlPoster: "https://20essentials.github.io/hot-chip/assets/n2.avif"
   }
 ];
-const __vite_glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: funk
 }, Symbol.toStringTag, { value: "Module" }));
@@ -3895,7 +4219,7 @@ const garage = [
     urlPoster: "https://20essentials.github.io/imagine--dragons/assets/n3.avif"
   }
 ];
-const __vite_glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: garage
 }, Symbol.toStringTag, { value: "Module" }));
@@ -4081,7 +4405,7 @@ const guitar = [
     urlPoster: "https://20essentials.github.io/opeth-album/assets/n2.avif"
   }
 ];
-const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: guitar
 }, Symbol.toStringTag, { value: "Module" }));
@@ -4089,7 +4413,7 @@ const hauntology = [
   {
     title: "Maps",
     artist: "Yeah Yeah Yeahs",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-01T00:00:00",
     duration: "03:24",
     urlSong: "https://20essentials.github.io/yeah-yeah-yeahs-band/songs/n1.mp3",
@@ -4098,7 +4422,7 @@ const hauntology = [
   {
     title: "Fine Theme",
     artist: "Zoids Chaotic Century",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-02T00:00:00",
     duration: "01:44",
     urlSong: "https://20essentials.github.io/zoids-chaotic-century-ost/songs/n14.mp3",
@@ -4107,7 +4431,7 @@ const hauntology = [
   {
     title: "What They Say",
     artist: "Zara Larsson",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-03T00:00:00",
     duration: "03:39",
     urlSong: "https://20essentials.github.io/zara-larsson-soundtrack/songs/n7.mp3",
@@ -4116,7 +4440,7 @@ const hauntology = [
   {
     title: "Rising",
     artist: "Ahrix",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-04T00:00:00",
     duration: "03:09",
     urlSong: "https://20essentials.github.io/ahrix-soundtrack/songs/n4.mp3",
@@ -4125,7 +4449,7 @@ const hauntology = [
   {
     title: "Walk This Way",
     artist: "Aerosmith",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-05T00:00:00",
     duration: "03:41",
     urlSong: "https://20essentials.github.io/aerosmith-band/songs/n5.mp3",
@@ -4134,7 +4458,7 @@ const hauntology = [
   {
     title: "Sunset Blow",
     artist: "Your Favorite Enemies",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-06T00:00:00",
     duration: "03:47",
     urlSong: "https://20essentials.github.io/your-favorite-enemies-band/songs/n8.mp3",
@@ -4143,7 +4467,7 @@ const hauntology = [
   {
     title: "Kiss And Tell",
     artist: "Alexander Rybak",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-07T00:00:00",
     duration: "03:21",
     urlSong: "https://20essentials.github.io/alexander-rybak/songs/n4.mp3",
@@ -4152,7 +4476,7 @@ const hauntology = [
   {
     title: "Save Me Now",
     artist: "Billy Idol",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-08T00:00:00",
     duration: "04:31",
     urlSong: "https://20essentials.github.io/billy-idol-soundtrack/songs/n12.mp3",
@@ -4161,7 +4485,7 @@ const hauntology = [
   {
     title: "Sweet Left",
     artist: "Black Sabbath",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-09T00:00:00",
     duration: "05:05",
     urlSong: "https://20essentials.github.io/black-sabbath-band/songs/n10.mp3",
@@ -4170,7 +4494,7 @@ const hauntology = [
   {
     title: "Swoon",
     artist: "Beach Weather",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-10T00:00:00",
     duration: "03:42",
     urlSong: "https://20essentials.github.io/beach-weather-soundtrack/songs/n2.mp3",
@@ -4179,7 +4503,7 @@ const hauntology = [
   {
     title: "Sunday Girl",
     artist: "Blondie",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-11T00:00:00",
     duration: "03:11",
     urlSong: "https://20essentials.github.io/blondie-soundtrack/songs/n9.mp3",
@@ -4188,7 +4512,7 @@ const hauntology = [
   {
     title: "Past Lives",
     artist: "Borns",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-12T00:00:00",
     duration: "04:32",
     urlSong: "https://20essentials.github.io/borns-band/songs/n2.mp3",
@@ -4197,7 +4521,7 @@ const hauntology = [
   {
     title: "One More Time",
     artist: "Blink-182",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-13T00:00:00",
     duration: "03:25",
     urlSong: "https://20essentials.github.io/blink-182-band/songs/n7.mp3",
@@ -4206,7 +4530,7 @@ const hauntology = [
   {
     title: "Run The World",
     artist: "Beyonce",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-14T00:00:00",
     duration: "04:53",
     urlSong: "https://20essentials.github.io/beyonce-album/songs/n3.mp3",
@@ -4215,7 +4539,7 @@ const hauntology = [
   {
     title: "Better Alone",
     artist: "Benson Boone",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-15T00:00:00",
     duration: "03:29",
     urlSong: "https://20essentials.github.io/benson-boone-band/songs/n6.mp3",
@@ -4224,7 +4548,7 @@ const hauntology = [
   {
     title: "Peace Of Mind",
     artist: "Boston",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-16T00:00:00",
     duration: "05:01",
     urlSong: "https://20essentials.github.io/boston-band/songs/n2.mp3",
@@ -4233,7 +4557,7 @@ const hauntology = [
   {
     title: "Masters Of War",
     artist: "Bob Dylan",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-17T00:00:00",
     duration: "04:33",
     urlSong: "https://20essentials.github.io/bob-dylan-album/songs/n6.mp3",
@@ -4242,7 +4566,7 @@ const hauntology = [
   {
     title: "Just The Way You Are",
     artist: "Bruno Mars",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-18T00:00:00",
     duration: "03:56",
     urlSong: "https://20essentials.github.io/bruno-mars-album/songs/n2.mp3",
@@ -4251,7 +4575,7 @@ const hauntology = [
   {
     title: "Way Back Home",
     artist: "Bag Raiders",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-19T00:00:00",
     duration: "03:36",
     urlSong: "https://20essentials.github.io/bag-raiders-band/songs/n2.mp3",
@@ -4260,14 +4584,14 @@ const hauntology = [
   {
     title: "Will I Ever",
     artist: "Alice Deejay",
-    album: "Techno",
+    album: "Hauntology",
     date: "2027-12-20T00:00:00",
     duration: "03:27",
     urlSong: "https://20essentials.github.io/alice-deejay/songs/n3.mp3",
     urlPoster: "https://20essentials.github.io/alice-deejay/assets/n2.avif"
   }
 ];
-const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: hauntology
 }, Symbol.toStringTag, { value: "Module" }));
@@ -4453,7 +4777,7 @@ const hyperpop = [
     urlPoster: "https://20essentials.github.io/rude-ost/assets/n1.avif"
   }
 ];
-const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: hyperpop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -4639,7 +4963,7 @@ const indiepop = [
     urlPoster: "https://20essentials.github.io/imagine--dragons/assets/n2.avif"
   }
 ];
-const __vite_glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: indiepop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -4825,7 +5149,7 @@ const indierock = [
     urlPoster: "https://20essentials.github.io/indochine-band/assets/n4.avif"
   }
 ];
-const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: indierock
 }, Symbol.toStringTag, { value: "Module" }));
@@ -5011,7 +5335,7 @@ const instrumental = [
     urlPoster: "https://20essentials.github.io/john-williams-ost/assets/n3.avif"
   }
 ];
-const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: instrumental
 }, Symbol.toStringTag, { value: "Module" }));
@@ -5217,7 +5541,7 @@ const melodicrock = [
     urlPoster: "https://20essentials.github.io/muse-ost/assets/n3.avif"
   }
 ];
-const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: melodicrock
 }, Symbol.toStringTag, { value: "Module" }));
@@ -5403,7 +5727,7 @@ const ncs = [
     urlPoster: "https://20essentials.github.io/jjd/assets/n2.avif"
   }
 ];
-const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ncs
 }, Symbol.toStringTag, { value: "Module" }));
@@ -5589,9 +5913,195 @@ const newage = [
     urlPoster: "https://20essentials.github.io/xtc-band/assets/n1.avif"
   }
 ];
-const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: newage
+}, Symbol.toStringTag, { value: "Module" }));
+const phonk = [
+  {
+    title: "Sleepwalker",
+    artist: "Akiaura",
+    album: "Phonk",
+    date: "2028-04-01T00:00:00",
+    duration: "04:18",
+    urlSong: "https://20essentials.github.io/akiaura-ost/songs/n1.mp3",
+    urlPoster: "https://20essentials.github.io/akiaura-ost/assets/n1.avif"
+  },
+  {
+    title: "Suffer With Me",
+    artist: "Liue",
+    album: "Phonk",
+    date: "2028-04-02T00:00:00",
+    duration: "04:43",
+    urlSong: "https://20essentials.github.io/liue/songs/n1.mp3",
+    urlPoster: "https://20essentials.github.io/liue/assets/n1.avif"
+  },
+  {
+    title: "Little Dark",
+    artist: "MGMT",
+    album: "Phonk",
+    date: "2028-04-03T00:00:00",
+    duration: "05:00",
+    urlSong: "https://20essentials.github.io/mgmt-band/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/mgmt-band/assets/n3.avif"
+  },
+  {
+    title: "Highwayman",
+    artist: "Akassuna",
+    album: "Phonk",
+    date: "2028-04-04T00:00:00",
+    duration: "02:15",
+    urlSong: "https://20essentials.github.io/akassuna-album/songs/n4.mp3",
+    urlPoster: "https://20essentials.github.io/akassuna-album/assets/n1.avif"
+  },
+  {
+    title: "War Zone",
+    artist: "Unknown Brain",
+    album: "Phonk",
+    date: "2028-04-05T00:00:00",
+    duration: "03:03",
+    urlSong: "https://20essentials.github.io/unknown-brain-soundtrack/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/unknown-brain-soundtrack/assets/n1.avif"
+  },
+  {
+    title: "Wondering",
+    artist: "Xiu Xiu",
+    album: "Phonk",
+    date: "2028-04-06T00:00:00",
+    duration: "04:12",
+    urlSong: "https://20essentials.github.io/xiu-xiu-band/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/xiu-xiu-band/assets/n1.avif"
+  },
+  {
+    title: "How We Do It",
+    artist: "Axol",
+    album: "Phonk",
+    date: "2028-04-07T00:00:00",
+    duration: "02:42",
+    urlSong: "https://20essentials.github.io/axol/songs/n7.mp3",
+    urlPoster: "https://20essentials.github.io/axol/assets/n4.avif"
+  },
+  {
+    title: "Painxkiller",
+    artist: "Akassuna",
+    album: "Phonk",
+    date: "2028-04-08T00:00:00",
+    duration: "02:18",
+    urlSong: "https://20essentials.github.io/akassuna-album/songs/n1.mp3",
+    urlPoster: "https://20essentials.github.io/akassuna-album/assets/n2.avif"
+  },
+  {
+    title: "Best Of Me",
+    artist: "Neffex",
+    album: "Phonk",
+    date: "2028-04-09T00:00:00",
+    duration: "03:47",
+    urlSong: "https://20essentials.github.io/neffex-soundtrack/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/neffex-soundtrack/assets/n1.avif"
+  },
+  {
+    title: "Montreal",
+    artist: "Autechre",
+    album: "Phonk",
+    date: "2028-04-10T00:00:00",
+    duration: "07:15",
+    urlSong: "https://20essentials.github.io/autechre-band/songs/n5.mp3",
+    urlPoster: "https://20essentials.github.io/autechre-band/assets/n2.avif"
+  },
+  {
+    title: "Better Of",
+    artist: "Alice Deejay",
+    album: "Phonk",
+    date: "2028-04-11T00:00:00",
+    duration: "02:55",
+    urlSong: "https://20essentials.github.io/alice-deejay/songs/n10.mp3",
+    urlPoster: "https://20essentials.github.io/alice-deejay/assets/n3.avif"
+  },
+  {
+    title: "Rumors",
+    artist: "Neffex",
+    album: "Phonk",
+    date: "2028-04-12T00:00:00",
+    duration: "04:07",
+    urlSong: "https://20essentials.github.io/neffex/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/neffex/assets/n2.avif"
+  },
+  {
+    title: "Phenomenon",
+    artist: "Unknown Brain",
+    album: "Phonk",
+    date: "2028-04-13T00:00:00",
+    duration: "02:56",
+    urlSong: "https://20essentials.github.io/unknown-brain-soundtrack/songs/n7.mp3",
+    urlPoster: "https://20essentials.github.io/unknown-brain-soundtrack/assets/n2.avif"
+  },
+  {
+    title: "Drive",
+    artist: "Wiguez And Vizzen",
+    album: "Phonk",
+    date: "2028-04-14T00:00:00",
+    duration: "02:50",
+    urlSong: "https://20essentials.github.io/wiguez-and-vizzen/songs/n8.mp3",
+    urlPoster: "https://20essentials.github.io/wiguez-and-vizzen/assets/n1.avif"
+  },
+  {
+    title: "Hella Phonk",
+    artist: "Akassuna",
+    album: "Phonk",
+    date: "2028-04-15T00:00:00",
+    duration: "02:18",
+    urlSong: "https://20essentials.github.io/akassuna-album/songs/n2.mp3",
+    urlPoster: "https://20essentials.github.io/akassuna-album/assets/n3.avif"
+  },
+  {
+    title: "Flashback",
+    artist: "Craspore",
+    album: "Phonk",
+    date: "2028-04-16T00:00:00",
+    duration: "06:43",
+    urlSong: "https://20essentials.github.io/craspore-album/songs/n1.mp3",
+    urlPoster: "https://20essentials.github.io/craspore-album/assets/n1.avif"
+  },
+  {
+    title: "Lost",
+    artist: "Crimes",
+    album: "Phonk",
+    date: "2028-04-17T00:00:00",
+    duration: "02:28",
+    urlSong: "https://20essentials.github.io/crimes-band/songs/n1.mp3",
+    urlPoster: "https://20essentials.github.io/crimes-band/assets/n1.avif"
+  },
+  {
+    title: "Fluxxwave",
+    artist: "Clovis Ryes",
+    album: "Phonk",
+    date: "2028-04-18T00:00:00",
+    duration: "02:30",
+    urlSong: "https://20essentials.github.io/clovis-reyes-album/songs/n1.mp3",
+    urlPoster: "https://20essentials.github.io/clovis-reyes-album/assets/n1.avif"
+  },
+  {
+    title: "Desolator",
+    artist: "Akassuna",
+    album: "Phonk",
+    date: "2028-04-19T00:00:00",
+    duration: "02:14",
+    urlSong: "https://20essentials.github.io/akassuna-album/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/akassuna-album/assets/n4.avif"
+  },
+  {
+    title: "Desolate",
+    artist: "Wiguez And Vizzen",
+    album: "Phonk",
+    date: "2028-04-20T00:00:00",
+    duration: "02:50",
+    urlSong: "https://20essentials.github.io/wiguez-and-vizzen/songs/n7.mp3",
+    urlPoster: "https://20essentials.github.io/wiguez-and-vizzen/assets/n2.avif"
+  }
+];
+const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: phonk
 }, Symbol.toStringTag, { value: "Module" }));
 const popcore = [
   {
@@ -5775,7 +6285,7 @@ const popcore = [
     urlPoster: "https://20essentials.github.io/queen-band/assets/n1.avif"
   }
 ];
-const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: popcore
 }, Symbol.toStringTag, { value: "Module" }));
@@ -5961,7 +6471,7 @@ const progressivepop = [
     urlPoster: "https://20essentials.github.io/marlon-roudette/assets/n1.avif"
   }
 ];
-const __vite_glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: progressivepop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6147,7 +6657,7 @@ const retrowave = [
     urlPoster: "https://20essentials.github.io/warpaint-band/assets/n1.avif"
   }
 ];
-const __vite_glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: retrowave
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6333,7 +6843,7 @@ const rockandroll = [
     urlPoster: "https://20essentials.github.io/toto-band/assets/n1.avif"
   }
 ];
-const __vite_glob_0_32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: rockandroll
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6519,7 +7029,7 @@ const rockpop = [
     urlPoster: "https://20essentials.github.io/los-violadores-band/assets/n2.avif"
   }
 ];
-const __vite_glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: rockpop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6705,7 +7215,7 @@ const romantic = [
     urlPoster: "https://20essentials.github.io/coldplay/assets/n3.avif"
   }
 ];
-const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: romantic
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6891,7 +7401,7 @@ const skweee = [
     urlPoster: "https://20essentials.github.io/benson-boone-band/assets/n2.avif"
   }
 ];
-const __vite_glob_0_35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: skweee
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7077,7 +7587,7 @@ const softrock = [
     urlPoster: "https://20essentials.github.io/4-non-blondes/assets/n1.avif"
   }
 ];
-const __vite_glob_0_36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: softrock
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7263,7 +7773,7 @@ const soul = [
     urlPoster: "https://20essentials.github.io/blondie-soundtrack/assets/n1.avif"
   }
 ];
-const __vite_glob_0_37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: soul
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7449,7 +7959,7 @@ const soulpop = [
     urlPoster: "https://20essentials.github.io/the-oral-cigarretes/assets/n1.avif"
   }
 ];
-const __vite_glob_0_38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: soulpop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7635,7 +8145,7 @@ const spanishpop = [
     urlPoster: "https://20essentials.github.io/juan-gabriel-ost/assets/n3.avif"
   }
 ];
-const __vite_glob_0_39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: spanishpop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7821,7 +8331,7 @@ const surfrock = [
     urlPoster: "https://20essentials.github.io/men-at-work-band/assets/n1.avif"
   }
 ];
-const __vite_glob_0_40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: surfrock
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8007,7 +8517,7 @@ const synthpop = [
     urlPoster: "https://20essentials.github.io/le-castle-vania-ost-/assets/n4.avif"
   }
 ];
-const __vite_glob_0_41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: synthpop
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8193,7 +8703,7 @@ const synthwave = [
     urlPoster: "https://20essentials.github.io/vicetone-ost/assets/n1.avif"
   }
 ];
-const __vite_glob_0_42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: synthwave
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8379,7 +8889,7 @@ const techno = [
     urlPoster: "https://20essentials.github.io/blur-band/assets/n3.avif"
   }
 ];
-const __vite_glob_0_43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: techno
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8565,29 +9075,215 @@ const vaporwave = [
     urlPoster: "https://20essentials.github.io/bojack-horseman-soundtrack/assets/n2.avif"
   }
 ];
-const __vite_glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: vaporwave
 }, Symbol.toStringTag, { value: "Module" }));
-const $$Astro$b = createAstro();
+const witchhouse = [
+  {
+    title: "No Me Destruyas",
+    artist: "Zoé",
+    album: "Witch House",
+    date: "2028-03-01T00:00:00",
+    duration: "03:47",
+    urlSong: "https://20essentials.github.io/zoe-ost/songs/n8.mp3",
+    urlPoster: "https://20essentials.github.io/zoe-ost/assets/n4.avif"
+  },
+  {
+    title: "Tgam",
+    artist: "Zara Larsson",
+    album: "Witch House",
+    date: "2028-03-02T00:00:00",
+    duration: "02:53",
+    urlSong: "https://20essentials.github.io/zara-larsson-soundtrack/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/zara-larsson-soundtrack/assets/n3.avif"
+  },
+  {
+    title: "Left Behin",
+    artist: "Ahrix",
+    album: "Witch House",
+    date: "2028-03-03T00:00:00",
+    duration: "03:07",
+    urlSong: "https://20essentials.github.io/ahrix-soundtrack/songs/n2.mp3",
+    urlPoster: "https://20essentials.github.io/ahrix-soundtrack/assets/n2.avif"
+  },
+  {
+    title: "A Track 3",
+    artist: "Zoids Chaotic Century",
+    album: "Witch House",
+    date: "2028-03-04T00:00:00",
+    duration: "03:45",
+    urlSong: "https://20essentials.github.io/zoids-chaotic-century-ost/songs/n12.mp3",
+    urlPoster: "https://20essentials.github.io/zoids-chaotic-century-ost/assets/n3.avif"
+  },
+  {
+    title: "Crazy",
+    artist: "Aerosmith",
+    album: "Witch House",
+    date: "2028-03-05T00:00:00",
+    duration: "05:16",
+    urlSong: "https://20essentials.github.io/aerosmith-band/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/aerosmith-band/assets/n2.avif"
+  },
+  {
+    title: "Broken Sleep",
+    artist: "Agnes Obel",
+    album: "Witch House",
+    date: "2028-03-06T00:00:00",
+    duration: "04:50",
+    urlSong: "https://20essentials.github.io/agnes-obel-album/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/agnes-obel-album/assets/n1.avif"
+  },
+  {
+    title: "One Drop",
+    artist: "Bob Marley",
+    album: "Witch House",
+    date: "2028-03-07T00:00:00",
+    duration: "03:53",
+    urlSong: "https://20essentials.github.io/bob-marley-album/songs/n10.mp3",
+    urlPoster: "https://20essentials.github.io/bob-marley-album/assets/n2.avif"
+  },
+  {
+    title: "Pompeii",
+    artist: "Bastille",
+    album: "Witch House",
+    date: "2028-03-08T00:00:00",
+    duration: "03:34",
+    urlSong: "https://20essentials.github.io/bastille-ost/songs/n1.mp3",
+    urlPoster: "https://20essentials.github.io/bastille-ost/assets/n1.avif"
+  },
+  {
+    title: "Into The Void",
+    artist: "Black Sabbath",
+    album: "Witch House",
+    date: "2028-03-09T00:00:00",
+    duration: "06:11",
+    urlSong: "https://20essentials.github.io/black-sabbath-band/songs/n9.mp3",
+    urlPoster: "https://20essentials.github.io/black-sabbath-band/assets/n2.avif"
+  },
+  {
+    title: "New Skin",
+    artist: "Beach Weather",
+    album: "Witch House",
+    date: "2028-03-10T00:00:00",
+    duration: "03:40",
+    urlSong: "https://20essentials.github.io/beach-weather-soundtrack/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/beach-weather-soundtrack/assets/n2.avif"
+  },
+  {
+    title: "Maria",
+    artist: "Blondie",
+    album: "Witch House",
+    date: "2028-03-11T00:00:00",
+    duration: "04:06",
+    urlSong: "https://20essentials.github.io/blondie-soundtrack/songs/n8.mp3",
+    urlPoster: "https://20essentials.github.io/blondie-soundtrack/assets/n3.avif"
+  },
+  {
+    title: "Faded Heart",
+    artist: "Borns",
+    album: "Witch House",
+    date: "2028-03-12T00:00:00",
+    duration: "03:34",
+    urlSong: "https://20essentials.github.io/borns-band/songs/n4.mp3",
+    urlPoster: "https://20essentials.github.io/borns-band/assets/n4.avif"
+  },
+  {
+    title: "I Miss You",
+    artist: "Blink-182",
+    album: "Witch House",
+    date: "2028-03-13T00:00:00",
+    duration: "03:49",
+    urlSong: "https://20essentials.github.io/blink-182-band/songs/n6.mp3",
+    urlPoster: "https://20essentials.github.io/blink-182-band/assets/n2.avif"
+  },
+  {
+    title: "Sugar Sweet",
+    artist: "Benson Boone",
+    album: "Witch House",
+    date: "2028-03-14T00:00:00",
+    duration: "02:49",
+    urlSong: "https://20essentials.github.io/benson-boone-band/songs/n5.mp3",
+    urlPoster: "https://20essentials.github.io/benson-boone-band/assets/n3.avif"
+  },
+  {
+    title: "Foreplay",
+    artist: "Boston",
+    album: "Witch House",
+    date: "2028-03-15T00:00:00",
+    duration: "07:47",
+    urlSong: "https://20essentials.github.io/boston-band/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/boston-band/assets/n2.avif"
+  },
+  {
+    title: "Grenade",
+    artist: "Bruno Mars",
+    album: "Witch House",
+    date: "2028-03-16T00:00:00",
+    duration: "03:44",
+    urlSong: "https://20essentials.github.io/bruno-mars-album/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/bruno-mars-album/assets/n2.avif"
+  },
+  {
+    title: "Sunlight",
+    artist: "Bag Raiders",
+    album: "Witch House",
+    date: "2028-03-17T00:00:00",
+    duration: "04:03",
+    urlSong: "https://20essentials.github.io/bag-raiders-band/songs/n3.mp3",
+    urlPoster: "https://20essentials.github.io/bag-raiders-band/assets/n2.avif"
+  },
+  {
+    title: "Back In My Life",
+    artist: "Alice Deejay",
+    album: "Witch House",
+    date: "2028-03-18T00:00:00",
+    duration: "03:29",
+    urlSong: "https://20essentials.github.io/alice-deejay/songs/n2.mp3",
+    urlPoster: "https://20essentials.github.io/alice-deejay/assets/n2.avif"
+  },
+  {
+    title: "All Through The Night",
+    artist: "Cindy Lauper",
+    album: "Witch House",
+    date: "2028-03-19T00:00:00",
+    duration: "04:35",
+    urlSong: "https://20essentials.github.io/cindy-lauper/songs/n5.mp3",
+    urlPoster: "https://20essentials.github.io/cindy-lauper/assets/n2.avif"
+  },
+  {
+    title: "Greatest Love",
+    artist: "Culture Code",
+    album: "Witch House",
+    date: "2028-03-20T00:00:00",
+    duration: "04:42",
+    urlSong: "https://20essentials.github.io/culture-code-album/songs/n7.mp3",
+    urlPoster: "https://20essentials.github.io/culture-code-album/assets/n2.avif"
+  }
+];
+const __vite_glob_0_47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: witchhouse
+}, Symbol.toStringTag, { value: "Module" }));
+const $$Astro$g = createAstro();
 const $$Pinned = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$b, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$g, $$props, $$slots);
   Astro2.self = $$Pinned;
   return renderTemplate`${maybeRenderHead()}<svg${spreadAttributes(Astro2.props)} data-encore-id="icon" role="img" aria-hidden="false" class="Svg-sc-ytk21e-0 kLkTcI cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"> <title>Fijada</title> <path fill="currentColor" d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337L8.822.797z"></path> </svg>`;
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/icons/pinned.astro", void 0);
-const $$Astro$a = createAstro();
+const $$Astro$f = createAstro();
 const $$Music = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$a, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$f, $$props, $$slots);
   Astro2.self = $$Music;
   return renderTemplate`${maybeRenderHead()}<svg${spreadAttributes(Astro2.props)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M9 17v-13h10v13"></path><path d="M9 8h10"></path></svg>`;
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/icons/music.astro", void 0);
-const $$Astro$9 = createAstro();
+const $$Astro$e = createAstro();
 const $$PlayListItem = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$9, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$e, $$props, $$slots);
   Astro2.self = $$PlayListItem;
   const { slug, title, pinned, color, tab } = Astro2.props;
   const initialLetterOfEachWord = title.slice(0, 3).toUpperCase();
-  const files = /* @__PURE__ */ Object.assign({ "../data/alternative.json": __vite_glob_0_0, "../data/alternativerock.json": __vite_glob_0_1, "../data/altpop.json": __vite_glob_0_2, "../data/ambient.json": __vite_glob_0_3, "../data/avantgarde.json": __vite_glob_0_4, "../data/background.json": __vite_glob_0_5, "../data/bluepop.json": __vite_glob_0_6, "../data/bluerock.json": __vite_glob_0_7, "../data/darkfolk.json": __vite_glob_0_8, "../data/darknight.json": __vite_glob_0_9, "../data/discopop.json": __vite_glob_0_10, "../data/electroacid.json": __vite_glob_0_11, "../data/electronic.json": __vite_glob_0_12, "../data/electropop.json": __vite_glob_0_13, "../data/englishpop.json": __vite_glob_0_14, "../data/eurodance.json": __vite_glob_0_15, "../data/filmsost.json": __vite_glob_0_16, "../data/funk.json": __vite_glob_0_17, "../data/garage.json": __vite_glob_0_18, "../data/guitar.json": __vite_glob_0_19, "../data/hauntology.json": __vite_glob_0_20, "../data/hyperpop.json": __vite_glob_0_21, "../data/indiepop.json": __vite_glob_0_22, "../data/indierock.json": __vite_glob_0_23, "../data/instrumental.json": __vite_glob_0_24, "../data/melodicrock.json": __vite_glob_0_25, "../data/ncs.json": __vite_glob_0_26, "../data/newage.json": __vite_glob_0_27, "../data/playlist.json": __vite_glob_0_28, "../data/popcore.json": __vite_glob_0_29, "../data/progressivepop.json": __vite_glob_0_30, "../data/retrowave.json": __vite_glob_0_31, "../data/rockandroll.json": __vite_glob_0_32, "../data/rockpop.json": __vite_glob_0_33, "../data/romantic.json": __vite_glob_0_34, "../data/skweee.json": __vite_glob_0_35, "../data/softrock.json": __vite_glob_0_36, "../data/soul.json": __vite_glob_0_37, "../data/soulpop.json": __vite_glob_0_38, "../data/spanishpop.json": __vite_glob_0_39, "../data/surfrock.json": __vite_glob_0_40, "../data/synthpop.json": __vite_glob_0_41, "../data/synthwave.json": __vite_glob_0_42, "../data/techno.json": __vite_glob_0_43, "../data/vaporwave.json": __vite_glob_0_44 });
+  const files = /* @__PURE__ */ Object.assign({ "../data/alternative.json": __vite_glob_0_0, "../data/alternativerock.json": __vite_glob_0_1, "../data/altpop.json": __vite_glob_0_2, "../data/ambient.json": __vite_glob_0_3, "../data/avantgarde.json": __vite_glob_0_4, "../data/background.json": __vite_glob_0_5, "../data/bluepop.json": __vite_glob_0_6, "../data/bluerock.json": __vite_glob_0_7, "../data/chiptune.json": __vite_glob_0_8, "../data/darkfolk.json": __vite_glob_0_9, "../data/darknight.json": __vite_glob_0_10, "../data/discopop.json": __vite_glob_0_11, "../data/electroacid.json": __vite_glob_0_12, "../data/electronic.json": __vite_glob_0_13, "../data/electropop.json": __vite_glob_0_14, "../data/englishpop.json": __vite_glob_0_15, "../data/eurodance.json": __vite_glob_0_16, "../data/filmsost.json": __vite_glob_0_17, "../data/funk.json": __vite_glob_0_18, "../data/garage.json": __vite_glob_0_19, "../data/guitar.json": __vite_glob_0_20, "../data/hauntology.json": __vite_glob_0_21, "../data/hyperpop.json": __vite_glob_0_22, "../data/indiepop.json": __vite_glob_0_23, "../data/indierock.json": __vite_glob_0_24, "../data/instrumental.json": __vite_glob_0_25, "../data/melodicrock.json": __vite_glob_0_26, "../data/ncs.json": __vite_glob_0_27, "../data/newage.json": __vite_glob_0_28, "../data/phonk.json": __vite_glob_0_29, "../data/playlist.json": __vite_glob_0_30, "../data/popcore.json": __vite_glob_0_31, "../data/progressivepop.json": __vite_glob_0_32, "../data/retrowave.json": __vite_glob_0_33, "../data/rockandroll.json": __vite_glob_0_34, "../data/rockpop.json": __vite_glob_0_35, "../data/romantic.json": __vite_glob_0_36, "../data/skweee.json": __vite_glob_0_37, "../data/softrock.json": __vite_glob_0_38, "../data/soul.json": __vite_glob_0_39, "../data/soulpop.json": __vite_glob_0_40, "../data/spanishpop.json": __vite_glob_0_41, "../data/surfrock.json": __vite_glob_0_42, "../data/synthpop.json": __vite_glob_0_43, "../data/synthwave.json": __vite_glob_0_44, "../data/techno.json": __vite_glob_0_45, "../data/vaporwave.json": __vite_glob_0_46, "../data/witchhouse.json": __vite_glob_0_47 });
   const mySlug = `../data/${slug}.json`;
   const currentJson = files[mySlug]?.default || [];
   const randomNumber = ~~(Math.random() * currentJson.length);
@@ -8602,9 +9298,9 @@ var _a$7;
 const $$Index$3 = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate(_a$7 || (_a$7 = __template$7(["<script>\n  document.addEventListener('DOMContentLoaded', () => {\n    const input = document.getElementById('search-input');\n    const playlistContainer = document.querySelector('.sidebarPlaylist');\n    const originalPlaylists = [...playlistContainer.children];\n    input.addEventListener('input', () => {\n      const searchTerm = input.value.toLowerCase();\n      playlistContainer.scrollTop = 0;\n\n      const sortedPlaylists = [...originalPlaylists].sort((a, b) => {\n        const aText = a.textContent.toLowerCase();\n        const bText = b.textContent.toLowerCase();\n\n        const aMatch = aText.includes(searchTerm);\n        const bMatch = bText.includes(searchTerm);\n\n        if (aMatch && !bMatch) return -1;\n        if (!aMatch && bMatch) return 1;\n        return aText.localeCompare(bText);\n      });\n\n      playlistContainer.innerHTML = '';\n      sortedPlaylists.forEach(item => playlistContainer.appendChild(item));\n    });\n  });\n<\/script>", '<div class="container" data-astro-cid-6b5ihhfi> <div class="top-sidebar" data-astro-cid-6b5ihhfi> <button class="btn" data-astro-cid-6b5ihhfi> <input spellcheck="false" autocomplete="off" id="search-input" type="text" maxlength="20" placeholder="Seach Playlist" data-astro-cid-6b5ihhfi> </button> </div> <div class="main-sidebar" data-astro-cid-6b5ihhfi> <section class="the-container" data-astro-cid-6b5ihhfi> <div class="playlist-container" data-astro-cid-6b5ihhfi> <div class="playlist sidebarPlaylist" data-astro-cid-6b5ihhfi> ', " </div> </div> </section> </div> </div>"])), maybeRenderHead(), playlist.sort((a, b) => a.slug.localeCompare(b.slug)).map((pItem, i) => renderTemplate`${renderComponent($$result, "PlayListItem", $$PlayListItem, { "tab": i, ...pItem, "data-astro-cid-6b5ihhfi": true })}`));
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/ui/Sidebar/index.astro", void 0);
-const $$Astro$8 = createAstro();
+const $$Astro$d = createAstro();
 const $$Clock = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$d, $$props, $$slots);
   Astro2.self = $$Clock;
   return renderTemplate`${maybeRenderHead()}<svg${spreadAttributes(Astro2.props)} data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" class="Svg-sc-ytk21e-0 dYnaPI"> <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path> <path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z"></path> </svg>`;
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/icons/clock.astro", void 0);
@@ -8634,6 +9330,7 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
           user-select: none;
           cursor: pointer;
           transition: background-color .2s ease;
+        
 
           &.title-green {
             .titulin {
@@ -8668,6 +9365,82 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
 
         .text {
           font-size:1vmax;
+
+          &.fecha {
+            position: relative;
+            z-index: 50;
+          }
+        }
+
+        .playlist-icon {
+          height: fit-content;
+          display: flex;
+          justify-content: right;
+          text-align: right;
+       
+          &.escondido {
+            display: none;
+          }
+          
+          svg {
+            width: 1.3vmax;
+            height: 1.3vmax;
+            opacity: 0.7;
+          }
+        }
+
+        .playlist-nav-options {
+          position: absolute;
+          z-index: 800;
+          right: 3.4vmax;
+          top: 0
+          background-color: #0f08;
+          display: flex;
+          flex-direction: column;
+          visibility: hidden;
+          pointer-events: none;
+          transition: visibility .3s ease, opacity .3s ease;
+          opacity: 0;
+          border-radius: 0.7vmax;
+          transform: translateY(-1.5vmax);
+          gap: 0;
+
+          &.playListNavActive {
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+          }
+          
+          .option {
+            font-size: 1vmax;
+            text-align: left;
+            display: flex;
+            gap: 0.5vmax;
+            background-color: #000;
+            border: none;
+            outline: none;
+            padding: 0.5vmax;
+            padding-right: 1.5vmax;
+            position: relative;
+            z-index: 1500;
+            transition: background-color .2s ease;
+            border-bottom: 0.1vmax solid #fff2;
+
+            &:hover {
+              background-color: color-mix(in srgb, var(--theme-color), black 50%);
+            }
+
+            .left {
+              width: 1.1vmax;
+              height: 1.1vmax;
+              pointer-events: none;
+
+              svg {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
         }
 
         .esconder {
@@ -8721,6 +9494,31 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
       this.render();
       const rowItem = this.shadowRoot.querySelector('.row-item');
       setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
+      this.playlistIconListeners();
+    }
+
+    playlistIconListeners() {
+      const playlistIcon = this.shadowRoot.querySelector('.playlist-icon');
+      playlistIcon.addEventListener('click', e => {
+        e.stopPropagation();
+        const rowItem = e.target.closest('.row-item');
+        const songItems = document.querySelectorAll('song-item');
+        const playListNavOption = rowItem.querySelector('.playlist-nav-options');
+        if (playListNavOption.classList.contains('playListNavActive')) {
+          playListNavOption.classList.remove('playListNavActive');
+          return;
+        }
+
+        songItems.forEach(el => {
+          const row = el.shadowRoot?.querySelector('.row-item');
+          const playListNavActive = row?.querySelector('.playListNavActive');
+          if (playListNavActive) {
+            playListNavActive.classList.remove('playListNavActive');
+          }
+        });
+
+        playListNavOption.classList.add('playListNavActive');
+      });
     }
 
     getData() {
@@ -8754,8 +9552,77 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
             </div>
           </div>
           <div class="text esconder">\${this.album}</div>
-          <div class="text esconder">\${this.date.substring(0, 10)}</div>
+          <div class="text esconder fecha">\${this.date.substring(0, 10)}</div>
           <div class="text">\${this.duration}</div>
+          <aside class="playlist-icon escondido" >
+              <svg
+                viewBox='0 0 32 32'
+              >
+                <path
+                  d='M3 9h17a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm0 6h17a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm12 4H3a1 1 0 0 0 0 2h12a1 1 0 0 0 0-2zm14 0h-4v-4a1 1 0 0 0-2 0v4h-4a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2z'
+                  stroke='currentColor'
+                  stroke-width='1.5'
+                  data-name='Layer 2'></path>
+              </svg>
+          </aside>
+          <nav class="playlist-nav-options">
+            <button class="option">
+              <span class="left">
+                <svg
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M12 5l0 14'
+                  ></path><path d='M5 12l14 0'></path></svg
+                >  
+              </span>
+              <span class="right">Add to Playlist</span>
+            </button>
+            <button class="option">
+               <span class="left">
+                <svg
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M4 7l16 0'
+                  ></path><path d='M10 11l0 6'></path><path d='M14 11l0 6'></path><path
+                    d='M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12'></path><path
+                    d='M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3'></path></svg
+                >
+               </span>
+               <span class="right">Remove from this Playlist</span>
+              </button>
+            <button class="option">
+              <span class="left">
+                <svg viewBox='0 0 24 24'
+                  >
+                  <path
+                    fill='currentColor'
+                    d='M1 8.475q0-2.35 1.575-3.912T6.5 3q1.3 0 2.475.55T11 5.1q.85-1 2.025-1.55T15.5 3q1.775 0 3.05.888t1.925 2.287q.175.375.025.763t-.525.562t-.763.025T18.65 7q-.45-1-1.325-1.5T15.5 5q-1.15 0-2.1.65t-1.65 1.6q-.125.2-.325.288T11 7.624t-.425-.1t-.325-.275q-.7-.95-1.65-1.6T6.5 5q-1.425 0-2.462.988T3 8.474q0 .825.35 1.675t1.25 1.963t2.45 2.6T11 18.3l2.225-1.95q.3-.275.7-.25t.675.3q.3.3.288.738t-.338.712l-2.225 1.975q-.275.25-.625.375t-.7.125t-.7-.125t-.625-.4q-1.125-1-2.612-2.275t-2.838-2.737t-2.287-3.063T1 8.475M18 14h-2q-.425 0-.712-.288T15 13t.288-.712T16 12h2v-2q0-.425.288-.712T19 9t.713.288T20 10v2h2q.425 0 .713.288T23 13t-.288.713T22 14h-2v2q0 .425-.288.713T19 17t-.712-.288T18 16z'
+                  ></path></svg
+                >
+              </span>
+              <span class="right"> Add to Your Favorite Brands </span>
+            </button>
+            <button class="option">
+              <span class="left">
+                  <svg  viewBox='0 0 24 24'
+                    >
+                    <path
+                      fill='currentColor'
+                      d='m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z'
+                    ></path></svg
+                  >
+              </span>
+              <span class="right"> Download Audio</span>
+            </button>
+          </nav>
         </div>
       \`;
     }
@@ -8783,6 +9650,7 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
           user-select: none;
           cursor: pointer;
           transition: background-color .2s ease;
+        
 
           &.title-green {
             .titulin {
@@ -8817,6 +9685,82 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
 
         .text {
           font-size:1vmax;
+
+          &.fecha {
+            position: relative;
+            z-index: 50;
+          }
+        }
+
+        .playlist-icon {
+          height: fit-content;
+          display: flex;
+          justify-content: right;
+          text-align: right;
+       
+          &.escondido {
+            display: none;
+          }
+          
+          svg {
+            width: 1.3vmax;
+            height: 1.3vmax;
+            opacity: 0.7;
+          }
+        }
+
+        .playlist-nav-options {
+          position: absolute;
+          z-index: 800;
+          right: 3.4vmax;
+          top: 0
+          background-color: #0f08;
+          display: flex;
+          flex-direction: column;
+          visibility: hidden;
+          pointer-events: none;
+          transition: visibility .3s ease, opacity .3s ease;
+          opacity: 0;
+          border-radius: 0.7vmax;
+          transform: translateY(-1.5vmax);
+          gap: 0;
+
+          &.playListNavActive {
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+          }
+          
+          .option {
+            font-size: 1vmax;
+            text-align: left;
+            display: flex;
+            gap: 0.5vmax;
+            background-color: #000;
+            border: none;
+            outline: none;
+            padding: 0.5vmax;
+            padding-right: 1.5vmax;
+            position: relative;
+            z-index: 1500;
+            transition: background-color .2s ease;
+            border-bottom: 0.1vmax solid #fff2;
+
+            &:hover {
+              background-color: color-mix(in srgb, var(--theme-color), black 50%);
+            }
+
+            .left {
+              width: 1.1vmax;
+              height: 1.1vmax;
+              pointer-events: none;
+
+              svg {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
         }
 
         .esconder {
@@ -8870,6 +9814,31 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
       this.render();
       const rowItem = this.shadowRoot.querySelector('.row-item');
       setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
+      this.playlistIconListeners();
+    }
+
+    playlistIconListeners() {
+      const playlistIcon = this.shadowRoot.querySelector('.playlist-icon');
+      playlistIcon.addEventListener('click', e => {
+        e.stopPropagation();
+        const rowItem = e.target.closest('.row-item');
+        const songItems = document.querySelectorAll('song-item');
+        const playListNavOption = rowItem.querySelector('.playlist-nav-options');
+        if (playListNavOption.classList.contains('playListNavActive')) {
+          playListNavOption.classList.remove('playListNavActive');
+          return;
+        }
+
+        songItems.forEach(el => {
+          const row = el.shadowRoot?.querySelector('.row-item');
+          const playListNavActive = row?.querySelector('.playListNavActive');
+          if (playListNavActive) {
+            playListNavActive.classList.remove('playListNavActive');
+          }
+        });
+
+        playListNavOption.classList.add('playListNavActive');
+      });
     }
 
     getData() {
@@ -8903,8 +9872,77 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
             </div>
           </div>
           <div class="text esconder">\\\${this.album}</div>
-          <div class="text esconder">\\\${this.date.substring(0, 10)}</div>
+          <div class="text esconder fecha">\\\${this.date.substring(0, 10)}</div>
           <div class="text">\\\${this.duration}</div>
+          <aside class="playlist-icon escondido" >
+              <svg
+                viewBox='0 0 32 32'
+              >
+                <path
+                  d='M3 9h17a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm0 6h17a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm12 4H3a1 1 0 0 0 0 2h12a1 1 0 0 0 0-2zm14 0h-4v-4a1 1 0 0 0-2 0v4h-4a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2z'
+                  stroke='currentColor'
+                  stroke-width='1.5'
+                  data-name='Layer 2'></path>
+              </svg>
+          </aside>
+          <nav class="playlist-nav-options">
+            <button class="option">
+              <span class="left">
+                <svg
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M12 5l0 14'
+                  ></path><path d='M5 12l14 0'></path></svg
+                >  
+              </span>
+              <span class="right">Add to Playlist</span>
+            </button>
+            <button class="option">
+               <span class="left">
+                <svg
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M4 7l16 0'
+                  ></path><path d='M10 11l0 6'></path><path d='M14 11l0 6'></path><path
+                    d='M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12'></path><path
+                    d='M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3'></path></svg
+                >
+               </span>
+               <span class="right">Remove from this Playlist</span>
+              </button>
+            <button class="option">
+              <span class="left">
+                <svg viewBox='0 0 24 24'
+                  >
+                  <path
+                    fill='currentColor'
+                    d='M1 8.475q0-2.35 1.575-3.912T6.5 3q1.3 0 2.475.55T11 5.1q.85-1 2.025-1.55T15.5 3q1.775 0 3.05.888t1.925 2.287q.175.375.025.763t-.525.562t-.763.025T18.65 7q-.45-1-1.325-1.5T15.5 5q-1.15 0-2.1.65t-1.65 1.6q-.125.2-.325.288T11 7.624t-.425-.1t-.325-.275q-.7-.95-1.65-1.6T6.5 5q-1.425 0-2.462.988T3 8.474q0 .825.35 1.675t1.25 1.963t2.45 2.6T11 18.3l2.225-1.95q.3-.275.7-.25t.675.3q.3.3.288.738t-.338.712l-2.225 1.975q-.275.25-.625.375t-.7.125t-.7-.125t-.625-.4q-1.125-1-2.612-2.275t-2.838-2.737t-2.287-3.063T1 8.475M18 14h-2q-.425 0-.712-.288T15 13t.288-.712T16 12h2v-2q0-.425.288-.712T19 9t.713.288T20 10v2h2q.425 0 .713.288T23 13t-.288.713T22 14h-2v2q0 .425-.288.713T19 17t-.712-.288T18 16z'
+                  ></path></svg
+                >
+              </span>
+              <span class="right"> Add to Your Favorite Brands </span>
+            </button>
+            <button class="option">
+              <span class="left">
+                  <svg  viewBox='0 0 24 24'
+                    >
+                    <path
+                      fill='currentColor'
+                      d='m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z'
+                    ></path></svg
+                  >
+              </span>
+              <span class="right"> Download Audio</span>
+            </button>
+          </nav>
         </div>
       \\\`;
     }
@@ -8913,8 +9951,22 @@ const $$SongItem = createComponent(($$result, $$props, $$slots) => {
   customElements.define('song-item', SongItem);
 <\/script>`])));
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/components/SongItem.astro", void 0);
-const $$Playlist = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<div class="song playlist" data-astro-cid-mlamalio> ${renderComponent($$result, "SongItem", $$SongItem, { "data-astro-cid-mlamalio": true })} <header data-astro-cid-mlamalio> <div class="cell" data-astro-cid-mlamalio>#</div> <div class="cell" data-astro-cid-mlamalio>Title</div> <div class="cell esconder" data-astro-cid-mlamalio>Album</div> <div class="cell esconder" data-astro-cid-mlamalio>Date of Addition</div> <div class="cell centrar" data-astro-cid-mlamalio> ${renderComponent($$result, "Clock", $$Clock, { "class": "clock", "data-astro-cid-mlamalio": true })} </div> <div class="cell" data-astro-cid-mlamalio></div> </header> <hr data-astro-cid-mlamalio> </div>`;
+const $$Astro$c = createAstro();
+const $$Config = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$c, $$props, $$slots);
+  Astro2.self = $$Config;
+  return renderTemplate`${maybeRenderHead()}<svg${spreadAttributes(Astro2.props)} viewBox="0 0 24 24"> <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v3m-2 4.25h4M5 11v10m7-4v4m-2-7.75h4M12 3v10m7-10v3m-2 4.25h4M19 11v10"></path></svg>`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/src/icons/config.astro", void 0);
+const $$Astro$b = createAstro();
+const $$Playlist = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$b, $$props, $$slots);
+  Astro2.self = $$Playlist;
+  const user = await Astro2.locals.currentUser();
+  const hiddenColumn = user ? "flex" : "none";
+  const classLastColumn = user ? "true" : "false";
+  const columnsPlaylists = user ? `3% 1fr 0.7fr 0.7fr 0.1fr 0.1fr` : "3% 1fr 0.7fr 0.7fr 0.1fr";
+  const $$definedVars = defineStyleVars([{ columns: columnsPlaylists, hiddenColumn }]);
+  return renderTemplate`${maybeRenderHead()}<div class="song playlist header-data-items-class"${addAttribute(classLastColumn, "data-last-column")} data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}> ${renderComponent($$result, "SongItem", $$SongItem, { "data-astro-cid-mlamalio": true })} <header data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}> <div class="cell" data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}>#</div> <div class="cell" data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}>Title</div> <div class="cell esconder" data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}>Album</div> <div class="cell esconder" data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}>Date of Addition</div> <div class="cell centrar" data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}> ${renderComponent($$result, "Clock", $$Clock, { "class": "clock", "data-astro-cid-mlamalio": true })} </div> <div class="cell last-cell last-cell-of-header" data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}> ${renderComponent($$result, "Config", $$Config, { "data-astro-cid-mlamalio": true })} </div> </header> <hr data-astro-cid-mlamalio${addAttribute($$definedVars, "style")}> </div> ${renderScript($$result, "C:/Users/amoil/Desktop/PlaylistHub/src/ui/Content/Playlist.astro?astro&type=script&index=0&lang.ts")}`;
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/ui/Content/Playlist.astro", void 0);
 var __freeze$5 = Object.freeze;
 var __defProp$5 = Object.defineProperty;
@@ -8967,8 +10019,23 @@ const $$ListHeader = createComponent(($$result, $$props, $$slots) => {
             text-align: center;
             cursor: pointer;
             background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(0.2vmax);
             transition: opacity .3s ease;
+            aspect-ratio: 1;
+
+
+            &.profile {
+              animation: none;
+              overflow: hidden;
+              transition: transform 0.5s ease, box-shadow 0.2s ease;
+              will-change: transform, filter;
+              z-index: 10;
+              touch-action: none;
+              isolation: isolate;
+              width: 100%;
+              position: relative;
+              visibility: hidden;
+            }
 
             &:active {
               opacity: 0.5;
@@ -9174,6 +10241,7 @@ const $$ListHeader = createComponent(($$result, $$props, $$slots) => {
       let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
       const { length } = playlistItems;
       const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
+    
 
       function clickOnPlaylist(targetIndex) {
         const slug = slugs[targetIndex];
@@ -9317,6 +10385,9 @@ const $$ListHeader = createComponent(($$result, $$props, $$slots) => {
             <button class='prev-list' >
               <img src='./assets/prev.svg' alt='prev' />
             </button>
+            <button class='profile' style="--bg: url('./assets/v1.gif')">
+              <img src='./assets/profile1.png' alt='profile' />
+            </button>
             <button class='next-list' >
               <img src='./assets/next.svg' alt='next' />
             </button>
@@ -9373,8 +10444,23 @@ const $$ListHeader = createComponent(($$result, $$props, $$slots) => {
             text-align: center;
             cursor: pointer;
             background: color-mix(in srgb, var(--theme-color) 50%, black 30%);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(0.2vmax);
             transition: opacity .3s ease;
+            aspect-ratio: 1;
+
+
+            &.profile {
+              animation: none;
+              overflow: hidden;
+              transition: transform 0.5s ease, box-shadow 0.2s ease;
+              will-change: transform, filter;
+              z-index: 10;
+              touch-action: none;
+              isolation: isolate;
+              width: 100%;
+              position: relative;
+              visibility: hidden;
+            }
 
             &:active {
               opacity: 0.5;
@@ -9580,6 +10666,7 @@ const $$ListHeader = createComponent(($$result, $$props, $$slots) => {
       let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
       const { length } = playlistItems;
       const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
+    
 
       function clickOnPlaylist(targetIndex) {
         const slug = slugs[targetIndex];
@@ -9723,6 +10810,9 @@ const $$ListHeader = createComponent(($$result, $$props, $$slots) => {
             <button class='prev-list' >
               <img src='./assets/prev.svg' alt='prev' />
             </button>
+            <button class='profile' style="--bg: url('./assets/v1.gif')">
+              <img src='./assets/profile1.png' alt='profile' />
+            </button>
             <button class='next-list' >
               <img src='./assets/next.svg' alt='next' />
             </button>
@@ -9736,17 +10826,17 @@ const $$ListHeader = createComponent(($$result, $$props, $$slots) => {
 <\/script>`])), renderComponent($$result, "list-header", "list-header", {}));
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/ui/Content/ListHeader.astro", void 0);
 const $$Index$2 = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<div class="container" data-astro-cid-aqhblxhm> ${renderComponent($$result, "ListHeader", $$ListHeader, { "data-astro-cid-aqhblxhm": true })} ${renderComponent($$result, "Playlist", $$Playlist, { "data-astro-cid-aqhblxhm": true })} </div>`;
+  return renderTemplate`${maybeRenderHead()}<div class="container" data-astro-cid-aqhblxhm> ${renderComponent($$result, "SignedIn", $$SignedIn, { "data-astro-cid-aqhblxhm": true }, { "default": ($$result2) => renderTemplate` <button class="profile" style="--bg: url('./assets/v1.gif')" data-astro-cid-aqhblxhm> ${renderComponent($$result2, "UserButton", UserButton, { "data-astro-cid-aqhblxhm": true })} </button> ` })} ${renderComponent($$result, "SignedOut", $$SignedOut, { "data-astro-cid-aqhblxhm": true }, { "default": ($$result2) => renderTemplate` <button class="profile openLogin" style="--bg: url('./assets/v1.gif')" data-astro-cid-aqhblxhm> <img src="./assets/profile1.png" alt="profile" data-astro-cid-aqhblxhm> </button> ` })} ${renderComponent($$result, "ListHeader", $$ListHeader, { "data-astro-cid-aqhblxhm": true })} ${renderComponent($$result, "Playlist", $$Playlist, { "data-astro-cid-aqhblxhm": true })} </div>`;
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/ui/Content/index.astro", void 0);
-const $$Astro$7 = createAstro();
+const $$Astro$a = createAstro();
 const $$Volume = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$7, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$a, $$props, $$slots);
   Astro2.self = $$Volume;
   return renderTemplate`${maybeRenderHead()}<svg${spreadAttributes(Astro2.props)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"> <path fill="currentColor" d="m3.5 10.494l.257-.429l-.119-.07H3.5zm0-5.996v.5h.138l.12-.071zm5-2.998H9a.5.5 0 0 0-.757-.429zm0 11.992l-.257.429A.5.5 0 0 0 9 13.492zm-5-3.498h-2v1h2zm-2 0a.5.5 0 0 1-.5-.5H0c0 .83.672 1.5 1.5 1.5zm-.5-.5V5.498H0v3.998zm0-3.997a.5.5 0 0 1 .5-.499v-1a1.5 1.5 0 0 0-1.5 1.5zm.5-.499h2v-1h-2zm2.257-.071l5-2.998l-.514-.858l-5 2.998zM8 1.5v11.992h1V1.5zm.757 11.563l-5-2.998l-.514.858l5 2.998zM10 6v3h1V6zm2-2v7h1V4zm2-2v11h1V2z"></path> </svg>`;
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/icons/volume.astro", void 0);
-const $$Astro$6 = createAstro();
+const $$Astro$9 = createAstro();
 const $$Volumeoff = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$9, $$props, $$slots);
   Astro2.self = $$Volumeoff;
   return renderTemplate`${maybeRenderHead()}<svg${spreadAttributes(Astro2.props)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"> <path fill="currentColor" d="m3.5 10.494l.257-.429l-.119-.07H3.5zm0-5.996v.5h.138l.12-.071zm5-2.998H9a.5.5 0 0 0-.757-.429zm0 11.992l-.257.429A.5.5 0 0 0 9 13.492zm2.94-7.763l-.354-.353l-.707.707l.354.354zm2.12 3.534l.354.353l.707-.707l-.354-.353zm.708-2.826l.353-.354l-.707-.707l-.353.353zm-3.535 2.119l-.354.353l.707.707l.354-.353zM3.5 9.994h-2v1h2zm-2 0a.499.499 0 0 1-.5-.5H0c0 .83.671 1.5 1.5 1.5zm-.5-.5V5.498H0v3.998zm0-3.997c0-.276.223-.499.5-.499v-1c-.829 0-1.5.67-1.5 1.5zm.5-.499h2v-1h-2zm2.257-.071l5-2.998l-.514-.858l-5 2.998zM8 1.5v11.992h1V1.5zm.757 11.563l-5-2.998l-.514.858l5 2.998zm1.976-6.626l2.827 2.826l.707-.707l-2.828-2.827zm2.828-.708l-2.828 2.827l.707.707l2.828-2.826z"></path> </svg>`;
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/icons/volumeoff.astro", void 0);
@@ -9795,21 +10885,37 @@ const $$SongVolume = createComponent(($$result, $$props, $$slots) => {
   document.addEventListener('volume:unmute', () => toggleVolumeIcon(true));
 <\/script>`])), maybeRenderHead(), renderComponent($$result, "Volume", $$Volume, { "class": "volume-icon", "data-astro-cid-243r45sf": true }), renderComponent($$result, "Volumeoff", $$Volumeoff, { "class": "volume-icon hidden", "hidden": true, "data-astro-cid-243r45sf": true }), renderComponent($$result, "progress-slider", "progress-slider", { "class": "slider", "id": "volume", "value": "100", "data-astro-cid-243r45sf": true }));
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/ui/Player/SongVolume.astro", void 0);
+const $$Astro$8 = createAstro();
+const $$Heartvoid = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
+  Astro2.self = $$Heartvoid;
+  return renderTemplate`${maybeRenderHead()}<svg viewBox="0 0 24 24"${spreadAttributes(Astro2.props)}> <path fill="currentColor" d="m12.67 20.74l-.67.61l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 1.43-.5 2.76-1.38 4.11c-.62-.3-1.31-.5-2.03-.57C19.5 10.8 20 9.65 20 8.5c0-2-1.5-3.5-3.5-3.5c-1.54 0-3.04 1-3.57 2.36h-1.86C10.54 6 9.04 5 7.5 5C5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.89 10.05l.11.1l.04-.04c.08.76.3 1.48.63 2.13M17 14v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/src/icons/heartvoid.astro", void 0);
+const $$Astro$7 = createAstro();
+const $$Heartfull = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$7, $$props, $$slots);
+  Astro2.self = $$Heartfull;
+  return renderTemplate`${maybeRenderHead()}<svg viewBox="0 0 24 24"${spreadAttributes(Astro2.props)}> <path fill="currentColor" d="M12 18c0 1 .25 1.92.67 2.74l-.67.61l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 1.43-.5 2.76-1.38 4.11c-.79-.38-1.68-.61-2.62-.61c-3.31 0-6 2.69-6 6m7-4h-2v3h-3v2h3v3h2v-3h3v-2h-3z"></path></svg>`;
+}, "C:/Users/amoil/Desktop/PlaylistHub/src/icons/heartfull.astro", void 0);
 var __freeze$3 = Object.freeze;
 var __defProp$3 = Object.defineProperty;
 var __template$3 = (cooked, raw) => __freeze$3(__defProp$3(cooked, "raw", { value: __freeze$3(raw || cooked.slice()) }));
 var _a$3;
-const $$SongInfo = createComponent(($$result, $$props, $$slots) => {
+const $$Astro$6 = createAstro();
+const $$SongInfo = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
+  Astro2.self = $$SongInfo;
   const title = "";
   const artist = "";
-  return renderTemplate(_a$3 || (_a$3 = __template$3(["<script type=\"module\">\n  const addCoverCard = link => {\n    const existentCoverCard = document.querySelector('cover-card');\n    if (existentCoverCard) existentCoverCard.remove();\n\n    const coverCard = document.createElement('cover-card');\n    coverCard.setAttribute('src', link);\n    document.body.append(coverCard);\n  };\n\n  const image = document.querySelector('.song-info-container img');\n  image.addEventListener('click', () => addCoverCard(image.src));\n\n  document.addEventListener('player:update-info', ({ detail }) => {\n    const {\n      songData: { title, artist, urlPoster, slug, album },\n      autoplay\n    } = detail;\n    \n\n    const container = document.querySelector('.song-info-container');\n    const titleTag = container.querySelector('.title');\n    const artistTag = container.querySelector('.artist');\n    const imageTag = container.querySelector('img');\n\n    titleTag.textContent = title;\n    artistTag.textContent = artist;\n    imageTag.src = urlPoster;\n    imageTag.alt = title;\n    document.body.style.setProperty('--song-image', `url(${imageTag.src})`);\n\n    autoplay && addCoverCard(imageTag.src);\n  });\n<\/script>", '<div class="song-info-container" data-astro-cid-777hvpqc> <img src="./assets/transparent.png" class="left" data-astro-cid-777hvpqc> <div class="right" data-astro-cid-777hvpqc> <p class="title" data-astro-cid-777hvpqc>', '</p> <p class="artist" data-astro-cid-777hvpqc>', "</p> </div> </div>"], ["<script type=\"module\">\n  const addCoverCard = link => {\n    const existentCoverCard = document.querySelector('cover-card');\n    if (existentCoverCard) existentCoverCard.remove();\n\n    const coverCard = document.createElement('cover-card');\n    coverCard.setAttribute('src', link);\n    document.body.append(coverCard);\n  };\n\n  const image = document.querySelector('.song-info-container img');\n  image.addEventListener('click', () => addCoverCard(image.src));\n\n  document.addEventListener('player:update-info', ({ detail }) => {\n    const {\n      songData: { title, artist, urlPoster, slug, album },\n      autoplay\n    } = detail;\n    \n\n    const container = document.querySelector('.song-info-container');\n    const titleTag = container.querySelector('.title');\n    const artistTag = container.querySelector('.artist');\n    const imageTag = container.querySelector('img');\n\n    titleTag.textContent = title;\n    artistTag.textContent = artist;\n    imageTag.src = urlPoster;\n    imageTag.alt = title;\n    document.body.style.setProperty('--song-image', \\`url(\\${imageTag.src})\\`);\n\n    autoplay && addCoverCard(imageTag.src);\n  });\n<\/script>", '<div class="song-info-container" data-astro-cid-777hvpqc> <img src="./assets/transparent.png" class="left" data-astro-cid-777hvpqc> <div class="right" data-astro-cid-777hvpqc> <p class="title" data-astro-cid-777hvpqc>', '</p> <p class="artist" data-astro-cid-777hvpqc>', "</p> </div> </div>"])), maybeRenderHead(), title, artist);
+  const user = await Astro2.locals.currentUser();
+  return renderTemplate(_a$3 || (_a$3 = __template$3(["<script type=\"module\">\n  const addCoverCard = link => {\n    const existentCoverCard = document.querySelector('cover-card');\n    if (existentCoverCard) existentCoverCard.remove();\n\n    const coverCard = document.createElement('cover-card');\n    coverCard.setAttribute('src', link);\n    document.body.append(coverCard);\n  };\n\n  const image = document.querySelector('.song-info-container img');\n  image.addEventListener('click', () => addCoverCard(image.src));\n\n  document.addEventListener('player:update-info', ({ detail }) => {\n    const {\n      songData: { title, artist, urlPoster, slug, album },\n      autoplay\n    } = detail;\n\n    const container = document.querySelector('.song-info-container');\n    const titleTag = container.querySelector('.title');\n    const artistTag = container.querySelector('.artist');\n    const imageTag = container.querySelector('img');\n\n    titleTag.textContent = title;\n    artistTag.textContent = artist;\n    imageTag.src = urlPoster;\n    imageTag.alt = title;\n    document.body.style.setProperty('--song-image', `url(${imageTag.src})`);\n\n    autoplay && addCoverCard(imageTag.src);\n  });\n<\/script>", '<div class="song-info-container" data-astro-cid-777hvpqc> <img src="./assets/transparent.png" class="left" data-astro-cid-777hvpqc> <div class="right" data-astro-cid-777hvpqc> <p class="title" data-astro-cid-777hvpqc>', '</p> <p class="artist" data-astro-cid-777hvpqc>', "</p> </div> ", " </div> <script>\n  document.addEventListener('click', e => {\n    if (e.target.matches('.heartEmpty')) {\n      const heartEmpty = e.target;\n      heartEmpty.classList.toggle('isSaved');\n    }\n  });\n<\/script>"], ["<script type=\"module\">\n  const addCoverCard = link => {\n    const existentCoverCard = document.querySelector('cover-card');\n    if (existentCoverCard) existentCoverCard.remove();\n\n    const coverCard = document.createElement('cover-card');\n    coverCard.setAttribute('src', link);\n    document.body.append(coverCard);\n  };\n\n  const image = document.querySelector('.song-info-container img');\n  image.addEventListener('click', () => addCoverCard(image.src));\n\n  document.addEventListener('player:update-info', ({ detail }) => {\n    const {\n      songData: { title, artist, urlPoster, slug, album },\n      autoplay\n    } = detail;\n\n    const container = document.querySelector('.song-info-container');\n    const titleTag = container.querySelector('.title');\n    const artistTag = container.querySelector('.artist');\n    const imageTag = container.querySelector('img');\n\n    titleTag.textContent = title;\n    artistTag.textContent = artist;\n    imageTag.src = urlPoster;\n    imageTag.alt = title;\n    document.body.style.setProperty('--song-image', \\`url(\\${imageTag.src})\\`);\n\n    autoplay && addCoverCard(imageTag.src);\n  });\n<\/script>", '<div class="song-info-container" data-astro-cid-777hvpqc> <img src="./assets/transparent.png" class="left" data-astro-cid-777hvpqc> <div class="right" data-astro-cid-777hvpqc> <p class="title" data-astro-cid-777hvpqc>', '</p> <p class="artist" data-astro-cid-777hvpqc>', "</p> </div> ", " </div> <script>\n  document.addEventListener('click', e => {\n    if (e.target.matches('.heartEmpty')) {\n      const heartEmpty = e.target;\n      heartEmpty.classList.toggle('isSaved');\n    }\n  });\n<\/script>"])), maybeRenderHead(), title, artist, user && renderTemplate`<aside class="last" data-astro-cid-777hvpqc> ${renderComponent($$result, "HeartEmpty", $$Heartvoid, { "class": "heartEmpty", "data-astro-cid-777hvpqc": true })} ${renderComponent($$result, "HeartFull", $$Heartfull, { "class": "heartFull", "data-astro-cid-777hvpqc": true })} <img class="confetti" src="/assets/confetti.gif" alt="Confetti Image" data-astro-cid-777hvpqc> </aside>`);
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/ui/Player/SongInfo.astro", void 0);
 var __freeze$2 = Object.freeze;
 var __defProp$2 = Object.defineProperty;
 var __template$2 = (cooked, raw) => __freeze$2(__defProp$2(cooked, "raw", { value: __freeze$2(raw || cooked.slice()) }));
 var _a$2;
 const $$MusicPlayer = createComponent(async ($$result, $$props, $$slots) => {
-  return renderTemplate(_a$2 || (_a$2 = __template$2(["<script type=\"module\">\n  import { MusicPlayer } from './modules/MusicPlayer.js';\n  import NamesOfPlaylists from './data/playlist.json' with { type: 'json' };\n  const allSlugs = NamesOfPlaylists.map(({ slug }) => slug);\n  const randomSlug = ~~(Math.random() * allSlugs.length);\n  const slug = allSlugs[randomSlug];\n  const playlistCorriente = await import(`./data/${slug}.json`, {\n    with: { type: 'json' }\n  });\n  const playlistCorrienteJson = playlistCorriente.default;\n  const randonNumSong = ~~(Math.random() * playlistCorrienteJson.length);\n  const playlistName = slug;\n  const id = randonNumSong + 1;\n  const musicPlayer = new MusicPlayer(playlistName, id);\n\n  const buttons = {\n    play: document.querySelector('.song-player-container .play'),\n    prev: document.querySelector('.song-player-container .prev'),\n    next: document.querySelector('.song-player-container .next'),\n    shuffle: document.querySelector('.song-player-container .shuffle'),\n    repeat: document.querySelector('.song-player-container .repeat')\n  };\n\n  buttons.play.addEventListener('click', () => musicPlayer.play());\n  buttons.prev.addEventListener('click', () => musicPlayer.prev());\n  buttons.next.addEventListener('click', () => musicPlayer.next());\n  buttons.repeat.addEventListener('click', () =>\n    buttons.repeat.classList.toggle('disabled')\n  );\n  buttons.shuffle.addEventListener('click', () => {\n    buttons.shuffle.classList.toggle('disabled');\n    musicPlayer.sortSongs();\n    \n  });\n\n  setTimeout(() => {\n    let { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();\n    musicPlayer.updateItemClicked({ ButtonTitle, artist, album });\n    document.querySelector('.title-green').classList.add('playlist-item-active')\n  }, 50);\n\n  const playlistItems = document.querySelectorAll('.playlist-item');\n  playlistItems.forEach(playlist => {\n    playlist.addEventListener('click', async () => {\n      const slug = playlist.dataset.id;\n      let title = playlist.querySelector('.title').textContent;\n\n      document.querySelectorAll('.playlist-item-active').forEach(el => el.classList.remove('playlist-item-active'))\n      playlist.classList.add('playlist-item-active');\n\n      setTimeout(() => {\n        const { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();\n        musicPlayer.updateItemClicked({ ButtonTitle, artist, album });\n      }, 300);\n\n      await musicPlayer.selectList(\n        slug,\n        title,\n        playlist.dataset.color\n      );\n\n    });\n  });\n\n  const songPlaylist = document.querySelector('.song.playlist');\n  songPlaylist.addEventListener('click', ev => {\n    const isClick = ev.detail === 1;\n\n    if (isClick) {\n      const newSongs = [...document.querySelectorAll('song-item')].map(song =>\n        song.getData()\n      );\n      musicPlayer.setSongs(newSongs);\n      const rowItem = ev\n        .composedPath()\n        .find(tag => tag.classList?.contains('row-item'));\n      let id = Number(rowItem.dataset?.id);\n      let newIndex = id;\n      if (musicPlayer.isShuffle) {\n        newIndex = musicPlayer.songList.findIndex(song => song.index === id);\n      }\n\n      if (rowItem) {\n        musicPlayer.prepare(newIndex);\n        musicPlayer.play();\n        musicPlayer.togglePlayPause(true);\n      }\n    }\n  });\n<\/script>"], ["<script type=\"module\">\n  import { MusicPlayer } from './modules/MusicPlayer.js';\n  import NamesOfPlaylists from './data/playlist.json' with { type: 'json' };\n  const allSlugs = NamesOfPlaylists.map(({ slug }) => slug);\n  const randomSlug = ~~(Math.random() * allSlugs.length);\n  const slug = allSlugs[randomSlug];\n  const playlistCorriente = await import(\\`./data/\\${slug}.json\\`, {\n    with: { type: 'json' }\n  });\n  const playlistCorrienteJson = playlistCorriente.default;\n  const randonNumSong = ~~(Math.random() * playlistCorrienteJson.length);\n  const playlistName = slug;\n  const id = randonNumSong + 1;\n  const musicPlayer = new MusicPlayer(playlistName, id);\n\n  const buttons = {\n    play: document.querySelector('.song-player-container .play'),\n    prev: document.querySelector('.song-player-container .prev'),\n    next: document.querySelector('.song-player-container .next'),\n    shuffle: document.querySelector('.song-player-container .shuffle'),\n    repeat: document.querySelector('.song-player-container .repeat')\n  };\n\n  buttons.play.addEventListener('click', () => musicPlayer.play());\n  buttons.prev.addEventListener('click', () => musicPlayer.prev());\n  buttons.next.addEventListener('click', () => musicPlayer.next());\n  buttons.repeat.addEventListener('click', () =>\n    buttons.repeat.classList.toggle('disabled')\n  );\n  buttons.shuffle.addEventListener('click', () => {\n    buttons.shuffle.classList.toggle('disabled');\n    musicPlayer.sortSongs();\n    \n  });\n\n  setTimeout(() => {\n    let { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();\n    musicPlayer.updateItemClicked({ ButtonTitle, artist, album });\n    document.querySelector('.title-green').classList.add('playlist-item-active')\n  }, 50);\n\n  const playlistItems = document.querySelectorAll('.playlist-item');\n  playlistItems.forEach(playlist => {\n    playlist.addEventListener('click', async () => {\n      const slug = playlist.dataset.id;\n      let title = playlist.querySelector('.title').textContent;\n\n      document.querySelectorAll('.playlist-item-active').forEach(el => el.classList.remove('playlist-item-active'))\n      playlist.classList.add('playlist-item-active');\n\n      setTimeout(() => {\n        const { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();\n        musicPlayer.updateItemClicked({ ButtonTitle, artist, album });\n      }, 300);\n\n      await musicPlayer.selectList(\n        slug,\n        title,\n        playlist.dataset.color\n      );\n\n    });\n  });\n\n  const songPlaylist = document.querySelector('.song.playlist');\n  songPlaylist.addEventListener('click', ev => {\n    const isClick = ev.detail === 1;\n\n    if (isClick) {\n      const newSongs = [...document.querySelectorAll('song-item')].map(song =>\n        song.getData()\n      );\n      musicPlayer.setSongs(newSongs);\n      const rowItem = ev\n        .composedPath()\n        .find(tag => tag.classList?.contains('row-item'));\n      let id = Number(rowItem.dataset?.id);\n      let newIndex = id;\n      if (musicPlayer.isShuffle) {\n        newIndex = musicPlayer.songList.findIndex(song => song.index === id);\n      }\n\n      if (rowItem) {\n        musicPlayer.prepare(newIndex);\n        musicPlayer.play();\n        musicPlayer.togglePlayPause(true);\n      }\n    }\n  });\n<\/script>"])));
+  return renderTemplate(_a$2 || (_a$2 = __template$2(["<script type=\"module\">\n  import { MusicPlayer } from './modules/MusicPlayer.js';\n  import NamesOfPlaylists from './data/playlist.json' with { type: 'json' };\n  const allSlugs = NamesOfPlaylists.map(({ slug }) => slug);\n  const randomSlug = ~~(Math.random() * allSlugs.length);\n  const slug = allSlugs[randomSlug];\n  const playlistCorriente = await import(`./data/${slug}.json`, {\n    with: { type: 'json' }\n  });\n  const playlistCorrienteJson = playlistCorriente.default;\n  const randonNumSong = ~~(Math.random() * playlistCorrienteJson.length);\n  const playlistName = slug;\n  const id = randonNumSong + 1;\n  const musicPlayer = new MusicPlayer(playlistName, id);\n\n  const buttons = {\n    play: document.querySelector('.song-player-container .play'),\n    prev: document.querySelector('.song-player-container .prev'),\n    next: document.querySelector('.song-player-container .next'),\n    shuffle: document.querySelector('.song-player-container .shuffle'),\n    repeat: document.querySelector('.song-player-container .repeat')\n  };\n\n  buttons.play.addEventListener('click', () => musicPlayer.play());\n  buttons.prev.addEventListener('click', () => musicPlayer.prev());\n  buttons.next.addEventListener('click', () => musicPlayer.next());\n  buttons.repeat.addEventListener('click', () =>\n    buttons.repeat.classList.toggle('disabled')\n  );\n  buttons.shuffle.addEventListener('click', () => {\n    buttons.shuffle.classList.toggle('disabled');\n    musicPlayer.sortSongs();\n  });\n\n  setTimeout(() => {\n    const songInfo = musicPlayer.getInfoSong();\n    if (songInfo) {\n      let { title: ButtonTitle, artist, album } = songInfo;\n      musicPlayer.updateItemClicked({ ButtonTitle, artist, album });\n      document\n        .querySelector('.title-green')\n        ?.classList.add('playlist-item-active');\n    } else {\n      document\n        .querySelector('.title-green')\n        ?.classList.add('playlist-item-active');\n    }\n  }, 50);\n\n  const playlistItems = document.querySelectorAll('.playlist-item');\n  playlistItems.forEach(playlist => {\n    playlist.addEventListener('click', async () => {\n      const slug = playlist.dataset.id;\n      let title = playlist.querySelector('.title').textContent;\n\n      document\n        .querySelectorAll('.playlist-item-active')\n        .forEach(el => el.classList.remove('playlist-item-active'));\n      playlist.classList.add('playlist-item-active');\n\n      setTimeout(() => {\n        const { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();\n\n        musicPlayer.updateItemClicked({ ButtonTitle, artist, album });\n      }, 300);\n\n      await musicPlayer.selectList(slug, title, playlist.dataset.color);\n    });\n  });\n\n  const songPlaylist = document.querySelector('.song.playlist');\n  songPlaylist.addEventListener('click', ev => {\n    const isClick = ev.detail === 1;\n\n    if (isClick) {\n      const newSongs = [...document.querySelectorAll('song-item')].map(song =>\n        song.getData()\n      );\n      musicPlayer.setSongs(newSongs);\n      const rowItem = ev\n        .composedPath()\n        .find(tag => tag.classList?.contains('row-item'));\n      let id = Number(rowItem.dataset?.id);\n      let newIndex = id;\n      if (musicPlayer.isShuffle) {\n        newIndex = musicPlayer.songList.findIndex(song => song.index === id);\n      }\n\n      if (rowItem) {\n        musicPlayer.prepare(newIndex);\n        musicPlayer.play();\n        musicPlayer.togglePlayPause(true);\n      }\n    }\n  });\n<\/script>"], ["<script type=\"module\">\n  import { MusicPlayer } from './modules/MusicPlayer.js';\n  import NamesOfPlaylists from './data/playlist.json' with { type: 'json' };\n  const allSlugs = NamesOfPlaylists.map(({ slug }) => slug);\n  const randomSlug = ~~(Math.random() * allSlugs.length);\n  const slug = allSlugs[randomSlug];\n  const playlistCorriente = await import(\\`./data/\\${slug}.json\\`, {\n    with: { type: 'json' }\n  });\n  const playlistCorrienteJson = playlistCorriente.default;\n  const randonNumSong = ~~(Math.random() * playlistCorrienteJson.length);\n  const playlistName = slug;\n  const id = randonNumSong + 1;\n  const musicPlayer = new MusicPlayer(playlistName, id);\n\n  const buttons = {\n    play: document.querySelector('.song-player-container .play'),\n    prev: document.querySelector('.song-player-container .prev'),\n    next: document.querySelector('.song-player-container .next'),\n    shuffle: document.querySelector('.song-player-container .shuffle'),\n    repeat: document.querySelector('.song-player-container .repeat')\n  };\n\n  buttons.play.addEventListener('click', () => musicPlayer.play());\n  buttons.prev.addEventListener('click', () => musicPlayer.prev());\n  buttons.next.addEventListener('click', () => musicPlayer.next());\n  buttons.repeat.addEventListener('click', () =>\n    buttons.repeat.classList.toggle('disabled')\n  );\n  buttons.shuffle.addEventListener('click', () => {\n    buttons.shuffle.classList.toggle('disabled');\n    musicPlayer.sortSongs();\n  });\n\n  setTimeout(() => {\n    const songInfo = musicPlayer.getInfoSong();\n    if (songInfo) {\n      let { title: ButtonTitle, artist, album } = songInfo;\n      musicPlayer.updateItemClicked({ ButtonTitle, artist, album });\n      document\n        .querySelector('.title-green')\n        ?.classList.add('playlist-item-active');\n    } else {\n      document\n        .querySelector('.title-green')\n        ?.classList.add('playlist-item-active');\n    }\n  }, 50);\n\n  const playlistItems = document.querySelectorAll('.playlist-item');\n  playlistItems.forEach(playlist => {\n    playlist.addEventListener('click', async () => {\n      const slug = playlist.dataset.id;\n      let title = playlist.querySelector('.title').textContent;\n\n      document\n        .querySelectorAll('.playlist-item-active')\n        .forEach(el => el.classList.remove('playlist-item-active'));\n      playlist.classList.add('playlist-item-active');\n\n      setTimeout(() => {\n        const { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();\n\n        musicPlayer.updateItemClicked({ ButtonTitle, artist, album });\n      }, 300);\n\n      await musicPlayer.selectList(slug, title, playlist.dataset.color);\n    });\n  });\n\n  const songPlaylist = document.querySelector('.song.playlist');\n  songPlaylist.addEventListener('click', ev => {\n    const isClick = ev.detail === 1;\n\n    if (isClick) {\n      const newSongs = [...document.querySelectorAll('song-item')].map(song =>\n        song.getData()\n      );\n      musicPlayer.setSongs(newSongs);\n      const rowItem = ev\n        .composedPath()\n        .find(tag => tag.classList?.contains('row-item'));\n      let id = Number(rowItem.dataset?.id);\n      let newIndex = id;\n      if (musicPlayer.isShuffle) {\n        newIndex = musicPlayer.songList.findIndex(song => song.index === id);\n      }\n\n      if (rowItem) {\n        musicPlayer.prepare(newIndex);\n        musicPlayer.play();\n        musicPlayer.togglePlayPause(true);\n      }\n    }\n  });\n<\/script>"])));
 }, "C:/Users/amoil/Desktop/PlaylistHub/src/components/MusicPlayer.astro", void 0);
 var __freeze$1 = Object.freeze;
 var __defProp$1 = Object.defineProperty;
