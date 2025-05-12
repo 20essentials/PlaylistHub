@@ -13,6 +13,6 @@ export default defineConfig({
     assets: 'static'
   },
   output: 'server',
+  adapter: vercel(),
   integrations: [clerk()],
-  adapter: vercel()
 });
