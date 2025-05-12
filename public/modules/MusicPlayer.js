@@ -63,7 +63,7 @@ export class MusicPlayer {
       currentTimeTag.textContent = time;
       const percentage = (mstime * 100) / this.currentSong.duration;
 
-      songProgress.setValue(percentage + 1); 
+      songProgress.setValue(percentage + 1);
     });
 
     document.addEventListener('song:changetime', ({ detail }) => {
@@ -163,11 +163,17 @@ export class MusicPlayer {
     return new Promise((resolve, reject) => {
       const songPlaylist = document.querySelector('.song.playlist');
       const oldSongs = songPlaylist.querySelectorAll('song-item');
+      const headerDataClass = document.querySelector('.header-data-items-class');
+      const existUser = headerDataClass.dataset.lastColumn;
+      const displayValueOfLastIcon = existUser === 'true' ? 'flex' : 'none';
       oldSongs.forEach(song => song.remove());
+
       songs.forEach((song, index) => {
-        const attrs = Object.entries(song)
+        const attrs = Object.entries({ ...song, displayValueOfLastIcon })
           .map(([attr, value]) => `${attr}="${value}"`)
           .join(' ');
+
+
         const element = `<song-item index="${index}" ${attrs}></song-item>`;
         songPlaylist.insertAdjacentHTML('beforeend', element);
       });
@@ -294,7 +300,6 @@ export class MusicPlayer {
   }
 
   getInfoSong() {
-    
     return this.songList[this.currentSongIndex];
   }
 

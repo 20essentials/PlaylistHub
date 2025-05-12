@@ -8,9 +8,16 @@ const classLastColumn = user ? 'true' : 'false';
 const columnsPlaylists = user
   ? `3% 1fr 0.7fr 0.7fr 0.1fr 0.1fr`
   : '3% 1fr 0.7fr 0.7fr 0.1fr';
+const columnsPlaylistsInVieport = user ? `8% 1fr 14% 10%` : '8% 1fr 14%';
 ---
 
-<style define:vars={{ columns: columnsPlaylists, hiddenColumn }}>
+<style
+  define:vars={{
+    columns: columnsPlaylists,
+    hiddenColumn,
+    columnsportrait: columnsPlaylistsInVieport
+  }}
+>
   .playlist {
     --translucid-color: color-mix(
       in srgb,
@@ -29,7 +36,7 @@ const columnsPlaylists = user
     );
 
     @media (width <= 1111px) and (orientation: portrait) {
-      --playlist-format: 8% 1fr 14% 10%;
+      --playlist-format: var(--columnsportrait);
 
       .centrar {
         padding-left: 0.7vmax;
@@ -43,7 +50,7 @@ const columnsPlaylists = user
         justify-content: center;
         display: var(--hiddenColumn);
 
-       /*  @media (width <= 1111px) and (orientation: portrait) {
+        /*  @media (width <= 1111px) and (orientation: portrait) {
           justify-content: center;
           background-color: red;
         } */
@@ -118,27 +125,29 @@ const columnsPlaylists = user
   <hr />
 </div>
 
-<script >
+<script>
   import { $ } from '@/utils/functions';
 
   function showPlaylisIcon() {
-    const headerDataClass = $('.header-data-items-class')  as HTMLElement;
+    const headerDataClass = $('.header-data-items-class') as HTMLElement;
     const existUser = headerDataClass.dataset.lastColumn;
     const songItems = document.querySelectorAll('song-item');
     songItems.forEach(el => {
       const row = el.shadowRoot?.querySelector('.row-item');
+      const isFlex = el.getAttribute('displayValueOfLastIcon');
       const playListIcon = row?.querySelector('.playlist-icon');
-      if (existUser === 'true') {
+      if (existUser === 'true' || isFlex === 'flex') {
         playListIcon?.classList.remove('escondido');
-      } else {
-        playListIcon?.classList.add('escondido');
+        return;
       }
+
+      playListIcon?.classList.toggle('escondido', true);
     });
   }
 
   setTimeout(() => {
     showPlaylisIcon();
-  }, 500);
+  }, 200);
 
   document.addEventListener('click', e => {
     const target = e.target as HTMLElement;

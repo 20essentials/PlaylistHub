@@ -72,9 +72,9 @@
           } */
 
        
-          &.escondido {
+           &.escondido {
             display: none;
-          }
+          } 
           
           svg {
             width: 1.3vmax;
@@ -185,6 +185,7 @@
       this.urlSong = this.getAttribute('urlSong');
       this.image = this.urlPoster;
       this.thumb = this.urlPoster;
+      this.displayValueOfLastIcon = this.getAttribute('displayValueOfLastIcon');
       this.render();
       const rowItem = this.shadowRoot.querySelector('.row-item');
       setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
