@@ -3,11 +3,13 @@ const title = '';
 const artist = '';
 import HeartEmpty from '@/icons/heartvoid.astro';
 import HeartFull from '@/icons/heartfull.astro';
+const user = await Astro.locals.currentUser();
 ---
 
 <style>
   @keyframes showConffeti {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0;
     }
     50% {
@@ -134,11 +136,15 @@ import HeartFull from '@/icons/heartfull.astro';
     <p class='title'>{title}</p>
     <p class='artist'>{artist}</p>
   </div>
-  <aside class='last'>
-    <HeartEmpty class='heartEmpty' />
-    <HeartFull class='heartFull' />
-    <img class='confetti' src='/assets/confetti.gif' alt='Confetti Image' />
-  </aside>
+  {
+    user && (
+      <aside class='last'>
+        <HeartEmpty class='heartEmpty' />
+        <HeartFull class='heartFull' />
+        <img class='confetti' src='/assets/confetti.gif' alt='Confetti Image' />
+      </aside>
+    )
+  }
 </div>
 
 <script is:inline>
