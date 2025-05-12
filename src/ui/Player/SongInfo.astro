@@ -54,6 +54,10 @@ const user = await Astro.locals.currentUser();
       padding-left: 0.7vmax;
       position: relative;
 
+      @media (width <= 1111px) and (orientation: portrait) {
+        display: none;
+      }
+
       .confetti {
         position: absolute;
         left: -0.8vmax;
@@ -129,7 +133,6 @@ const user = await Astro.locals.currentUser();
     autoplay && addCoverCard(imageTag.src);
   });
 </script>
-
 
 <div class='song-info-container'>
   <img src='/assets/transparent.png' class='left' />

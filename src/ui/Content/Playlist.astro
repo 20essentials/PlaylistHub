@@ -29,7 +29,7 @@ const columnsPlaylists = user
     );
 
     @media (width <= 1111px) and (orientation: portrait) {
-      --playlist-format: 8% 1fr 14%;
+      --playlist-format: 8% 1fr 14% 2%;
 
       .centrar {
         padding-left: 0.7vmax;
@@ -42,6 +42,10 @@ const columnsPlaylists = user
       &.last-cell {
         justify-content: center;
         display: var(--hiddenColumn);
+
+        @media (width <= 1111px) and (orientation: portrait) {
+          display: none;
+        }
 
         svg {
           width: 1.2vmax;

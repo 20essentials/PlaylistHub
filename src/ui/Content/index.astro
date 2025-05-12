@@ -67,8 +67,8 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
     touch-action: none;
     isolation: isolate;
     width: 100%;
-    width: 2.5vmax;
-    height: 2.5vmax;
+    width: 2.6vmax;
+    height: 2.6vmax;
     border: none;
     outline: none;
     margin: 0;
@@ -85,7 +85,7 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
     aspect-ratio: 1;
     position: fixed;
     top: 2.5vmax;
-    right: 5.9vmax;
+    right: 5.85vw;
     animation: desaparecer auto ease both;
     animation-timeline: --hidden;
     animation-range: 0 9vmax;
@@ -173,6 +173,7 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
       <img src='/assets/profile1.png' alt='profile' />
     </button>
   </SignedOut>
+
   <ListHeader />
   <Playlist />
 </div>
