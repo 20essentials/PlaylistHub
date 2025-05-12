@@ -76,6 +76,11 @@ const user = await Astro.locals.currentUser();
         left: calc(50% + 0.5vmax);
         transform: translate(-50%, -50%);
 
+        @media (width <= 1111px) and (orientation: landscape) and (hover: none) {
+          width: 1.8vmax;
+          height: 1.8vmax;
+        }
+
         &.heartEmpty {
           &.isSaved {
             opacity: 0;

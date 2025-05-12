@@ -213,7 +213,7 @@ import { SignInButton } from '@clerk/astro/components';
                   .cl-socialButtonsIconButton {
                     margin-inline: auto;
 
-                    @media (width <= 500px)  {
+                    @media (width <= 500px) {
                       max-width: 66%;
                     }
                   }
@@ -466,6 +466,11 @@ import { SignInButton } from '@clerk/astro/components';
 
         @media (width <= 900px) {
           width: 40vmax;
+        }
+
+        @media (width <= 1111px) and (orientation: landscape) {
+          zoom: 0.8;
+          height: 34.5vmax;
         }
 
         .cl-internal-186wk34 {

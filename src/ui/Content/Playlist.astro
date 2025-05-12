@@ -118,11 +118,11 @@ const columnsPlaylists = user
   <hr />
 </div>
 
-<script is:inline>
+<script >
   import { $ } from '@/utils/functions';
 
   function showPlaylisIcon() {
-    const headerDataClass = $('.header-data-items-class') ;
+    const headerDataClass = $('.header-data-items-class')  as HTMLElement;
     const existUser = headerDataClass.dataset.lastColumn;
     const songItems = document.querySelectorAll('song-item');
     songItems.forEach(el => {
@@ -138,10 +138,10 @@ const columnsPlaylists = user
 
   setTimeout(() => {
     showPlaylisIcon();
-  }, 200);
+  }, 500);
 
   document.addEventListener('click', e => {
-    const target = e.target ;
+    const target = e.target as HTMLElement;
     if (target.matches('.playlist-item')) {
       setTimeout(() => {
         showPlaylisIcon();
