@@ -103,7 +103,7 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
       bottom: 0;
       top: 0;
       background-repeat: no-repeat;
-      background-image: url('assets/profile1.png'), var(--bg),
+      background-image: url('/assets/profile1.png'), var(--bg),
         linear-gradient(
           125deg,
           #ff008450 15%,
@@ -169,8 +169,8 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
   </SignedIn>
 
   <SignedOut>
-    <button class='profile openLogin' style="--bg: url('./assets/v1.gif')">
-      <img src='./assets/profile1.png' alt='profile' />
+    <button class='profile openLogin' style="--bg: url('/assets/v1.gif')">
+      <img src='/assets/profile1.png' alt='profile' />
     </button>
   </SignedOut>
   <ListHeader />
