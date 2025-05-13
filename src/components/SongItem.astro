@@ -196,6 +196,9 @@
       this.playlistIconListeners();
       this.playlistNavListener();
       this.downloadListeners();
+      this.addToPlaylistListeners();
+      this.removeFromThisPlaylistListeners();
+      this.addToYourFavoriteBrandsListener();
     }
 
     playlistIconListeners() {
@@ -236,7 +239,32 @@
     downloadListeners() {
       const $buttonDownload = this.shadowRoot.querySelector('.downloadClick');
       $buttonDownload.addEventListener('click', e => {
+        e.stopPropagation();
         this.descargarArchivo(this.urlSong, `${this.title} - ${this.artist}.mp3`);
+      });
+    }
+
+    addToPlaylistListeners() {
+      const $addToPlaylist = this.shadowRoot.querySelector('.add-to-playlist');
+      $addToPlaylist.addEventListener('click', e => {
+        e.stopPropagation();
+        alert('add');
+      });
+    }
+
+    removeFromThisPlaylistListeners() {
+      const $removeThisSongFromPlaylist = this.shadowRoot.querySelector('.remove-from-playlist');
+      $removeThisSongFromPlaylist.addEventListener('click', e => {
+        e.stopPropagation();
+        alert('remove');
+      });
+    }
+
+    addToYourFavoriteBrandsListener() {
+       const $addInFavoriteBrand = this.shadowRoot.querySelector('.add-in-favorite-brands');
+      $addInFavoriteBrand.addEventListener('click', e => {
+        e.stopPropagation();
+        alert('add in favorite brand');
       });
     }
 
@@ -254,7 +282,8 @@
           const a = document.createElement('a');
           a.href = blobUrl;
           a.download = nombreArchivo;
-          document.body.appendChild(a); // necesario en algunos navegadores
+          // necesario en algunos navegadores
+          document.body.appendChild(a); 
           a.click();
           a.remove();
           URL.revokeObjectURL(blobUrl);
@@ -311,8 +340,9 @@
                   data-name='Layer 2'></path>
               </svg>
           </aside>
+
           <nav class="playlist-nav-options">
-            <button class="option" title="Save this track to a playlist">
+            <button class="option add-to-playlist" title="Save this track to a playlist">
               <span class="left">
                 <svg
                   viewBox='0 0 24 24'
@@ -327,7 +357,7 @@
               </span>
               <span class="right">Add to Playlist</span>
             </button>
-            <button class="option" title="Delete this song from the current playlist">
+            <button class="option remove-from-playlist" title="Delete this song from the current playlist">
                <span class="left">
                 <svg
                   viewBox='0 0 24 24'
@@ -344,7 +374,7 @@
                </span>
                <span class="right">Remove from this Playlist</span>
               </button>
-            <button class="option" title="Mark this brand as a favorite">
+            <button class="option add-in-favorite-brands" title="Mark this brand as a favorite">
               <span class="left">
                 <svg viewBox='0 0 24 24'
                   >

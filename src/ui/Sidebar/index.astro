@@ -1,9 +1,16 @@
 ---
 import playlist from '@/data/playlist.json';
 import PlayListItem from '@/components/PlayListItem.astro';
+const user = await Astro.locals.currentUser();
+const userImg = user?.imageUrl;
+const containerHeight = user
+  ? 'calc(100vh - var(--player-height) - 10.3vmax)'
+  : 'calc(100vh - var(--player-height) - 8vmax)';
+//Aqui podria traer la playlist favorite del usuario
+//Aqui podria traer todas las playlist creadas por el usuario
 ---
 
-<style>
+<style define:vars={{ containerHeight }}>
   .container {
     display: flex;
     flex-direction: column;
@@ -101,6 +108,47 @@ import PlayListItem from '@/components/PlayListItem.astro';
     background: var(--medium-bgcolor);
     border-radius: var(--border-radius);
     height: 100%;
+    /* background-color: red; */
+
+    .sidebar-headers {
+      /* background-color: orange; */
+      display: flex;
+      border-bottom: 0.1vmax solid #fff2;
+
+      .sidb {
+        min-width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        place-content: center;
+        padding: 0.5vmax;
+
+        &.sidb-active {
+          filter: brightness(125%);
+          background-color: color-mix(
+            in srgb,
+            var(--theme-color) 50%,
+            transparent 50%
+          );
+        }
+
+        &.sidebar-left {
+          /* background-color: cadetblue; */
+          border-top-left-radius: var(--border-radius);
+        }
+
+        &.sidebar-right {
+          /* background-color: orange; */
+          border-left: 0.1vmax solid #fff2;
+          border-top-right-radius: var(--border-radius);
+        }
+
+        img {
+          width: 1.5vmax;
+          height: 1.5vmax;
+          border-radius: 50%;
+        }
+      }
+    }
 
     .the-container {
       display: flex;
@@ -111,7 +159,7 @@ import PlayListItem from '@/components/PlayListItem.astro';
         padding: 0.3vmax;
         display: flex;
         flex-direction: column;
-        height: calc(100vh - var(--player-height) - 8vmax);
+        height: var(--containerHeight);
         padding-bottom: 0;
         padding-top: 0.6vmax;
 
@@ -211,6 +259,19 @@ import PlayListItem from '@/components/PlayListItem.astro';
     </button>
   </div>
   <div class='main-sidebar'>
+    {
+      user && (
+        <nav class='sidebar-headers'>
+          <aside class='sidebar-left sidb sidb-active' title='Global Playlists'>
+            <img src='/assets/earth.png' alt='earth' />
+          </aside>
+          <aside class='sidebar-right sidb' title='Personal Playlists'>
+            <img src={userImg} alt='User logo' />
+          </aside>
+        </nav>
+      )
+    }
+
     <section class='the-container'>
       <div class='playlist-container'>
         <div class='playlist sidebarPlaylist'>
