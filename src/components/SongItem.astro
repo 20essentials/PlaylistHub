@@ -195,7 +195,7 @@
       setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
       this.playlistIconListeners();
       this.playlistNavListener();
-     
+      this.downloadListeners();
     }
 
     playlistIconListeners() {
@@ -231,6 +231,40 @@
           navOptions.classList.remove('playListNavActive');
         }
       });
+    }
+
+    downloadListeners() {
+      const $buttonDownload = this.shadowRoot.querySelector('.downloadClick');
+      $buttonDownload.addEventListener('click', e => {
+        this.descargarArchivo(this.urlSong, `${this.title} - ${this.artist}.mp3`);
+      });
+    }
+
+    descargarArchivo(url, nombreArchivo) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            console.log('No se pudo descargar el archivo.');
+            return;
+          }
+          return response.blob();
+        })
+        .then(blob => {
+          const blobUrl = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = nombreArchivo;
+          document.body.appendChild(a); // necesario en algunos navegadores
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(blobUrl);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert(
+            'Error al intentar descargar. El servidor puede estar bloqueando la descarga por CORS.'
+          );
+        });
     }
 
     getData() {
@@ -322,7 +356,7 @@
               </span>
               <span class="right"> Add to Your Favorite Brands </span>
             </button>
-            <a class="option" href="${this.urlSong}" download="${this.title} - ${this.artist}.mp3" title="Click to download the audio">
+            <button class="option downloadClick" title="Click to download the audio">
               <span class="left">
                   <svg  viewBox='0 0 24 24'
                     >
@@ -333,7 +367,7 @@
                   >
               </span>
               <span class="right"> Download Audio</span>
-            </a>
+            </button>
           </nav>
         </div>
       `;
