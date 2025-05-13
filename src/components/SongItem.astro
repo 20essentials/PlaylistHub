@@ -67,11 +67,12 @@
           justify-content: right;
           text-align: right;
 
+
           /* @media (width <= 1111px) and (orientation: portrait) {
             background-color: red;  
           } */
 
-       
+
            &.escondido {
             display: none;
           } 
@@ -96,7 +97,7 @@
           transition: visibility .3s ease, opacity .3s ease;
           opacity: 0;
           border-radius: 0.7vmax;
-          transform: translateY(-1.5vmax);
+          transform: translateY(-2vmax);
           gap: 0;
 
           &.playListNavActive {
@@ -113,7 +114,7 @@
             background-color: #000;
             border: none;
             outline: none;
-            padding: 0.5vmax;
+            padding: 0.45vmax;
             padding-right: 1.5vmax;
             position: relative;
             z-index: 1500;
@@ -190,6 +191,7 @@
       const rowItem = this.shadowRoot.querySelector('.row-item');
       setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
       this.playlistIconListeners();
+      this.playlistNavListener();
     }
 
     playlistIconListeners() {
@@ -213,6 +215,17 @@
         });
 
         playListNavOption.classList.add('playListNavActive');
+      });
+    }
+
+    playlistNavListener() {
+      const navOptions = this.shadowRoot.querySelector('.playlist-nav-options');
+
+      navOptions?.addEventListener('pointerout', e => {
+        const goingTo = e.relatedTarget;
+        if (!navOptions.contains(goingTo)) {
+          navOptions.classList.remove('playListNavActive');
+        }
       });
     }
 
@@ -261,7 +274,7 @@
               </svg>
           </aside>
           <nav class="playlist-nav-options">
-            <button class="option">
+            <button class="option" title="Save this track to a playlist">
               <span class="left">
                 <svg
                   viewBox='0 0 24 24'
@@ -276,7 +289,7 @@
               </span>
               <span class="right">Add to Playlist</span>
             </button>
-            <button class="option">
+            <button class="option" title="Delete this song from the current playlist">
                <span class="left">
                 <svg
                   viewBox='0 0 24 24'
@@ -293,7 +306,7 @@
                </span>
                <span class="right">Remove from this Playlist</span>
               </button>
-            <button class="option">
+            <button class="option" title="Mark this brand as a favorite">
               <span class="left">
                 <svg viewBox='0 0 24 24'
                   >
@@ -305,7 +318,7 @@
               </span>
               <span class="right"> Add to Your Favorite Brands </span>
             </button>
-            <button class="option">
+            <button class="option" title="Click to download the audio">
               <span class="left">
                   <svg  viewBox='0 0 24 24'
                     >

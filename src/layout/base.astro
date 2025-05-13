@@ -16,6 +16,7 @@ import { SignInButton } from '@clerk/astro/components';
     <slot />
 
     <SignInButton class={'buttonModalSignin'} mode='modal' />
+    <button class='hidden-button-for-remove-nav-on-pointerout'></button>
   </body>
 </html>
 
@@ -26,6 +27,18 @@ import { SignInButton } from '@clerk/astro/components';
     left: 50%;
     pointer-events: none;
     visibility: hidden;
+  }
+
+  .hidden-button-for-remove-nav-on-pointerout {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 5vmax;
+    height: 2vmax;
+    /* pointer-events: none; */
+    opacity: 0;
+    background-color: PINK;
+    z-index: 9999;
   }
 
   @font-face {
@@ -1175,6 +1188,33 @@ import { SignInButton } from '@clerk/astro/components';
       $signinButton.click();
     }, 5);
   });
+
+  // Hidden Nav if not have focus
+  setTimeout(() => {
+    const profileButton = $('.profile-open-manage-and-logout') as HTMLElement;
+    profileButton?.addEventListener('click', e => {
+      setTimeout(() => {
+        const profileNavManageAndSignOut = $(
+          '.cl-userButtonPopoverCard.cl-popoverBox.cl-userButton-popover'
+        ) as HTMLElement;
+
+        profileNavManageAndSignOut?.addEventListener(
+          'pointerout',
+          (e: PointerEvent) => {
+            const targetElement = e.relatedTarget as HTMLElement;
+            if (!profileNavManageAndSignOut.contains(targetElement)) {
+              const $buttonHidden = $(
+                '.hidden-button-for-remove-nav-on-pointerout'
+              ) as HTMLButtonElement;
+
+              const evt = new PointerEvent('pointerdown', { bubbles: true });
+              $buttonHidden.dispatchEvent(evt);
+            }
+          }
+        );
+      }, 15);
+    });
+  }, 100);
 
   window.addEventListener('resize', e => {
     document.title = `${window.innerWidth}`;
