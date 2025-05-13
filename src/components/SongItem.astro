@@ -120,6 +120,9 @@
             z-index: 1500;
             transition: background-color .2s ease;
             border-bottom: 0.1vmax solid #fff2;
+            text-decoration: none;
+            color: inherit;
+            align-items: center;
 
             &:hover {
               background-color: color-mix(in srgb, var(--theme-color), black 50%);
@@ -192,6 +195,7 @@
       setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
       this.playlistIconListeners();
       this.playlistNavListener();
+     
     }
 
     playlistIconListeners() {
@@ -318,7 +322,7 @@
               </span>
               <span class="right"> Add to Your Favorite Brands </span>
             </button>
-            <button class="option" title="Click to download the audio">
+            <a class="option" href="${this.urlSong}" download="${this.title} - ${this.artist}.mp3" title="Click to download the audio">
               <span class="left">
                   <svg  viewBox='0 0 24 24'
                     >
@@ -329,7 +333,7 @@
                   >
               </span>
               <span class="right"> Download Audio</span>
-            </button>
+            </a>
           </nav>
         </div>
       `;
