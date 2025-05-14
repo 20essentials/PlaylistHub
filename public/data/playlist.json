@@ -341,5 +341,12 @@
     "pinned": true,
     "color": "#FFFAF0",
     "whatColorIs": "FloralWhite"
+  },
+  {
+    "slug": "dungeonsynth",
+    "title": "Dungeon Synth",
+    "pinned": true,
+    "color": "#228B22",
+    "whatColorIs": "Forest Green"
   }
 ]
