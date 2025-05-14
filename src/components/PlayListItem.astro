@@ -23,11 +23,11 @@ const files = import.meta.glob('../data/*.json', { eager: true }) as Record<
   { default: SongData[] }
 >;
 
-const mySlug = `../data/${slug}.json`; // Variable dinámica
-const currentJson = files[mySlug]?.default || []; // Acceso dinámico
+const mySlug = `../data/${slug}.json`;
+const currentJson = files[mySlug]?.default || [];
 const randomNumber = ~~(Math.random() * currentJson.length);
 const randomSrc = currentJson[randomNumber]?.urlPoster || '';
-const image = isPlaylistFavorites ? '' : randomSrc;
+const image = isPlaylistFavorites ? '/assets/hearFavorite.png' : randomSrc;
 ---
 
 <style>

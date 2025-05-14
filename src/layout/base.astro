@@ -1181,6 +1181,8 @@ import { SignInButton } from '@clerk/astro/components';
 
 <script>
   import { $ } from '@/utils/functions';
+  import FavoriteBrands from '@/data/favoritebrands.json';
+
   const profile = $('.profile.openLogin') as HTMLElement;
   profile?.addEventListener('click', e => {
     const $signinButton = $('.buttonModalSignin') as HTMLElement;
@@ -1188,6 +1190,15 @@ import { SignInButton } from '@clerk/astro/components';
       $signinButton.click();
     }, 5);
   });
+
+  //LocalStorage
+  const PREFIX_LS = 'playlist_hub_';
+  const FAV_PLAYLIST = 'favoritebrands';
+  const LS_FAVORITE_BRANDS = `${PREFIX_LS}${FAV_PLAYLIST}`;
+  if (!localStorage.getItem(LS_FAVORITE_BRANDS)) {
+    const jsonFavoriteBrands = JSON.stringify(FavoriteBrands);
+    localStorage.setItem(LS_FAVORITE_BRANDS, jsonFavoriteBrands);
+  }
 
   // Hidden Nav if not have focus
   setTimeout(() => {

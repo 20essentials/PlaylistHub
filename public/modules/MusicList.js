@@ -3,6 +3,11 @@ export class MusicList {
   currentId = 'electronic';
 
   async get(slug) {
+    const PREFIX_LS = 'playlist_hub_';
+    const LS_PLAYLISTS = localStorage.getItem(`${PREFIX_LS}${slug}`);
+    if (LS_PLAYLISTS) {
+      return JSON.parse(LS_PLAYLISTS);
+    }
     if (!this.playLists[slug]) {
       const playList = await fetch(`./data/${slug}.json`).then(response =>
         response.json()

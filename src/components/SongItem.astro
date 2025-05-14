@@ -253,18 +253,49 @@
     }
 
     removeFromThisPlaylistListeners() {
-      const $removeThisSongFromPlaylist = this.shadowRoot.querySelector('.remove-from-playlist');
+      const $removeThisSongFromPlaylist = this.shadowRoot.querySelector(
+        '.remove-from-playlist'
+      );
       $removeThisSongFromPlaylist.addEventListener('click', e => {
         e.stopPropagation();
         alert('remove');
       });
     }
 
+    obtenerFechaActualISO() {
+      const ahora = new Date();
+      const año = ahora.getFullYear();
+      const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+      const dia = String(ahora.getDate()).padStart(2, '0');
+      return `${año}-${mes}-${dia}T00:00:00`;
+    }
+
     addToYourFavoriteBrandsListener() {
-       const $addInFavoriteBrand = this.shadowRoot.querySelector('.add-in-favorite-brands');
+      const $addInFavoriteBrand = this.shadowRoot.querySelector(
+        '.add-in-favorite-brands'
+      );
       $addInFavoriteBrand.addEventListener('click', e => {
         e.stopPropagation();
-        alert('add in favorite brand');
+        const FAV_PLAYLIST = 'favoritebrands';
+        const PREFIX_LS = 'playlist_hub_';
+        const PLAYLIST_NAME = `${PREFIX_LS}${FAV_PLAYLIST}`;
+        const LS_PLAYLISTS_STRING = localStorage.getItem(PLAYLIST_NAME);
+        let LS_playlist_array = JSON.parse(LS_PLAYLISTS_STRING);
+
+        const newSongInFavorite = {
+          title: this.title,
+          fromUser: true,
+          artist: this.artist,
+          album: FAV_PLAYLIST,
+          date: this.obtenerFechaActualISO(),
+          duration: this.duration,
+          urlSong: this.urlSong,
+          urlPoster: this.urlPoster
+        };
+
+        LS_playlist_array.push(newSongInFavorite);
+
+        localStorage.setItem(PLAYLIST_NAME, JSON.stringify(LS_playlist_array));
       });
     }
 
@@ -283,7 +314,7 @@
           a.href = blobUrl;
           a.download = nombreArchivo;
           // necesario en algunos navegadores
-          document.body.appendChild(a); 
+          document.body.appendChild(a);
           a.click();
           a.remove();
           URL.revokeObjectURL(blobUrl);
