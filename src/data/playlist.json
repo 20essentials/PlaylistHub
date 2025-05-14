@@ -334,5 +334,12 @@
     "pinned": true,
     "color": "#B22222",
     "whatColorIs": "FireBrick"
+  },
+  {
+    "slug": "monokai",
+    "title": "Monokai",
+    "pinned": true,
+    "color": "#FFFAF0",
+    "whatColorIs": "FloralWhite"
   }
 ]

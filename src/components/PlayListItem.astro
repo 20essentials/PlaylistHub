@@ -1,7 +1,15 @@
 ---
 import PinnedIcon from '@/icons/pinned.astro';
 import Volume from '@/icons/music.astro';
-const { slug, title, pinned, color, tab } = Astro.props;
+const {
+  slug,
+  title = '',
+  pinned,
+  color,
+  tab,
+  visible,
+  isPlaylistFavorites
+} = Astro.props;
 
 const initialLetterOfEachWord = title.slice(0, 3).toUpperCase();
 
@@ -19,7 +27,7 @@ const mySlug = `../data/${slug}.json`; // Variable dinámica
 const currentJson = files[mySlug]?.default || []; // Acceso dinámico
 const randomNumber = ~~(Math.random() * currentJson.length);
 const randomSrc = currentJson[randomNumber]?.urlPoster || '';
-const image = randomSrc;
+const image = isPlaylistFavorites ? '' : randomSrc;
 ---
 
 <style>
@@ -33,6 +41,14 @@ const image = randomSrc;
     position: relative;
     cursor: pointer;
     transition: background-color 0.2s ease;
+
+    &.visible {
+      display: flex;
+    }
+
+    &.invisible {
+      display: none;
+    }
 
     * {
       pointer-events: none;
@@ -116,7 +132,12 @@ const image = randomSrc;
   }
 </style>
 
-<aside class='playlist-item' data-id={slug} data-color={color} tabindex={tab}>
+<aside
+  class=`playlist-item ${visible}`
+  data-id={slug}
+  data-color={color}
+  tabindex={tab}
+>
   <img src={image} alt={title} />
   <div class='data'>
     <strong class='title'>{title}</strong>

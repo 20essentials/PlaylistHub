@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 import clerk from '@clerk/astro';
 
+import preact from '@astrojs/preact';
+
 // https://astro.build/config
 export default defineConfig({
   // build: {
@@ -14,5 +16,5 @@ export default defineConfig({
   },
   output: 'server',
   adapter: vercel(),
-  integrations: [clerk()],
+  integrations: [clerk(), preact()],
 });

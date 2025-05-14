@@ -6,8 +6,30 @@ const userImg = user?.imageUrl;
 const containerHeight = user
   ? 'calc(100vh - var(--player-height) - 10.3vmax)'
   : 'calc(100vh - var(--player-height) - 8vmax)';
-//Aqui podria traer la playlist favorite del usuario
+//Aqui podria traer la playlist favorite del usuario de una base de datos
 //Aqui podria traer todas las playlist creadas por el usuario
+
+const PlaylistUser = {
+  fromUser: true,
+  isPlaylistFavorites: true,
+  slug: 'favoritebrands',
+  title: 'Favorite Brands',
+  pinned: true,
+  color: '#f00',
+  whatColorIs: 'red'
+};
+
+interface PlaylistObject {
+  slug: string;
+  title: string;
+  fromUser?: boolean;
+  pinned: boolean;
+  color: string;
+  whatColorIs: string;
+  isPlaylistFavorites?: boolean;
+}
+
+const allPlaylists: PlaylistObject[] = [PlaylistUser, ...playlist];
 ---
 
 <style define:vars={{ containerHeight }}>
@@ -146,6 +168,7 @@ const containerHeight = user
           width: 1.5vmax;
           height: 1.5vmax;
           border-radius: 50%;
+          pointer-events: none;
         }
       }
     }
@@ -263,25 +286,85 @@ const containerHeight = user
       user && (
         <nav class='sidebar-headers'>
           <aside class='sidebar-left sidb sidb-active' title='Global Playlists'>
-            <img src='/assets/earth.png' alt='earth' />
+            <img draggable='false' src='/assets/earth.png' alt='earth' />
           </aside>
           <aside class='sidebar-right sidb' title='Personal Playlists'>
-            <img src={userImg} alt='User logo' />
+            <img draggable='false' src={userImg} alt='User logo' />
           </aside>
         </nav>
       )
     }
-
     <section class='the-container'>
       <div class='playlist-container'>
         <div class='playlist sidebarPlaylist'>
           {
-            playlist
+            allPlaylists
               .sort((a, b) => a.slug.localeCompare(b.slug))
-              .map((pItem, i) => <PlayListItem tab={i} {...pItem} />)
+              .map((pItem, i) => (
+                <PlayListItem
+                  visible={pItem?.fromUser ? 'invisible' : 'visible'}
+                  isPlaylistFavorites={pItem.isPlaylistFavorites}
+                  tab={i}
+                  {...pItem}
+                />
+              ))
           }
         </div>
       </div>
     </section>
   </div>
 </div>
+
+<script>
+  import { $ } from '@/utils/functions';
+
+  const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
+  let originalPlaylist = [...$sideBarPlaylist?.children];
+
+  document.addEventListener('click', e => {
+    const target = e.target as HTMLElement;
+    if (target.matches('.sidebar-left')) {
+      if (target.classList.contains('sidb-active')) return;
+      $('.sidb-active')?.classList.remove('sidb-active');
+      target.classList.add('sidb-active');
+      originalPlaylist.forEach(el => {
+        el.className = el.className.includes('playlist-item visible')
+          ? 'playlist-item invisible'
+          : 'playlist-item visible';
+
+        return el;
+      });
+
+      return;
+    }
+
+    if (target.matches('.sidebar-right')) {
+      if (target.classList.contains('sidb-active')) return;
+      $('.sidb-active')?.classList.remove('sidb-active');
+      target.classList.add('sidb-active');
+      originalPlaylist.forEach(el => {
+        el.className = el.className.includes('playlist-item visible')
+          ? 'playlist-item invisible'
+          : 'playlist-item visible';
+
+        return el;
+      });
+
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    const { key } = e;
+    if (key === 'Tab') {
+      e.preventDefault();
+      const currentTabActive = $('.sidb-active') as HTMLElement;
+      const isTabRight = currentTabActive?.classList.contains('sidebar-right');
+      const sibling = isTabRight
+        ? 'previousElementSibling'
+        : 'nextElementSibling';
+      const targetTab = currentTabActive[sibling] as HTMLElement;
+      targetTab.click();
+    }
+  });
+</script>
