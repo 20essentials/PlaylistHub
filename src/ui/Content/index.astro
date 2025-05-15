@@ -30,6 +30,8 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
     height: 100%;
     scroll-timeline: --hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     &::before {
       content: '';
@@ -187,7 +189,6 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
       <img src='/assets/next.svg' alt='next' />
     </button>
   </aside>
-
   <ListHeader />
   <Playlist />
 </div>

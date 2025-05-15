@@ -216,7 +216,8 @@
       const duration = songs
         .map(song => convertToSeconds(song.duration))
         .reduce((first, acc) => first + acc, 0);
-      const [min] = formatTime(duration).split(':');
+      let [min] = formatTime(duration).split(':');
+      if (min === '00') min = '0';
       const time = `${min} min `;
 
       this.shadowRoot.querySelector('h1').textContent = title;
