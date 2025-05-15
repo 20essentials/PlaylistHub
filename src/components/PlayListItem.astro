@@ -8,7 +8,7 @@ const {
   color,
   tab,
   visible,
-  isPlaylistFavorites,
+  isPlaylistFavorites = false,
   fromUser
 } = Astro.props;
 
@@ -139,7 +139,8 @@ const image = isPlaylistFavorites ? '/assets/hearFavorite.png' : randomSrc;
   data-id={slug}
   data-color={color}
   tabindex={tab}
-  fromUser={fromUser}
+  data-from-user={fromUser}
+  data-is-playlist-favorites={isPlaylistFavorites}
 >
   <img src={image} alt={title} />
   <div class='data'>

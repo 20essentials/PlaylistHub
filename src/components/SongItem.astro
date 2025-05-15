@@ -1,6 +1,6 @@
 <script type='module'>
   import { setAnimation } from './modules/setAnimation.js';
-  import {CustomPopover} from './modules/popover.js'
+  import { CustomPopover } from './modules/popover.js';
   const amCustomPopover = new CustomPopover();
 
   class SongItem extends HTMLElement {
@@ -115,7 +115,7 @@
             border: none;
             outline: none;
             padding: 0.45vmax;
-            padding-right: 1.5vmax;
+            padding-right: 1.8vmax;
             position: relative;
             z-index: 1500;
             transition: background-color .2s ease;
@@ -203,14 +203,40 @@
       this.addToPlaylistListeners();
       this.removeFromThisPlaylistListeners();
       this.addToYourFavoriteBrandsListener();
+
+      const navOptions = this.shadowRoot.querySelector('.playlist-nav-options');
+
+      //Show or hidden Remove-from-playlist button
       this.PlaylistItemIsFromUser =
         this.getAttribute('playlist-from-user') === 'true';
-
       const button = this.shadowRoot.querySelector('.remove-from-playlist');
-      const navOptions = this.shadowRoot.querySelector('.playlist-nav-options')
       if (button) {
         button.classList.toggle('hiddenRemove', !this.PlaylistItemIsFromUser);
-        navOptions.classList.toggle('isNotFromUser', !this.PlaylistItemIsFromUser);
+        navOptions.classList.toggle(
+          'isNotFromUser',
+          !this.PlaylistItemIsFromUser
+        );
+      }
+
+      //Show or hidden button Add to favoriteBrand
+      this.currentSongIsInFavorites =
+        this.getAttribute('data-this-song-is-in-favorite-playlists') === 'true';
+      const buttonAddToYourFavoritesBrands = this.shadowRoot.querySelector(
+        '.add-in-favorite-brands'
+      );
+
+      if (buttonAddToYourFavoritesBrands) {
+        buttonAddToYourFavoritesBrands.classList.toggle(
+          'hiddenRemove',
+          this.currentSongIsInFavorites
+        );
+
+        if (this.currentSongIsInFavorites) {
+          navOptions.classList.toggle(
+            'isNotFromUser',
+            this.PlaylistItemIsFromUser
+          );
+        }
       }
     }
 
@@ -291,6 +317,7 @@
       $addInFavoriteBrand.addEventListener('click', e => {
         e.stopPropagation();
         const FAV_PLAYLIST = 'favoritebrands';
+        const ALBUM_NAME = 'Favorite Brands';
         const PREFIX_LS = 'playlist_hub_';
         const PLAYLIST_NAME = `${PREFIX_LS}${FAV_PLAYLIST}`;
         const LS_PLAYLISTS_STRING = localStorage.getItem(PLAYLIST_NAME);
@@ -300,25 +327,29 @@
           title: this.title,
           fromUser: true,
           artist: this.artist,
-          album: FAV_PLAYLIST,
+          album: ALBUM_NAME,
           date: this.obtenerFechaActualISO(),
           duration: this.duration,
           urlSong: this.urlSong,
           urlPoster: this.urlPoster
         };
 
-        if (LS_playlist_array.some(({ title }) => title === this.title)) {
-          amCustomPopover.onAdvice({ message: "Song already in favorites"})
-          return
+        if (LS_playlist_array?.some(({ title }) => title === this.title)) {
+          amCustomPopover.onAdvice({ message: 'Song already in favorites' });
+          return;
         }
 
         LS_playlist_array.push(newSongInFavorite);
         localStorage.setItem(PLAYLIST_NAME, JSON.stringify(LS_playlist_array));
-        amCustomPopover.onSuccess({ message: "Added correctly"})
+        amCustomPopover.onSuccess({ message: 'Added correctly' });
       });
     }
 
     descargarArchivo(url, nombreArchivo) {
+      const popoverDownload = amCustomPopover.showMessage(null, {
+        message: 'Downloading'
+      });
+
       fetch(url)
         .then(response => {
           if (!response.ok) {
@@ -336,13 +367,11 @@
           document.body.appendChild(a);
           a.click();
           a.remove();
+
           URL.revokeObjectURL(blobUrl);
         })
-        .catch(error => {
-          console.error('Error:', error);
-          alert(
-            'Error al intentar descargar. El servidor puede estar bloqueando la descarga por CORS.'
-          );
+        .finally(() => {
+          amCustomPopover.onRemove(popoverDownload);
         });
     }
 
@@ -424,7 +453,7 @@
                </span>
                <span class="right">Remove from this Playlist</span>
               </button>
-            <button class="option add-in-favorite-brands" title="Mark this brand as a favorite">
+            <button class="option add-in-favorite-brands ${this.currentSongIsInFavorites ? 'hiddenRemove' : ''}" title="Mark this brand as a favorite">
               <span class="left">
                 <svg viewBox='0 0 24 24'
                   >

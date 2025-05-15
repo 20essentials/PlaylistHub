@@ -173,14 +173,17 @@ export class MusicPlayer {
           '.playlist-item-active'
         );
         const attributeIsFromUser =
-          currentSidebarPlaylistItem?.getAttribute('fromUser') ?? 'false';
+          currentSidebarPlaylistItem?.getAttribute('data-from-user') ?? 'false';
         const PlaylistItemIsFromUser = attributeIsFromUser === 'true';
+
+        const attributeIsFavoritePlaylist =  currentSidebarPlaylistItem?.getAttribute('data-is-playlist-favorites') ?? 'false';
+        const thisSongsIsInfAvoritePlaylist = attributeIsFavoritePlaylist === 'true';
 
         const attrs = Object.entries({ ...song, displayValueOfLastIcon })
           .map(([attr, value]) => `${attr}="${value}"`)
           .join(' ');
 
-        const element = `<song-item index="${index}" ${attrs} playlist-from-user="${PlaylistItemIsFromUser}"></song-item>`;
+        const element = `<song-item index="${index}" ${attrs} playlist-from-user="${PlaylistItemIsFromUser}" data-this-song-is-in-favorite-playlists=${thisSongsIsInfAvoritePlaylist}></song-item>`;
         songPlaylist.insertAdjacentHTML('beforeend', element);
       });
       resolve();

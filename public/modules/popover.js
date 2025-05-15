@@ -17,12 +17,16 @@ export class CustomPopover {
   }
 
   showPopoper(element = this.popover) {
-    element.classList.add('show');
+    element?.classList.add('show');
 
     setTimeout(() => {
-      element.classList.remove('show');
-      element.remove();
+      element?.classList.remove('show');
+      element?.remove();
     }, 3000);
+  }
+
+  showPopoverDefault(element = this.popover) {
+    element?.classList.add('show');
   }
 
   showMessage(type, { message }) {
@@ -30,7 +34,7 @@ export class CustomPopover {
       success: 'rgb(3, 187, 3)',
       error: 'rgb(206, 1, 1)',
       advice: 'rgb(200, 200, 1)',
-      default: 'rgb(100, 100, 100)',
+      default: 'rgb(100, 100, 100)'
     };
 
     const pop = this.clonePopover();
@@ -38,7 +42,16 @@ export class CustomPopover {
 
     this.setColor(color, pop);
     this.setMessage(message, pop);
+    if (!type) {
+      this.showPopoverDefault(pop);
+      return pop;
+    }
     this.showPopoper(pop);
+  }
+
+  onRemove(element = this.popover) {
+    element?.classList.remove('show');
+    element?.remove();
   }
 
   onSuccess(params) {

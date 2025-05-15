@@ -1196,6 +1196,7 @@ import { SignInButton } from '@clerk/astro/components';
   const LS_FAVORITE_BRANDS = `${PREFIX_LS}${FAV_PLAYLIST}`;
   if (!localStorage.getItem(LS_FAVORITE_BRANDS)) {
     const jsonFavoriteBrands = JSON.stringify([]);
+    // const jsonFavoriteBrands = JSON.stringify(FavoriteBrands);
     localStorage.setItem(LS_FAVORITE_BRANDS, jsonFavoriteBrands);
   }
 

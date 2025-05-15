@@ -20,21 +20,21 @@ const favoriteBrands = {
 };
 
 const firstPlaylistOfUser = {
-  fromUser: true,
-  slug: 'electronic',
-  title: 'Electronic',
+  title: 'Code-Fi',
+  slug: 'code-fi',
   pinned: true,
   color: '#08d437',
+  fromUser: true,
   whatColorIs: 'Clear Green'
 };
 
 interface PlaylistObject {
   slug: string;
   title: string;
-  fromUser?: boolean;
   pinned: boolean;
   color: string;
   whatColorIs: string;
+  fromUser?: boolean;
   isPlaylistFavorites?: boolean;
 }
 
