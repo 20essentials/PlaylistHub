@@ -9,7 +9,7 @@ const containerHeight = user
 //Aqui podria traer la playlist favorite del usuario de una base de datos
 //Aqui podria traer todas las playlist creadas por el usuario
 
-const PlaylistUser = {
+const favoriteBrands = {
   fromUser: true,
   isPlaylistFavorites: true,
   slug: 'favoritebrands',
@@ -17,6 +17,15 @@ const PlaylistUser = {
   pinned: true,
   color: '#f00',
   whatColorIs: 'red'
+};
+
+const firstPlaylistOfUser = {
+  fromUser: true,
+  slug: 'electronic',
+  title: 'Electronic',
+  pinned: true,
+  color: '#08d437',
+  whatColorIs: 'Clear Green'
 };
 
 interface PlaylistObject {
@@ -29,7 +38,8 @@ interface PlaylistObject {
   isPlaylistFavorites?: boolean;
 }
 
-const allPlaylists: PlaylistObject[] = [PlaylistUser, ...playlist];
+const globalPlaylist: PlaylistObject[] = [...playlist];
+const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
 ---
 
 <style define:vars={{ containerHeight }}>
@@ -298,14 +308,32 @@ const allPlaylists: PlaylistObject[] = [PlaylistUser, ...playlist];
       <div class='playlist-container'>
         <div class='playlist sidebarPlaylist'>
           {
-            allPlaylists
+            globalPlaylist
               .sort((a, b) => a.slug.localeCompare(b.slug))
               .map((pItem, i) => (
                 <PlayListItem
-                  visible={pItem?.fromUser ? 'invisible' : 'visible'}
-                  isPlaylistFavorites={pItem.isPlaylistFavorites}
-                  tab={i}
                   {...pItem}
+                  tab={i}
+                  visible={pItem?.fromUser ? 'invisible' : 'visible'}
+                  fromUser={false}
+                />
+              ))
+          }
+          {
+            userPlaylist
+              .sort((a, b) => {
+                // Forzar que 'favoriteBrands' vaya primero
+                if (a?.isPlaylistFavorites) return -1;
+                if (b?.isPlaylistFavorites) return 1;
+                return a.slug.localeCompare(b.slug);
+              })
+              .map((pItem, i) => (
+                <PlayListItem
+                  {...pItem}
+                  visible={pItem?.fromUser ? 'invisible' : 'visible'}
+                  isPlaylistFavorites={pItem?.isPlaylistFavorites}
+                  tab={i}
+                  fromUser={true}
                 />
               ))
           }

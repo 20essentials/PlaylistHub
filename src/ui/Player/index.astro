@@ -12,17 +12,121 @@ import SongPlayer from './SongPlayer.astro';
     height: 100%;
     padding-inline: 1.3vmax;
     align-items: center;
-    
+    position: relative;
+    overflow: hidden;
 
     @media (width <= 1111px) and (orientation: portrait) {
       grid-template-columns: 1fr 2fr;
       padding-right: 1.7vmax;
     }
   }
+
+  .popoverCustom {
+    --bg-color: rgb(3, 187, 3);
+    --color: color-mix(in srgb, var(--bg-color) 50%, black 50%);
+    position: absolute;
+    z-index: 100;
+    right: 1vmax;
+    min-width: 13vmax;
+    width: fit-content;
+    height: 3.58vmax;
+    border-radius: 2.93vmax;
+    border: none;
+    background-color: var(--bg-color);
+    color: white;
+    box-shadow:
+      0vmax 0.65vmax 0.65vmax rgb(210, 187, 253) inset,
+      0vmax 0.33vmax 0.65vmax rgba(5, 5, 5, 0.212),
+      0vmax -0.1vmax 0.65vmax var(--color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1vmax;
+    pointer-events: none;
+    opacity: 0;
+    padding: 1.2vmax;
+
+
+    &.show {
+      animation:
+        toTop 0.4s ease both,
+        jello-horizontal 0.9s both 0.4s;
+      animation-composition: add;
+    }
+  }
+
+  .popoverCustom::before {
+    width: 70%;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.678);
+    content: '';
+    height: 0.13vmax;
+    filter: blur(0.07vmax);
+    top: 0.46vmax;
+    border-radius: 50%;
+  }
+
+  .popoverCustom::after {
+    width: 70%;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.137);
+    content: '';
+    height: 0.13vmax;
+    filter: blur(0.07vmax);
+    bottom: 0.46vmax;
+    border-radius: 50%;
+  }
+
+  .popoverCustom:hover {
+    animation: jello-horizontal 0.9s both;
+  }
+
+  @keyframes toTop {
+    0% {
+      transform: translateY(20vmax);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0vmax);
+      opacity: 1;
+    }
+  }
+
+  @keyframes jello-horizontal {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
 </style>
 
-<div class='container'>
+<div class='container container-of-popovers'>
   <SongInfo />
   <SongPlayer />
   <SongVolume />
+  <button class='popoverCustom'> Success </button>
 </div>

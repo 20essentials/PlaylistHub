@@ -1,5 +1,7 @@
 <script type='module'>
   import { setAnimation } from './modules/setAnimation.js';
+  import {CustomPopover} from './modules/popover.js'
+  const amCustomPopover = new CustomPopover();
 
   class SongItem extends HTMLElement {
     constructor() {
@@ -67,12 +69,6 @@
           justify-content: right;
           text-align: right;
 
-
-          /* @media (width <= 1111px) and (orientation: portrait) {
-            background-color: red;  
-          } */
-
-
            &.escondido {
             display: none;
           } 
@@ -100,6 +96,10 @@
           transform: translateY(-2vmax);
           gap: 0;
 
+          &.isNotFromUser {
+             transform: translateY(-0vmax);
+          }
+
           &.playListNavActive {
             visibility: visible;
             pointer-events: auto;
@@ -123,6 +123,10 @@
             text-decoration: none;
             color: inherit;
             align-items: center;
+
+            &.hiddenRemove {
+              display: none;
+            }
 
             &:hover {
               background-color: color-mix(in srgb, var(--theme-color), black 50%);
@@ -199,6 +203,15 @@
       this.addToPlaylistListeners();
       this.removeFromThisPlaylistListeners();
       this.addToYourFavoriteBrandsListener();
+      this.PlaylistItemIsFromUser =
+        this.getAttribute('playlist-from-user') === 'true';
+
+      const button = this.shadowRoot.querySelector('.remove-from-playlist');
+      const navOptions = this.shadowRoot.querySelector('.playlist-nav-options')
+      if (button) {
+        button.classList.toggle('hiddenRemove', !this.PlaylistItemIsFromUser);
+        navOptions.classList.toggle('isNotFromUser', !this.PlaylistItemIsFromUser);
+      }
     }
 
     playlistIconListeners() {
@@ -256,7 +269,8 @@
       const $removeThisSongFromPlaylist = this.shadowRoot.querySelector(
         '.remove-from-playlist'
       );
-      $removeThisSongFromPlaylist.addEventListener('click', e => {
+
+      $removeThisSongFromPlaylist?.addEventListener('click', e => {
         e.stopPropagation();
         alert('remove');
       });
@@ -293,9 +307,14 @@
           urlPoster: this.urlPoster
         };
 
-        LS_playlist_array.push(newSongInFavorite);
+        if (LS_playlist_array.some(({ title }) => title === this.title)) {
+          amCustomPopover.onAdvice({ message: "Song already in favorites"})
+          return
+        }
 
+        LS_playlist_array.push(newSongInFavorite);
         localStorage.setItem(PLAYLIST_NAME, JSON.stringify(LS_playlist_array));
+        amCustomPopover.onSuccess({ message: "Added correctly"})
       });
     }
 
@@ -372,7 +391,7 @@
               </svg>
           </aside>
 
-          <nav class="playlist-nav-options">
+          <nav class="playlist-nav-options ${this.PlaylistItemIsFromUser ? '' : 'isNotFromUser'}">
             <button class="option add-to-playlist" title="Save this track to a playlist">
               <span class="left">
                 <svg
@@ -386,9 +405,9 @@
                   ></path><path d='M5 12l14 0'></path></svg
                 >  
               </span>
-              <span class="right">Add to Playlist</span>
+              <span class="right">Add to a Playlist</span>
             </button>
-            <button class="option remove-from-playlist" title="Delete this song from the current playlist">
+            <button class="option remove-from-playlist ${this.PlaylistItemIsFromUser ? '' : 'hiddenRemove'}" title="Delete this song from the current playlist">
                <span class="left">
                 <svg
                   viewBox='0 0 24 24'

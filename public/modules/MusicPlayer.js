@@ -169,12 +169,18 @@ export class MusicPlayer {
       oldSongs.forEach(song => song.remove());
 
       songs.forEach((song, index) => {
+        const currentSidebarPlaylistItem = document.querySelector(
+          '.playlist-item-active'
+        );
+        const attributeIsFromUser =
+          currentSidebarPlaylistItem?.getAttribute('fromUser') ?? 'false';
+        const PlaylistItemIsFromUser = attributeIsFromUser === 'true';
+
         const attrs = Object.entries({ ...song, displayValueOfLastIcon })
           .map(([attr, value]) => `${attr}="${value}"`)
           .join(' ');
 
-
-        const element = `<song-item index="${index}" ${attrs}></song-item>`;
+        const element = `<song-item index="${index}" ${attrs} playlist-from-user="${PlaylistItemIsFromUser}"></song-item>`;
         songPlaylist.insertAdjacentHTML('beforeend', element);
       });
       resolve();

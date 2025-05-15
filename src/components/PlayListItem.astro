@@ -8,7 +8,8 @@ const {
   color,
   tab,
   visible,
-  isPlaylistFavorites
+  isPlaylistFavorites,
+  fromUser
 } = Astro.props;
 
 const initialLetterOfEachWord = title.slice(0, 3).toUpperCase();
@@ -132,11 +133,13 @@ const image = isPlaylistFavorites ? '/assets/hearFavorite.png' : randomSrc;
   }
 </style>
 
+
 <aside
   class=`playlist-item ${visible}`
   data-id={slug}
   data-color={color}
   tabindex={tab}
+  fromUser={fromUser}
 >
   <img src={image} alt={title} />
   <div class='data'>
