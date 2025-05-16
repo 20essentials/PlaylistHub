@@ -7,7 +7,18 @@
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
+
       this.currentIndex = 0;
+
+      setTimeout(() => {
+        const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
+        const activeTabElement = document.querySelector(
+          '.playlist-item.playlist-item-active'
+        );
+        const index = [...sidebarPlaylist.children].indexOf(activeTabElement);
+        this.currentIndex = index;
+        activeTabElement.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
     }
 
     static get styles() {
@@ -269,7 +280,12 @@
       const prev = this.shadowRoot.querySelector('.prev-list');
       const next = this.shadowRoot.querySelector('.next-list');
       let playlistItems = document.querySelectorAll('.playlist-item');
+      const $tabRight = document.querySelector('.sidebar-right.sidb');
+      const $tabLeft = document.querySelector('.sidebar-left.sidb');
       let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
+      const globalPlaylistLength = [...playlistItems].filter(
+        playlist => playlist.getAttribute('data-from-user') === 'false'
+      ).length;
       const { length } = playlistItems;
       const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
 
@@ -314,12 +330,65 @@
         const prevIndex = (this.currentIndex - 1 + length) % length;
         clickOnPlaylist(prevIndex);
         this.currentIndex = prevIndex;
+
+        setTimeout(() => {
+          [...sidebarPlaylist.children][prevIndex].scrollIntoView({
+            behavior: 'smooth'
+          });
+        }, 3);
+
+        if (prevIndex === length - 1) {
+          $tabRight.click();
+
+          setTimeout(() => {
+            sidebarPlaylist.lastElementChild.click();
+            sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
+          }, 5);
+          return;
+        }
+
+        if (prevIndex === globalPlaylistLength - 1) {
+          $tabLeft.click();
+
+          setTimeout(() => {
+            sidebarPlaylist.children[globalPlaylistLength - 1].click();
+            sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
+          }, 5);
+          return;
+        }
       });
 
       next?.addEventListener('click', () => {
         const nextIndex = (this.currentIndex + 1) % length;
         clickOnPlaylist(nextIndex);
         this.currentIndex = nextIndex;
+
+        setTimeout(() => {
+          [...sidebarPlaylist.children][nextIndex].scrollIntoView({
+            behavior: 'smooth'
+          });
+        }, 3);
+
+        if (this.currentIndex === globalPlaylistLength) {
+          $tabRight.click();
+
+          setTimeout(() => {
+            document
+              .querySelector(
+                'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
+              )
+              .click();
+          }, 5);
+          return;
+        }
+
+        if (nextIndex === 0) {
+          setTimeout(() => {
+            sidebarPlaylist.scrollTop = 10;
+            $tabLeft.click();
+            sidebarPlaylist.firstElementChild.click();
+          }, 3);
+        }
       });
 
       document.addEventListener('click', e => {
@@ -346,8 +415,31 @@
           const nextIndex = (this.currentIndex + 1) % length;
           clickOnPlaylist(nextIndex);
           this.currentIndex = nextIndex;
-          sidebarPlaylist.scrollTop += 50;
-          if (nextIndex === 0) sidebarPlaylist.scrollTop = 0;
+
+          [...sidebarPlaylist.children][nextIndex].scrollIntoView({
+            behavior: 'smooth'
+          });
+
+          if (this.currentIndex === globalPlaylistLength) {
+            $tabRight.click();
+
+            setTimeout(() => {
+              document
+                .querySelector(
+                  'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
+                )
+                .click();
+            }, 5);
+            return;
+          }
+
+          if (nextIndex === 0) {
+            setTimeout(() => {
+              sidebarPlaylist.scrollTop = 10;
+              $tabLeft.click();
+              sidebarPlaylist.firstElementChild.click();
+            }, 3);
+          }
         } else if (key === 'ArrowLeft') {
           if (existCoverCard()) {
             const prevSongButton = document.querySelector('button.prev');
@@ -357,9 +449,30 @@
           const prevIndex = (this.currentIndex - 1 + length) % length;
           clickOnPlaylist(prevIndex);
           this.currentIndex = prevIndex;
-          sidebarPlaylist.scrollTop -= 50;
-          if (prevIndex === length - 1)
-            sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
+
+          [...sidebarPlaylist.children][prevIndex].scrollIntoView({
+            behavior: 'smooth'
+          });
+
+          if (prevIndex === length - 1) {
+            $tabRight.click();
+
+            setTimeout(() => {
+              sidebarPlaylist.lastElementChild.click();
+              sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
+            }, 5);
+            return;
+          }
+
+          if (prevIndex === globalPlaylistLength - 1) {
+            $tabLeft.click();
+
+            setTimeout(() => {
+              sidebarPlaylist.children[globalPlaylistLength - 1].click();
+              sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
+            }, 5);
+            return;
+          }
         }
 
         if (key === 'ArrowDown') {
@@ -369,10 +482,32 @@
             clickOnPlaylist(nextIndex);
             this.currentIndex = nextIndex;
             sidebarPlaylist.scrollTop += 50;
+
+            setTimeout(() => {
+              [...sidebarPlaylist.children][nextIndex].scrollIntoView({
+                behavior: 'smooth'
+              });
+            }, 3);
+
+            if (this.currentIndex === globalPlaylistLength) {
+              $tabRight.click();
+
+              setTimeout(() => {
+                document
+                  .querySelector(
+                    'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
+                  )
+                  .click();
+              }, 5);
+              return;
+            }
+
             if (nextIndex === 0) {
               setTimeout(() => {
                 sidebarPlaylist.scrollTop = 10;
-              }, 1);
+                $tabLeft.click();
+                sidebarPlaylist.firstElementChild.click();
+              }, 3);
             }
           }
         } else if (key === 'ArrowUp') {
@@ -383,10 +518,30 @@
             this.currentIndex = prevIndex;
             sidebarPlaylist.scrollTop -= 50;
 
+            setTimeout(() => {
+              [...sidebarPlaylist.children][prevIndex].scrollIntoView({
+                behavior: 'smooth'
+              });
+            }, 3);
+
             if (prevIndex === length - 1) {
+              $tabRight.click();
+
               setTimeout(() => {
+                sidebarPlaylist.lastElementChild.click();
                 sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
-              }, 1);
+              }, 5);
+              return;
+            }
+
+            if (prevIndex === globalPlaylistLength - 1) {
+              $tabLeft.click();
+
+              setTimeout(() => {
+                sidebarPlaylist.children[globalPlaylistLength - 1].click();
+                sidebarPlaylist.scrollTop = sidebarPlaylist.scrollHeight;
+              }, 5);
+              return;
             }
           }
         }

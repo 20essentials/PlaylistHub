@@ -34,18 +34,20 @@
 
   setTimeout(() => {
     const songInfo = musicPlayer.getInfoSong();
+
     if (songInfo) {
       let { title: ButtonTitle, artist, album } = songInfo;
       musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
-      document
-        .querySelector('.title-green')
-        ?.classList.add('playlist-item-active');
+      const $playlisItemWithTitleGreen = document.querySelector('.title-green');
+      $playlisItemWithTitleGreen?.classList.add('playlist-item-active');
+      $playlisItemWithTitleGreen.focus();
     } else {
-      document
-        .querySelector('.title-green')
-        ?.classList.add('playlist-item-active');
+      //Don't do this in Home 😅
+      const $playlisItemWithTitleGreen = document.querySelector('.title-green');
+      $playlisItemWithTitleGreen?.classList.add('playlist-item-active');
+      $playlisItemWithTitleGreen.focus();
     }
-  }, 50);
+  }, 55);
 
   const playlistItems = document.querySelectorAll('.playlist-item');
   playlistItems.forEach(playlist => {
