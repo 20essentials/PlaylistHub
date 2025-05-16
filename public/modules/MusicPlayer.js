@@ -176,8 +176,12 @@ export class MusicPlayer {
           currentSidebarPlaylistItem?.getAttribute('data-from-user') ?? 'false';
         const PlaylistItemIsFromUser = attributeIsFromUser === 'true';
 
-        const attributeIsFavoritePlaylist =  currentSidebarPlaylistItem?.getAttribute('data-is-playlist-favorites') ?? 'false';
-        const thisSongsIsInfAvoritePlaylist = attributeIsFavoritePlaylist === 'true';
+        const attributeIsFavoritePlaylist =
+          currentSidebarPlaylistItem?.getAttribute(
+            'data-is-playlist-favorites'
+          ) ?? 'false';
+        const thisSongsIsInfAvoritePlaylist =
+          attributeIsFavoritePlaylist === 'true';
 
         const attrs = Object.entries({ ...song, displayValueOfLastIcon })
           .map(([attr, value]) => `${attr}="${value}"`)
@@ -191,7 +195,6 @@ export class MusicPlayer {
   }
 
   setSongs(songs) {
-    console.log(songs)
     this.songList = songs.map((song, index) => ({ ...song, index }));
     this.originalPlaylist = structuredClone(this.songList);
     if (this.isShuffle) this.sortSongs();
@@ -233,6 +236,24 @@ export class MusicPlayer {
     );
     this.lastPlaylistItemClicked?.classList.remove('title-green');
     currentPlaylistButton?.classList.add('title-green');
+
+    const $sideBarPlaylist = document.querySelector('.sidebarPlaylist');
+    const lastIndexOfPlaylistItemClicked = [...$sideBarPlaylist.children].indexOf(
+      currentPlaylistButton
+    );
+    const globalPlaylistLength = [...$sideBarPlaylist.children].filter(
+      playlist => playlist.getAttribute('data-from-user') === 'false'
+    ).length;
+
+    if (
+      lastIndexOfPlaylistItemClicked >= 0 &&
+      lastIndexOfPlaylistItemClicked < globalPlaylistLength
+    ) {
+      localStorage.setItem(
+        'lastIndexOfPlaylistItemClicked',
+        `${lastIndexOfPlaylistItemClicked}`
+      );
+    }
     this.lastPlaylistItemClicked = currentPlaylistButton;
 
     //Song Item

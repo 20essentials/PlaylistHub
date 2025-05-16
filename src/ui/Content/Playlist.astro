@@ -106,7 +106,7 @@ const columnsPlaylistsInVieport = user ? `8% 1fr 14% 10%` : '8% 1fr 14%';
 >
   <SongItem />
 
-  <header class="header-of-cells">
+  <header class='header-of-cells'>
     <div class='cell'>#</div>
     <div class='cell cell-title'>Title</div>
     <div class='cell esconder'>Album</div>
@@ -147,7 +147,9 @@ const columnsPlaylistsInVieport = user ? `8% 1fr 14% 10%` : '8% 1fr 14%';
 
   document.addEventListener('click', e => {
     const target = e.target as HTMLElement;
+
     if (target.matches('.playlist-item')) {
+
       setTimeout(() => {
         showPlaylisIcon();
       }, 600);

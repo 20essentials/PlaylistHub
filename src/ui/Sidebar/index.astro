@@ -368,10 +368,13 @@ const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
       });
 
       setTimeout(() => {
-        const firstElementChild =
-          $sideBarPlaylist.firstElementChild as HTMLElement;
-        firstElementChild.click();
-      }, 30);
+        const lastIndex =
+          localStorage.getItem('lastIndexOfPlaylistItemClicked') ?? '0';
+        const lastIndexNumber = Number(lastIndex);
+
+        ([...$sideBarPlaylist.children][lastIndexNumber] as HTMLElement).click();
+      }, 50);
+
       return;
     }
 
@@ -408,19 +411,6 @@ const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
         : 'nextElementSibling';
       const targetTab = currentTabActive[sibling] as HTMLElement;
       targetTab.click();
-
-      setTimeout(() => {
-        if (isTabRight) {
-          const firstElementChild =
-            $sideBarPlaylist.firstElementChild as HTMLElement;
-          firstElementChild.click();
-        } else {
-          const favoritePlaylist = [...$sideBarPlaylist.children][
-            globalPlaylistLength
-          ] as HTMLElement;
-          favoritePlaylist.click();
-        }
-      }, 50);
     }
   });
 </script>
