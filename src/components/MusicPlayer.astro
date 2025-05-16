@@ -74,7 +74,7 @@
   songPlaylist.addEventListener('click', ev => {
     const isClick = ev.detail === 1;
 
-    if (isClick) {
+    if (isClick || ev.target.classList.contains('cell-title')) {
       const newSongs = [...document.querySelectorAll('song-item')].map(song =>
         song.getData()
       );

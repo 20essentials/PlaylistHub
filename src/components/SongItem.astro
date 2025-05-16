@@ -191,6 +191,23 @@
       `;
     }
 
+    updateListOfSongsItemsAfterAnUpdateOrDelete() {
+      const currentSidebarPlaylistItem = document.querySelector(
+        '.playlist-item-active'
+      );
+
+      setTimeout(() => {
+        currentSidebarPlaylistItem?.click();
+        
+
+        setTimeout(() => {
+          const $headerOfCells = document.querySelector('.cell-title');
+          $headerOfCells.click();
+        }, 20);
+
+      }, 10);
+    }
+
     connectedCallback() {
       this.slug = this.getAttribute('slug');
       this.title = this.getAttribute('title');
@@ -247,6 +264,10 @@
             'isNotFromUser',
             this.PlaylistItemIsFromUser
           );
+          const removePlaylistButton = this.shadowRoot.querySelector(
+            '.remove-from-playlist'
+          );
+          removePlaylistButton.classList.add('escondidito');
         }
       }
 
@@ -398,6 +419,10 @@
         });
         amCustomPopover.onAdvice({ message: 'Removed Correctly' });
         this.showFavoriteOrRemoveBrandFromFavorites();
+
+        if (this.currentSongIsInFavorites) {
+          this.updateListOfSongsItemsAfterAnUpdateOrDelete();
+        }
       });
     }
 
@@ -492,9 +517,9 @@
                 >  
               </span>
               <span class="right">Add to a Playlist</span>
-            </button>
+            </button> 
             
-            <button class="option remove-from-playlist ${this.PlaylistItemIsFromUser ? '' : 'hiddenRemove'}" title="Delete this song from the current playlist">
+            <button class="option remove-from-playlist ${this.PlaylistItemIsFromUser ? '' : 'hiddenRemove'} " title="Delete this song from the current playlist">
                <span class="left">
                 <svg
                   viewBox='0 0 24 24'

@@ -191,6 +191,7 @@ export class MusicPlayer {
   }
 
   setSongs(songs) {
+    console.log(songs)
     this.songList = songs.map((song, index) => ({ ...song, index }));
     this.originalPlaylist = structuredClone(this.songList);
     if (this.isShuffle) this.sortSongs();
