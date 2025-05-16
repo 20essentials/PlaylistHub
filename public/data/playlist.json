@@ -348,5 +348,12 @@
     "pinned": true,
     "color": "#228B22",
     "whatColorIs": "Forest Green"
+  },
+  {
+    "slug": "asianrock",
+    "title": "Asian Rock",
+    "pinned": true,
+    "color": "#FF00FF",
+    "whatColorIs": "Fuchsia"
   }
 ]
