@@ -298,6 +298,14 @@
         theTarget.focus();
       }
 
+      function goToTargetPlaylist(index) {
+        setTimeout(() => {
+          [...sidebarPlaylist.children][index].scrollIntoView({
+            behavior: 'smooth'
+          });
+        }, 7);
+      }
+
       const input = document.getElementById('search-input');
 
       document.addEventListener('keydown', ({ key }) => {
@@ -331,11 +339,7 @@
         clickOnPlaylist(prevIndex);
         this.currentIndex = prevIndex;
 
-        setTimeout(() => {
-          [...sidebarPlaylist.children][prevIndex].scrollIntoView({
-            behavior: 'smooth'
-          });
-        }, 3);
+        goToTargetPlaylist(prevIndex);
 
         if (prevIndex === length - 1) {
           $tabRight.click();
@@ -363,11 +367,7 @@
         clickOnPlaylist(nextIndex);
         this.currentIndex = nextIndex;
 
-        setTimeout(() => {
-          [...sidebarPlaylist.children][nextIndex].scrollIntoView({
-            behavior: 'smooth'
-          });
-        }, 3);
+        goToTargetPlaylist(nextIndex);
 
         if (this.currentIndex === globalPlaylistLength) {
           $tabRight.click();
@@ -416,9 +416,7 @@
           clickOnPlaylist(nextIndex);
           this.currentIndex = nextIndex;
 
-          [...sidebarPlaylist.children][nextIndex].scrollIntoView({
-            behavior: 'smooth'
-          });
+          goToTargetPlaylist(nextIndex);
 
           if (this.currentIndex === globalPlaylistLength) {
             $tabRight.click();
@@ -450,9 +448,7 @@
           clickOnPlaylist(prevIndex);
           this.currentIndex = prevIndex;
 
-          [...sidebarPlaylist.children][prevIndex].scrollIntoView({
-            behavior: 'smooth'
-          });
+          goToTargetPlaylist(prevIndex);
 
           if (prevIndex === length - 1) {
             $tabRight.click();
@@ -483,11 +479,7 @@
             this.currentIndex = nextIndex;
             sidebarPlaylist.scrollTop += 50;
 
-            setTimeout(() => {
-              [...sidebarPlaylist.children][nextIndex].scrollIntoView({
-                behavior: 'smooth'
-              });
-            }, 3);
+            goToTargetPlaylist(nextIndex);
 
             if (this.currentIndex === globalPlaylistLength) {
               $tabRight.click();
@@ -516,13 +508,8 @@
             const prevIndex = (this.currentIndex - 1 + length) % length;
             clickOnPlaylist(prevIndex);
             this.currentIndex = prevIndex;
-            sidebarPlaylist.scrollTop -= 50;
 
-            setTimeout(() => {
-              [...sidebarPlaylist.children][prevIndex].scrollIntoView({
-                behavior: 'smooth'
-              });
-            }, 3);
+            goToTargetPlaylist(prevIndex);
 
             if (prevIndex === length - 1) {
               $tabRight.click();

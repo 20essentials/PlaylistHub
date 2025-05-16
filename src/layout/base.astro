@@ -1181,6 +1181,15 @@ import { SignInButton } from '@clerk/astro/components';
 <script>
   import { $ } from '@/utils/functions';
   import FavoriteBrands from '@/data/favoritebrands.json';
+  import { createPlaylist, existsPlaylist } from '@/utils/localStorage';
+
+  //LocalStorage
+  const FAV_PLAYLIST = 'favoritebrands';
+  if (!existsPlaylist(FAV_PLAYLIST)) {
+    const jsonFavoriteBrands = JSON.stringify([]);
+    // const jsonFavoriteBrands = JSON.stringify(FavoriteBrands);
+    createPlaylist(FAV_PLAYLIST, jsonFavoriteBrands);
+  }
 
   const profile = $('.profile.openLogin') as HTMLElement;
   profile?.addEventListener('click', e => {
@@ -1189,16 +1198,6 @@ import { SignInButton } from '@clerk/astro/components';
       $signinButton.click();
     }, 5);
   });
-
-  //LocalStorage
-  const PREFIX_LS = 'playlist_hub_';
-  const FAV_PLAYLIST = 'favoritebrands';
-  const LS_FAVORITE_BRANDS = `${PREFIX_LS}${FAV_PLAYLIST}`;
-  if (!localStorage.getItem(LS_FAVORITE_BRANDS)) {
-    const jsonFavoriteBrands = JSON.stringify([]);
-    // const jsonFavoriteBrands = JSON.stringify(FavoriteBrands);
-    localStorage.setItem(LS_FAVORITE_BRANDS, jsonFavoriteBrands);
-  }
 
   // Hidden Nav if not have focus
   setTimeout(() => {

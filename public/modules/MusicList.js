@@ -1,12 +1,15 @@
+import {
+  existsPlaylist,
+  getPlaylistAsArray
+} from './localStorage.js';
+
 export class MusicList {
   playLists = {};
   currentId = 'electronic';
 
   async get(slug) {
-    const PREFIX_LS = 'playlist_hub_';
-    const LS_PLAYLISTS = localStorage.getItem(`${PREFIX_LS}${slug}`);
-    if (LS_PLAYLISTS) {
-      return JSON.parse(LS_PLAYLISTS);
+    if (existsPlaylist(slug)) {
+      return getPlaylistAsArray(slug);
     }
     if (!this.playLists[slug]) {
       const playList = await fetch(`./data/${slug}.json`).then(response =>

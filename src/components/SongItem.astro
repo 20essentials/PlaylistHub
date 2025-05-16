@@ -1,6 +1,12 @@
 <script type='module'>
   import { setAnimation } from './modules/setAnimation.js';
   import { CustomPopover } from './modules/popover.js';
+  import {
+    existThisSongInTheCurrentPlaylist,
+    addSongInPlaylist,
+    removeSongFromPlaylist,
+    FAVORITE_SLUG
+  } from './modules/localStorage.js';
   const amCustomPopover = new CustomPopover();
 
   class SongItem extends HTMLElement {
@@ -128,6 +134,10 @@
               display: none;
             }
 
+            &.escondidito {
+              display: none;
+            }
+
             &:hover {
               background-color: color-mix(in srgb, var(--theme-color), black 50%);
             }
@@ -203,6 +213,7 @@
       this.addToPlaylistListeners();
       this.removeFromThisPlaylistListeners();
       this.addToYourFavoriteBrandsListener();
+      this.removeThisSongFromYourFavoriteBrands();
 
       const navOptions = this.shadowRoot.querySelector('.playlist-nav-options');
 
@@ -237,6 +248,35 @@
             this.PlaylistItemIsFromUser
           );
         }
+      }
+
+      //Verify is the currentSong exists in the playlist favorites
+      this.showFavoriteOrRemoveBrandFromFavorites();
+    }
+
+    showFavoriteOrRemoveBrandFromFavorites() {
+      const buttonFavoriteBrands = this.shadowRoot.querySelector(
+        '.add-in-favorite-brands'
+      );
+      const buttonRemoveFromFavoriteBrands = this.shadowRoot.querySelector(
+        '.remove-brand-from-favorites'
+      );
+
+      if (
+        existThisSongInTheCurrentPlaylist(FAVORITE_SLUG, {
+          title: this.title,
+          artist: this.artist
+        })
+      ) {
+        setTimeout(() => {
+          buttonFavoriteBrands?.classList.add('escondidito');
+          buttonRemoveFromFavoriteBrands?.classList.remove('escondidito');
+        }, 5);
+      } else {
+        setTimeout(() => {
+          buttonFavoriteBrands?.classList.remove('escondidito');
+          buttonRemoveFromFavoriteBrands?.classList.add('escondidito');
+        }, 5);
       }
     }
 
@@ -314,16 +354,12 @@
       const $addInFavoriteBrand = this.shadowRoot.querySelector(
         '.add-in-favorite-brands'
       );
+
       $addInFavoriteBrand.addEventListener('click', e => {
         e.stopPropagation();
-        const FAV_PLAYLIST = 'favoritebrands';
         const ALBUM_NAME = 'Favorite Brands';
-        const PREFIX_LS = 'playlist_hub_';
-        const PLAYLIST_NAME = `${PREFIX_LS}${FAV_PLAYLIST}`;
-        const LS_PLAYLISTS_STRING = localStorage.getItem(PLAYLIST_NAME);
-        let LS_playlist_array = JSON.parse(LS_PLAYLISTS_STRING);
 
-        const newSongInFavorite = {
+        const newSongObject = {
           title: this.title,
           fromUser: true,
           artist: this.artist,
@@ -334,14 +370,34 @@
           urlPoster: this.urlPoster
         };
 
-        if (LS_playlist_array?.some(({ title }) => title === this.title)) {
+        if (
+          existThisSongInTheCurrentPlaylist(FAVORITE_SLUG, {
+            title: this.title,
+            artist: this.artist
+          })
+        ) {
           amCustomPopover.onAdvice({ message: 'Song already in favorites' });
           return;
         }
 
-        LS_playlist_array.push(newSongInFavorite);
-        localStorage.setItem(PLAYLIST_NAME, JSON.stringify(LS_playlist_array));
+        addSongInPlaylist(FAVORITE_SLUG, newSongObject);
         amCustomPopover.onSuccess({ message: 'Added correctly' });
+        this.showFavoriteOrRemoveBrandFromFavorites();
+      });
+    }
+
+    removeThisSongFromYourFavoriteBrands() {
+      const buttonRemoveFromFavoriteBrands = this.shadowRoot.querySelector(
+        '.remove-brand-from-favorites'
+      );
+      buttonRemoveFromFavoriteBrands.addEventListener('click', e => {
+        e.stopPropagation();
+        removeSongFromPlaylist(FAVORITE_SLUG, {
+          title: this.title,
+          artist: this.artist
+        });
+        amCustomPopover.onAdvice({ message: 'Removed Correctly' });
+        this.showFavoriteOrRemoveBrandFromFavorites();
       });
     }
 
@@ -421,6 +477,7 @@
           </aside>
 
           <nav class="playlist-nav-options ${this.PlaylistItemIsFromUser ? '' : 'isNotFromUser'}">
+
             <button class="option add-to-playlist" title="Save this track to a playlist">
               <span class="left">
                 <svg
@@ -436,6 +493,7 @@
               </span>
               <span class="right">Add to a Playlist</span>
             </button>
+            
             <button class="option remove-from-playlist ${this.PlaylistItemIsFromUser ? '' : 'hiddenRemove'}" title="Delete this song from the current playlist">
                <span class="left">
                 <svg
@@ -453,6 +511,7 @@
                </span>
                <span class="right">Remove from this Playlist</span>
               </button>
+            
             <button class="option add-in-favorite-brands ${this.currentSongIsInFavorites ? 'hiddenRemove' : ''}" title="Mark this brand as a favorite">
               <span class="left">
                 <svg viewBox='0 0 24 24'
@@ -465,6 +524,21 @@
               </span>
               <span class="right"> Add to Your Favorite Brands </span>
             </button>
+
+            <button class="option remove-brand-from-favorites escondidito" title="Remove from Favorites">
+              <span class="left">
+                <svg
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    fill='currentColor'
+                    d='M2.39 1.73L1.11 3l2.08 2.08C2.45 6 2 7.19 2 8.5c0 3.77 3.4 6.86 8.55 11.53L12 21.35l1.45-1.32c.87-.79 1.69-1.53 2.45-2.24L20 22l1.27-1.27m-9.17-2.18l-.1.1l-.11-.1C7.14 14.24 4 11.39 4 8.5c0-.76.22-1.44.61-2l9.89 9.87c-.76.69-1.55 1.41-2.4 2.18M8.3 5.1L6.33 3.13C6.7 3.05 7.1 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 2.34-1.31 4.42-3.53 6.77l-1.41-1.41C18.91 11.88 20 10.2 20 8.5c0-2-1.5-3.5-3.5-3.5c-1.4 0-2.76.83-3.39 2h-2.22c-.51-.94-1.5-1.66-2.59-1.9'
+                  ></path></svg
+                >
+              </span>
+              <span class="right"> Remove From Favorites Brands </span>
+            </button>
+
             <button class="option downloadClick" title="Click to download the audio">
               <span class="left">
                   <svg  viewBox='0 0 24 24'
@@ -477,6 +551,7 @@
               </span>
               <span class="right"> Download Audio</span>
             </button>
+
           </nav>
         </div>
       `;
