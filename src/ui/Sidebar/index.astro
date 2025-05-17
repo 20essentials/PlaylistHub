@@ -19,6 +19,9 @@ const favoriteBrands = {
   whatColorIs: 'red'
 };
 
+const convertInValidSlug = (text: string) =>
+  text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
+
 const firstPlaylistOfUser = {
   title: 'Code-Fi',
   slug: 'code-fi',
@@ -40,7 +43,8 @@ interface PlaylistObject {
 
 // const globalPlaylist: PlaylistObject[] = [...playlist];
 const globalPlaylist: PlaylistObject[] = [...playlist];
-const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
+// const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
+const userPlaylist: PlaylistObject[] = [];
 ---
 
 <style define:vars={{ containerHeight }}>
@@ -310,13 +314,14 @@ const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
         <div class='playlist sidebarPlaylist'>
           {
             globalPlaylist
-              .sort((a, b) => a.slug.localeCompare(b.slug))
+              .sort((a, b) => a.title.localeCompare(b.title))
               .map((pItem, i) => (
                 <PlayListItem
                   {...pItem}
                   tab={i}
                   visible={pItem?.fromUser ? 'invisible' : 'visible'}
                   fromUser={false}
+                  slug={convertInValidSlug(pItem.title)}
                 />
               ))
           }
@@ -335,6 +340,7 @@ const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
                   isPlaylistFavorites={pItem?.isPlaylistFavorites}
                   tab={i}
                   fromUser={true}
+                  slug={convertInValidSlug(pItem.title)}
                 />
               ))
           }

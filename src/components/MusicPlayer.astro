@@ -1,7 +1,9 @@
 <script type='module'>
   import { MusicPlayer } from './modules/MusicPlayer.js';
+  const convertInValidSlug = (text) =>
+  text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
   import NamesOfPlaylists from './data/playlist.json' with { type: 'json' };
-  const allSlugs = NamesOfPlaylists.map(({ slug }) => slug);
+  const allSlugs = NamesOfPlaylists.map(({ title }) => convertInValidSlug(title));
   const randomSlug = ~~(Math.random() * allSlugs.length);
   const slug = allSlugs[randomSlug];
   const playlistCorriente = await import(`./data/${slug}.json`, {
@@ -40,12 +42,12 @@
       musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
       const $playlisItemWithTitleGreen = document.querySelector('.title-green');
       $playlisItemWithTitleGreen?.classList.add('playlist-item-active');
-      $playlisItemWithTitleGreen.focus();
+      $playlisItemWithTitleGreen?.focus();
     } else {
       //Don't do this in Home 😅
       const $playlisItemWithTitleGreen = document.querySelector('.title-green');
       $playlisItemWithTitleGreen?.classList.add('playlist-item-active');
-      $playlisItemWithTitleGreen.focus();
+      $playlisItemWithTitleGreen?.focus();
     }
   }, 55);
 

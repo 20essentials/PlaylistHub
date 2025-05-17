@@ -1180,14 +1180,12 @@ import { SignInButton } from '@clerk/astro/components';
 
 <script>
   import { $ } from '@/utils/functions';
-  import FavoriteBrands from '@/data/favoritebrands.json';
   import { createPlaylist, existsPlaylist } from '@/utils/localStorage';
 
   //LocalStorage
   const FAV_PLAYLIST = 'favoritebrands';
   if (!existsPlaylist(FAV_PLAYLIST)) {
     const jsonFavoriteBrands = JSON.stringify([]);
-    // const jsonFavoriteBrands = JSON.stringify(FavoriteBrands);
     createPlaylist(FAV_PLAYLIST, jsonFavoriteBrands);
   }
 

@@ -3,6 +3,7 @@ import { formatTime } from './formatTime.js';
 import { togglePlayIcon } from './ui/play.js';
 import { shuffle } from './shuffle.js';
 import { MusicList } from './MusicList.js';
+import { convertInValidSlug } from './generalUtils.js';
 
 const getPlaylistInfo = playlistName => {
   const playlists = [...document.querySelectorAll('.playlist-item')];
@@ -225,14 +226,11 @@ export class MusicPlayer {
   }
 
   updateItemClicked({ ButtonTitle, artist, album }) {
-    //Playlist Item
-    const lowerCaseAndAlong = album
-      .split(' ')
-      .map(w => w.toLowerCase())
-      .join('')
-      .replaceAll(/-/g, '');
+    //Playlist Item TitleGreen
+    const dataIdOfThePlaylistItem = convertInValidSlug(album);
+
     const currentPlaylistButton = document.querySelector(
-      `.playlist-item[data-id=${lowerCaseAndAlong}]`
+      `.playlist-item[data-id=${dataIdOfThePlaylistItem}]`
     );
     this.lastPlaylistItemClicked?.classList.remove('title-green');
     currentPlaylistButton?.classList.add('title-green');
@@ -256,7 +254,7 @@ export class MusicPlayer {
     }
     this.lastPlaylistItemClicked = currentPlaylistButton;
 
-    //Song Item
+    //Song Item Playlist Green
     const SongItem = document.querySelector(
       `song-item[title="${CSS.escape(ButtonTitle)}"][artist="${CSS.escape(
         artist
@@ -386,13 +384,17 @@ export class MusicPlayer {
     this.setSongs(this.musicList.getCurrent());
     this.currentSongIndex = -1;
     forcePlay && this.nextSong();
-    const currentPlaylistItem = document.querySelector(
-      '.playlist-item.title-green'
-    );
-    document
-      .querySelectorAll('.playlist-item-active')
-      .forEach(el => el.classList.remove('playlist-item-active'));
-    currentPlaylistItem.classList.add('playlist-item-active');
+    setTimeout(() => {
+      const currentPlaylistItem = document.querySelector(
+        '.playlist-item.title-green'
+      );
+      console.log(currentPlaylistItem);
+      document
+        .querySelectorAll('.playlist-item-active')
+        .forEach(el => el.classList.remove('playlist-item-active'));
+      currentPlaylistItem?.classList.add('playlist-item-active');
+      currentPlaylistItem?.click();
+    }, 15);
   }
 
   async prevList(forcePlay = true) {

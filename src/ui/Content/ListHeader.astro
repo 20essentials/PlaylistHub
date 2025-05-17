@@ -2,6 +2,7 @@
 
 <script type='module'>
   import { formatTime, convertToSeconds } from './modules/formatTime.js';
+  import { convertInValidSlug } from './modules/generalUtils.js';
 
   class ListHeader extends HTMLElement {
     constructor() {
@@ -17,7 +18,7 @@
         );
         const index = [...sidebarPlaylist.children].indexOf(activeTabElement);
         this.currentIndex = index;
-        activeTabElement.scrollIntoView({ behavior: 'smooth' });
+        activeTabElement?.scrollIntoView({ behavior: 'smooth' });
       }, 500);
     }
 
@@ -222,7 +223,7 @@
     }
 
     setData(title, songs) {
-      const slug = title.toLowerCase().replaceAll(' ', '');
+      const slug = convertInValidSlug(title);
       const total = songs.length;
       const duration = songs
         .map(song => convertToSeconds(song.duration))
