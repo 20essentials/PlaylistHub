@@ -388,7 +388,6 @@ export class MusicPlayer {
       const currentPlaylistItem = document.querySelector(
         '.playlist-item.title-green'
       );
-      console.log(currentPlaylistItem);
       document
         .querySelectorAll('.playlist-item-active')
         .forEach(el => el.classList.remove('playlist-item-active'));

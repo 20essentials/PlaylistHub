@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Born This Way",
+    "artist": "Lady Gaga",
+    "album": "Popcore",
+    "date": "2027-02-01T00:00:00",
+    "duration": "04:35",
+    "urlSong": "https://20essentials.github.io/lady-gaga-ost/songs/n10.mp3",
+    "urlPoster": "https://20essentials.github.io/lady-gaga-ost/assets/n4.avif"
+  },
+  {
+    "title": "Euphoria",
+    "artist": "Loreen",
+    "album": "Popcore",
+    "date": "2027-02-02T00:00:00",
+    "duration": "03:52",
+    "urlSong": "https://20essentials.github.io/loreen/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/loreen/assets/n1.avif"
+  },
+  {
+    "title": "I Forgot About The Stars",
+    "artist": "Memorex Memories",
+    "album": "Popcore",
+    "date": "2027-02-03T00:00:00",
+    "duration": "04:34",
+    "urlSong": "https://20essentials.github.io/memorex-memories/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/memorex-memories/assets/n1.avif"
+  },
+  {
+    "title": "Amor Imposible",
+    "artist": "Manz",
+    "album": "Popcore",
+    "date": "2027-02-04T00:00:00",
+    "duration": "02:40",
+    "urlSong": "https://20essentials.github.io/manz/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/manz/assets/n1.avif"
+  },
+  {
+    "title": "Quiet, The Winter Harbor",
+    "artist": "Mazzy Star",
+    "album": "Popcore",
+    "date": "2027-02-05T00:00:00",
+    "duration": "04:44",
+    "urlSong": "https://20essentials.github.io/mazzy-star/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/mazzy-star/assets/n1.avif"
+  },
+  {
+    "title": "Mistaken",
+    "artist": "Martin Garrix",
+    "album": "Popcore",
+    "date": "2027-02-06T00:00:00",
+    "duration": "04:42",
+    "urlSong": "https://20essentials.github.io/martin-garrix-soundtrack/songs/n10.mp3",
+    "urlPoster": "https://20essentials.github.io/martin-garrix-soundtrack/assets/n4.avif"
+  },
+  {
+    "title": "Overkill",
+    "artist": "Men At Work",
+    "album": "Popcore",
+    "date": "2027-02-07T00:00:00",
+    "duration": "03:56",
+    "urlSong": "https://20essentials.github.io/men-at-work-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/men-at-work-band/assets/n1.avif"
+  },
+  {
+    "title": "Cheri Cheri Lady",
+    "artist": "Modern Talking",
+    "album": "Popcore",
+    "date": "2027-02-08T00:00:00",
+    "duration": "03:45",
+    "urlSong": "https://20essentials.github.io/modern-talking-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/modern-talking-band/assets/n4.avif"
+  },
+  {
+    "title": "Vogue",
+    "artist": "Madonna",
+    "album": "Popcore",
+    "date": "2027-02-09T00:00:00",
+    "duration": "05:19",
+    "urlSong": "https://20essentials.github.io/madonna-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/madonna-album/assets/n3.avif"
+  },
+  {
+    "title": "Dream Diver",
+    "artist": "Mr Kitty",
+    "album": "Popcore",
+    "date": "2027-02-10T00:00:00",
+    "duration": "04:25",
+    "urlSong": "https://20essentials.github.io/mr-kitty-ost/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/mr-kitty-ost/assets/n1.avif"
+  },
+  {
+    "title": "Can't Hold Us",
+    "artist": "Macklemore",
+    "album": "Popcore",
+    "date": "2027-02-11T00:00:00",
+    "duration": "04:17",
+    "urlSong": "https://20essentials.github.io/macklemore-soundtrack/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/macklemore-soundtrack/assets/n1.avif"
+  },
+  {
+    "title": "Noelia",
+    "artist": "Nino Bravo",
+    "album": "Popcore",
+    "date": "2027-02-12T00:00:00",
+    "duration": "03:06",
+    "urlSong": "https://20essentials.github.io/nino-bravo/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/nino-bravo/assets/n1.avif"
+  },
+  {
+    "title": "Distant",
+    "artist": "Nuages",
+    "album": "Popcore",
+    "date": "2027-02-13T00:00:00",
+    "duration": "05:40",
+    "urlSong": "https://20essentials.github.io/nuages-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/nuages-album/assets/n1.avif"
+  },
+  {
+    "title": "Como Te Va Mi Amor",
+    "artist": "Pedro Suárez-Vértiz",
+    "album": "Popcore",
+    "date": "2027-02-14T00:00:00",
+    "duration": "05:40",
+    "urlSong": "https://20essentials.github.io/pedro-suarez-vertiz-ost/songs/n9.mp3",
+    "urlPoster": "https://20essentials.github.io/pedro-suarez-vertiz-ost/assets/n3.avif"
+  },
+  {
+    "title": "Maybe I'm Amazed",
+    "artist": "Paul Mccartney",
+    "album": "Popcore",
+    "date": "2027-02-15T00:00:00",
+    "duration": "03:49",
+    "urlSong": "https://20essentials.github.io/paul-mccartney-ost/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/paul-mccartney-ost/assets/n1.avif"
+  },
+  {
+    "title": "Money",
+    "artist": "Pink Floyd",
+    "album": "Popcore",
+    "date": "2027-02-16T00:00:00",
+    "duration": "06:22",
+    "urlSong": "https://20essentials.github.io/pink-floyd-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/pink-floyd-band/assets/n4.avif"
+  },
+  {
+    "title": "Ahora Decidete",
+    "artist": "Pimpinela",
+    "album": "Popcore",
+    "date": "2027-02-17T00:00:00",
+    "duration": "03:35",
+    "urlSong": "https://20essentials.github.io/pimpinela-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/pimpinela-band/assets/n1.avif"
+  },
+  {
+    "title": "It's A Sin",
+    "artist": "Pet Shop Boys",
+    "album": "Popcore",
+    "date": "2027-02-18T00:00:00",
+    "duration": "04:59",
+    "urlSong": "https://20essentials.github.io/pet-shop-boys-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/pet-shop-boys-band/assets/n1.avif"
+  },
+  {
+    "title": "Silent Lucidity",
+    "artist": "Queensryche",
+    "album": "Popcore",
+    "date": "2027-02-19T00:00:00",
+    "duration": "05:45",
+    "urlSong": "https://20essentials.github.io/queensryche-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/queensryche-band/assets/n1.avif"
+  },
+  {
+    "title": "I Want To Be Free",
+    "artist": "Queen",
+    "album": "Popcore",
+    "date": "2027-02-20T00:00:00",
+    "duration": "04:16",
+    "urlSong": "https://20essentials.github.io/queen-band/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/queen-band/assets/n1.avif"
+  }
+]

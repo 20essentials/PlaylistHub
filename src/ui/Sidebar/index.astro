@@ -12,7 +12,6 @@ const containerHeight = user
 const favoriteBrands = {
   fromUser: true,
   isPlaylistFavorites: true,
-  slug: 'favoritebrands',
   title: 'Favorite Brands',
   pinned: true,
   color: '#f00',
@@ -24,7 +23,6 @@ const convertInValidSlug = (text: string) =>
 
 const firstPlaylistOfUser = {
   title: 'Code-Fi',
-  slug: 'code-fi',
   pinned: true,
   color: '#08d437',
   fromUser: true,
@@ -32,7 +30,6 @@ const firstPlaylistOfUser = {
 };
 
 interface PlaylistObject {
-  slug: string;
   title: string;
   pinned: boolean;
   color: string;
@@ -41,10 +38,8 @@ interface PlaylistObject {
   isPlaylistFavorites?: boolean;
 }
 
-// const globalPlaylist: PlaylistObject[] = [...playlist];
 const globalPlaylist: PlaylistObject[] = [...playlist];
-// const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
-const userPlaylist: PlaylistObject[] = [];
+const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
 ---
 
 <style define:vars={{ containerHeight }}>
@@ -331,7 +326,7 @@ const userPlaylist: PlaylistObject[] = [];
                 // Forzar que 'favoriteBrands' vaya primero
                 if (a?.isPlaylistFavorites) return -1;
                 if (b?.isPlaylistFavorites) return 1;
-                return a.slug.localeCompare(b.slug);
+                return a.title.localeCompare(b.title);
               })
               .map((pItem, i) => (
                 <PlayListItem

@@ -1,5 +1,5 @@
 const PREFIX_LS = 'playlist_hub_';
-export const FAVORITE_SLUG = 'favoritebrands'
+export const FAVORITE_SLUG = 'favorite-brands'
 
 export function createPlaylist(slug, data) {
   const playlistName = `${PREFIX_LS}${slug}`;

@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Hero",
+    "artist": "Flow",
+    "album": "Asian Rock",
+    "date": "2028-08-01T00:00:00",
+    "duration": "03:35",
+    "urlSong": "https://20essentials.github.io/flow/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/flow/assets/n1.avif"
+  },
+  {
+    "title": "Hey Kids",
+    "artist": "The Oral Cigarretes",
+    "album": "Asian Rock",
+    "date": "2028-08-02T00:00:00",
+    "duration": "04:26",
+    "urlSong": "https://20essentials.github.io/the-oral-cigarretes/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/the-oral-cigarretes/assets/n1.avif"
+  },
+  {
+    "title": "Howling",
+    "artist": "Flow",
+    "album": "Asian Rock",
+    "date": "2028-08-03T00:00:00",
+    "duration": "04:42",
+    "urlSong": "https://20essentials.github.io/flow/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/flow/assets/n2.avif"
+  },
+  {
+    "title": "Overtaken",
+    "artist": "Yasuharu Takanashi",
+    "album": "Asian Rock",
+    "date": "2028-08-04T00:00:00",
+    "duration": "01:59",
+    "urlSong": "https://20essentials.github.io/yasuharu-takanashi/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/yasuharu-takanashi/assets/n1.avif"
+  },
+  {
+    "title": "Days",
+    "artist": "Flow",
+    "album": "Asian Rock",
+    "date": "2028-08-05T00:00:00",
+    "duration": "04:16",
+    "urlSong": "https://20essentials.github.io/flow/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/flow/assets/n3.avif"
+  },
+  {
+    "title": "Track 13",
+    "artist": "Zoids Chaotic Century",
+    "album": "Asian Rock",
+    "date": "2028-08-06T00:00:00",
+    "duration": "02:05",
+    "urlSong": "https://20essentials.github.io/zoids-chaotic-century-ost/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/zoids-chaotic-century-ost/assets/n1.avif"
+  },
+  {
+    "title": "Believe",
+    "artist": "Folder 5",
+    "album": "Asian Rock",
+    "date": "2028-08-07T00:00:00",
+    "duration": "03:46",
+    "urlSong": "https://20essentials.github.io/folder-5/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/folder-5/assets/n1.avif"
+  },
+  {
+    "title": "Chase",
+    "artist": "Develop Frame",
+    "album": "Asian Rock",
+    "date": "2028-08-08T00:00:00",
+    "duration": "04:53",
+    "urlSong": "https://20essentials.github.io/develop-frame-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/develop-frame-band/assets/n1.avif"
+  },
+  {
+    "title": "Kazeno Uta",
+    "artist": "Flow",
+    "album": "Asian Rock",
+    "date": "2028-08-09T00:00:00",
+    "duration": "04:31",
+    "urlSong": "https://20essentials.github.io/flow/songs/n10.mp3",
+    "urlPoster": "https://20essentials.github.io/flow/assets/n4.avif"
+  },
+  {
+    "title": "Go Go Power Rangers",
+    "artist": "Power Rangers Wild Force",
+    "album": "Asian Rock",
+    "date": "2028-08-10T00:00:00",
+    "duration": "03:57",
+    "urlSong": "https://20essentials.github.io/power-rangers-wild-force-ost/songs/n7.mp3",
+    "urlPoster": "https://20essentials.github.io/power-rangers-wild-force-ost/assets/n3.avif"
+  },
+  {
+    "title": "Sign",
+    "artist": "Flow",
+    "album": "Asian Rock",
+    "date": "2028-08-11T00:00:00",
+    "duration": "04:08",
+    "urlSong": "https://20essentials.github.io/flow/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/blink-182-band/assets/n4.avif"
+  },
+  {
+    "title": "Hakura Kanata",
+    "artist": "Asian Kung Fu Generation",
+    "album": "Asian Rock",
+    "date": "2028-08-12T00:00:00",
+    "duration": "04:06",
+    "urlSong": "https://20essentials.github.io/akfg-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/akfg-band/assets/n1.avif"
+  },
+  {
+    "title": "Brave Heart",
+    "artist": "Develop Frame",
+    "album": "Asian Rock",
+    "date": "2028-08-13T00:00:00",
+    "duration": "04:24",
+    "urlSong": "https://20essentials.github.io/develop-frame-band/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/develop-frame-band/assets/n2.avif"
+  },
+  {
+    "title": "Black Memory",
+    "artist": "The Oral Cigarretes",
+    "album": "Asian Rock",
+    "date": "2028-08-14T00:00:00",
+    "duration": "04:18",
+    "urlSong": "https://20essentials.github.io/the-oral-cigarretes/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/the-oral-cigarretes/assets/n2.avif"
+  },
+  {
+    "title": "Red Swam Live",
+    "artist": "Yoshiki",
+    "album": "Asian Rock",
+    "date": "2028-08-15T00:00:00",
+    "duration": "04:21",
+    "urlSong": "https://20essentials.github.io/yoshiki-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/yoshiki-album/assets/n1.avif"
+  },
+  {
+    "title": "Wild Flowers Instrumental",
+    "artist": "Zoids Chaotic Century",
+    "album": "Asian Rock",
+    "date": "2028-08-16T00:00:00",
+    "duration": "04:29",
+    "urlSong": "https://20essentials.github.io/zoids-chaotic-century-ost/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/zoids-chaotic-century-ost/assets/n2.avif"
+  },
+  {
+    "title": "Hyakka Ryoran",
+    "artist": "Yasuharu Takanashi",
+    "album": "Asian Rock",
+    "date": "2028-08-17T00:00:00",
+    "duration": "02:13",
+    "urlSong": "https://20essentials.github.io/yasuharu-takanashi/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/yasuharu-takanashi/assets/n2.avif"
+  },
+  {
+    "title": "I'm Happy We Met",
+    "artist": "Earth",
+    "album": "Asian Rock",
+    "date": "2028-08-18T00:00:00",
+    "duration": "05:39",
+    "urlSong": "https://20essentials.github.io/earth-band/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-band/assets/n1.avif"
+  },
+  {
+    "title": "Hey Kids",
+    "artist": "Leeandlie",
+    "album": "Asian Rock",
+    "date": "2028-08-19T00:00:00",
+    "duration": "04:25",
+    "urlSong": "https://20essentials.github.io/leeandlie-album/songs/n11.mp3",
+    "urlPoster": "https://20essentials.github.io/leeandlie-album/assets/n4.avif"
+  },
+  {
+    "title": "Telekinesis",
+    "artist": "Mutiny On The Bounty",
+    "album": "Asian Rock",
+    "date": "2028-08-20T00:00:00",
+    "duration": "05:18",
+    "urlSong": "https://20essentials.github.io/mutiny-on-the-bounty-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/mutiny-on-the-bounty-band/assets/n1.avif"
+  }
+]

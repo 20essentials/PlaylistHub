@@ -1180,13 +1180,16 @@ import { SignInButton } from '@clerk/astro/components';
 
 <script>
   import { $ } from '@/utils/functions';
-  import { createPlaylist, existsPlaylist } from '@/utils/localStorage';
+  import {
+    createPlaylist,
+    existsPlaylist,
+    FAVORITE_SLUG
+  } from '@/utils/localStorage';
 
   //LocalStorage
-  const FAV_PLAYLIST = 'favoritebrands';
-  if (!existsPlaylist(FAV_PLAYLIST)) {
+  if (!existsPlaylist(FAVORITE_SLUG)) {
     const jsonFavoriteBrands = JSON.stringify([]);
-    createPlaylist(FAV_PLAYLIST, jsonFavoriteBrands);
+    createPlaylist(FAVORITE_SLUG, jsonFavoriteBrands);
   }
 
   const profile = $('.profile.openLogin') as HTMLElement;

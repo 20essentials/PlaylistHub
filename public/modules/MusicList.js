@@ -1,7 +1,4 @@
-import {
-  existsPlaylist,
-  getPlaylistAsArray
-} from './localStorage.js';
+import { existsPlaylist, getPlaylistAsArray } from './localStorage.js';
 
 export class MusicList {
   playLists = {};
@@ -11,6 +8,7 @@ export class MusicList {
     if (existsPlaylist(slug)) {
       return getPlaylistAsArray(slug);
     }
+
     if (!this.playLists[slug]) {
       const playList = await fetch(`./data/${slug}.json`).then(response =>
         response.json()
