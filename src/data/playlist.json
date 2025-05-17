@@ -166,5 +166,65 @@
     "pinned": true,
     "color": "#7FFFD4",
     "whatColorIs": "Aquamarine"
+  },
+  {
+    "title": "Indie Rock",
+    "pinned": true,
+    "color": "#7FFF00",
+    "whatColorIs": "Chartreuse"
+  },
+  {
+    "title": "Instrumental",
+    "pinned": true,
+    "color": "#0dbce7",
+    "whatColorIs": "Celeste"
+  },
+  {
+    "title": "Monokai",
+    "pinned": true,
+    "color": "#FFFAF0",
+    "whatColorIs": "FloralWhite"
+  },
+  {
+    "title": "NCS",
+    "pinned": true,
+    "color": "#00FFFF",
+    "whatColorIs": "Aqua"
+  },
+  {
+    "title": "New Age",
+    "pinned": true,
+    "color": "#01b401",
+    "whatColorIs": "MediumGreen"
+  },
+  {
+    "title": "Phonk",
+    "pinned": true,
+    "color": "#1E90FF",
+    "whatColorIs": "DodgerBlue"
+  },
+  {
+    "title": "Popcore",
+    "pinned": true,
+    "color": "#BDB76B",
+    "whatColorIs": "DarkKhaki"
+  },
+  {
+    "title": "Retrowave",
+    "pinned": true,
+    "color": "#A9A9A9",
+    "whatColorIs": "DarkGray"
+  },
+  {
+    "title": "Rock and Roll",
+    "pinned": true,
+    "color": "#DC143C",
+    "whatColorIs": "Crimson"
+  },
+  {
+    "title": "Rock Pop",
+    "pinned": true,
+    "color": "#D2691E",
+    "whatColorIs": "Chocolate"
   }
 ]

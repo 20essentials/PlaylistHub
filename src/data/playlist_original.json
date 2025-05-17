@@ -1,12 +1,5 @@
 [
   {
-    "slug": "instrumental",
-    "title": "Instrumental",
-    "pinned": true,
-    "color": "#0dbce7",
-    "whatColorIs": "Celeste"
-  },
-  {
     "slug": "spanishpop",
     "title": "Spanish Pop",
     "pinned": true,
@@ -31,15 +24,6 @@
   },
 
   {
-    "slug": "ncs",
-    "title": "NCS",
-    "pinned": true,
-    "color": "#00FFFF",
-    "whatColorIs": "Aqua"
-  },
-
-
-  {
     "slug": "surfrock",
     "title": "Surf Rock",
     "pinned": true,
@@ -48,28 +32,6 @@
   },
 
   {
-    "slug": "indierock",
-    "title": "Indie Rock",
-    "pinned": true,
-    "color": "#7FFF00",
-    "whatColorIs": "Chartreuse"
-  },
-  {
-    "slug": "rockpop",
-    "title": "Rock Pop",
-    "pinned": true,
-    "color": "#D2691E",
-    "whatColorIs": "Chocolate"
-  },
-
-  {
-    "slug": "rockandroll",
-    "title": "Rock and Roll",
-    "pinned": true,
-    "color": "#DC143C",
-    "whatColorIs": "Crimson"
-  },
-  {
     "slug": "synthpop",
     "title": "Synthpop",
     "pinned": true,
@@ -77,28 +39,6 @@
     "whatColorIs": "Cyan"
   },
 
-
-  {
-    "slug": "retrowave",
-    "title": "Retrowave",
-    "pinned": true,
-    "color": "#A9A9A9",
-    "whatColorIs": "DarkGray"
-  },
-  {
-    "slug": "newage",
-    "title": "New Age",
-    "pinned": true,
-    "color": "#01b401",
-    "whatColorIs": "MediumGreen"
-  },
-  {
-    "slug": "popcore",
-    "title": "Popcore",
-    "pinned": true,
-    "color": "#BDB76B",
-    "whatColorIs": "DarkKhaki"
-  },
   {
     "slug": "softrock",
     "title": "Soft Rock",
@@ -150,25 +90,12 @@
     "color": "#696969",
     "whatColorIs": "DimGrey"
   },
-  {
-    "slug": "phonk",
-    "title": "Phonk",
-    "pinned": true,
-    "color": "#1E90FF",
-    "whatColorIs": "DodgerBlue"
-  },
+
   {
     "slug": "spacedisco",
     "title": "Space Disco",
     "pinned": true,
     "color": "#B22222",
     "whatColorIs": "FireBrick"
-  },
-  {
-    "slug": "monokai",
-    "title": "Monokai",
-    "pinned": true,
-    "color": "#FFFAF0",
-    "whatColorIs": "FloralWhite"
   }
 ]
