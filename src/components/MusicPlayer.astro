@@ -69,8 +69,10 @@
       playlist.classList.add('playlist-item-active');
 
       setTimeout(() => {
-        const { title: ButtonTitle, artist, album } = musicPlayer.getInfoSong();
-
+        console.log("current music", musicPlayer.getInfoSong());
+        const infoSong  = musicPlayer.getInfoSong();
+        if (!infoSong) return;
+        const { title: ButtonTitle, artist, album } = infoSong;
         musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
       }, 300);
 
@@ -90,6 +92,9 @@
       const rowItem = ev
         .composedPath()
         .find(tag => tag.classList?.contains('row-item'));
+
+      if (!rowItem) return;
+
       let id = Number(rowItem.dataset?.id);
       let newIndex = id;
       if (musicPlayer.isShuffle) {

@@ -1183,8 +1183,19 @@ import { SignInButton } from '@clerk/astro/components';
   import {
     createPlaylist,
     existsPlaylist,
-    FAVORITE_SLUG
+    FAVORITE_SLUG,
+    getPlaylistName,
+    updateListOfSongsItemsAfterAnUpdateOrDelete
   } from '@/utils/localStorage';
+
+  //Storage Event
+  const favoriteBrands = getPlaylistName(FAVORITE_SLUG);
+  window.addEventListener('storage', e => {
+    if (e.key === favoriteBrands) {
+    updateListOfSongsItemsAfterAnUpdateOrDelete();
+
+    }
+  });
 
   //LocalStorage
   if (!existsPlaylist(FAVORITE_SLUG)) {

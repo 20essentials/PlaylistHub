@@ -379,7 +379,7 @@
               .querySelector(
                 'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
               )
-              .click();
+              ?.click();
           }, 5);
           return;
         }
@@ -428,7 +428,7 @@
                 .querySelector(
                   'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
                 )
-                .click();
+                ?.click();
             }, 5);
             return;
           }
@@ -488,7 +488,7 @@
 
               setTimeout(() => {
                 document
-                  .querySelector(
+                  ?.querySelector(
                     'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
                   )
                   .click();

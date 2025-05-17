@@ -38,14 +38,20 @@ const columnsPlaylistsInVieport = user ? `8% 1fr 14% 10%` : '8% 1fr 14%';
 
     @media (width <= 1111px) and (orientation: portrait) {
       --playlist-format: var(--columnsportrait);
-
-      .centrar {
-        padding-left: 0.7vmax;
-      }
     }
 
     .cell {
       font-size: 1vmax;
+
+      @media (width <= 1111px) and (orientation: portrait) {
+        /* &.last-cell-of-header {
+          background-color: red;
+        } */
+
+        &.penultimo-cell-of-header {
+          text-align: center;
+        }
+      }
 
       &.last-cell {
         justify-content: center;
@@ -111,7 +117,7 @@ const columnsPlaylistsInVieport = user ? `8% 1fr 14% 10%` : '8% 1fr 14%';
     <div class='cell cell-title'>Title</div>
     <div class='cell esconder'>Album</div>
     <div class='cell esconder'>Date of Addition</div>
-    <div class='cell centrar'>
+    <div class='cell penultimo-cell-of-header'>
       <Clock class='clock' />
     </div>
     <div class='cell last-cell last-cell-of-header'>
@@ -149,7 +155,6 @@ const columnsPlaylistsInVieport = user ? `8% 1fr 14% 10%` : '8% 1fr 14%';
     const target = e.target as HTMLElement;
 
     if (target.matches('.playlist-item')) {
-
       setTimeout(() => {
         showPlaylisIcon();
       }, 600);

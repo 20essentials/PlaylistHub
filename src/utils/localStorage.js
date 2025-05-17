@@ -1,18 +1,22 @@
 const PREFIX_LS = 'playlist_hub_';
-export const FAVORITE_SLUG = 'favorite-brands'
+export const FAVORITE_SLUG = 'favorite-brands';
+
+export function getPlaylistName(slug) {
+  return `${PREFIX_LS}${slug}`;
+}
 
 export function createPlaylist(slug, data) {
-  const playlistName = `${PREFIX_LS}${slug}`;
+  const playlistName = getPlaylistName(slug);
   localStorage.setItem(playlistName, data);
 }
 
 export function existsPlaylist(slug) {
-  const playlistName = `${PREFIX_LS}${slug}`;
+  const playlistName = getPlaylistName(slug);
   return Boolean(localStorage.getItem(playlistName));
 }
 
 export function getPlaylistAsJSON(slug) {
-  const playlistName = `${PREFIX_LS}${slug}`;
+  const playlistName = getPlaylistName(slug);
   return localStorage.getItem(playlistName);
 }
 
@@ -43,4 +47,19 @@ export function removeSongFromPlaylist(slugPlaylist, songObject) {
       title !== songObject.title && artist !== songObject.artist
   );
   createPlaylist(slugPlaylist, JSON.stringify(newArray));
+}
+
+export function updateListOfSongsItemsAfterAnUpdateOrDelete() {
+  const currentSidebarPlaylistItem = document.querySelector(
+    '.playlist-item-active'
+  );
+
+  setTimeout(() => {
+    currentSidebarPlaylistItem?.click();
+
+    setTimeout(() => {
+      const $headerOfCells = document.querySelector('.cell-title');
+      $headerOfCells.click();
+    }, 20);
+  }, 10);
 }

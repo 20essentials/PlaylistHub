@@ -5,7 +5,8 @@
     existThisSongInTheCurrentPlaylist,
     addSongInPlaylist,
     removeSongFromPlaylist,
-    FAVORITE_SLUG
+    FAVORITE_SLUG,
+    updateListOfSongsItemsAfterAnUpdateOrDelete
   } from './modules/localStorage.js';
   const amCustomPopover = new CustomPopover();
 
@@ -78,6 +79,11 @@
            &.escondido {
             display: none;
           } 
+
+          @media (width <= 1111px) and (orientation: portrait) {
+             justify-content: center;
+             margin-left: 0.4vmax;
+          }
           
           svg {
             width: 1.3vmax;
@@ -191,22 +197,7 @@
       `;
     }
 
-    updateListOfSongsItemsAfterAnUpdateOrDelete() {
-      const currentSidebarPlaylistItem = document.querySelector(
-        '.playlist-item-active'
-      );
 
-      setTimeout(() => {
-        currentSidebarPlaylistItem?.click();
-        
-
-        setTimeout(() => {
-          const $headerOfCells = document.querySelector('.cell-title');
-          $headerOfCells.click();
-        }, 20);
-
-      }, 10);
-    }
 
     connectedCallback() {
       this.slug = this.getAttribute('slug');
@@ -421,7 +412,7 @@
         this.showFavoriteOrRemoveBrandFromFavorites();
 
         if (this.currentSongIsInFavorites) {
-          this.updateListOfSongsItemsAfterAnUpdateOrDelete();
+          updateListOfSongsItemsAfterAnUpdateOrDelete();
         }
       });
     }
