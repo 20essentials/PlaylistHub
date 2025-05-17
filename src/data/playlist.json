@@ -28,5 +28,53 @@
     "pinned": true,
     "color": "#f007c3",
     "whatColorIs": "Pink"
+  },
+  {
+    "title": "English Pop",
+    "pinned": true,
+    "color": "#dccf08",
+    "whatColorIs": "Yellow"
+  },
+  {
+    "title": "Melodic Rock",
+    "pinned": true,
+    "color": "#2ab240",
+    "whatColorIs": "Green"
+  },
+  {
+    "title": "Alternative Rock",
+    "pinned": true,
+    "color": "#ff0200",
+    "whatColorIs": "Red"
+  },
+  {
+    "title": "Alt Pop",
+    "pinned": true,
+    "color": "#b7ae8a",
+    "whatColorIs": "CornSilk"
+  },
+  {
+    "title": "Asian Rock",
+    "pinned": true,
+    "color": "#FF00FF",
+    "whatColorIs": "Fuchsia"
+  },
+  {
+    "title": "Avant Garde",
+    "pinned": true,
+    "color": "#e0c3fc",
+    "whatColorIs": "morado claro"
+  },
+  {
+    "title": "Background",
+    "pinned": true,
+    "color": "#A52A2A",
+    "whatColorIs": "brown"
+  },
+  {
+    "title": "Blue Pop",
+    "pinned": true,
+    "color": "#3f3fee",
+    "whatColorIs": "MediumBlue"
   }
 ]

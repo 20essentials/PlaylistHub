@@ -1,27 +1,6 @@
 [
 
   {
-    "slug": "englishpop",
-    "title": "English Pop",
-    "pinned": true,
-    "color": "#dccf08",
-    "whatColorIs": "Yellow"
-  },
-  {
-    "slug": "melodicrock",
-    "title": "Melodic Rock",
-    "pinned": true,
-    "color": "#2ab240",
-    "whatColorIs": "Green"
-  },
-  {
-    "slug": "alternativerock",
-    "title": "Alternative Rock",
-    "pinned": true,
-    "color": "#ff0200",
-    "whatColorIs": "Red"
-  },
-  {
     "slug": "instrumental",
     "title": "Instrumental",
     "pinned": true,
@@ -42,13 +21,7 @@
     "color": "#FFA500",
     "whatColorIs": "orange"
   },
-  {
-    "slug": "bluepop",
-    "title": "Blue Pop",
-    "pinned": true,
-    "color": "#3f3fee",
-    "whatColorIs": "MediumBlue"
-  },
+
   {
     "slug": "romantic",
     "title": "Romantic",
@@ -56,13 +29,7 @@
     "color": "#f5576c",
     "whatColorIs": "rosado rojizo"
   },
-  {
-    "slug": "avantgarde",
-    "title": "Avant Garde",
-    "pinned": true,
-    "color": "#e0c3fc",
-    "whatColorIs": "morado claro"
-  },
+ 
   {
     "slug": "synthwave",
     "title": "Synthwave",
@@ -98,13 +65,7 @@
     "color": "#7FFFD4",
     "whatColorIs": "Aquamarine"
   },
-  {
-    "slug": "background",
-    "title": "Background",
-    "pinned": true,
-    "color": "#A52A2A",
-    "whatColorIs": "brown"
-  },
+  
   {
     "slug": "surfrock",
     "title": "Surf Rock",
@@ -141,13 +102,7 @@
     "color": "#6495ED",
     "whatColorIs": "CornflowerBlue"
   },
-  {
-    "slug": "altpop",
-    "title": "Alt Pop",
-    "pinned": true,
-    "color": "#b7ae8a",
-    "whatColorIs": "CornSilk"
-  },
+ 
   {
     "slug": "rockandroll",
     "title": "Rock and Roll",
@@ -316,12 +271,5 @@
     "pinned": true,
     "color": "#228B22",
     "whatColorIs": "Forest Green"
-  },
-  {
-    "slug": "asianrock",
-    "title": "Asian Rock",
-    "pinned": true,
-    "color": "#FF00FF",
-    "whatColorIs": "Fuchsia"
   }
 ]
