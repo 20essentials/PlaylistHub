@@ -106,6 +106,15 @@ const user = await Astro.locals.currentUser();
 </style>
 
 <script type='module'>
+  import {
+    obtenerFechaActualISO,
+    addSongInPlaylist,
+    FAVORITE_SLUG,
+    removeSongFromPlaylist,
+    updateListOfSongsItemsAfterAnUpdateOrDelete
+  } from './modules/localStorage.js';
+  const $heartEmpty = document.querySelector('.heartEmpty');
+
   const addCoverCard = link => {
     const existentCoverCard = document.querySelector('cover-card');
     if (existentCoverCard) existentCoverCard.remove();
@@ -120,9 +129,22 @@ const user = await Astro.locals.currentUser();
 
   document.addEventListener('player:update-info', ({ detail }) => {
     const {
-      songData: { title, artist, urlPoster, slug, album },
+      songData: { title, artist, urlPoster, urlSong, duration, slug, album },
       autoplay
     } = detail;
+
+    const newSongObject = {
+      title: title,
+      fromUser: true,
+      artist: artist,
+      album: album,
+      date: obtenerFechaActualISO(),
+      duration: duration,
+      urlSong: urlSong,
+      urlPoster: urlPoster
+    };
+
+    localStorage.setItem('currentSongInPlayer', JSON.stringify(newSongObject));
 
     const container = document.querySelector('.song-info-container');
     const titleTag = container.querySelector('.title');
@@ -137,13 +159,53 @@ const user = await Astro.locals.currentUser();
 
     autoplay && addCoverCard(imageTag.src);
   });
+
+  document.addEventListener('updateNewSongInFavoriteBrands', ({ detail }) => {
+    const { title: titleDetail, artist: artistDetail, updating } = detail;
+
+    setTimeout(() => {
+      const titleOfTheCurrentSong = document.querySelector('.title-of-the-song');
+      const artistOfTheCurrentSong = document.querySelector(
+        '.artist-of-the-song'
+      );
+      const titleCurrent = titleOfTheCurrentSong.textContent;
+      const artistCurrent = artistOfTheCurrentSong.textContent;
+
+      // console.log(artistCurrent === artistDetail && titleCurrent === titleDetail);
+      // console.log('current', { artistCurrent, titleCurrent });
+      // console.log('detail', { artistDetail, titleDetail });
+
+      if (artistCurrent === artistDetail && titleCurrent === titleDetail) {
+        $heartEmpty.classList.toggle('isSaved', updating);
+      }
+    }, 50);
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.matches('.heartEmpty')) {
+      const heartEmpty = e.target;
+      heartEmpty.classList.toggle('isSaved');
+      const currentSonginPlayer = JSON.parse(
+        localStorage.getItem('currentSongInPlayer')
+      );
+      
+      if (heartEmpty.classList.contains('isSaved')) {
+        addSongInPlaylist(FAVORITE_SLUG, currentSonginPlayer);
+        updateListOfSongsItemsAfterAnUpdateOrDelete();
+        return;
+      }
+
+      removeSongFromPlaylist(FAVORITE_SLUG, currentSonginPlayer);
+      updateListOfSongsItemsAfterAnUpdateOrDelete();
+    }
+  });
 </script>
 
 <div class='song-info-container'>
   <img src='/assets/transparent.png' class='left' />
   <div class='right'>
-    <p class='title'>{title}</p>
-    <p class='artist'>{artist}</p>
+    <p class='title title-of-the-song'>{title}</p>
+    <p class='artist artist-of-the-song'>{artist}</p>
   </div>
   {
     user && (
@@ -155,12 +217,3 @@ const user = await Astro.locals.currentUser();
     )
   }
 </div>
-
-<script is:inline>
-  document.addEventListener('click', e => {
-    if (e.target.matches('.heartEmpty')) {
-      const heartEmpty = e.target;
-      heartEmpty.classList.toggle('isSaved');
-    }
-  });
-</script>

@@ -5,6 +5,14 @@ export function getPlaylistName(slug) {
   return `${PREFIX_LS}${slug}`;
 }
 
+export function obtenerFechaActualISO() {
+  const ahora = new Date();
+  const año = ahora.getFullYear();
+  const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+  const dia = String(ahora.getDate()).padStart(2, '0');
+  return `${año}-${mes}-${dia}T00:00:00`;
+}
+
 export function createPlaylist(slug, data) {
   const playlistName = getPlaylistName(slug);
   localStorage.setItem(playlistName, data);
@@ -26,7 +34,7 @@ export function getPlaylistAsArray(slug) {
 }
 
 export function addSongInPlaylist(slugPlaylist, songObject) {
-  //Sin no existe lo crea, y si ya existe lo pushea
+  //Si no existe lo crea, y si ya existe lo pushea
   const playlistArray = getPlaylistAsArray(slugPlaylist);
   playlistArray.push(songObject);
   createPlaylist(slugPlaylist, JSON.stringify(playlistArray));
@@ -60,6 +68,17 @@ export function updateListOfSongsItemsAfterAnUpdateOrDelete() {
     setTimeout(() => {
       const $headerOfCells = document.querySelector('.cell-title');
       $headerOfCells.click();
+
+      const currentSonginPlayer = JSON.parse(
+        localStorage.getItem('currentSongInPlayer')
+      );
+
+      const $heartEmpty = document.querySelector('.heartEmpty');
+      const existThisSongInFavorites = existThisSongInTheCurrentPlaylist(
+        FAVORITE_SLUG,
+        currentSonginPlayer
+      );
+      $heartEmpty.classList.toggle('isSaved', existThisSongInFavorites);
     }, 20);
   }, 10);
 }

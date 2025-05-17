@@ -1,12 +1,14 @@
 <script type='module'>
   import { setAnimation } from './modules/setAnimation.js';
   import { CustomPopover } from './modules/popover.js';
+  import { emitEvent } from './modules/emitter.js';
   import {
     existThisSongInTheCurrentPlaylist,
     addSongInPlaylist,
     removeSongFromPlaylist,
     FAVORITE_SLUG,
-    updateListOfSongsItemsAfterAnUpdateOrDelete
+    updateListOfSongsItemsAfterAnUpdateOrDelete,
+    obtenerFechaActualISO
   } from './modules/localStorage.js';
   const amCustomPopover = new CustomPopover();
 
@@ -197,8 +199,6 @@
       `;
     }
 
-
-
     connectedCallback() {
       this.slug = this.getAttribute('slug');
       this.title = this.getAttribute('title');
@@ -222,6 +222,7 @@
       this.removeFromThisPlaylistListeners();
       this.addToYourFavoriteBrandsListener();
       this.removeThisSongFromYourFavoriteBrands();
+      this.clickInThisRow();
 
       const navOptions = this.shadowRoot.querySelector('.playlist-nav-options');
 
@@ -264,6 +265,24 @@
 
       //Verify is the currentSong exists in the playlist favorites
       this.showFavoriteOrRemoveBrandFromFavorites();
+    }
+
+    clickInThisRow() {
+      this.shadowRoot.querySelector('.row-item').addEventListener('click', e => {
+        const existInFavoritesBrands = existThisSongInTheCurrentPlaylist(
+          FAVORITE_SLUG,
+          {
+            artist: this.artist,
+            title: this.title
+          }
+        );
+
+        emitEvent('updateNewSongInFavoriteBrands', document, {
+          title: this.title,
+          artist: this.artist,
+          updating: existInFavoritesBrands
+        });
+      });
     }
 
     showFavoriteOrRemoveBrandFromFavorites() {
@@ -354,14 +373,6 @@
       });
     }
 
-    obtenerFechaActualISO() {
-      const ahora = new Date();
-      const año = ahora.getFullYear();
-      const mes = String(ahora.getMonth() + 1).padStart(2, '0');
-      const dia = String(ahora.getDate()).padStart(2, '0');
-      return `${año}-${mes}-${dia}T00:00:00`;
-    }
-
     addToYourFavoriteBrandsListener() {
       const $addInFavoriteBrand = this.shadowRoot.querySelector(
         '.add-in-favorite-brands'
@@ -369,14 +380,13 @@
 
       $addInFavoriteBrand.addEventListener('click', e => {
         e.stopPropagation();
-        const ALBUM_NAME = 'Favorite Brands';
 
         const newSongObject = {
           title: this.title,
           fromUser: true,
           artist: this.artist,
-          album: ALBUM_NAME,
-          date: this.obtenerFechaActualISO(),
+          album: this.album,
+          date: obtenerFechaActualISO(),
           duration: this.duration,
           urlSong: this.urlSong,
           urlPoster: this.urlPoster
@@ -391,6 +401,11 @@
           amCustomPopover.onAdvice({ message: 'Song already in favorites' });
           return;
         }
+
+        emitEvent('updateNewSongInFavoriteBrands', document, {
+          ...newSongObject,
+          updating: true
+        });
 
         addSongInPlaylist(FAVORITE_SLUG, newSongObject);
         amCustomPopover.onSuccess({ message: 'Added correctly' });
@@ -410,6 +425,12 @@
         });
         amCustomPopover.onAdvice({ message: 'Removed Correctly' });
         this.showFavoriteOrRemoveBrandFromFavorites();
+
+        emitEvent('updateNewSongInFavoriteBrands', document, {
+          title: this.title,
+          artist: this.artist,
+          updating: false
+        });
 
         if (this.currentSongIsInFavorites) {
           updateListOfSongsItemsAfterAnUpdateOrDelete();

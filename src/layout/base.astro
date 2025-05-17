@@ -1192,8 +1192,7 @@ import { SignInButton } from '@clerk/astro/components';
   const favoriteBrands = getPlaylistName(FAVORITE_SLUG);
   window.addEventListener('storage', e => {
     if (e.key === favoriteBrands) {
-    updateListOfSongsItemsAfterAnUpdateOrDelete();
-
+      updateListOfSongsItemsAfterAnUpdateOrDelete();
     }
   });
 

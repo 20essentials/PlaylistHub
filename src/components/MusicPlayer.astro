@@ -1,5 +1,10 @@
 <script type='module'>
   import { MusicPlayer } from './modules/MusicPlayer.js';
+  import {
+    existThisSongInTheCurrentPlaylist,
+    FAVORITE_SLUG
+  } from './modules/localStorage.js';
+  import { emitEvent } from './modules/emitter.js';
   const convertInValidSlug = text =>
     text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
   import NamesOfPlaylists from './data/playlist.json' with { type: 'json' };
@@ -43,6 +48,21 @@
   setTimeout(() => {
     const songInfo = musicPlayer.getInfoSong();
 
+    //Esto pondra el corazon solo la primera vez a la primera cancion random que aparezca. Solo funciona al inicio
+    const existInFavoritesBrands = existThisSongInTheCurrentPlaylist(
+      FAVORITE_SLUG,
+      {
+        artist: songInfo.artist,
+        title: songInfo.title
+      }
+    );
+
+    emitEvent('updateNewSongInFavoriteBrands', document, {
+      title: songInfo.title,
+      artist: songInfo.artist,
+      updating: existInFavoritesBrands
+    });
+
     if (songInfo) {
       let { title: ButtonTitle, artist, album } = songInfo;
       musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
@@ -69,8 +89,7 @@
       playlist.classList.add('playlist-item-active');
 
       setTimeout(() => {
-        console.log("current music", musicPlayer.getInfoSong());
-        const infoSong  = musicPlayer.getInfoSong();
+        const infoSong = musicPlayer.getInfoSong();
         if (!infoSong) return;
         const { title: ButtonTitle, artist, album } = infoSong;
         musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
