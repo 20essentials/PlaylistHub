@@ -1,5 +1,4 @@
 [
-
   {
     "slug": "instrumental",
     "title": "Instrumental",
@@ -14,13 +13,6 @@
     "color": "#52e2d5",
     "whatColorIs": "aqua verde"
   },
-  {
-    "slug": "eurodance",
-    "title": "Eurodance",
-    "pinned": true,
-    "color": "#FFA500",
-    "whatColorIs": "orange"
-  },
 
   {
     "slug": "romantic",
@@ -29,7 +21,7 @@
     "color": "#f5576c",
     "whatColorIs": "rosado rojizo"
   },
- 
+
   {
     "slug": "synthwave",
     "title": "Synthwave",
@@ -37,20 +29,7 @@
     "color": "#94f15b",
     "whatColorIs": "verde lima claro"
   },
-  {
-    "slug": "electropop",
-    "title": "Electro Pop",
-    "pinned": true,
-    "color": "#7d1fe9",
-    "whatColorIs": "morado oscuro"
-  },
-  {
-    "slug": "funk",
-    "title": "Funk",
-    "pinned": true,
-    "color": "#cdb798",
-    "whatColorIs": "AntiqueWhite"
-  },
+
   {
     "slug": "ncs",
     "title": "NCS",
@@ -58,14 +37,8 @@
     "color": "#00FFFF",
     "whatColorIs": "Aqua"
   },
-  {
-    "slug": "indiepop",
-    "title": "Indie Pop",
-    "pinned": true,
-    "color": "#7FFFD4",
-    "whatColorIs": "Aquamarine"
-  },
-  
+
+
   {
     "slug": "surfrock",
     "title": "Surf Rock",
@@ -88,21 +61,7 @@
     "color": "#D2691E",
     "whatColorIs": "Chocolate"
   },
-  {
-    "slug": "garage",
-    "title": "Garage",
-    "pinned": true,
-    "color": "#FF7F50",
-    "whatColorIs": "Coral"
-  },
-  {
-    "slug": "electroacid",
-    "title": "Electro Acid",
-    "pinned": true,
-    "color": "#6495ED",
-    "whatColorIs": "CornflowerBlue"
-  },
- 
+
   {
     "slug": "rockandroll",
     "title": "Rock and Roll",
@@ -117,27 +76,8 @@
     "color": "#00FFFF",
     "whatColorIs": "Cyan"
   },
-  {
-    "slug": "darknight",
-    "title": "Dark Night",
-    "pinned": true,
-    "color": "#bd1d1d",
-    "whatColorIs": "Dark Red"
-  },
-  {
-    "slug": "discopop",
-    "title": "Disco Pop",
-    "pinned": true,
-    "color": "#008B8B",
-    "whatColorIs": "DarkCyan"
-  },
-  {
-    "slug": "hyperpop",
-    "title": "Hyperpop",
-    "pinned": true,
-    "color": "#B8860B",
-    "whatColorIs": "DarkGoldenRod"
-  },
+
+
   {
     "slug": "retrowave",
     "title": "Retrowave",
@@ -173,13 +113,6 @@
     "color": "#90ab5f",
     "whatColorIs": "MediumOliveGreen"
   },
-  {
-    "slug": "guitar",
-    "title": "Guitar",
-    "pinned": true,
-    "color": "#FF8C00",
-    "whatColorIs": "DarkOrange"
-  },
 
   {
     "slug": "soul",
@@ -209,34 +142,7 @@
     "color": "#6c9e9e",
     "whatColorIs": "MediumSlateGray"
   },
-  {
-    "slug": "darkfolk",
-    "title": "Dark Folk",
-    "pinned": true,
-    "color": "#00CED1",
-    "whatColorIs": "DarkTurquoise"
-  },
-  {
-    "slug": "hauntology",
-    "title": "Hauntology",
-    "pinned": true,
-    "color": "#9400D3",
-    "whatColorIs": "DarkViolet"
-  },
-  {
-    "slug": "filmsost",
-    "title": "Films OST",
-    "pinned": true,
-    "color": "#FF1493",
-    "whatColorIs": "DeepPink"
-  },
-  {
-    "slug": "chiptune",
-    "title": "Chiptune",
-    "pinned": true,
-    "color": "#00BFFF",
-    "whatColorIs": "DeepSkyBlue"
-  },
+
   {
     "slug": "witchhouse",
     "title": "Witch House",
@@ -264,12 +170,5 @@
     "pinned": true,
     "color": "#FFFAF0",
     "whatColorIs": "FloralWhite"
-  },
-  {
-    "slug": "dungeonsynth",
-    "title": "Dungeon Synth",
-    "pinned": true,
-    "color": "#228B22",
-    "whatColorIs": "Forest Green"
   }
 ]

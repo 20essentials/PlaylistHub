@@ -76,5 +76,95 @@
     "pinned": true,
     "color": "#3f3fee",
     "whatColorIs": "MediumBlue"
+  },
+  {
+    "title": "Chiptune",
+    "pinned": true,
+    "color": "#00BFFF",
+    "whatColorIs": "DeepSkyBlue"
+  },
+  {
+    "title": "Dark Folk",
+    "pinned": true,
+    "color": "#00CED1",
+    "whatColorIs": "DarkTurquoise"
+  },
+  {
+    "title": "Dark Night",
+    "pinned": true,
+    "color": "#bd1d1d",
+    "whatColorIs": "Dark Red"
+  },
+  {
+    "title": "Disco Pop",
+    "pinned": true,
+    "color": "#008B8B",
+    "whatColorIs": "DarkCyan"
+  },
+  {
+    "title": "Eurodance",
+    "pinned": true,
+    "color": "#FFA500",
+    "whatColorIs": "orange"
+  },
+  {
+    "title": "Dungeon Synth",
+    "pinned": true,
+    "color": "#228B22",
+    "whatColorIs": "Forest Green"
+  },
+  {
+    "title": "Electro Acid",
+    "pinned": true,
+    "color": "#6495ED",
+    "whatColorIs": "CornflowerBlue"
+  },
+  {
+    "title": "Electro Pop",
+    "pinned": true,
+    "color": "#7d1fe9",
+    "whatColorIs": "morado oscuro"
+  },
+  {
+    "title": "Films OST",
+    "pinned": true,
+    "color": "#FF1493",
+    "whatColorIs": "DeepPink"
+  },
+  {
+    "title": "Funk",
+    "pinned": true,
+    "color": "#cdb798",
+    "whatColorIs": "AntiqueWhite"
+  },
+  {
+    "title": "Garage",
+    "pinned": true,
+    "color": "#FF7F50",
+    "whatColorIs": "Coral"
+  },
+  {
+    "title": "Guitar",
+    "pinned": true,
+    "color": "#FF8C00",
+    "whatColorIs": "DarkOrange"
+  },
+  {
+    "title": "Hauntology",
+    "pinned": true,
+    "color": "#9400D3",
+    "whatColorIs": "DarkViolet"
+  },
+  {
+    "title": "Hyperpop",
+    "pinned": true,
+    "color": "#B8860B",
+    "whatColorIs": "DarkGoldenRod"
+  },
+  {
+    "title": "Indie Pop",
+    "pinned": true,
+    "color": "#7FFFD4",
+    "whatColorIs": "Aquamarine"
   }
 ]
