@@ -1188,6 +1188,9 @@ import { SignInButton } from '@clerk/astro/components';
     updateListOfSongsItemsAfterAnUpdateOrDelete
   } from '@/utils/localStorage';
 
+  //Init State That a playlist don't delete itself
+  localStorage.setItem('the-song-item-deletes-itself', 'false');
+
   //Storage Event
   const favoriteBrands = getPlaylistName(FAVORITE_SLUG);
   window.addEventListener('storage', e => {

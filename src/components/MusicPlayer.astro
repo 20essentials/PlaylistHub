@@ -91,6 +91,13 @@
       setTimeout(() => {
         const infoSong = musicPlayer.getInfoSong();
         if (!infoSong) return;
+        if (localStorage.getItem('the-song-item-deletes-itself') === 'true') {
+          const actualIndex = infoSong.index;
+          musicPlayer.setCurrentSongIndex( actualIndex - 1);
+          localStorage.setItem('the-song-item-deletes-itself', 'false');
+          return;
+        }
+
         const { title: ButtonTitle, artist, album } = infoSong;
         musicPlayer.updateItemClicked({ ButtonTitle, artist, album });
       }, 300);
@@ -111,7 +118,6 @@
       const rowItem = ev
         .composedPath()
         .find(tag => tag.classList?.contains('row-item'));
-
       if (!rowItem) return;
 
       let id = Number(rowItem.dataset?.id);

@@ -5,7 +5,6 @@ import { shuffle } from './shuffle.js';
 import { MusicList } from './MusicList.js';
 import { convertInValidSlug } from './generalUtils.js';
 
-
 const getPlaylistInfo = playlistName => {
   const playlists = [...document.querySelectorAll('.playlist-item')];
   const selectedPlaylist = playlists.find(
@@ -227,12 +226,12 @@ export class MusicPlayer {
   }
 
   updateItemClicked({ ButtonTitle, artist, album }) {
-    //Playlist Item TitleGreen
     const dataIdOfThePlaylistItem = convertInValidSlug(album);
 
     const currentPlaylistButton = document.querySelector(
       `.playlist-item[data-id=${dataIdOfThePlaylistItem}]`
     );
+
     this.lastPlaylistItemClicked?.classList.remove('title-green');
     currentPlaylistButton?.classList.add('title-green');
 
@@ -377,6 +376,10 @@ export class MusicPlayer {
     this.prepare(index);
     this.play();
     this.togglePlayPause(true);
+  }
+
+  setCurrentSongIndex(newSongIndex) {
+    this.currentSongIndex = newSongIndex
   }
 
   async nextList(forcePlay = true) {

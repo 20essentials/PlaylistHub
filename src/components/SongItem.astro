@@ -419,6 +419,12 @@
       );
       buttonRemoveFromFavoriteBrands.addEventListener('click', e => {
         e.stopPropagation();
+        const $row = this.shadowRoot?.querySelector('.row-item');
+        const $rowHasTitleGreen = $row.classList.contains('title-green')
+        if ($rowHasTitleGreen) {
+          localStorage.setItem('the-song-item-deletes-itself', `${true}`)
+        }
+        
         removeSongFromPlaylist(FAVORITE_SLUG, {
           title: this.title,
           artist: this.artist
