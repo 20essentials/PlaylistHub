@@ -5,6 +5,7 @@ import { shuffle } from './shuffle.js';
 import { MusicList } from './MusicList.js';
 import { convertInValidSlug } from './generalUtils.js';
 
+
 const getPlaylistInfo = playlistName => {
   const playlists = [...document.querySelectorAll('.playlist-item')];
   const selectedPlaylist = playlists.find(

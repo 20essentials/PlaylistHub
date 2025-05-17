@@ -1,11 +1,15 @@
 <script type='module'>
   import { MusicPlayer } from './modules/MusicPlayer.js';
-  const convertInValidSlug = (text) =>
-  text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
+  const convertInValidSlug = text =>
+    text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
   import NamesOfPlaylists from './data/playlist.json' with { type: 'json' };
   const allSlugs = NamesOfPlaylists.map(({ title }) => convertInValidSlug(title));
+  const allTitles = NamesOfPlaylists.map(({ title }) => title);
+  const allColors = NamesOfPlaylists.map(({ color }) => color);
   const randomSlug = ~~(Math.random() * allSlugs.length);
   const slug = allSlugs[randomSlug];
+  // const titleOfCurrenPlaylist = allTitles[randomSlug];
+  // const colorOfCurrentPlaylist = allColors[randomSlug];
   const playlistCorriente = await import(`./data/${slug}.json`, {
     with: { type: 'json' }
   });
@@ -14,6 +18,8 @@
   const playlistName = slug;
   const id = randonNumSong + 1;
   const musicPlayer = new MusicPlayer(playlistName, id);
+  // localStorage.setItem('firstRandomPlaylistName', titleOfCurrenPlaylist)
+  // localStorage.setItem('firstRandomPlaylistFileName', playlistName)
 
   const buttons = {
     play: document.querySelector('.song-player-container .play'),

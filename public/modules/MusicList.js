@@ -1,8 +1,10 @@
 import { existsPlaylist, getPlaylistAsArray } from './localStorage.js';
 
 export class MusicList {
-  playLists = {};
-  currentId = 'electronic';
+  constructor() {
+    this.playLists = {};
+    this.currentId = 'electronic';
+  }
 
   async get(slug) {
     if (existsPlaylist(slug)) {
@@ -23,7 +25,7 @@ export class MusicList {
     return this.playLists[this.currentId];
   }
 
-  async select(slug, title, color) {
+  async select(slug, title, color ) {
     document.body.style.setProperty('--theme-color', color);
     const songs = await this.get(slug, title);
     const listHeader = document.querySelector('list-header');
