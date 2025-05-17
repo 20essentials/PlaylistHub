@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Daylight",
+    "artist": "David Kushner",
+    "album": "Palenight",
+    "date": "2028-09-01T00:00:00",
+    "duration": "03:49",
+    "urlSong": "https://20essentials.github.io/david-kushner-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/david-kushner-album/assets/n1.avif"
+  },
+  {
+    "title": "The Lightning",
+    "artist": "Arcade Fire",
+    "album": "Palenight",
+    "date": "2028-09-02T00:00:00",
+    "duration": "06:20",
+    "urlSong": "https://20essentials.github.io/arcade-fire/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/arcade-fire/assets/n1.avif"
+  },
+  {
+    "title": "Social Cues",
+    "artist": "Cage The Elephant",
+    "album": "Palenight",
+    "date": "2028-09-03T00:00:00",
+    "duration": "03:40",
+    "urlSong": "https://20essentials.github.io/cage-the-elephant-band/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/cage-the-elephant-band/assets/n2.avif"
+  },
+  {
+    "title": "Untrust Us",
+    "artist": "Crystal Castles",
+    "album": "Palenight",
+    "date": "2028-09-04T00:00:00",
+    "duration": "03:06",
+    "urlSong": "https://20essentials.github.io/crystal-castles-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/crystal-castles-band/assets/n2.avif"
+  },
+  {
+    "title": "Empty Threat",
+    "artist": "Chvrches",
+    "album": "Palenight",
+    "date": "2028-09-05T00:00:00",
+    "duration": "04:04",
+    "urlSong": "https://20essentials.github.io/chvrches-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/chvrches-band/assets/n2.avif"
+  },
+  {
+    "title": "Snovidenie",
+    "artist": "Craspore",
+    "album": "Palenight",
+    "date": "2028-09-06T00:00:00",
+    "duration": "04:16",
+    "urlSong": "https://20essentials.github.io/craspore-album/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/craspore-album/assets/n2.avif"
+  },
+  {
+    "title": "Come Island Dreaming",
+    "artist": "Clint Mansell",
+    "album": "Palenight",
+    "date": "2028-09-07T00:00:00",
+    "duration": "01:04",
+    "urlSong": "https://20essentials.github.io/clint-mansell-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/clint-mansell-band/assets/n4.avif"
+  },
+  {
+    "title": "Breed",
+    "artist": "Crimes",
+    "album": "Palenight",
+    "date": "2028-09-08T00:00:00",
+    "duration": "03:29",
+    "urlSong": "https://20essentials.github.io/crimes-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/crimes-band/assets/n3.avif"
+  },
+  {
+    "title": "Kalm",
+    "artist": "Cigarretes After Sex",
+    "album": "Palenight",
+    "date": "2028-09-09T00:00:00",
+    "duration": "05:18",
+    "urlSong": "https://20essentials.github.io/cigarretes-after-sex-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/cigarretes-after-sex-band/assets/n2.avif"
+  },
+  {
+    "title": "Ethereal",
+    "artist": "Clovis Reyes",
+    "album": "Palenight",
+    "date": "2028-09-10T00:00:00",
+    "duration": "02:30",
+    "urlSong": "https://20essentials.github.io/clovis-reyes-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/clovis-reyes-album/assets/n4.avif"
+  },
+  {
+    "title": "You Can't Catch Me",
+    "artist": "Chuck Berry",
+    "album": "Palenight",
+    "date": "2028-09-11T00:00:00",
+    "duration": "02:45",
+    "urlSong": "https://20essentials.github.io/chuck-berry-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/chuck-berry-album/assets/n1.avif"
+  },
+  {
+    "title": "Stronger",
+    "artist": "Deorro",
+    "album": "Palenight",
+    "date": "2028-09-12T00:00:00",
+    "duration": "06:00",
+    "urlSong": "https://20essentials.github.io/deorro-band/songs/n7.mp3",
+    "urlPoster": "https://20essentials.github.io/deorro-band/assets/n3.avif"
+  },
+  {
+    "title": "Last Train To London",
+    "artist": "Electric Light Orchestra",
+    "album": "Palenight",
+    "date": "2028-09-13T00:00:00",
+    "duration": "04:37",
+    "urlSong": "https://20essentials.github.io/elo-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/elo-album/assets/n2.avif"
+  },
+  {
+    "title": "Huye De Mi",
+    "artist": "Eva Ayllón",
+    "album": "Palenight",
+    "date": "2028-09-14T00:00:00",
+    "duration": "03:02",
+    "urlSong": "https://20essentials.github.io/eva-ayllon-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/eva-ayllon-album/assets/n4.avif"
+  },
+  {
+    "title": "In Your Arms",
+    "artist": "Croixx",
+    "album": "Palenight",
+    "date": "2028-09-15T00:00:00",
+    "duration": "02:42",
+    "urlSong": "https://20essentials.github.io/croixx-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/croixx-album/assets/n2.avif"
+  },
+  {
+    "title": "Bad Habits",
+    "artist": "Ed Sheeran",
+    "album": "Palenight",
+    "date": "2028-09-16T00:00:00",
+    "duration": "03:49",
+    "urlSong": "https://20essentials.github.io/ed-sheeran-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/ed-sheeran-album/assets/n2.avif"
+  },
+  {
+    "title": "I Love You",
+    "artist": "Enigma",
+    "album": "Palenight",
+    "date": "2028-09-17T00:00:00",
+    "duration": "08:52",
+    "urlSong": "https://20essentials.github.io/enigma-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/enigma-band/assets/n2.avif"
+  },
+  {
+    "title": "My Inmortal",
+    "artist": "Evanescence",
+    "album": "Palenight",
+    "date": "2028-09-18T00:00:00",
+    "duration": "04:33",
+    "urlSong": "https://20essentials.github.io/evanescence-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/evanescence-album/assets/n2.avif"
+  },
+  {
+    "title": "Pay Phone",
+    "artist": "Fantom 87",
+    "album": "Palenight",
+    "date": "2028-09-19T00:00:00",
+    "duration": "05:53",
+    "urlSong": "https://20essentials.github.io/fantom-87-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/fantom-87-album/assets/n1.avif"
+  },
+  {
+    "title": "Ylang Ylang",
+    "artist": "Fkj",
+    "album": "Palenight",
+    "date": "2028-09-20T00:00:00",
+    "duration": "03:33",
+    "urlSong": "https://20essentials.github.io/fkj/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/fkj/assets/n1.avif"
+  }
+]

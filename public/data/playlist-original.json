@@ -304,5 +304,11 @@
     "pinned": true,
     "color": "#696969",
     "whatColorIs": "DimGrey"
+  },
+  {
+    "title": "Palenight",
+    "pinned": true,
+    "color": "#FFD700",
+    "whatColorIs": "Gold"
   }
 ]
