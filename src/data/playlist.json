@@ -226,5 +226,47 @@
     "pinned": true,
     "color": "#D2691E",
     "whatColorIs": "Chocolate"
+  },
+  {
+    "title": "Romantic",
+    "pinned": true,
+    "color": "#f5576c",
+    "whatColorIs": "rosado rojizo"
+  },
+  {
+    "title": "Skweee",
+    "pinned": true,
+    "color": "#685cb3",
+    "whatColorIs": "MediumSlateBlue"
+  },
+  {
+    "title": "Soft Rock",
+    "pinned": true,
+    "color": "#8B008B",
+    "whatColorIs": "DarkMagenta"
+  },
+  {
+    "title": "Soul",
+    "pinned": true,
+    "color": "#E9967A",
+    "whatColorIs": "DarkSalmon"
+  },
+  {
+    "title": "Soul Pop",
+    "pinned": true,
+    "color": "#90ab5f",
+    "whatColorIs": "MediumOliveGreen"
+  },
+  {
+    "title": "Space Disco",
+    "pinned": true,
+    "color": "#B22222",
+    "whatColorIs": "FireBrick"
+  },
+  {
+    "title": "Spanish Pop",
+    "pinned": true,
+    "color": "#52e2d5",
+    "whatColorIs": "aqua verde"
   }
 ]
