@@ -8,7 +8,9 @@
     removeSongFromPlaylist,
     FAVORITE_SLUG,
     updateListOfSongsItemsAfterAnUpdateOrDelete,
-    obtenerFechaActualISO
+    obtenerFechaActualISO,
+    PREFIX_LS,
+    createPlaylistElement 
   } from './modules/localStorage.js';
   const amCustomPopover = new CustomPopover();
 
@@ -355,10 +357,54 @@
     }
 
     addToPlaylistListeners() {
+      const $ = el => document.querySelector(el);
       const $addToPlaylist = this.shadowRoot.querySelector('.add-to-playlist');
       $addToPlaylist.addEventListener('click', e => {
         e.stopPropagation();
-        alert('add');
+        const $modal = $('.modal-add-playlists');
+        $modal.classList.add('modal-open');
+
+        const h2Title = $('.top .pintado');
+        h2Title.innerHTML = this.title;
+
+        const containerOfPlaylists = $('.container-of-add-to-playlists');
+        // const arrayOfPlaylistNames = [];
+
+        // for (const key in localStorage) {
+        //   if (key.startsWith(PREFIX_LS)) {
+        //     const slug = key.replace(PREFIX_LS, '');
+        //     // arrayOfPlaylistNames.push(key)
+        //     // console.log(localStorage[key])
+        //     console.log(slug);
+        //   }
+        // }
+
+        const $sideBarPlaylist = document.querySelector('.sidebarPlaylist');
+        const allPlaylistsFromUser = [...$sideBarPlaylist.children]
+          .filter(el => el.getAttribute('data-from-user') === 'true')
+          .map(el => el.querySelector('.title').textContent)
+          .map(text => createPlaylistElement(text));
+
+        setTimeout(() => {
+          const $input = $('#agregarPlaylistInput');
+          $input.focus();
+        }, 5);
+
+        const newSongObject = {
+          title: this.title,
+          fromUser: true,
+          artist: this.artist,
+          album: this.album,
+          date: obtenerFechaActualISO(),
+          duration: this.duration,
+          urlSong: this.urlSong,
+          urlPoster: this.urlPoster
+        };
+
+        localStorage.setItem(
+          'lastPlaylistClickedPreparedToAddANewPlaylist',
+          JSON.stringify(newSongObject)
+        );
       });
     }
 
@@ -420,11 +466,11 @@
       buttonRemoveFromFavoriteBrands.addEventListener('click', e => {
         e.stopPropagation();
         const $row = this.shadowRoot?.querySelector('.row-item');
-        const $rowHasTitleGreen = $row.classList.contains('title-green')
+        const $rowHasTitleGreen = $row.classList.contains('title-green');
         if ($rowHasTitleGreen) {
-          localStorage.setItem('the-song-item-deletes-itself', `${true}`)
+          localStorage.setItem('the-song-item-deletes-itself', `${true}`);
         }
-        
+
         removeSongFromPlaylist(FAVORITE_SLUG, {
           title: this.title,
           artist: this.artist

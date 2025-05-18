@@ -10,12 +10,13 @@ import CheckedFull from '@/icons/checkedfull.astro';
     <aside class='top'>
       <h2>Add <span class='pintado'>ELECTRIC WORRY</span> in...</h2>
     </aside>
-    <aside class='bottom'>
-      {
+    <aside class='container-of-add-to-playlists'>
+      <!-- {
         playlist
+          .slice(0, 3)
           .toSorted((a, b) => a.title.localeCompare(b.title))
           .map(({ title }) => (
-            <aside class='row'>
+            <aside class='row' data-playlist-titulo='title'>
               <aside class='container-icons'>
                 <CheckedEmpty class='playlistEmpty' />
                 <CheckedFull class='playlistFull' />
@@ -28,7 +29,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
               <h4 class='container-title-of-a-playlist'>{title}</h4>
             </aside>
           ))
-      }
+      } -->
     </aside>
     <aside class='add-playlist-container'>
       <article class='first-tab'>
@@ -95,7 +96,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
           <input
             type='text'
             id='agregarPlaylistInput'
-            placeholder='Playlist Na'
+            placeholder='Create a new Playlist...'
             maxlength='20'
             autocomplete='off'
             translate='no'
@@ -126,11 +127,19 @@ import CheckedFull from '@/icons/checkedfull.astro';
     display: flex;
     flex-wrap: wrap;
     place-content: center;
-    /* display:  none; */
+    transform: scale(0);
+    transition: transform 0.1s ease;
+
+    &.modal-open {
+      transform: scale(1);
+    }
 
     .container-add-playlists {
-      width: 30vmax;
-      height: 86%;
+      min-width: 28vmax;
+      width: fit-content;
+      max-width: 34vmax;
+      min-height: 15vmax;
+      max-height: 86%;
       background-color: #fff3;
       border-radius: 1.7vmax;
       display: flex;
@@ -152,13 +161,15 @@ import CheckedFull from '@/icons/checkedfull.astro';
         }
       }
 
-      .bottom {
+      .container-of-add-to-playlists {
         flex-grow: 1;
         overflow-y: auto;
-        min-height: 10vmax;
+        min-height: 7vmax;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
         gap: 0.4vmax;
+        scroll-behavior: smooth;
+        place-content: start;
 
         &::-webkit-scrollbar {
           width: 0.5vmax;
@@ -179,10 +190,10 @@ import CheckedFull from '@/icons/checkedfull.astro';
 
         .row {
           font-size: 1vmax;
-          /* background-color: #f002; */
           display: flex;
           align-items: center;
           position: relative;
+          height: fit-content;
 
           * {
             pointer-events: none;
@@ -190,7 +201,6 @@ import CheckedFull from '@/icons/checkedfull.astro';
 
           .container-icons {
             width: 2vmax;
-            height: 2vmax;
             height: 100%;
             display: flex;
             position: relative;
@@ -201,8 +211,8 @@ import CheckedFull from '@/icons/checkedfull.astro';
               box-shadow: none;
               pointer-events: none;
               opacity: 0;
-              width: 220%;
-              height: 220%;
+              width: 3vmax;
+              height: 3vmax;
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%);
@@ -241,7 +251,6 @@ import CheckedFull from '@/icons/checkedfull.astro';
           }
 
           .container-title-of-a-playlist {
-            /* background-color: springgreen; */
             align-content: center;
           }
         }
@@ -251,7 +260,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
         border: 0.1vmax solid #0004;
         border-radius: 0.8vmax;
         backdrop-filter: blur(10vmax);
-        background-color: #111;
+        background-color: #222;
 
         .first-tab {
           display: flex;
@@ -348,7 +357,6 @@ import CheckedFull from '@/icons/checkedfull.astro';
             position: relative;
             padding-bottom: 1vmax;
             transition: opacity 0.2s ease;
-            /* background-color: red; */
 
             .longitud-max {
               position: absolute;
@@ -489,6 +497,11 @@ import CheckedFull from '@/icons/checkedfull.astro';
                 transform: translateY(0%);
                 box-shadow: 0 0;
               }
+
+              &.to-bottom .front {
+                transform: translateY(0%);
+                box-shadow: 0 0;
+              }
             }
           }
         }
@@ -555,9 +568,33 @@ import CheckedFull from '@/icons/checkedfull.astro';
 
 <script>
   import { $ } from '@/utils/functions';
-  import { existsPlaylist } from '@/utils/localStorage';
+  import { existsPlaylist, createPlaylistElement } from '@/utils/localStorage';
   let regExP = /^(?![\s0-9\-_])[\w\s\-]{1,20}(?<![\-])$/;
   const $longituMaxOfInput = $('.longitud-max') as HTMLOutputElement;
+  const inputAddPlaylist = $('#agregarPlaylistInput') as HTMLInputElement;
+  let $output = $('.container-inputs output') as HTMLOutputElement;
+
+  function closeModal() {
+    const $modal = $('.modal-add-playlists') as HTMLElement;
+    if (!$modal) return;
+    $modal.classList.remove('modal-open');
+  }
+
+  function addNewPlaylist() {
+    const inputValor = inputAddPlaylist.value;
+
+    if (!inputAddPlaylist) return;
+    if (regExP.test(inputValor) && inputAddPlaylist.classList.contains('valid')) {
+      inputAddPlaylist.value = '';
+      $output.value = '0';
+      const containerOfPlaylists = $(
+        '.container-of-add-to-playlists'
+      ) as HTMLElement;
+      createPlaylistElement(inputValor);
+
+      containerOfPlaylists.scrollTop = containerOfPlaylists.scrollHeight;
+    }
+  }
 
   document.addEventListener('click', e => {
     const target = e.target as HTMLElement;
@@ -566,12 +603,38 @@ import CheckedFull from '@/icons/checkedfull.astro';
       const playlistEmpty = target.querySelector('.playlistEmpty') as HTMLElement;
       playlistEmpty.classList.toggle('isSavedInPlaylist');
     }
+
+    if (
+      target.matches('.btn-add-playlist') ||
+      target.matches('.btn-add-playlist *')
+    ) {
+      addNewPlaylist();
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    const { key } = e;
+    const target = e.target as HTMLInputElement;
+    if (target.matches('#agregarPlaylistInput')) {
+      if (key === 'Enter') {
+        addNewPlaylist();
+        const buttonSubmit = $('.btn-add-playlist') as HTMLButtonElement;
+        buttonSubmit.classList.toggle('to-bottom', true);
+
+        setTimeout(() => {
+          buttonSubmit.classList.remove('to-bottom');
+        }, 250);
+      }
+    }
+
+    if (key === 'Escape') {
+      closeModal();
+    }
   });
 
   document.addEventListener('input', e => {
     const target = e.target as HTMLInputElement;
     if (target.matches('#agregarPlaylistInput')) {
-      let $output = $('.container-inputs output') as HTMLOutputElement;
       $output.innerHTML = `${target.value.length}`;
 
       if (target.value.length === 0) {
