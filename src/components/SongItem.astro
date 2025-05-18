@@ -380,6 +380,7 @@
         // }
 
         const $sideBarPlaylist = document.querySelector('.sidebarPlaylist');
+        containerOfPlaylists.innerHTML = '';
         const allPlaylistsFromUser = [...$sideBarPlaylist.children]
           .filter(el => el.getAttribute('data-from-user') === 'true')
           .map(el => el.querySelector('.title').textContent)

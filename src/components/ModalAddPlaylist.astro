@@ -390,7 +390,8 @@ import CheckedFull from '@/icons/checkedfull.astro';
                 position: absolute;
                 top: 0%;
                 font-size: 1vmax;
-                border-bottom: 0.1vmax solid #fff8;
+                border-bottom: 0.1vmax solid currentColor;
+                caret-color: currentColor;
 
                 &::placeholder {
                   color: #fff8;
@@ -398,39 +399,12 @@ import CheckedFull from '@/icons/checkedfull.astro';
 
                 &.valid {
                   color: var(--validate-color);
-                  border-bottom: 2px solid var(--validate-color);
-                  caret-color: var(--validate-color);
                 }
 
                 &.invalid {
                   color: var(--invalid-color);
-                  border-bottom: 2px solid var(--invalid-color);
-                  caret-color: var(--invalid-color);
                 }
               }
-
-              /* &[type='submit'] {
-                width: 17%;
-                background-color: transparent;
-                aspect-ratio: 1;
-                transform: scale(0.8);
-                border-radius: 999px;
-                box-shadow: inset 0 0 0 8px #0003;
-                position: absolute;
-                background-color: #0f08;
-                right: -12px;
-                top: -20%;
-                display: flex;
-                flex-wrap: wrap;
-                place-content: center;
-                line-height: 1rem;
-                font-size: 1em;
-                transition: box-shadow 0.4s ease;
-
-                &:hover {
-                  box-shadow: inset 0 0 0 0 #0003;
-                }
-              } */
             }
           }
 
@@ -609,6 +583,10 @@ import CheckedFull from '@/icons/checkedfull.astro';
       target.matches('.btn-add-playlist *')
     ) {
       addNewPlaylist();
+    }
+
+    if (target.matches('.modal-add-playlists')) {
+      closeModal();
     }
   });
 
