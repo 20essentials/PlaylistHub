@@ -9,6 +9,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
   <section class='container-add-playlists'>
     <aside class='top'>
       <h2>Add <span class='pintado'>ELECTRIC WORRY</span> in...</h2>
+      <button class='close-modal-playlist'></button>
     </aside>
     <aside class='container-of-add-to-playlists'>
       <!-- {
@@ -135,9 +136,9 @@ import CheckedFull from '@/icons/checkedfull.astro';
     }
 
     .container-add-playlists {
-      min-width: 28vmax;
+      min-width: 30vmax;
       width: fit-content;
-      max-width: 34vmax;
+      max-width: 36vmax;
       min-height: 15vmax;
       max-height: 86%;
       background-color: #fff3;
@@ -149,7 +150,21 @@ import CheckedFull from '@/icons/checkedfull.astro';
       gap: 1vmax;
 
       .top {
-        /* background-color: orange; */
+        position: relative;
+
+        .close-modal-playlist {
+          border: none;
+          outline: none;
+          box-shadow: none;
+          background-color: transparent;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 1.7vmax;
+          height: 1.7vmax;
+          background-image: url('/assets/cross.png');
+          background-size: cover;
+        }
 
         h2 {
           font-size: 1.3vmax;
@@ -169,7 +184,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
         grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
         gap: 0.4vmax;
         scroll-behavior: smooth;
-        place-content: start;
+        place-content: center;
 
         &::-webkit-scrollbar {
           width: 0.5vmax;
@@ -403,6 +418,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
 
                 &.invalid {
                   color: var(--invalid-color);
+                  border-bottom-color: var(--invalid-color);
                 }
               }
             }
@@ -576,6 +592,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
     if (target.matches('.row') || target.matches('.row *')) {
       const playlistEmpty = target.querySelector('.playlistEmpty') as HTMLElement;
       playlistEmpty.classList.toggle('isSavedInPlaylist');
+      return;
     }
 
     if (
@@ -583,10 +600,15 @@ import CheckedFull from '@/icons/checkedfull.astro';
       target.matches('.btn-add-playlist *')
     ) {
       addNewPlaylist();
+      return;
     }
 
-    if (target.matches('.modal-add-playlists')) {
+    if (
+      target.matches('.modal-add-playlists') ||
+      target.matches('.close-modal-playlist')
+    ) {
       closeModal();
+      return;
     }
   });
 
@@ -618,6 +640,8 @@ import CheckedFull from '@/icons/checkedfull.astro';
       if (target.value.length === 0) {
         target.classList.remove('valid');
         target.classList.remove('invalid');
+        $longituMaxOfInput.classList.remove('valid');
+        $longituMaxOfInput.classList.remove('invalid');
         return;
       }
 
