@@ -8,7 +8,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
 <section class='modal-add-playlists'>
   <section class='container-add-playlists'>
     <aside class='top'>
-      <h2>Store <span class='pintado'>ELECTRIC WORRY</span> in...</h2>
+      <h2>Add <span class='pintado'>ELECTRIC WORRY</span> in...</h2>
     </aside>
     <aside class='bottom'>
       {
@@ -95,7 +95,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
           <input
             type='text'
             id='agregarPlaylistInput'
-            placeholder='Write the title...'
+            placeholder='Playlist Na'
             maxlength='20'
             autocomplete='off'
             translate='no'
@@ -250,7 +250,8 @@ import CheckedFull from '@/icons/checkedfull.astro';
       .add-playlist-container {
         border: 0.1vmax solid #0004;
         border-radius: 0.8vmax;
-        backdrop-filter: blur(0.1vmax);
+        backdrop-filter: blur(10vmax);
+        background-color: #111;
 
         .first-tab {
           display: flex;
@@ -337,7 +338,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
           justify-content: center;
           padding: 1vmax;
           --validate-color: lime;
-          --invalid-color: #f00f;
+          --invalid-color: #fb0404;
           width: 80%;
           margin-inline: auto;
 
@@ -357,6 +358,14 @@ import CheckedFull from '@/icons/checkedfull.astro';
               position: relative;
               font-style: italic;
               bottom: -1.8vmax;
+
+              &.valid {
+                color: var(--validate-color);
+              }
+
+              &.invalid {
+                color: var(--invalid-color);
+              }
             }
 
             #agregarPlaylistInput {
@@ -364,6 +373,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
               outline: none;
               font-family: Arial, Helvetica, sans-serif;
               color: var(--validate-color);
+              font-weight: 600;
 
               &[type='text'] {
                 width: 88%;
@@ -425,6 +435,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
             .btn-add-playlist {
               --primary: 255, 90, 120;
               --secondary: 150, 50, 60;
+              --secondary2: rgb(128, 30, 40);
               border: none;
               outline: none;
               cursor: pointer;
@@ -435,10 +446,10 @@ import CheckedFull from '@/icons/checkedfull.astro';
               outline: 0.651vmax solid rgb(var(--primary), 0.5);
               border-radius: 100%;
               position: relative;
-              zoom: 0.8;
+              zoom: 0.7;
 
               .back {
-                background: rgb(var(--secondary));
+                background: var(--secondary2);
                 border-radius: 100%;
                 position: absolute;
                 left: 0;
@@ -541,3 +552,45 @@ import CheckedFull from '@/icons/checkedfull.astro';
     }
   }
 </style>
+
+<script>
+  import { $ } from '@/utils/functions';
+  import { existsPlaylist } from '@/utils/localStorage';
+  let regExP = /^(?![\s0-9\-_])[\w\s\-]{1,20}(?<![\-])$/;
+  const $longituMaxOfInput = $('.longitud-max') as HTMLOutputElement;
+
+  document.addEventListener('click', e => {
+    const target = e.target as HTMLElement;
+
+    if (target.matches('.row') || target.matches('.row *')) {
+      const playlistEmpty = target.querySelector('.playlistEmpty') as HTMLElement;
+      playlistEmpty.classList.toggle('isSavedInPlaylist');
+    }
+  });
+
+  document.addEventListener('input', e => {
+    const target = e.target as HTMLInputElement;
+    if (target.matches('#agregarPlaylistInput')) {
+      let $output = $('.container-inputs output') as HTMLOutputElement;
+      $output.innerHTML = `${target.value.length}`;
+
+      if (target.value.length === 0) {
+        target.classList.remove('valid');
+        target.classList.remove('invalid');
+        return;
+      }
+
+      if (regExP.test(target.value) && !existsPlaylist(target.value)) {
+        target.classList.remove('invalid');
+        target.classList.add('valid');
+        $longituMaxOfInput.classList.remove('invalid');
+        $longituMaxOfInput.classList.add('valid');
+      } else {
+        target.classList.remove('valid');
+        target.classList.add('invalid');
+        $longituMaxOfInput.classList.remove('valid');
+        $longituMaxOfInput.classList.add('invalid');
+      }
+    }
+  });
+</script>

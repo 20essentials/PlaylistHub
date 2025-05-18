@@ -1187,14 +1187,7 @@ import { SignInButton } from '@clerk/astro/components';
   } from '@/utils/localStorage';
 
   //Add To A Playlist Icon
-  document.addEventListener('click', e => {
-    const target = e.target as HTMLElement;
 
-    if (target.matches('.row') || target.matches('.row *')) {
-      const playlistEmpty = target.querySelector('.playlistEmpty') as HTMLElement;
-      playlistEmpty.classList.toggle('isSavedInPlaylist');
-    }
-  });
 
   //Init State That a playlist don't delete itself
   localStorage.setItem('the-song-item-deletes-itself', 'false');
