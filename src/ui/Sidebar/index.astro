@@ -29,6 +29,22 @@ const firstPlaylistOfUser = {
   whatColorIs: 'Clear Green'
 };
 
+const secondPlaylistOfUser = {
+  title: 'Chill Lofi',
+  pinned: true,
+  color: '#DAA520',
+  fromUser: true,
+  whatColorIs: 'GoldenRod'
+};
+
+const thirdPlaylistOfUser = {
+  title: 'SpotiManz Favorites',
+  pinned: true,
+  color: '#ec1cce',
+  fromUser: true,
+  whatColorIs: 'Purple Elegant'
+};
+
 interface PlaylistObject {
   title: string;
   pinned: boolean;
@@ -39,7 +55,12 @@ interface PlaylistObject {
 }
 
 const globalPlaylist: PlaylistObject[] = [...playlist];
-const userPlaylist: PlaylistObject[] = [favoriteBrands, firstPlaylistOfUser];
+const userPlaylist: PlaylistObject[] = [
+  favoriteBrands,
+  firstPlaylistOfUser,
+  secondPlaylistOfUser,
+  thirdPlaylistOfUser
+];
 ---
 
 <style define:vars={{ containerHeight }}>
