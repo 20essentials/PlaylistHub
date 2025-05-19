@@ -320,6 +320,7 @@
 
       document.addEventListener('keydown', ({ key }) => {
         const inputHasFocus = document.activeElement === input;
+        const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
         const clickEnter = inputHasFocus && key === 'Enter';
         const clickArrowDown = inputHasFocus && key === 'ArrowDown';
         const selecttFirsPlaylist = () => {

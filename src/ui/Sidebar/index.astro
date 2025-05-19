@@ -274,11 +274,12 @@ const userPlaylist: PlaylistObject[] = [
   }
 </style>
 
-<script is:inline>
+<!-- <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('search-input');
     const playlistContainer = document.querySelector('.sidebarPlaylist');
     const originalPlaylists = [...playlistContainer.children];
+
     input.addEventListener('input', () => {
       const searchTerm = input.value.toLowerCase();
       playlistContainer.scrollTop = 0;
@@ -297,6 +298,53 @@ const userPlaylist: PlaylistObject[] = [
 
       playlistContainer.innerHTML = '';
       sortedPlaylists.forEach(item => playlistContainer.appendChild(item));
+    });
+  });
+</script> -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('search-input') as HTMLInputElement;
+    const playlistContainer = document.querySelector('.sidebarPlaylist') as HTMLElement;
+
+    input.addEventListener('input', () => {
+      const searchTerm = input.value.toLowerCase();
+      playlistContainer.scrollTop = 0;
+
+      const allPlaylists = [...playlistContainer.children];
+
+      const visibles = allPlaylists.filter(el =>
+        el.classList.contains('visible')
+      );
+      const invisibles = allPlaylists.filter(
+        el => !el.classList.contains('visible')
+      );
+
+      // Dividir los visibles en coincidencias y no coincidencias
+      const matches: any = [];
+      const nonMatches: any = [];
+
+      visibles.forEach(el => {
+        const text = el.textContent?.toLowerCase() || '';
+        if (text.includes(searchTerm)) {
+          matches.push(el);
+        } else {
+          nonMatches.push(el);
+        }
+      });
+
+      // Ordenar los que hacen match
+      matches.sort((a: any, b: any) => {
+        const aText = a.textContent?.toLowerCase() || '';
+        const bText = b.textContent?.toLowerCase() || '';
+        return aText.localeCompare(bText);
+      });
+
+      // Concatenar: matches → nonMatches → invisibles
+      const finalOrder = [...matches, ...nonMatches, ...invisibles];
+
+      // Reinsertar en ese orden
+      finalOrder.forEach(el => playlistContainer.appendChild(el));
     });
   });
 </script>
@@ -386,9 +434,10 @@ const userPlaylist: PlaylistObject[] = [
   const arrayOfRandomPosters = playlistRandomObject?.default;
 
   const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
-  const globalPlaylistLength = [...$sideBarPlaylist.children].filter(
+  const _originalPlaylist = [...$sideBarPlaylist.children].filter(
     playlist => playlist.getAttribute('data-from-user') === 'false'
-  ).length;
+  );
+  let globalPlaylistLength = _originalPlaylist.length;
 
   document.addEventListener('click', e => {
     const target = e.target as HTMLElement;
@@ -397,6 +446,8 @@ const userPlaylist: PlaylistObject[] = [
       $('.sidb-active')?.classList.remove('sidb-active');
       target.classList.add('sidb-active');
       const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
+      // $sideBarPlaylist.innerHTML = '';
+      // _originalPlaylist.map(el => $sideBarPlaylist.appendChild(el));
       let originalPlaylist = [...$sideBarPlaylist?.children];
       originalPlaylist.forEach(el => {
         el.className = el.className.includes('playlist-item visible')
