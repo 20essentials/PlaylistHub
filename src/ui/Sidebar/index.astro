@@ -1,6 +1,7 @@
 ---
 import playlist from '@/data/playlist.json';
 import PlayListItem from '@/components/PlayListItem.astro';
+
 const user = await Astro.locals.currentUser();
 const userImg = user?.imageUrl;
 const containerHeight = user
@@ -45,8 +46,6 @@ const thirdPlaylistOfUser = {
   whatColorIs: 'Purple Elegant'
 };
 
-
-
 interface PlaylistObject {
   title: string;
   pinned: boolean;
@@ -57,11 +56,12 @@ interface PlaylistObject {
 }
 
 const globalPlaylist: PlaylistObject[] = [...playlist];
+
 const userPlaylist: PlaylistObject[] = [
-  favoriteBrands,
-  firstPlaylistOfUser,
-  secondPlaylistOfUser,
-  thirdPlaylistOfUser
+  favoriteBrands
+  // firstPlaylistOfUser,
+  // secondPlaylistOfUser,
+  // thirdPlaylistOfUser
 ];
 ---
 
@@ -369,7 +369,24 @@ const userPlaylist: PlaylistObject[] = [
 </div>
 
 <script>
-  import { $ } from '@/utils/functions';
+  import { $, $$ } from '@/utils/functions';
+  import { PREFIX_LS, createSidePlaylistItem } from '@/utils/localStorage';
+  import playlist from '@/data/playlist.json';
+  const arrayOfColorsRandoms = playlist.map(el => el.color);
+  const arrayOfRandomPosters = [
+    'https://20essentials.github.io/alice-deejay/assets/n4.avif',
+    'https://20essentials.github.io/al-bano-e-romina-power/assets/n1.avif',
+    'https://20essentials.github.io/al-bano-e-romina-power/assets/n2.avif',
+    'https://20essentials.github.io/al-bano-e-romina-power/assets/n3.avif',
+    'https://20essentials.github.io/al-bano-e-romina-power/assets/n4.avif',
+    'https://20essentials.github.io/zaza/assets/n1.avif',
+    'https://20essentials.github.io/zaza/assets/n2.avif',
+    'https://20essentials.github.io/zaza/assets/n3.avif',
+    'https://20essentials.github.io/zaza/assets/n4.avif',
+    'https://20essentials.github.io/fiona-apple/assets/n2.avif',
+    'https://20essentials.github.io/fiona-apple/assets/n4.avif',
+    
+  ];
 
   const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
   let originalPlaylist = [...$sideBarPlaylist?.children];
@@ -403,21 +420,58 @@ const userPlaylist: PlaylistObject[] = [
     }
 
     if (target.matches('.sidebar-right')) {
-      if (target.classList.contains('sidb-active')) return;
-      $('.sidb-active')?.classList.remove('sidb-active');
-      target.classList.add('sidb-active');
-      originalPlaylist.forEach(el => {
-        el.className = el.className.includes('playlist-item visible')
-          ? 'playlist-item invisible'
-          : 'playlist-item visible';
+      if (!target.classList.contains('sidb-active')) {
+        originalPlaylist.forEach(el => {
+          el.className = el.className.includes('playlist-item visible')
+            ? 'playlist-item invisible'
+            : 'playlist-item visible';
 
-        return el;
-      });
+          return el;
+        });
+      }
+      $$('.sidb-active').forEach(el => el.classList.remove('sidb-active'));
+      target.classList.add('sidb-active');
+
+      const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
+      let originalPlaylist_ = [...$sideBarPlaylist?.children];
+      const lastElement = originalPlaylist_[originalPlaylist_.length - 1];
+      const newElement = lastElement.cloneNode(true) as HTMLElement;
+      let startTabIndex = Number(newElement.getAttribute('tabindex'));
+
+      function obtenerElementoAleatorio(arr: any) {
+        const indiceAleatorio = Math.floor(Math.random() * arr.length);
+        return arr[indiceAleatorio];
+      }
+
+      for (const key in localStorage) {
+        if (key.startsWith(PREFIX_LS)) {
+          const currentPlaylistString = localStorage.getItem(key) ?? '[]';
+          const currenPlaylistJson = JSON.parse(currentPlaylistString);
+          const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
+          const slug = key.replace(PREFIX_LS, '');
+          const existAlreadyThisPlaylists = [...$sideBarPlaylist.children].some(
+            el => {
+              return el.getAttribute('data-id') === slug;
+            }
+          );
+          if (!existAlreadyThisPlaylists) {
+            createSidePlaylistItem({
+              tabindex: startTabIndex,
+              slug,
+              color: obtenerElementoAleatorio(arrayOfColorsRandoms),
+              poster: obtenerElementoAleatorio(arrayOfRandomPosters),
+              title: slug
+            });
+          }
+        }
+      }
 
       setTimeout(() => {
+        //We do cick en the first Element (Favorite Brands)
         const favoritePlaylist = [...$sideBarPlaylist.children][
           globalPlaylistLength
         ] as HTMLElement;
+
         favoritePlaylist.click();
       }, 30);
       return;

@@ -368,9 +368,11 @@ import CheckedFull from '@/icons/checkedfull.astro';
     createPlaylistElement,
     addSongInPlaylist,
     removeSongFromPlaylist,
+    createPlaylist,
     getPlaylistAsArray,
     existThisSongInTheCurrentPlaylist,
-    updateListOfSongsItemsAfterAnUpdateOrDelete
+    updateListOfSongsItemsAfterAnUpdateOrDelete,
+    createSidePlaylistItem
   } from '@/utils/localStorage';
   let regExP = /^(?![\s0-9\-_])[\w\s\-]{1,20}(?<![\-])$/;
   const $longituMaxOfInput = $('.longitud-max') as HTMLOutputElement;
@@ -394,7 +396,9 @@ import CheckedFull from '@/icons/checkedfull.astro';
         '.container-of-add-to-playlists'
       ) as HTMLElement;
       createPlaylistElement(inputValor);
-
+      createPlaylist(inputValor, JSON.stringify([])); //En el LS
+      const $tabActive = $('.sidb-active') as HTMLElement;
+      $tabActive.click();
       containerOfPlaylists.scrollTop = containerOfPlaylists.scrollHeight;
     }
   }

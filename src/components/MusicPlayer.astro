@@ -52,14 +52,14 @@
     const existInFavoritesBrands = existThisSongInTheCurrentPlaylist(
       FAVORITE_SLUG,
       {
-        artist: songInfo.artist,
-        title: songInfo.title
+        artist: songInfo?.artist,
+        title: songInfo?.title
       }
     );
 
     emitEvent('updateNewSongInFavoriteBrands', document, {
-      title: songInfo.title,
-      artist: songInfo.artist,
+      title: songInfo?.title,
+      artist: songInfo?.artist,
       updating: existInFavoritesBrands
     });
 
@@ -77,9 +77,10 @@
     }
   }, 55);
 
-  const playlistItems = document.querySelectorAll('.playlist-item');
-  playlistItems.forEach(playlist => {
-    playlist.addEventListener('click', async () => {
+
+  document.addEventListener('click', async (e) => {
+    if (e.target.matches('.playlist-item')) {
+      const playlist = e.target;
       const slug = playlist.dataset.id;
       let title = playlist.querySelector('.title').textContent;
 
@@ -102,8 +103,8 @@
       }, 300);
 
       await musicPlayer.selectList(slug, title, playlist.dataset.color);
-    });
-  });
+    }
+  })
 
   const songPlaylist = document.querySelector('.song.playlist');
   songPlaylist.addEventListener('click', ev => {
