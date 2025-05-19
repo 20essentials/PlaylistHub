@@ -17,4 +17,8 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   integrations: [clerk(), preact()],
+  // server: {
+  //   host: true,
+  //   port: 4444
+  // }
 });

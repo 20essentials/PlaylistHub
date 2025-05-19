@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Believe",
+    "artist": "Cher",
+    "album": "Glam Rock",
+    "date": "2028-12-01T00:00:00",
+    "duration": "03:59",
+    "urlSong": "https://20essentials.github.io/cher-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/cher-album/assets/n1.avif"
+  },
+  {
+    "title": "La Piedra Redonda",
+    "artist": "El Último De La Fila",
+    "album": "Glam Rock",
+    "date": "2028-12-02T00:00:00",
+    "duration": "03:45",
+    "urlSong": "https://20essentials.github.io/el-ultimo-de-la-fila-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/el-ultimo-de-la-fila-band/assets/n4.avif"
+  },
+  {
+    "title": "Let's Groove",
+    "artist": "Earth Wind And Fire",
+    "album": "Glam Rock",
+    "date": "2028-12-03T00:00:00",
+    "duration": "05:39",
+    "urlSong": "https://20essentials.github.io/earth-wind-and-fire-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-wind-and-fire-band/assets/n3.avif"
+  },
+  {
+    "title": "It's A Heartache",
+    "artist": "Bonnie Tyler",
+    "album": "Glam Rock",
+    "date": "2028-12-04T00:00:00",
+    "duration": "03:24",
+    "urlSong": "https://20essentials.github.io/bonnie-tyler/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/bonnie-tyler/assets/n3.avif"
+  },
+  {
+    "title": "Vitamin C",
+    "artist": "Can",
+    "album": "Glam Rock",
+    "date": "2028-12-05T00:00:00",
+    "duration": "03:32",
+    "urlSong": "https://20essentials.github.io/can-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/can-band/assets/n2.avif"
+  },
+  {
+    "title": "Rocket Man",
+    "artist": "Elton John",
+    "album": "Glam Rock",
+    "date": "2028-12-06T00:00:00",
+    "duration": "04:43",
+    "urlSong": "https://20essentials.github.io/elton-john-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/elton-john-album/assets/n2.avif"
+  },
+  {
+    "title": "Wake Me Up Inside",
+    "artist": "Evanescence",
+    "album": "Glam Rock",
+    "date": "2028-12-07T00:00:00",
+    "duration": "03:59",
+    "urlSong": "https://20essentials.github.io/evanescence-album/songs/n9.mp3",
+    "urlPoster": "https://20essentials.github.io/evanescence-album/assets/n4.avif"
+  },
+  {
+    "title": "Maybelline",
+    "artist": "Chuck Berry",
+    "album": "Glam Rock",
+    "date": "2028-12-08T00:00:00",
+    "duration": "02:22",
+    "urlSong": "https://20essentials.github.io/chuck-berry-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/chuck-berry-album/assets/n2.avif"
+  },
+  {
+    "title": "Here Comes The Rain",
+    "artist": "Eurythmics",
+    "album": "Glam Rock",
+    "date": "2028-12-09T00:00:00",
+    "duration": "04:59",
+    "urlSong": "https://20essentials.github.io/eurythmics-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/eurythmics-album/assets/n3.avif"
+  },
+  {
+    "title": "Best Of My Love",
+    "artist": "Eagles",
+    "album": "Glam Rock",
+    "date": "2028-12-10T00:00:00",
+    "duration": "04:34",
+    "urlSong": "https://20essentials.github.io/eagles-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/eagles-album/assets/n4.avif"
+  },
+  {
+    "title": "Main Theme Of Final Fantasy",
+    "artist": "Final Fantasy Vii",
+    "album": "Glam Rock",
+    "date": "2028-12-11T00:00:00",
+    "duration": "06:43",
+    "urlSong": "https://20essentials.github.io/final-fantasy-7-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/final-fantasy-7-album/assets/n4.avif"
+  },
+  {
+    "title": "Le Dicen Rock",
+    "artist": "Fragil",
+    "album": "Glam Rock",
+    "date": "2028-12-12T00:00:00",
+    "duration": "03:22",
+    "urlSong": "https://20essentials.github.io/fragil-band/songs/n10.mp3",
+    "urlPoster": "https://20essentials.github.io/fragil-band/assets/n1.avif"
+  },
+  {
+    "title": "Mr. Jones",
+    "artist": "Counting Crows",
+    "album": "Glam Rock",
+    "date": "2028-12-13T00:00:00",
+    "duration": "04:29",
+    "urlSong": "https://20essentials.github.io/counting-crows-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/counting-crows-band/assets/n2.avif"
+  },
+  {
+    "title": "Inside Out",
+    "artist": "Culture Beat",
+    "album": "Glam Rock",
+    "date": "2028-12-14T00:00:00",
+    "duration": "05:55",
+    "urlSong": "https://20essentials.github.io/culture-beat-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-beat-band/assets/n4.avif"
+  },
+  {
+    "title": "Wild Days",
+    "artist": "Fool's Garden",
+    "album": "Glam Rock",
+    "date": "2028-12-15T00:00:00",
+    "duration": "03:38",
+    "urlSong": "https://20essentials.github.io/fools-garden-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/fools-garden-album/assets/n2.avif"
+  },
+  {
+    "title": "Boulevard Of Broken Dreams",
+    "artist": "Green Day",
+    "album": "Glam Rock",
+    "date": "2028-12-16T00:00:00",
+    "duration": "04:21",
+    "urlSong": "https://20essentials.github.io/green-day-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/green-day-band/assets/n1.avif"
+  },
+  {
+    "title": "Waste",
+    "artist": "Foster The People",
+    "album": "Glam Rock",
+    "date": "2028-12-17T00:00:00",
+    "duration": "03:26",
+    "urlSong": "https://20essentials.github.io/foster-the-people-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/foster-the-people-band/assets/n2.avif"
+  },
+  {
+    "title": "Cold As Ice",
+    "artist": "Foreigner",
+    "album": "Glam Rock",
+    "date": "2028-12-18T00:00:00",
+    "duration": "03:10",
+    "urlSong": "https://20essentials.github.io/foreigner-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/foreigner-band/assets/n4.avif"
+  },
+  {
+    "title": "God Is A Dj",
+    "artist": "Faithless",
+    "album": "Glam Rock",
+    "date": "2028-12-19T00:00:00",
+    "duration": "03:55",
+    "urlSong": "https://20essentials.github.io/faithless-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/faithless-band/assets/n3.avif"
+  },
+  {
+    "title": "Neiro",
+    "artist": "Flow",
+    "album": "Glam Rock",
+    "date": "2028-12-20T00:00:00",
+    "duration": "04:37",
+    "urlSong": "https://20essentials.github.io/flow/songs/n15.mp3",
+    "urlPoster": "https://20essentials.github.io/flow/assets/n3.avif"
+  }
+]
