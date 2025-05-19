@@ -289,8 +289,12 @@
       ).length;
 
       let { length } = playlistItems;
-      console.log(length);
       const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
+
+      setTimeout(() => {
+        let playlistItems = document.querySelectorAll('.playlist-item');
+        length = playlistItems.length;
+      }, 500);
 
       function clickOnPlaylist(targetIndex) {
         const slug = slugs[targetIndex];

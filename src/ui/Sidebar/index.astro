@@ -381,10 +381,8 @@ const userPlaylist: PlaylistObject[] = [
   const arrayOfColorsRandoms = playlist.map(el => el.color);
   const arrayOfSlugs = playlist.map(el => convertInValidSlug(el.title));
   const randomSlug = obtenerElementoAleatorio(arrayOfSlugs);
-  const playlistRandomObject = await import(`../../data/${randomSlug}.json`, {
-    with: { type: 'json' }
-  });
-  //@ts-ignore
+  const response = await fetch(`../../data/${randomSlug}.json`);
+  const playlistRandomObject = await response.json();
   const arrayOfRandomPosters = playlistRandomObject?.default;
 
   const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
