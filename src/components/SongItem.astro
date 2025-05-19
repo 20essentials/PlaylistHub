@@ -10,7 +10,8 @@
     updateListOfSongsItemsAfterAnUpdateOrDelete,
     obtenerFechaActualISO,
     PREFIX_LS,
-    createPlaylistElement 
+    createPlaylistElement,
+    convertInValidSlug
   } from './modules/localStorage.js';
   const amCustomPopover = new CustomPopover();
 
@@ -368,16 +369,6 @@
         h2Title.innerHTML = this.title;
 
         const containerOfPlaylists = $('.container-of-add-to-playlists');
-        // const arrayOfPlaylistNames = [];
-
-        // for (const key in localStorage) {
-        //   if (key.startsWith(PREFIX_LS)) {
-        //     const slug = key.replace(PREFIX_LS, '');
-        //     // arrayOfPlaylistNames.push(key)
-        //     // console.log(localStorage[key])
-        //     console.log(slug);
-        //   }
-        // }
 
         const $sideBarPlaylist = document.querySelector('.sidebarPlaylist');
         containerOfPlaylists.innerHTML = '';
@@ -385,11 +376,6 @@
           .filter(el => el.getAttribute('data-from-user') === 'true')
           .map(el => el.querySelector('.title').textContent)
           .map(text => createPlaylistElement(text));
-
-        setTimeout(() => {
-          const $input = $('#agregarPlaylistInput');
-          $input.focus();
-        }, 5);
 
         const newSongObject = {
           title: this.title,
@@ -402,10 +388,34 @@
           urlPoster: this.urlPoster
         };
 
+        setTimeout(() => {
+          const $input = $('#agregarPlaylistInput');
+          $input.focus();
+
+          [...containerOfPlaylists.children].forEach(el => {
+            const slugName = convertInValidSlug(el.dataset.playlistTitulo);
+            const exist = existThisSongInTheCurrentPlaylist(
+              slugName,
+              newSongObject
+            );
+            if (exist) {
+              el.querySelector('.playlistEmpty').classList.add(
+                'isSavedInPlaylist'
+              );
+            }
+            return;
+          });
+        }, 10);
+
         localStorage.setItem(
           'lastPlaylistClickedPreparedToAddANewPlaylist',
           JSON.stringify(newSongObject)
         );
+
+        const $row = this.shadowRoot?.querySelector('.row-item');
+        const $rowHasTitleGreen = $row.classList.contains('title-green');
+  
+        localStorage.setItem('thisSongIsCurrentlyInReproduction', `${$rowHasTitleGreen}`);
       });
     }
 
@@ -416,7 +426,25 @@
 
       $removeThisSongFromPlaylist?.addEventListener('click', e => {
         e.stopPropagation();
-        alert('remove');
+
+        const $row = this.shadowRoot?.querySelector('.row-item');
+        const $rowHasTitleGreen = $row.classList.contains('title-green');
+        if ($rowHasTitleGreen) {
+          localStorage.setItem('the-song-item-deletes-itself', `${true}`);
+        }
+
+        const slugPlaylist = document.querySelector(
+          '.playlist-item.playlist-item-active'
+        ).dataset.id;
+
+
+        removeSongFromPlaylist(slugPlaylist, {
+          title: this.title,
+          artist: this.artist
+        });
+
+        amCustomPopover.onAdvice({ message: 'Removed Correctly' });
+        updateListOfSongsItemsAfterAnUpdateOrDelete();
       });
     }
 
@@ -476,6 +504,7 @@
           title: this.title,
           artist: this.artist
         });
+
         amCustomPopover.onAdvice({ message: 'Removed Correctly' });
         this.showFavoriteOrRemoveBrandFromFavorites();
 

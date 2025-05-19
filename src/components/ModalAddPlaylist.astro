@@ -362,8 +362,17 @@ import CheckedFull from '@/icons/checkedfull.astro';
 </style>
 
 <script>
-  import { $ } from '@/utils/functions';
-  import { existsPlaylist, createPlaylistElement } from '@/utils/localStorage';
+  import { $, $$ } from '@/utils/functions';
+  import {
+    existsPlaylist,
+    createPlaylistElement,
+    addSongInPlaylist,
+    removeSongFromPlaylist,
+    getPlaylistAsArray,
+    existThisSongInTheCurrentPlaylist,
+    updateListOfSongsItemsAfterAnUpdateOrDelete
+  } from '@/utils/localStorage';
+  import CoverCard from './CoverCard.astro';
   let regExP = /^(?![\s0-9\-_])[\w\s\-]{1,20}(?<![\-])$/;
   const $longituMaxOfInput = $('.longitud-max') as HTMLOutputElement;
   const inputAddPlaylist = $('#agregarPlaylistInput') as HTMLInputElement;
@@ -394,9 +403,38 @@ import CheckedFull from '@/icons/checkedfull.astro';
   document.addEventListener('click', e => {
     const target = e.target as HTMLElement;
 
-    if (target.matches('.row') || target.matches('.row *')) {
+    if (target.matches('.row')) {
       const playlistEmpty = target.querySelector('.playlistEmpty') as HTMLElement;
       playlistEmpty.classList.toggle('isSavedInPlaylist');
+
+      setTimeout(() => {
+        const lastSong = localStorage.getItem(
+          'lastPlaylistClickedPreparedToAddANewPlaylist'
+        );
+        const objectLastSongAdded = JSON.parse(lastSong ?? '{}');
+        const slugName = target.dataset.playlistTitulo;
+
+        if (playlistEmpty.classList.contains('isSavedInPlaylist')) {
+          if (existThisSongInTheCurrentPlaylist(slugName, objectLastSongAdded))
+            return;
+
+          addSongInPlaylist(slugName, objectLastSongAdded);
+          console.log(getPlaylistAsArray(slugName));
+          return;
+        }
+
+        const currentSongHasTitleGreen =
+          localStorage.getItem('thisSongIsCurrentlyInReproduction') === 'true';
+
+        if (currentSongHasTitleGreen) {
+          localStorage.setItem('the-song-item-deletes-itself', `${true}`);
+        }
+
+        removeSongFromPlaylist(slugName, objectLastSongAdded);
+        updateListOfSongsItemsAfterAnUpdateOrDelete();
+        localStorage.setItem('thisSongIsCurrentlyInReproduction', 'false');
+      }, 30);
+
       return;
     }
 

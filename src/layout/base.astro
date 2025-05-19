@@ -1185,12 +1185,15 @@ import { SignInButton } from '@clerk/astro/components';
     getPlaylistName,
     updateListOfSongsItemsAfterAnUpdateOrDelete
   } from '@/utils/localStorage';
+  import CodeFi from '@/data/code-fi.json';
+  import ChillLofi from '@/data/chill-lofi.json';
+  import SpotimanzFavorites from '@/data/spotimanz-favorites.json';
 
   //Add To A Playlist Icon
 
-
-  //Init State That a playlist don't delete itself
+  //Reset state of the localStorage
   localStorage.setItem('the-song-item-deletes-itself', 'false');
+  localStorage.setItem('thisSongIsCurrentlyInReproduction', 'false');
 
   //Storage Event
   const favoriteBrands = getPlaylistName(FAVORITE_SLUG);
@@ -1201,9 +1204,32 @@ import { SignInButton } from '@clerk/astro/components';
   });
 
   //LocalStorage
+
+  //favorite-brands
   if (!existsPlaylist(FAVORITE_SLUG)) {
     const jsonFavoriteBrands = JSON.stringify([]);
     createPlaylist(FAVORITE_SLUG, jsonFavoriteBrands);
+  }
+
+  //code-fi
+  const CODE_FI_SLUG = 'code-fi';
+  if (!existsPlaylist(CODE_FI_SLUG)) {
+    const jsonFavoriteBrands = JSON.stringify(CodeFi);
+    createPlaylist(CODE_FI_SLUG, jsonFavoriteBrands);
+  }
+
+  //chill-lofi
+  const CHILL_LOFI_SLUG = 'chill-lofi';
+  if (!existsPlaylist(CHILL_LOFI_SLUG)) {
+    const jsonFavoriteBrands = JSON.stringify(ChillLofi);
+    createPlaylist(CHILL_LOFI_SLUG, jsonFavoriteBrands);
+  }
+
+  //chill-lofi
+  const SPOTIMANZ_SLUG = 'spotimanz-favorites';
+  if (!existsPlaylist(SPOTIMANZ_SLUG)) {
+    const jsonFavoriteBrands = JSON.stringify(SpotimanzFavorites);
+    createPlaylist(SPOTIMANZ_SLUG, jsonFavoriteBrands);
   }
 
   const profile = $('.profile.openLogin') as HTMLElement;
