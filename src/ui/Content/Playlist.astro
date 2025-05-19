@@ -3,6 +3,7 @@ import Clock from '@/icons/clock.astro';
 import SongItem from '@/components/SongItem.astro';
 import Config from '@/icons/config.astro';
 const user = await Astro.locals.currentUser();
+const idUser = user?.id;
 const hiddenColumn = user ? 'flex' : 'none';
 const classLastColumn = user ? 'true' : 'false';
 const columnsPlaylists = user

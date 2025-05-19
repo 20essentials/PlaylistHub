@@ -4,7 +4,6 @@ import Volume from '@/icons/music.astro';
 const {
   slug,
   title = '',
-  pinned,
   color,
   tab,
   visible,
@@ -146,7 +145,7 @@ const image = isPlaylistFavorites ? '/assets/hearFavorite.png' : randomSrc;
   <div class='data'>
     <strong class='title'>{title}</strong>
     <div class='subtitle-container'>
-      {pinned && <PinnedIcon width='0.7vmax' color='springgreen' />}
+      <PinnedIcon width='0.7vmax' color='springgreen' />
       <span class='subtitle'>Playlist - {initialLetterOfEachWord}</span>
     </div>
   </div>

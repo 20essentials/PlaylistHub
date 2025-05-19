@@ -1,13 +1,11 @@
 [
   {
     "title": "Palenight",
-    "pinned": true,
     "color": "#FFD700",
     "whatColorIs": "Gold"
   },
   {
     "title": "Glam Rock",
-    "pinned": true,
     "color": "#808080",
     "whatColorIs": "Gray"
   }

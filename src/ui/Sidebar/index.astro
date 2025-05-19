@@ -14,7 +14,6 @@ const favoriteBrands = {
   fromUser: true,
   isPlaylistFavorites: true,
   title: 'Favorite Brands',
-  pinned: true,
   color: '#f00',
   whatColorIs: 'red'
 };
@@ -24,7 +23,6 @@ const convertInValidSlug = (text: string) =>
 
 const firstPlaylistOfUser = {
   title: 'Code-Fi',
-  pinned: true,
   color: '#08d437',
   fromUser: true,
   whatColorIs: 'Clear Green'
@@ -32,7 +30,6 @@ const firstPlaylistOfUser = {
 
 const secondPlaylistOfUser = {
   title: 'Chill Lofi',
-  pinned: true,
   color: '#DAA520',
   fromUser: true,
   whatColorIs: 'GoldenRod'
@@ -40,7 +37,6 @@ const secondPlaylistOfUser = {
 
 const thirdPlaylistOfUser = {
   title: 'SpotiManz Favorites',
-  pinned: true,
   color: '#ec1cce',
   fromUser: true,
   whatColorIs: 'Purple Elegant'
@@ -48,7 +44,6 @@ const thirdPlaylistOfUser = {
 
 interface PlaylistObject {
   title: string;
-  pinned: boolean;
   color: string;
   whatColorIs: string;
   fromUser?: boolean;
