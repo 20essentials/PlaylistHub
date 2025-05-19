@@ -1,5 +1,12 @@
 export const PREFIX_LS = 'playlist_hub_';
 export const FAVORITE_SLUG = 'favorite-brands';
+export const convertInValidSlug = text =>
+  text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
+
+export const convertSlugToText = slug =>
+  slug
+    .replace(/(?<!\d)-(?!\d)/g, ' ') // Reemplaza los guiones que no están entre números
+    .replace(/\b\w/g, char => char.toUpperCase()); // Capitaliza cada palabra
 
 export function getPlaylistName(slug) {
   return `${PREFIX_LS}${slug}`;
@@ -82,14 +89,6 @@ export function updateListOfSongsItemsAfterAnUpdateOrDelete() {
     }, 20);
   }, 10);
 }
-
-export const convertInValidSlug = text =>
-  text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
-
-export const convertSlugToText = slug =>
-  slug
-    .replace(/(?<!\d)-(?!\d)/g, ' ') // Reemplaza los guiones que no están entre números
-    .replace(/\b\w/g, char => char.toUpperCase()); // Capitaliza cada palabra
 
 export function createPlaylistElement(playlistName) {
   const containerOfPlaylists = document.querySelector(

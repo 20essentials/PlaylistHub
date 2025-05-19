@@ -372,7 +372,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
     getPlaylistAsArray,
     existThisSongInTheCurrentPlaylist,
     updateListOfSongsItemsAfterAnUpdateOrDelete,
-    createSidePlaylistItem
+    convertInValidSlug
   } from '@/utils/localStorage';
   let regExP = /^(?![\s0-9\-_])[\w\s\-]{1,20}(?<![\-])$/;
   const $longituMaxOfInput = $('.longitud-max') as HTMLOutputElement;
@@ -422,7 +422,6 @@ import CheckedFull from '@/icons/checkedfull.astro';
             return;
 
           addSongInPlaylist(slugName, objectLastSongAdded);
-          console.log(getPlaylistAsArray(slugName));
           return;
         }
 
@@ -491,7 +490,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
         return;
       }
 
-      if (regExP.test(target.value) && !existsPlaylist(target.value)) {
+      if (regExP.test(target.value) && !existsPlaylist(convertInValidSlug(target.value))) {
         target.classList.remove('invalid');
         target.classList.add('valid');
         $longituMaxOfInput.classList.remove('invalid');
