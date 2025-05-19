@@ -274,38 +274,12 @@ const userPlaylist: PlaylistObject[] = [
   }
 </style>
 
-<!-- <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('search-input');
-    const playlistContainer = document.querySelector('.sidebarPlaylist');
-    const originalPlaylists = [...playlistContainer.children];
-
-    input.addEventListener('input', () => {
-      const searchTerm = input.value.toLowerCase();
-      playlistContainer.scrollTop = 0;
-
-      const sortedPlaylists = [...originalPlaylists].sort((a, b) => {
-        const aText = a.textContent.toLowerCase();
-        const bText = b.textContent.toLowerCase();
-
-        const aMatch = aText.includes(searchTerm);
-        const bMatch = bText.includes(searchTerm);
-
-        if (aMatch && !bMatch) return -1;
-        if (!aMatch && bMatch) return 1;
-        return aText.localeCompare(bText);
-      });
-
-      playlistContainer.innerHTML = '';
-      sortedPlaylists.forEach(item => playlistContainer.appendChild(item));
-    });
-  });
-</script> -->
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('search-input') as HTMLInputElement;
-    const playlistContainer = document.querySelector('.sidebarPlaylist') as HTMLElement;
+    const playlistContainer = document.querySelector(
+      '.sidebarPlaylist'
+    ) as HTMLElement;
 
     input.addEventListener('input', () => {
       const searchTerm = input.value.toLowerCase();
@@ -319,6 +293,8 @@ const userPlaylist: PlaylistObject[] = [
       const invisibles = allPlaylists.filter(
         el => !el.classList.contains('visible')
       );
+
+      // Si no hay término de búsqueda, mostrar en orden original: favorite → visibles → invisibles
 
       // Dividir los visibles en coincidencias y no coincidencias
       const matches: any = [];
@@ -446,8 +422,6 @@ const userPlaylist: PlaylistObject[] = [
       $('.sidb-active')?.classList.remove('sidb-active');
       target.classList.add('sidb-active');
       const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
-      // $sideBarPlaylist.innerHTML = '';
-      // _originalPlaylist.map(el => $sideBarPlaylist.appendChild(el));
       let originalPlaylist = [...$sideBarPlaylist?.children];
       originalPlaylist.forEach(el => {
         el.className = el.className.includes('playlist-item visible')
