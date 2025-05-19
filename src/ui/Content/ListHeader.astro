@@ -20,7 +20,6 @@
         this.currentIndex = index;
         activeTabElement?.scrollIntoView({ behavior: 'smooth' });
       }, 500);
-
     }
 
     static get styles() {
@@ -285,10 +284,12 @@
       const $tabRight = document.querySelector('.sidebar-right.sidb');
       const $tabLeft = document.querySelector('.sidebar-left.sidb');
       let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
-      const globalPlaylistLength = [...playlistItems].filter(
+      let globalPlaylistLength = [...playlistItems].filter(
         playlist => playlist.getAttribute('data-from-user') === 'false'
       ).length;
-      const { length } = playlistItems;
+
+      let { length } = playlistItems;
+      console.log(length);
       const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
 
       function clickOnPlaylist(targetIndex) {
@@ -302,6 +303,9 @@
 
       function goToTargetPlaylist(index) {
         setTimeout(() => {
+          const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
+          let playlistItems = document.querySelectorAll('.playlist-item');
+          length = playlistItems.length;
           [...sidebarPlaylist.children][index].scrollIntoView({
             behavior: 'smooth'
           });

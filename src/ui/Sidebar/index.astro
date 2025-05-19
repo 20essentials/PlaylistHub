@@ -450,6 +450,7 @@ const userPlaylist: PlaylistObject[] = [
 
       for (const key in localStorage) {
         if (key.startsWith(PREFIX_LS)) {
+          startTabIndex += 1;
           const currentPlaylistString = localStorage.getItem(key) ?? '[]';
           const currenPlaylistJson = JSON.parse(currentPlaylistString);
           const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
