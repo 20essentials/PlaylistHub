@@ -92,8 +92,7 @@
         const infoSong = musicPlayer.getInfoSong();
         if (!infoSong) return;
         if (localStorage.getItem('the-song-item-deletes-itself') === 'true') {
-          const actualIndex = infoSong.index;
-          musicPlayer.setCurrentSongIndex( actualIndex - 1);
+          musicPlayer.setCurrentSongIndex(-1);
           localStorage.setItem('the-song-item-deletes-itself', 'false');
           return;
         }
