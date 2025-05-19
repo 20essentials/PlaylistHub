@@ -86,6 +86,11 @@ export function updateListOfSongsItemsAfterAnUpdateOrDelete() {
 export const convertInValidSlug = text =>
   text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
 
+export const convertSlugToText = slug =>
+  slug
+    .replace(/(?<!\d)-(?!\d)/g, ' ') // Reemplaza los guiones que no están entre números
+    .replace(/\b\w/g, char => char.toUpperCase()); // Capitaliza cada palabra
+
 export function createPlaylistElement(playlistName) {
   const containerOfPlaylists = document.querySelector(
     '.container-of-add-to-playlists'
