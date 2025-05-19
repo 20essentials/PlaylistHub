@@ -373,23 +373,19 @@ const userPlaylist: PlaylistObject[] = [
   import {
     PREFIX_LS,
     createSidePlaylistItem,
-    convertSlugToText
+    convertSlugToText,
+    convertInValidSlug,
+    obtenerElementoAleatorio
   } from '@/utils/localStorage';
   import playlist from '@/data/playlist.json';
   const arrayOfColorsRandoms = playlist.map(el => el.color);
-  const arrayOfRandomPosters = [
-    'https://20essentials.github.io/alice-deejay/assets/n4.avif',
-    'https://20essentials.github.io/al-bano-e-romina-power/assets/n1.avif',
-    'https://20essentials.github.io/al-bano-e-romina-power/assets/n2.avif',
-    'https://20essentials.github.io/al-bano-e-romina-power/assets/n3.avif',
-    'https://20essentials.github.io/al-bano-e-romina-power/assets/n4.avif',
-    'https://20essentials.github.io/zaza/assets/n1.avif',
-    'https://20essentials.github.io/zaza/assets/n2.avif',
-    'https://20essentials.github.io/zaza/assets/n3.avif',
-    'https://20essentials.github.io/zaza/assets/n4.avif',
-    'https://20essentials.github.io/fiona-apple/assets/n2.avif',
-    'https://20essentials.github.io/fiona-apple/assets/n4.avif'
-  ];
+  const arrayOfSlugs = playlist.map(el => convertInValidSlug(el.title));
+  const randomSlug = obtenerElementoAleatorio(arrayOfSlugs);
+  const playlistRandomObject = await import(`../../data/${randomSlug}.json`, {
+    with: { type: 'json' }
+  });
+  //@ts-ignore
+  const arrayOfRandomPosters = playlistRandomObject?.default;
 
   const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
   const globalPlaylistLength = [...$sideBarPlaylist.children].filter(
@@ -443,11 +439,6 @@ const userPlaylist: PlaylistObject[] = [
       const newElement = lastElement.cloneNode(true) as HTMLElement;
       let startTabIndex = Number(newElement.getAttribute('tabindex'));
 
-      function obtenerElementoAleatorio(arr: any) {
-        const indiceAleatorio = Math.floor(Math.random() * arr.length);
-        return arr[indiceAleatorio];
-      }
-
       for (const key in localStorage) {
         if (key.startsWith(PREFIX_LS)) {
           startTabIndex += 1;
@@ -467,7 +458,7 @@ const userPlaylist: PlaylistObject[] = [
                 : obtenerElementoAleatorio(
                     currenPlaylistJson.map((el: any) => el.urlPoster)
                   );
-            
+
             createSidePlaylistItem({
               tabindex: startTabIndex,
               slug,

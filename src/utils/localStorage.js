@@ -110,3 +110,8 @@ export function createSidePlaylistItem({ tabindex, slug, color, poster, title })
   const $sideBarPlaylist = document.querySelector('.sidebarPlaylist');
   $sideBarPlaylist.insertAdjacentHTML('beforeend', text);
 }
+
+export function obtenerElementoAleatorio(arr) {
+  const indiceAleatorio = Math.floor(Math.random() * arr.length);
+  return arr[indiceAleatorio];
+}
