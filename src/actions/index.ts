@@ -8,18 +8,18 @@ export const server = {
       id_playlist: z.string(),
       title: z.string(),
       color: z.string(),
-      whatColorIs: z.string(),
-      isPlaylistFavorites: z.boolean().optional(),
-      fromUser: z.boolean().optional(),
+      whatColorIs: z.string().optional(),
+      isPlaylistFavorites: z.string().optional(),
+      fromUser: z.string().optional(),
       id_user: z.string()
     }),
     handler: async ({
       id_playlist,
       title,
       color,
-      whatColorIs,
-      isPlaylistFavorites = false,
-      fromUser = false,
+      whatColorIs = 'transparent',
+      isPlaylistFavorites = 'false',
+      fromUser = 'false',
       id_user
     }) => {
       const result = await client.execute({

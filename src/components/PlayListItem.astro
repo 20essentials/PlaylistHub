@@ -7,8 +7,8 @@ const {
   color,
   tab,
   visible,
-  isPlaylistFavorites = false,
-  fromUser
+  isPlaylistFavorites = 'FALSE',
+  fromUser = 'FALSE'
 } = Astro.props;
 
 const initialLetterOfEachWord = title.slice(0, 3).toUpperCase();
@@ -27,7 +27,7 @@ const mySlug = `../data/${slug}.json`;
 const currentJson = files[mySlug]?.default || [];
 const randomNumber = ~~(Math.random() * currentJson.length);
 const randomSrc = currentJson[randomNumber]?.urlPoster || '';
-const image = isPlaylistFavorites ? '/assets/hearFavorite.png' : randomSrc;
+const image = isPlaylistFavorites === 'TRUE' ? '/assets/hearFavorite.png' : randomSrc;
 ---
 
 <style>

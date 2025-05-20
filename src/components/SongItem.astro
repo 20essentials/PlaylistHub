@@ -231,7 +231,7 @@
 
       //Show or hidden Remove-from-playlist button
       this.PlaylistItemIsFromUser =
-        this.getAttribute('playlist-from-user') === 'true';
+        this.getAttribute('playlist-from-user') === 'TRUE';
       const button = this.shadowRoot.querySelector('.remove-from-playlist');
       if (button) {
         button.classList.toggle('hiddenRemove', !this.PlaylistItemIsFromUser);
@@ -243,7 +243,7 @@
 
       //Show or hidden button Add to favoriteBrand
       this.currentSongIsInFavorites =
-        this.getAttribute('data-this-song-is-in-favorite-playlists') === 'true';
+        this.getAttribute('data-this-song-is-in-favorite-playlists') === 'TRUE';
       const buttonAddToYourFavoritesBrands = this.shadowRoot.querySelector(
         '.add-in-favorite-brands'
       );
@@ -373,13 +373,13 @@
         const $sideBarPlaylist = document.querySelector('.sidebarPlaylist');
         containerOfPlaylists.innerHTML = '';
         const allPlaylistsFromUser = [...$sideBarPlaylist.children]
-          .filter(el => el.getAttribute('data-from-user') === 'true')
+          .filter(el => el.getAttribute('data-from-user') === 'TRUE')
           .map(el => el.querySelector('.title').textContent)
           .map(text => createPlaylistElement(text));
 
         const newSongObject = {
           title: this.title,
-          fromUser: true,
+          fromUser: 'TRUE',
           artist: this.artist,
           album: this.album,
           date: obtenerFechaActualISO(),
@@ -458,7 +458,7 @@
 
         const newSongObject = {
           title: this.title,
-          fromUser: true,
+          fromUser: 'TRUE',
           artist: this.artist,
           album: this.album,
           date: obtenerFechaActualISO(),

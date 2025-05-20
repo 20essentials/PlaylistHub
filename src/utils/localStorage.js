@@ -1,4 +1,3 @@
-// import { actions } from 'astro:actions';
 
 export const PREFIX_LS = 'playlist_hub_';
 
@@ -118,3 +117,9 @@ export function obtenerElementoAleatorio(arr) {
   const indiceAleatorio = Math.floor(Math.random() * arr.length);
   return arr[indiceAleatorio];
 }
+
+// export async function createPlaylist_in_db(songObject) {
+//   const { data, error } = await actions.createNewPlaylistInDb(songObject);
+//   console.log(data);
+//   console.log(error);
+// }

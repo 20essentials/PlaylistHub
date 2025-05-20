@@ -1,4 +1,6 @@
+
 export const PREFIX_LS = 'playlist_hub_';
+
 export const FAVORITE_SLUG = 'favorite-brands';
 export const convertInValidSlug = text =>
   text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
@@ -24,15 +26,6 @@ export function createPlaylist(slug, data) {
   const playlistName = getPlaylistName(slug);
   localStorage.setItem(playlistName, data);
 }
-
-
-// export async function  createPlaylist(slug, data) {
-//   const playlistName = getPlaylistName(slug);
-//   localStorage.setItem(playlistName, data);
-//   const dataInObject = JSON.parse(data);
-//   console.log(dataInObject)
-//   // const {data, error} = await actions.createNewPlaylistInDb({})
-// }
 
 export function existsPlaylist(slug) {
   const playlistName = getPlaylistName(slug);
@@ -99,8 +92,6 @@ export function updateListOfSongsItemsAfterAnUpdateOrDelete() {
   }, 10);
 }
 
-
-
 export function createPlaylistElement(playlistName) {
   const containerOfPlaylists = document.querySelector(
     '.container-of-add-to-playlists'
@@ -127,5 +118,3 @@ export function obtenerElementoAleatorio(arr) {
   return arr[indiceAleatorio];
 }
 
-
-/* copiar del otro */

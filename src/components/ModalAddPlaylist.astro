@@ -372,12 +372,21 @@ import CheckedFull from '@/icons/checkedfull.astro';
     getPlaylistAsArray,
     existThisSongInTheCurrentPlaylist,
     updateListOfSongsItemsAfterAnUpdateOrDelete,
-    convertInValidSlug
+    convertInValidSlug,
+    convertSlugToText,
+    obtenerElementoAleatorio
   } from '@/utils/localStorage';
   let regExP = /^(?![\s0-9\-_])[\w\s\-]{1,20}(?<![\-])$/;
   const $longituMaxOfInput = $('.longitud-max') as HTMLOutputElement;
   const inputAddPlaylist = $('#agregarPlaylistInput') as HTMLInputElement;
   let $output = $('.container-inputs output') as HTMLOutputElement;
+  import playlist from '@/data/playlist.json';
+  const arrayOfColorsRandoms = playlist.map(el => el.color);
+  const arrayOfNameOfColores = playlist.map(el => el.whatColorIs);
+
+  //new
+  import { actions } from 'astro:actions';
+
 
   function closeModal() {
     const $modal = $('.modal-add-playlists') as HTMLElement;
@@ -385,7 +394,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
     $modal.classList.remove('modal-open');
   }
 
-  function addNewPlaylist() {
+  async function  addNewPlaylist() {
     const inputValor = inputAddPlaylist.value;
 
     if (!inputAddPlaylist) return;
@@ -396,10 +405,32 @@ import CheckedFull from '@/icons/checkedfull.astro';
         '.container-of-add-to-playlists'
       ) as HTMLElement;
       createPlaylistElement(inputValor);
-      createPlaylist(inputValor, JSON.stringify([])); //En el LS
+      createPlaylist(inputValor, JSON.stringify([])); //en el ls
+
+      //New
+      const newPlaylist = {
+        id_playlist: crypto.randomUUID(),
+        title: convertSlugToText(inputValor),
+        color: obtenerElementoAleatorio(arrayOfColorsRandoms),
+        isPlaylistFavorites: 'FALSE',
+        fromUser: 'TRUE',
+        id_user: localStorage.getItem('local_id')
+      };
+
+      const allPlaylistFromDB = localStorage.getItem('allPlaylistFromDB') ?? '[]';
+      const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+      allPlaylistFromDbArray.push(newPlaylist);
+      localStorage.setItem(
+        'allPlaylistFromDB',
+        JSON.stringify(allPlaylistFromDbArray)
+      );
+
       const $tabActive = $('.sidb-active') as HTMLElement;
       $tabActive.click();
       containerOfPlaylists.scrollTop = containerOfPlaylists.scrollHeight;
+
+      const { data, error} = await actions.createNewPlaylistInDb(newPlaylist);
+      console.log(data, error);
     }
   }
 
@@ -491,7 +522,10 @@ import CheckedFull from '@/icons/checkedfull.astro';
         return;
       }
 
-      if (regExP.test(target.value) && !existsPlaylist(convertInValidSlug(target.value))) {
+      if (
+        regExP.test(target.value) &&
+        !existsPlaylist(convertInValidSlug(target.value))
+      ) {
         target.classList.remove('invalid');
         target.classList.add('valid');
         $longituMaxOfInput.classList.remove('invalid');

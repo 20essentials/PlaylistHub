@@ -15,6 +15,7 @@ const userId = user?.id ?? '';
 const userEmail = user?.primaryEmailAddress?.emailAddress ?? '';
 const userName = user?.username ?? '';
 // const userData = await insertNewUser(userId, userEmail, userName);
+const local_id = userId;
 const allPlaylistFromDB: any[] = await readPlaylistsOfTheUser(userId);
 const allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
   allPlaylistFromDB.map(async el => [
@@ -23,11 +24,7 @@ const allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
   ])
 );
 
-// console.log(allPlaylistFromDB);
-// const currenSongsOfOnePlaylist = await getAllSongsOfOnePlaylist(
-//   allPlaylistFromDB[0].id_playlist as string
-// );
-// console.log(allPlaylistTsoRenderinLOCAL_STORAGE);
+console.log(allPlaylistFromDB);
 
 const userImg = user?.imageUrl;
 const containerHeight = user
@@ -37,8 +34,8 @@ const containerHeight = user
 //Aqui podria traer todas las playlist creadas por el usuario
 
 const favoriteBrands = {
-  fromUser: true,
-  isPlaylistFavorites: true,
+  fromUser: 'TRUE',
+  isPlaylistFavorites: 'TRUE',
   title: 'Favorite Brands',
   color: '#f00',
   whatColorIs: 'red'
@@ -47,21 +44,21 @@ const favoriteBrands = {
 const firstPlaylistOfUser = {
   title: 'Code-Fi',
   color: '#08d437',
-  fromUser: true,
+  fromUser: 'TRUE',
   whatColorIs: 'Clear Green'
 };
 
 const secondPlaylistOfUser = {
   title: 'Chill Lofi',
   color: '#DAA520',
-  fromUser: true,
+  fromUser: 'TRUE',
   whatColorIs: 'GoldenRod'
 };
 
 const thirdPlaylistOfUser = {
   title: 'SpotiManz Favorites',
   color: '#ec1cce',
-  fromUser: true,
+  fromUser: 'TRUE',
   whatColorIs: 'Purple Elegant'
 };
 
@@ -69,8 +66,8 @@ interface PlaylistObject {
   title: string;
   color: string;
   whatColorIs: string;
-  fromUser?: boolean;
-  isPlaylistFavorites?: boolean;
+  fromUser?: boolean | string;
+  isPlaylistFavorites?: boolean | string;
 }
 
 const globalPlaylist: PlaylistObject[] = [...playlist];
@@ -86,7 +83,12 @@ const userPlaylist: PlaylistObject[] = [
 
 <script
   is:inline
-  define:vars={{ IS_DATABASE_ACTIVE, allPlaylistTsoRenderinLOCAL_STORAGE }}
+  define:vars={{
+    IS_DATABASE_ACTIVE,
+    allPlaylistTsoRenderinLOCAL_STORAGE,
+    allPlaylistFromDB,
+    local_id
+  }}
 >
   function getPlaylistName_(slug) {
     const PREFIX_LS = 'playlist_hub_';
@@ -104,6 +106,9 @@ const userPlaylist: PlaylistObject[] = [
       const jsonBrands = JSON.stringify(listOfSongs);
       createCustomPlaylist(slug, jsonBrands);
     });
+
+    localStorage.setItem('allPlaylistFromDB', JSON.stringify(allPlaylistFromDB));
+    localStorage.setItem('local_id', local_id);
   }
 </script>
 
@@ -403,8 +408,8 @@ const userPlaylist: PlaylistObject[] = [
                 <PlayListItem
                   {...pItem}
                   tab={i}
-                  visible={pItem?.fromUser ? 'invisible' : 'visible'}
-                  fromUser={false}
+                  visible={pItem?.fromUser === 'TRUE' ? 'invisible' : 'visible'}
+                  fromUser={'FALSE'}
                   slug={convertInValidSlug(pItem.title)}
                 />
               ))
@@ -420,10 +425,10 @@ const userPlaylist: PlaylistObject[] = [
               .map((pItem, i) => (
                 <PlayListItem
                   {...pItem}
-                  visible={pItem?.fromUser ? 'invisible' : 'visible'}
-                  isPlaylistFavorites={pItem?.isPlaylistFavorites}
+                  visible={pItem?.fromUser === 'TRUE' ? 'invisible' : 'visible'}
+                  isPlaylistFavorites={pItem?.isPlaylistFavorites === 'TRUE'}
                   tab={i}
-                  fromUser={true}
+                  fromUser={'TRUE'}
                   slug={convertInValidSlug(pItem.title)}
                 />
               ))
@@ -518,21 +523,39 @@ const userPlaylist: PlaylistObject[] = [
               return el.getAttribute('data-id') === slug;
             }
           );
+          //New
+          const allPlaylistFromDB =
+            localStorage.getItem('allPlaylistFromDB') ?? '[]';
+          const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+
           if (!existAlreadyThisPlaylists) {
             const arrayOfPosters = currenPlaylistJson.map(
               (el: any) => el.urlPoster
             );
+
             const img =
               currenPlaylistJson.length > 0
                 ? obtenerElementoAleatorio(arrayOfPosters)
                 : obtenerElementoAleatorio(arrayOfRandomPosters);
 
+            const title = convertSlugToText(slug);
+            const someElementWithTheTitle = allPlaylistFromDbArray.find(
+              (el: any) => el.title === title
+            );
+
+            let theColor = obtenerElementoAleatorio(arrayOfColorsRandoms);
+
+            if (someElementWithTheTitle) {
+              const { color } = someElementWithTheTitle;
+              theColor = color;
+            }
+
             createSidePlaylistItem({
               tabindex: startTabIndex,
               slug,
-              color: obtenerElementoAleatorio(arrayOfColorsRandoms),
+              color: theColor,
               poster: img,
-              title: convertSlugToText(slug)
+              title
             });
           }
         }
