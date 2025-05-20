@@ -12,27 +12,39 @@ import { actions } from 'astro:actions';
 const convertInValidSlug = (text: string) =>
   text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
 const user = await Astro.locals.currentUser();
-const userId = user?.id ?? '';
-const userEmail = user?.primaryEmailAddress?.emailAddress ?? '';
-const userName = user?.username ?? '';
-const thisUserExists = await insertNewUser(userId, userEmail, userName);
 
-//Si el usuario nunca existio en la base de datos
-if (!thisUserExists) {
-  //@ts-ignore
-  const { data, error } = await Astro.callAction(
-    actions.addedFirstPlaylistsIfTheUserIsNew,
-    { userId }
+let userId = null,
+  userEmail = null,
+  userName = null,
+  thisUserExists = null,
+  local_id = null,
+  allPlaylistFromDB: any = [],
+  allPlaylistTsoRenderinLOCAL_STORAGE: any = [];
+
+if (user) {
+  userId = user?.id ?? '';
+  userEmail = user?.primaryEmailAddress?.emailAddress ?? '';
+  userName = user?.username ?? '';
+  thisUserExists = await insertNewUser(userId, userEmail, userName);
+
+  //Si el usuario nunca existio en la base de datos
+  if (!thisUserExists && user) {
+    //@ts-ignore
+    const { data, error } = await Astro.callAction(
+      actions.addedFirstPlaylistsIfTheUserIsNew,
+      { userId }
+    );
+  }
+
+  local_id = userId;
+  allPlaylistFromDB = await readPlaylistsOfTheUser(userId);
+  allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
+    allPlaylistFromDB.map(async (el: any) => [
+      convertInValidSlug(el.title),
+      await getAllSongsOfOnePlaylist(el.id_playlist)
+    ])
   );
 }
-const local_id = userId;
-const allPlaylistFromDB: any[] = await readPlaylistsOfTheUser(userId);
-const allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
-  allPlaylistFromDB.map(async el => [
-    convertInValidSlug(el.title),
-    await getAllSongsOfOnePlaylist(el.id_playlist)
-  ])
-);
 
 const userImg = user?.imageUrl;
 const containerHeight = user
