@@ -214,7 +214,6 @@
       this.urlSong = this.getAttribute('urlSong');
       this.image = this.urlPoster;
       this.thumb = this.urlPoster;
-      this.displayValueOfLastIcon = this.getAttribute('displayValueOfLastIcon');
       this.render();
       const rowItem = this.shadowRoot.querySelector('.row-item');
       setTimeout(() => setAnimation(rowItem, 'FadeMove'), this.index * 25);
@@ -233,6 +232,7 @@
       this.PlaylistItemIsFromUser =
         this.getAttribute('playlist-from-user') === 'TRUE';
       const button = this.shadowRoot.querySelector('.remove-from-playlist');
+
       if (button) {
         button.classList.toggle('hiddenRemove', !this.PlaylistItemIsFromUser);
         navOptions.classList.toggle(
@@ -243,7 +243,7 @@
 
       //Show or hidden button Add to favoriteBrand
       this.currentSongIsInFavorites =
-        this.getAttribute('data-this-song-is-in-favorite-playlists') === 'TRUE';
+        this.getAttribute('data-this-song-is-in-favorite-playlists') === 'true';
       const buttonAddToYourFavoritesBrands = this.shadowRoot.querySelector(
         '.add-in-favorite-brands'
       );
@@ -414,8 +414,11 @@
 
         const $row = this.shadowRoot?.querySelector('.row-item');
         const $rowHasTitleGreen = $row.classList.contains('title-green');
-  
-        localStorage.setItem('thisSongIsCurrentlyInReproduction', `${$rowHasTitleGreen}`);
+
+        localStorage.setItem(
+          'thisSongIsCurrentlyInReproduction',
+          `${$rowHasTitleGreen}`
+        );
       });
     }
 
@@ -436,7 +439,6 @@
         const slugPlaylist = document.querySelector(
           '.playlist-item.playlist-item-active'
         ).dataset.id;
-
 
         removeSongFromPlaylist(slugPlaylist, {
           title: this.title,

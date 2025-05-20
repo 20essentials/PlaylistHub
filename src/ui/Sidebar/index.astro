@@ -24,7 +24,6 @@ const allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
   ])
 );
 
-
 const userImg = user?.imageUrl;
 const containerHeight = user
   ? 'calc(100vh - var(--player-height) - 10.3vmax)'
@@ -67,7 +66,7 @@ interface PlaylistObject {
   whatColorIs: string;
   fromUser?: boolean | string;
   isPlaylistFavorites?: boolean | string;
-  id_playlist?: string
+  id_playlist?: string;
 }
 
 const globalPlaylist: PlaylistObject[] = [...playlist];
@@ -433,9 +432,9 @@ const userPlaylist: PlaylistObject[] = [
                   fromUser={'TRUE'}
                   slug={convertInValidSlug(pItem.title)}
                   imageFromUser={
-                   pItem.id_playlist 
-                    ? getAllSongsOfOnePlaylist(pItem.id_playlist)
-                    : false
+                    pItem.id_playlist
+                      ? getAllSongsOfOnePlaylist(pItem.id_playlist)
+                      : false
                   }
                 />
               ))
@@ -468,7 +467,7 @@ const userPlaylist: PlaylistObject[] = [
 
   const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
   const _originalPlaylist = [...$sideBarPlaylist.children].filter(
-    playlist => playlist.getAttribute('data-from-user') === 'false'
+    playlist => playlist.getAttribute('data-from-user') === 'FALSE'
   );
   let globalPlaylistLength = _originalPlaylist.length;
 
@@ -570,13 +569,12 @@ const userPlaylist: PlaylistObject[] = [
       }
 
       setTimeout(() => {
-        //We do cick en the first Element (Favorite Brands)
         const favoritePlaylist = [...$sideBarPlaylist.children][
           globalPlaylistLength
         ] as HTMLElement;
 
         favoritePlaylist.click();
-      }, 30);
+      }, 100);
       return;
     }
   });

@@ -285,7 +285,7 @@
       const $tabLeft = document.querySelector('.sidebar-left.sidb');
       let slugs = [...playlistItems].map(playlist => playlist.dataset.id);
       let globalPlaylistLength = [...playlistItems].filter(
-        playlist => playlist.getAttribute('data-from-user') === 'false'
+        playlist => playlist.getAttribute('data-from-user') === 'FALSE'
       ).length;
 
       let { length } = playlistItems;
@@ -386,7 +386,7 @@
           setTimeout(() => {
             document
               .querySelector(
-                'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
+                'aside.playlist-item.visible[data-id="favorite-brands"][data-from-user="TRUE"]'
               )
               ?.click();
           }, 5);
@@ -435,7 +435,7 @@
             setTimeout(() => {
               document
                 .querySelector(
-                  'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
+                  'aside.playlist-item.visible[data-id="favorite-brands"][data-from-user="TRUE"]'
                 )
                 ?.click();
             }, 5);
@@ -498,7 +498,7 @@
               setTimeout(() => {
                 document
                   ?.querySelector(
-                    'aside.playlist-item.visible[data-id="favoritebrands"][data-from-user="true"]'
+                    'aside.playlist-item.visible[data-id="favorite-brands"][data-from-user="TRUE"]'
                   )
                   .click();
               }, 5);

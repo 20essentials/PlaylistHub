@@ -93,9 +93,9 @@
       setTimeout(() => {
         const infoSong = musicPlayer.getInfoSong();
         if (!infoSong) return;
-        if (localStorage.getItem('the-song-item-deletes-itself') === 'true') {
+        if (localStorage.getItem('the-song-item-deletes-itself') === 'TRUE') {
           musicPlayer.setCurrentSongIndex(-1);
-          localStorage.setItem('the-song-item-deletes-itself', 'false');
+          localStorage.setItem('the-song-item-deletes-itself', 'FALSE');
           return;
         }
 

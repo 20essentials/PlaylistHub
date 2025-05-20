@@ -166,7 +166,7 @@ export class MusicPlayer {
       const oldSongs = songPlaylist.querySelectorAll('song-item');
       const headerDataClass = document.querySelector('.header-data-items-class');
       const existUser = headerDataClass.dataset.lastColumn;
-      const displayValueOfLastIcon = existUser === 'true' ? 'flex' : 'none';
+      const displayValueOfLastIcon = existUser === 'TRUE' ? 'flex' : 'none';
       oldSongs.forEach(song => song.remove());
 
       songs.forEach((song, index) => {
@@ -174,15 +174,15 @@ export class MusicPlayer {
           '.playlist-item-active'
         );
         const attributeIsFromUser =
-          currentSidebarPlaylistItem?.getAttribute('data-from-user') ?? 'false';
-        const PlaylistItemIsFromUser = attributeIsFromUser === 'true';
+          currentSidebarPlaylistItem?.getAttribute('data-from-user') ?? 'FALSE';
+        const PlaylistItemIsFromUser = attributeIsFromUser === 'TRUE' ? 'TRUE' : 'FALSE';
 
         const attributeIsFavoritePlaylist =
           currentSidebarPlaylistItem?.getAttribute(
             'data-is-playlist-favorites'
-          ) ?? 'false';
+          ) ?? 'FALSE';
         const thisSongsIsInfAvoritePlaylist =
-          attributeIsFavoritePlaylist === 'true';
+          attributeIsFavoritePlaylist === 'TRUE';
 
         const attrs = Object.entries({ ...song, displayValueOfLastIcon })
           .map(([attr, value]) => `${attr}="${value}"`)
@@ -240,7 +240,7 @@ export class MusicPlayer {
       currentPlaylistButton
     );
     const globalPlaylistLength = [...$sideBarPlaylist.children].filter(
-      playlist => playlist.getAttribute('data-from-user') === 'false'
+      playlist => playlist.getAttribute('data-from-user') === 'FALSE'
     ).length;
 
     if (

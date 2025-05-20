@@ -36,20 +36,17 @@ const randomNumber = ~~(Math.random() * currentJson.length);
 const randomSrc = currentJson[randomNumber]?.urlPoster || '';
 let image =
   isPlaylistFavorites === 'TRUE' ? '/assets/hearFavorite.png' : randomSrc;
-// const imageIfIsUser = fromUser === 'TRUE' ? '/assets/hearFavorite.png'
 
 if (imageFromUser) {
   const arrayOfSongs = await imageFromUser;
   const posters = arrayOfSongs.map((el: any) => el.urlPoster);
   image = obtenerElementoAleatorio(posters);
   if (!image) {
-    console.log(NamesOfPlaylists)
     const allSlugs = NamesOfPlaylists.map(({ title }) =>
       convertInValidSlug(title)
     );
     const randomSlug = ~~(Math.random() * allSlugs.length);
     const slugi = allSlugs[randomSlug];
-    console.log(slugi)
     const module = await import(`../data/${slugi}.json`);
     const playlistCorriente = module.default;
     image = obtenerElementoAleatorio(playlistCorriente).urlPoster

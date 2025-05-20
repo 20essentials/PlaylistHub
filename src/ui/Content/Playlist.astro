@@ -133,6 +133,7 @@ const columnsPlaylistsInVieport = user ? `8% 1fr 14% 10%` : '8% 1fr 14%';
 
   function showPlaylisIcon() {
     const headerDataClass = $('.header-data-items-class') as HTMLElement;
+    console.log(headerDataClass)
     const existUser = headerDataClass.dataset.lastColumn;
     const songItems = document.querySelectorAll('song-item');
     songItems.forEach(el => {
