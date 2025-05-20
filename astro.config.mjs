@@ -24,7 +24,7 @@ export default defineConfig({
   },
   output: 'server',
   adapter: vercel(),
-  integrations: [clerk()]
+  integrations: [clerk()],
   // server: {
   //   host: true,
   //   port: 4444

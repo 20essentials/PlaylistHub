@@ -166,7 +166,7 @@ export const server = {
         },
         {
           id_playlist: uuid2,
-          title: 'Code-Fi',
+          title: 'Code Fi',
           color: '#08d437',
           whatColorIs: 'Clear Green',
           isPlaylistFavorites: 'FALSE',
@@ -220,7 +220,8 @@ export const server = {
 
       async function insertSongs(songs: any[], label: string) {
         for (const song of songs) {
-          const { title, artist, album, date, urlPoster, duration, urlSong } = song;
+          const { title, artist, album, date, urlPoster, duration, urlSong } =
+            song;
           try {
             await client.execute({
               sql: `INSERT INTO songs (title, artist, album, date, urlPoster, duration, urlSong) VALUES (?, ?, ?, ?, ?, ?, ?)`,
@@ -271,6 +272,23 @@ export const server = {
       }
 
       return { success: true };
+    }
+  }),
+  deleteSongFromThePlaylist: defineAction({
+    input: z.object({
+      title: z.string(),
+      artist: z.string(),
+      id_playlist: z.string()
+    }),
+    handler: async inp => {
+      const remove = await client.execute({
+        sql: `
+        DELETE 
+        FROM playlist_songs
+        WHERE title = ? AND artist = ? AND id_playlist = ?
+      `,
+        args: [inp.title, inp.artist, inp.id_playlist]
+      });
     }
   })
 };

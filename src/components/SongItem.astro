@@ -2,6 +2,7 @@
   import { setAnimation } from './modules/setAnimation.js';
   import { CustomPopover } from './modules/popover.js';
   import { emitEvent } from './modules/emitter.js';
+
   import {
     existThisSongInTheCurrentPlaylist,
     addSongInPlaylist,
@@ -11,7 +12,8 @@
     obtenerFechaActualISO,
     PREFIX_LS,
     createPlaylistElement,
-    convertInValidSlug
+    convertInValidSlug,
+    convertSlugToText
   } from './modules/localStorage.js';
   const amCustomPopover = new CustomPopover();
 
@@ -447,6 +449,28 @@
 
         amCustomPopover.onAdvice({ message: 'Removed Correctly' });
         updateListOfSongsItemsAfterAnUpdateOrDelete();
+
+        const slug = document.querySelector(
+          '.playlist-item.playlist-item-active .title'
+        ).textContent;
+        const playlistNombre = convertSlugToText(slug);
+        const allPlaylistFromDB =
+          localStorage.getItem('allPlaylistFromDB') ?? '[]';
+        const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+        const thePlaylistWithId = allPlaylistFromDbArray.find(
+          el => el.title === playlistNombre
+        );
+        const { id_playlist } = thePlaylistWithId;
+        const objectOfPlaylistToRemove = {
+          title: this.title,
+          artist: this.artist,
+          id_playlist
+        };
+        localStorage.setItem(
+          'playlistToDeleteClickedLately',
+          JSON.stringify(objectOfPlaylistToRemove)
+        );
+        document.querySelector('.servilleta').click();
       });
     }
 
@@ -479,6 +503,25 @@
           return;
         }
 
+        //New
+        const allPlaylistFromDB =
+          localStorage.getItem('allPlaylistFromDB') ?? '[]';
+        const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+        const thePlaylistWithId = allPlaylistFromDbArray.find(
+          el => el.title === 'Favorite Brands'
+        );
+        const { id_playlist } = thePlaylistWithId;
+
+        localStorage.setItem(
+          'NewSongToAddInFavorites',
+          JSON.stringify({
+            ...newSongObject,
+            id_playlist
+          })
+        );
+
+        document.querySelector('.servilleta2').click();
+
         emitEvent('updateNewSongInFavoriteBrands', document, {
           ...newSongObject,
           updating: true
@@ -506,6 +549,28 @@
           title: this.title,
           artist: this.artist
         });
+
+        //New
+        const allPlaylistFromDB =
+          localStorage.getItem('allPlaylistFromDB') ?? '[]';
+        const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+        const thePlaylistWithId = allPlaylistFromDbArray.find(
+          el => el.title === 'Favorite Brands'
+        );
+        const { id_playlist } = thePlaylistWithId;
+
+        const objectOfPlaylistToRemove = {
+          title: this.title,
+          artist: this.artist,
+          id_playlist
+        };
+
+        localStorage.setItem(
+          'playlistToDeleteFromFavorites',
+          JSON.stringify(objectOfPlaylistToRemove)
+        );
+
+        document.querySelector('.servilleta3').click();
 
         amCustomPopover.onAdvice({ message: 'Removed Correctly' });
         this.showFavoriteOrRemoveBrandFromFavorites();

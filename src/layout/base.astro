@@ -1,6 +1,7 @@
 ---
 const { title } = Astro.props;
 import ModalAddPlaylist from '@/components/ModalAddPlaylist.astro';
+import ServilletaToDeleteAPlaylist from '@/components/ServilletaToDeleteAPlaylist.astro';
 import '@/styles/globalStyles.css';
 import { SignInButton } from '@clerk/astro/components';
 
@@ -37,6 +38,7 @@ const siteName = 'PlaylistHub';
   </head>
   <body>
     <ModalAddPlaylist />
+    <ServilletaToDeleteAPlaylist />
     <slot />
 
     <SignInButton class={'buttonModalSignin'} mode='modal' />

@@ -1,0 +1,121 @@
+<aside class='servilleta servilleta1'></aside>
+<aside class='servilleta servilleta2'></aside>
+<aside class='servilleta servilleta3'></aside>
+
+<script>
+  import { actions } from 'astro:actions';
+
+  document.addEventListener('click', e => {
+    const target = e.target as HTMLElement;
+    if (target.matches('.servilleta1')) {
+      const objToDeleteInString =
+        localStorage.getItem('playlistToDeleteClickedLately') ?? '{}';
+      const objectToDelete = JSON.parse(objToDeleteInString);
+      (async () => {
+        try {
+          const { data, error: err } =
+            await actions.deleteSongFromThePlaylist(objectToDelete);
+          console.log('Eliminicacion exitosa');
+        } catch (err) {
+          console.error('Error inesperado:', err);
+        }
+      })();
+    }
+    if (target.matches('.servilleta2')) {
+      const {
+        title,
+        artist,
+        album,
+        date,
+        duration,
+        urlPoster,
+        urlSong,
+        id_playlist
+      } = JSON.parse(localStorage.getItem('NewSongToAddInFavorites') ?? '{}');
+
+      (async () => {
+        try {
+          const { data, error } = await actions.insertNewSongInDb({
+            title,
+            artist,
+            album,
+            date,
+            duration,
+            urlSong,
+            urlPoster
+          });
+
+          if (error) {
+            console.error('Error al insertar nueva canción:', error);
+            return;
+          }
+
+          const { data: datita, error: errorcito } =
+            await actions.insertDataIntoPlaylistsSong({
+              title,
+              artist,
+              id_playlist
+            });
+
+          if (errorcito) {
+            console.error('Error al insertar canción en la playlist:', errorcito);
+            return;
+          }
+
+          console.log(
+            'Canción insertada correctamente en la base de datos y en la playlist.'
+          );
+        } catch (err) {
+          console.error('Error inesperado:', err);
+        }
+      })();
+    }
+
+    if (target.matches('.servilleta3')) {
+      const songToRemoveFromFavorites =
+        localStorage.getItem('playlistToDeleteFromFavorites') ?? '{}';
+      const { title, artist, id_playlist } = JSON.parse(
+        songToRemoveFromFavorites
+      );
+      (async () => {
+        try {
+          const { data, error: err } = await actions.deleteSongFromThePlaylist({
+            title,
+            artist,
+            id_playlist
+          });
+          console.log('Eliminicacion exitosa');
+        } catch (err) {
+          console.error('Error inesperado:', err);
+        }
+      })();
+
+    }
+  });
+</script>
+
+<style>
+  .servilleta {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3vmax;
+    height: 0.1vmax;
+    z-index: 300;
+
+    &.servilleta1 {
+      left: 40%;
+      background-color: red;
+    }
+
+    &.servilleta2 {
+      left: 50%;
+      background-color: orange;
+    }
+
+    &.servilleta3 {
+      left: 60%;
+      background-color: skyblue;
+    }
+  }
+</style>

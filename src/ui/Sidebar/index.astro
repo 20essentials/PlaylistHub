@@ -24,7 +24,6 @@ if (!thisUserExists) {
     actions.addedFirstPlaylistsIfTheUserIsNew,
     { userId }
   );
-  console.log(data, error);
 }
 const local_id = userId;
 const allPlaylistFromDB: any[] = await readPlaylistsOfTheUser(userId);

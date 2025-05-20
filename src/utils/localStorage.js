@@ -116,8 +116,3 @@ export function obtenerElementoAleatorio(arr) {
   return arr[indiceAleatorio];
 }
 
-// export async function createPlaylist_in_db(songObject) {
-//   const { data, error } = await actions.createNewPlaylistInDb(songObject);
-//   console.log(data);
-//   console.log(error);
-// }

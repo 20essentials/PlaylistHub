@@ -162,10 +162,6 @@ const user = await Astro.locals.currentUser();
       const titleCurrent = titleOfTheCurrentSong.textContent;
       const artistCurrent = artistOfTheCurrentSong.textContent;
 
-      // console.log(artistCurrent === artistDetail && titleCurrent === titleDetail);
-      // console.log('current', { artistCurrent, titleCurrent });
-      // console.log('detail', { artistDetail, titleDetail });
-
       if (artistCurrent === artistDetail && titleCurrent === titleDetail) {
         $heartEmpty.classList.toggle('isSaved', updating);
       }
