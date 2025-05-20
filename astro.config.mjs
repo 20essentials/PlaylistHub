@@ -4,11 +4,7 @@ import clerk from '@clerk/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  // build: {
-  //   esbuild: {
-  //     logLevel: 'silent'
-  //   }
-  // },
+
   env: {
     schema: {
       DATABASE_URL: envField.string({ context: 'server', access: 'secret' }),
@@ -19,9 +15,7 @@ export default defineConfig({
       })
     }
   },
-  build: {
-    assets: 'static'
-  },
+  
   output: 'server',
   adapter: vercel(),
   integrations: [clerk()],
@@ -29,4 +23,14 @@ export default defineConfig({
   //   host: true,
   //   port: 4444
   // }
+
+    // build: {
+  //   esbuild: {
+  //     logLevel: 'silent'
+  //   }
+  // },
+
+  // build: {
+  //   assets: 'static'
+  // },
 });
