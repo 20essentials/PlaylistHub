@@ -1,5 +1,10 @@
 ---
 import PinnedIcon from '@/icons/pinned.astro';
+import {
+  convertInValidSlug,
+  obtenerElementoAleatorio
+} from '@/utils/localStorage';
+import NamesOfPlaylists from '@/data/playlist.json' with { type: 'json' };
 import Volume from '@/icons/music.astro';
 const {
   slug,
@@ -8,7 +13,8 @@ const {
   tab,
   visible,
   isPlaylistFavorites = 'FALSE',
-  fromUser = 'FALSE'
+  fromUser = 'FALSE',
+  imageFromUser = false
 } = Astro.props;
 
 const initialLetterOfEachWord = title.slice(0, 3).toUpperCase();
@@ -24,10 +30,31 @@ const files = import.meta.glob('../data/*.json', { eager: true }) as Record<
 >;
 
 const mySlug = `../data/${slug}.json`;
+
 const currentJson = files[mySlug]?.default || [];
 const randomNumber = ~~(Math.random() * currentJson.length);
 const randomSrc = currentJson[randomNumber]?.urlPoster || '';
-const image = isPlaylistFavorites === 'TRUE' ? '/assets/hearFavorite.png' : randomSrc;
+let image =
+  isPlaylistFavorites === 'TRUE' ? '/assets/hearFavorite.png' : randomSrc;
+// const imageIfIsUser = fromUser === 'TRUE' ? '/assets/hearFavorite.png'
+
+if (imageFromUser) {
+  const arrayOfSongs = await imageFromUser;
+  const posters = arrayOfSongs.map((el: any) => el.urlPoster);
+  image = obtenerElementoAleatorio(posters);
+  if (!image) {
+    console.log(NamesOfPlaylists)
+    const allSlugs = NamesOfPlaylists.map(({ title }) =>
+      convertInValidSlug(title)
+    );
+    const randomSlug = ~~(Math.random() * allSlugs.length);
+    const slugi = allSlugs[randomSlug];
+    console.log(slugi)
+    const module = await import(`../data/${slugi}.json`);
+    const playlistCorriente = module.default;
+    image = obtenerElementoAleatorio(playlistCorriente).urlPoster
+  }
+} 
 ---
 
 <style>
@@ -131,7 +158,6 @@ const image = isPlaylistFavorites === 'TRUE' ? '/assets/hearFavorite.png' : rand
     }
   }
 </style>
-
 
 <aside
   class=`playlist-item ${visible}`

@@ -1219,11 +1219,11 @@ import { SignInButton } from '@clerk/astro/components';
   // }
 
   //chill-lofi
-  const CHILL_LOFI_SLUG = 'chill-lofi';
-  if (!existsPlaylist(CHILL_LOFI_SLUG)) {
-    const jsonFavoriteBrands = JSON.stringify(ChillLofi);
-    createPlaylist(CHILL_LOFI_SLUG, jsonFavoriteBrands);
-  }
+  // const CHILL_LOFI_SLUG = 'chill-lofi';
+  // if (!existsPlaylist(CHILL_LOFI_SLUG)) {
+  //   const jsonFavoriteBrands = JSON.stringify(ChillLofi);
+  //   createPlaylist(CHILL_LOFI_SLUG, jsonFavoriteBrands);
+  // }
 
   //spoti-manz
   // const SPOTIMANZ_SLUG = 'spotimanz-favorites';
@@ -1231,6 +1231,8 @@ import { SignInButton } from '@clerk/astro/components';
   //   const jsonFavoriteBrands = JSON.stringify(SpotimanzFavorites);
   //   createPlaylist(SPOTIMANZ_SLUG, jsonFavoriteBrands);
   // }
+
+  
 
   const profile = $('.profile.openLogin') as HTMLElement;
   profile?.addEventListener('click', e => {

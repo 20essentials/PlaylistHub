@@ -24,7 +24,6 @@ const allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
   ])
 );
 
-console.log(allPlaylistFromDB);
 
 const userImg = user?.imageUrl;
 const containerHeight = user
@@ -41,26 +40,26 @@ const favoriteBrands = {
   whatColorIs: 'red'
 };
 
-const firstPlaylistOfUser = {
-  title: 'Code-Fi',
-  color: '#08d437',
-  fromUser: 'TRUE',
-  whatColorIs: 'Clear Green'
-};
+// const firstPlaylistOfUser = {
+//   title: 'Code-Fi',
+//   color: '#08d437',
+//   fromUser: 'TRUE',
+//   whatColorIs: 'Clear Green'
+// };
 
-const secondPlaylistOfUser = {
-  title: 'Chill Lofi',
-  color: '#DAA520',
-  fromUser: 'TRUE',
-  whatColorIs: 'GoldenRod'
-};
+// const secondPlaylistOfUser = {
+//   title: 'Chill Lofi',
+//   color: '#DAA520',
+//   fromUser: 'TRUE',
+//   whatColorIs: 'GoldenRod'
+// };
 
-const thirdPlaylistOfUser = {
-  title: 'SpotiManz Favorites',
-  color: '#ec1cce',
-  fromUser: 'TRUE',
-  whatColorIs: 'Purple Elegant'
-};
+// const thirdPlaylistOfUser = {
+//   title: 'SpotiManz Favorites',
+//   color: '#ec1cce',
+//   fromUser: 'TRUE',
+//   whatColorIs: 'Purple Elegant'
+// };
 
 interface PlaylistObject {
   title: string;
@@ -68,6 +67,7 @@ interface PlaylistObject {
   whatColorIs: string;
   fromUser?: boolean | string;
   isPlaylistFavorites?: boolean | string;
+  id_playlist?: string
 }
 
 const globalPlaylist: PlaylistObject[] = [...playlist];
@@ -426,13 +426,21 @@ const userPlaylist: PlaylistObject[] = [
                 <PlayListItem
                   {...pItem}
                   visible={pItem?.fromUser === 'TRUE' ? 'invisible' : 'visible'}
-                  isPlaylistFavorites={pItem?.isPlaylistFavorites === 'TRUE'}
+                  isPlaylistFavorites={
+                    pItem?.isPlaylistFavorites === 'TRUE' ? 'TRUE' : 'FALSE'
+                  }
                   tab={i}
                   fromUser={'TRUE'}
                   slug={convertInValidSlug(pItem.title)}
+                  imageFromUser={
+                   pItem.id_playlist 
+                    ? getAllSongsOfOnePlaylist(pItem.id_playlist)
+                    : false
+                  }
                 />
               ))
           }
+          <!-- getAllSongsOfOnePlaylist(pItem.id_playlist)[0].urlPoster -->
         </div>
       </div>
     </section>
