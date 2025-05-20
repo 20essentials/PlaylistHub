@@ -5,10 +5,11 @@ En cuanto al stack de tecnologías, usé Astro junto con JavaScript puro para el
 Y Finalmente gracias a Clerk, implementar la autenticación durante el desarrollo fue extremadamente cómodo 👻. Estoy muy contento con la experiencia. Su principal función en este proyecto fue gestionar el registro de usuarios y permitir el acceso a diversas herramientas y funcionalidades exclusivas para quienes inician sesión. Los usuarios no autenticados, por otro lado, tendrán acceso limitado a ciertas características, pero siempre serán capaces de escuchar buena música, que al final es lo más importante.
 
 [![Foto Preview](preview/PlaylistHub.png)](https://playlist-hub.vercel.app/)
-[![Foto Preview](https://20essentials.github.io/project-000-949/assets/cover1.png)](https://playlist-hub.vercel.app/)
-[![Foto Preview](https://20essentials.github.io/project-000-949/assets/cover2.png)](https://playlist-hub.vercel.app/)
+
+
 
 ✅ Repo: https://github.com/20essentials/PlaylistHub
+
 ✅ Demo: https://playlist-hub.vercel.app/
 
 Si eres desarrollador, algunas cosas interesantes que podrías ver en este proyecto son:
@@ -19,15 +20,22 @@ Si eres desarrollador, algunas cosas interesantes que podrías ver en este proye
 - El uso de la función RegExp.test() para validar un input.
 - Y finalmente, el uso de vmax, mi unidad de medida favorita actualmente en CSS, que facilita bastante el diseño responsive.
 
+[![Foto Preview](https://20essentials.github.io/project-000-949/assets/cover2.png)](https://playlist-hub.vercel.app/)
 
-Finalmente te comparto una comparación sobre cómo ChatGPT utiliza medidas fijas en su página web. ¿Qué pasaría si esa página se visualizara en un televisor de 100 pulgadas? ¿Cómo se vería?
+Ahora te comparto una comparación sobre cómo ChatGPT utiliza medidas fijas en su página web. ¿Qué pasaría si esa página se visualizara en un televisor de 100 pulgadas? ¿Cómo se vería?
 Ahora, piensa en PlaylistHub, que sí es una página responsive y usa unidades relativas como vmax.
 Además, la comparación es justa, ya que ambas —tanto ChatGPT como PlaylistHub— siguen la filosofía de "OnePage websites", es decir, páginas cuyo alto máximo es 100dvh.
 
 
+> [!NOTE]
+> [PlaylistHub](https://20essentials.github.io/project-000-949/assets/vid1.mp4)
 
-[![PlaylistHub]](https://20essentials.github.io/project-000-949/assets/vid1.mp4)
-[![ChatGpt]](https://20essentials.github.io/project-000-949/assets/vid2.mp4)
+> [!NOTE]
+> [ChatGpt](https://20essentials.github.io/project-000-949/assets/vid2.mp4)
 
 
+[![Foto Preview](https://20essentials.github.io/project-000-949/assets/cover1.png)](https://playlist-hub.vercel.app/)
+
+
+Finalmente, quiero enviar un saludo especial a mi teacher Midu por su excelente video del [Clon de Spotify](https://youtu.be/WRc8lz-bp78?si=rF-Q9Psa7Mg-1Q4Z), y a mi estimado teacher Manz por su increíble serie de videos de [Spotimanz](https://youtu.be/LWTMtj1Z3Zk?si=uVTUPoX317d05777), que me inspiraron y ayudaron muchísimo en este proyecto.
 

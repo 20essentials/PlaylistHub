@@ -2,6 +2,7 @@
   - [TablerIcons](https://tabler.io/icons)
   - [Flaticon Icons](https://www.flaticon.com/)
   - [Manzdev Youtube videos Inspiration](https://youtu.be/LWTMtj1Z3Zk?si=D84yjZ_A63gsM63x)
+  - [Midudev Teacher doing Clon Of Spotify](https://youtu.be/WRc8lz-bp78?si=do9uCqi9eVEy6_hj)
   - [Wallhaven Posters](https://wallhaven.cc/toplist)
   - [Transparent Textures](https://www.transparenttextures.com/)
   - [Cover Textures](https://www.freepik.com/free-photos-vectors/album-cover-texture)
