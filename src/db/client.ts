@@ -1,7 +1,8 @@
 import { createClient } from '@libsql/client';
 import { DATABASE_URL, DATABASE_TOKEN } from 'astro:env/server';
+import type { UserTable, PlaylistTable } from '@/db/types.d';
 
-const client = createClient({
+export const client = createClient({
   url: DATABASE_URL ?? '',
   authToken: DATABASE_TOKEN ?? ''
 });
@@ -34,3 +35,71 @@ export async function getAllSongsOfOnePlaylist(id_playlist: string) {
 
   return result.rows;
 }
+
+export async function insertNewUser(
+  userId: string,
+  userEmail: string,
+  userName: string
+) {
+  const resultUser = await client.execute({
+    sql: `
+      SELECT email, name
+      FROM users
+      WHERE id_user = ?
+    `,
+    args: [userId]
+  });
+
+  const { email = false, name = false } = resultUser.rows[0] ?? {} as UserTable;
+
+  //If already inserts we don't insert
+  if (email || name) return resultUser.rows[0];
+
+  const result = await client.execute({
+    sql: `
+      INSERT INTO users (id_user, email, name)
+      VALUES (?, ?, ?);
+    `,
+    args: [userId, userEmail, userName]
+  });
+
+  //If you want to tests your results
+  return result.rows;
+}
+
+// export async function createNewPlaylistInDB({
+//   id_playlist,
+//   title,
+//   color,
+//   whatColorIs,
+//   isPlaylistFavorites,
+//   fromUser,
+//   id_user,
+// }: PlaylistTable) {
+//   const result = await client.execute({
+//     sql: `
+//       INSERT INTO playlists (
+//         id_playlist,
+//         title,
+//         color,
+//         whatColorIs,
+//         isPlaylistFavorites,
+//         fromUser,
+//         id_user
+//       ) VALUES (
+//         ?, ?, ?, ?, ?, ?, ?
+//       )
+//     `,
+//     args: [
+//       id_playlist,
+//       title,
+//       color,
+//       whatColorIs,
+//       isPlaylistFavorites,
+//       fromUser,
+//       id_user,
+//     ],
+//   });
+
+//   return result.rows;
+// }

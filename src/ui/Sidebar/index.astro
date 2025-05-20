@@ -2,12 +2,19 @@
 import playlist from '@/data/playlist.json';
 import PlayListItem from '@/components/PlayListItem.astro';
 import { IS_DATABASE_ACTIVE } from 'astro:env/server';
-import { readPlaylistsOfTheUser, getAllSongsOfOnePlaylist } from '@/db/client';
+import {
+  readPlaylistsOfTheUser,
+  getAllSongsOfOnePlaylist,
+  insertNewUser
+} from '@/db/client';
 
 const convertInValidSlug = (text: string) =>
   text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
 const user = await Astro.locals.currentUser();
 const userId = user?.id ?? '';
+const userEmail = user?.primaryEmailAddress?.emailAddress ?? '';
+const userName = user?.username ?? '';
+// const userData = await insertNewUser(userId, userEmail, userName);
 const allPlaylistFromDB: any[] = await readPlaylistsOfTheUser(userId);
 const allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
   allPlaylistFromDB.map(async el => [
@@ -81,8 +88,6 @@ const userPlaylist: PlaylistObject[] = [
   is:inline
   define:vars={{ IS_DATABASE_ACTIVE, allPlaylistTsoRenderinLOCAL_STORAGE }}
 >
-  import { IS_DATABASE_ACTIVE } from 'astro:env/server';
-
   function getPlaylistName_(slug) {
     const PREFIX_LS = 'playlist_hub_';
     return `${PREFIX_LS}${slug}`;
@@ -444,7 +449,9 @@ const userPlaylist: PlaylistObject[] = [
   const randomSlug = obtenerElementoAleatorio(arrayOfSlugs);
   const response = await fetch(`../../data/${randomSlug}.json`);
   const playlistRandomObject = await response.json();
-  const arrayOfRandomPosters = playlistRandomObject?.default;
+  const arrayOfRandomPosters = playlistRandomObject.map(
+    (el: any) => el.urlPoster
+  );
 
   const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
   const _originalPlaylist = [...$sideBarPlaylist.children].filter(
@@ -512,12 +519,13 @@ const userPlaylist: PlaylistObject[] = [
             }
           );
           if (!existAlreadyThisPlaylists) {
+            const arrayOfPosters = currenPlaylistJson.map(
+              (el: any) => el.urlPoster
+            );
             const img =
-              currenPlaylistJson.length === 0
-                ? obtenerElementoAleatorio(arrayOfRandomPosters)
-                : obtenerElementoAleatorio(
-                    currenPlaylistJson.map((el: any) => el.urlPoster)
-                  );
+              currenPlaylistJson.length > 0
+                ? obtenerElementoAleatorio(arrayOfPosters)
+                : obtenerElementoAleatorio(arrayOfRandomPosters);
 
             createSidePlaylistItem({
               tabindex: startTabIndex,

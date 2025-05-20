@@ -422,6 +422,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
             return;
 
           addSongInPlaylist(slugName, objectLastSongAdded);
+          updateListOfSongsItemsAfterAnUpdateOrDelete();
           return;
         }
 
@@ -435,7 +436,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
         removeSongFromPlaylist(slugName, objectLastSongAdded);
         updateListOfSongsItemsAfterAnUpdateOrDelete();
         localStorage.setItem('thisSongIsCurrentlyInReproduction', 'false');
-      }, 30);
+      }, 50);
 
       return;
     }

@@ -25,6 +25,15 @@ export function createPlaylist(slug, data) {
   localStorage.setItem(playlistName, data);
 }
 
+
+// export async function  createPlaylist(slug, data) {
+//   const playlistName = getPlaylistName(slug);
+//   localStorage.setItem(playlistName, data);
+//   const dataInObject = JSON.parse(data);
+//   console.log(dataInObject)
+//   // const {data, error} = await actions.createNewPlaylistInDb({})
+// }
+
 export function existsPlaylist(slug) {
   const playlistName = getPlaylistName(slug);
   return Boolean(localStorage.getItem(playlistName));
