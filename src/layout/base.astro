@@ -3,14 +3,36 @@ const { title } = Astro.props;
 import ModalAddPlaylist from '@/components/ModalAddPlaylist.astro';
 import '@/styles/globalStyles.css';
 import { SignInButton } from '@clerk/astro/components';
+
+const canonicalHref = Astro.site;
+const faviconHref = '/assets/favicon.webp';
+const metaDescription =
+  'PlaylistHub es una app web para escuchar y crear playlists geniales. Música fácil y rápida, con recomendaciones personalizadas para que siempre descubras lo mejor';
+const siteName = 'PlaylistHub';
 ---
 
 <html lang='en'>
   <head>
-    <meta charset='utf-8' />
-    <link rel='shortcut icon' href='/assets/favicon.webp' type='image/x-icon' />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href={faviconHref} />
+    <link rel='canonical' href={canonicalHref} />
+    <meta name='description' content={metaDescription} />
+    <title>{title}</title>
+    <meta property='og:site_name' content={siteName} />
+    <meta property='og:url' content={canonicalHref} />
+    <meta property='og:title' content={title} />
+    <meta property='og:type' content='website' />
+    <meta property='og:description' content={metaDescription} />
+    <meta property='og:image' content={faviconHref} />
+    <meta property='og:image:secure_url' content={faviconHref} />
+    <meta property='og:image:width' content='512' />
+    <meta property='og:image:height' content='512' />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:site' content={canonicalHref} />
+    <meta name='twitter:description' content={metaDescription} />
     <meta name='google' content='notranslate' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>{title}</title>
   </head>
   <body>
@@ -1231,8 +1253,6 @@ import { SignInButton } from '@clerk/astro/components';
   //   const jsonFavoriteBrands = JSON.stringify(SpotimanzFavorites);
   //   createPlaylist(SPOTIMANZ_SLUG, jsonFavoriteBrands);
   // }
-
-  
 
   const profile = $('.profile.openLogin') as HTMLElement;
   profile?.addEventListener('click', e => {
