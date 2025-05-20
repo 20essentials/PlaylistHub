@@ -7,10 +7,12 @@ export class MusicList {
   }
 
   async get(slug) {
+    //Existe esta playlist en el localStorage
     if (existsPlaylist(slug)) {
       return getPlaylistAsArray(slug);
     }
 
+    //If no existe en el LOCALSTORAGE lo traigo de un file
     if (!this.playLists[slug]) {
       const playList = await fetch(`./data/${slug}.json`).then(response =>
         response.json()

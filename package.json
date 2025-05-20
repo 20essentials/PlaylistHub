@@ -11,11 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^8.1.4",
+    "@astrojs/vercel": "8.1.4",
     "@clerk/astro": "2.7.1",
+    "@libsql/client": "0.15.6",
     "astro": "5.7.12"
-  },
-  "devDependencies": {
-    "gh-pages": "6.3.0"
   }
 }

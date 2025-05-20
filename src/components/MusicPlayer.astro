@@ -15,10 +15,12 @@
   const slug = allSlugs[randomSlug];
   // const titleOfCurrenPlaylist = allTitles[randomSlug];
   // const colorOfCurrentPlaylist = allColors[randomSlug];
-  const playlistCorriente = await import(`./data/${slug}.json`, {
-    with: { type: 'json' }
-  });
-  const playlistCorrienteJson = playlistCorriente.default;
+  // const playlistCorriente = await import(`./data/${slug}.json`, {
+  //   with: { type: 'json' }
+  // });
+  const response = await fetch(`/data/${slug}.json`);
+  const playlistCorriente = await response.json();
+  const playlistCorrienteJson = playlistCorriente;
   const randonNumSong = ~~(Math.random() * playlistCorrienteJson.length);
   const playlistName = slug;
   const id = randonNumSong + 1;
@@ -77,8 +79,7 @@
     }
   }, 55);
 
-
-  document.addEventListener('click', async (e) => {
+  document.addEventListener('click', async e => {
     if (e.target.matches('.playlist-item')) {
       const playlist = e.target;
       const slug = playlist.dataset.id;
@@ -104,7 +105,7 @@
 
       await musicPlayer.selectList(slug, title, playlist.dataset.color);
     }
-  })
+  });
 
   const songPlaylist = document.querySelector('.song.playlist');
   songPlaylist.addEventListener('click', ev => {

@@ -1,8 +1,27 @@
 ---
 import playlist from '@/data/playlist.json';
 import PlayListItem from '@/components/PlayListItem.astro';
+import { IS_DATABASE_ACTIVE } from 'astro:env/server';
+import { readPlaylistsOfTheUser, getAllSongsOfOnePlaylist } from '@/db/client';
 
+const convertInValidSlug = (text: string) =>
+  text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
 const user = await Astro.locals.currentUser();
+const userId = user?.id ?? '';
+const allPlaylistFromDB: any[] = await readPlaylistsOfTheUser(userId);
+const allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
+  allPlaylistFromDB.map(async el => [
+    convertInValidSlug(el.title),
+    await getAllSongsOfOnePlaylist(el.id_playlist)
+  ])
+);
+
+// console.log(allPlaylistFromDB);
+// const currenSongsOfOnePlaylist = await getAllSongsOfOnePlaylist(
+//   allPlaylistFromDB[0].id_playlist as string
+// );
+// console.log(allPlaylistTsoRenderinLOCAL_STORAGE);
+
 const userImg = user?.imageUrl;
 const containerHeight = user
   ? 'calc(100vh - var(--player-height) - 10.3vmax)'
@@ -17,9 +36,6 @@ const favoriteBrands = {
   color: '#f00',
   whatColorIs: 'red'
 };
-
-const convertInValidSlug = (text: string) =>
-  text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
 
 const firstPlaylistOfUser = {
   title: 'Code-Fi',
@@ -53,12 +69,38 @@ interface PlaylistObject {
 const globalPlaylist: PlaylistObject[] = [...playlist];
 
 const userPlaylist: PlaylistObject[] = [
-  favoriteBrands
+  favoriteBrands,
+  ...allPlaylistFromDB
   // firstPlaylistOfUser,
   // secondPlaylistOfUser,
   // thirdPlaylistOfUser
 ];
 ---
+
+<script
+  is:inline
+  define:vars={{ IS_DATABASE_ACTIVE, allPlaylistTsoRenderinLOCAL_STORAGE }}
+>
+  import { IS_DATABASE_ACTIVE } from 'astro:env/server';
+
+  function getPlaylistName_(slug) {
+    const PREFIX_LS = 'playlist_hub_';
+    return `${PREFIX_LS}${slug}`;
+  }
+
+  function createCustomPlaylist(slug, data) {
+    const playlistName = getPlaylistName_(slug);
+    localStorage.setItem(playlistName, data);
+  }
+
+  if (IS_DATABASE_ACTIVE) {
+    allPlaylistTsoRenderinLOCAL_STORAGE.forEach(pair => {
+      const [slug, listOfSongs] = pair;
+      const jsonBrands = JSON.stringify(listOfSongs);
+      createCustomPlaylist(slug, jsonBrands);
+    });
+  }
+</script>
 
 <style define:vars={{ containerHeight }}>
   .container {
