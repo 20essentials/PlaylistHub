@@ -70,7 +70,6 @@
         }
       })();
     }
-
     if (target.matches('.servilleta3')) {
       const songToRemoveFromFavorites =
         localStorage.getItem('playlistToDeleteFromFavorites') ?? '{}';
@@ -89,7 +88,6 @@
           console.error('Error inesperado:', err);
         }
       })();
-
     }
   });
 </script>
@@ -102,6 +100,7 @@
     width: 3vmax;
     height: 0.1vmax;
     z-index: 300;
+    opacity: 0;
 
     &.servilleta1 {
       left: 40%;
