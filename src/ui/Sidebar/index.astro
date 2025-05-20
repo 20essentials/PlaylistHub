@@ -16,8 +16,8 @@ const userId = user?.id ?? '';
 const userEmail = user?.primaryEmailAddress?.emailAddress ?? '';
 const userName = user?.username ?? '';
 const thisUserExists = await insertNewUser(userId, userEmail, userName);
-//Si el usuario nunca existio en la base de datos
 
+//Si el usuario nunca existio en la base de datos
 if (!thisUserExists) {
   //@ts-ignore
   const { data, error } = await Astro.callAction(

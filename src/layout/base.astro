@@ -1183,6 +1183,7 @@ import { SignInButton } from '@clerk/astro/components';
     existsPlaylist,
     FAVORITE_SLUG,
     getPlaylistName,
+    PREFIX_LS,
     updateListOfSongsItemsAfterAnUpdateOrDelete
   } from '@/utils/localStorage';
   import CodeFi from '@/data/code-fi.json';
@@ -1196,9 +1197,8 @@ import { SignInButton } from '@clerk/astro/components';
   localStorage.setItem('thisSongIsCurrentlyInReproduction', 'false');
 
   //Storage Event
-  const favoriteBrands = getPlaylistName(FAVORITE_SLUG);
   window.addEventListener('storage', e => {
-    if (e.key === favoriteBrands) {
+    if (e.key?.startsWith(PREFIX_LS)) {
       updateListOfSongsItemsAfterAnUpdateOrDelete();
     }
   });
