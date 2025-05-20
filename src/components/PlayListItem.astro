@@ -34,10 +34,9 @@ const mySlug = `../data/${slug}.json`;
 const currentJson = files[mySlug]?.default || [];
 const randomNumber = ~~(Math.random() * currentJson.length);
 const randomSrc = currentJson[randomNumber]?.urlPoster || '';
-let image =
-  isPlaylistFavorites === 'TRUE' ? '/assets/hearFavorite.png' : randomSrc;
+let image = isPlaylistFavorites === 'TRUE' ? '/assets/hearFavorite.png' : randomSrc;
 
-if (imageFromUser) {
+if (imageFromUser && (isPlaylistFavorites === 'FALSE')) {
   const arrayOfSongs = await imageFromUser;
   const posters = arrayOfSongs.map((el: any) => el.urlPoster);
   image = obtenerElementoAleatorio(posters);

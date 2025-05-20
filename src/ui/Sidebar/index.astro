@@ -7,6 +7,7 @@ import {
   getAllSongsOfOnePlaylist,
   insertNewUser
 } from '@/db/client';
+import { actions } from 'astro:actions';
 
 const convertInValidSlug = (text: string) =>
   text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
@@ -14,7 +15,17 @@ const user = await Astro.locals.currentUser();
 const userId = user?.id ?? '';
 const userEmail = user?.primaryEmailAddress?.emailAddress ?? '';
 const userName = user?.username ?? '';
-// const userData = await insertNewUser(userId, userEmail, userName);
+const thisUserExists = await insertNewUser(userId, userEmail, userName);
+//Si el usuario nunca existio en la base de datos
+
+if (!thisUserExists) {
+  //@ts-ignore
+  const { data, error } = await Astro.callAction(
+    actions.addedFirstPlaylistsIfTheUserIsNew,
+    { userId }
+  );
+  console.log(data, error);
+}
 const local_id = userId;
 const allPlaylistFromDB: any[] = await readPlaylistsOfTheUser(userId);
 const allPlaylistTsoRenderinLOCAL_STORAGE = await Promise.all(
@@ -31,13 +42,13 @@ const containerHeight = user
 //Aqui podria traer la playlist favorite del usuario de una base de datos
 //Aqui podria traer todas las playlist creadas por el usuario
 
-const favoriteBrands = {
-  fromUser: 'TRUE',
-  isPlaylistFavorites: 'TRUE',
-  title: 'Favorite Brands',
-  color: '#f00',
-  whatColorIs: 'red'
-};
+// const favoriteBrands = {
+//   fromUser: 'TRUE',
+//   isPlaylistFavorites: 'TRUE',
+//   title: 'Favorite Brands',
+//   color: '#f00',
+//   whatColorIs: 'red'
+// };
 
 // const firstPlaylistOfUser = {
 //   title: 'Code-Fi',
@@ -72,7 +83,6 @@ interface PlaylistObject {
 const globalPlaylist: PlaylistObject[] = [...playlist];
 
 const userPlaylist: PlaylistObject[] = [
-  favoriteBrands,
   ...allPlaylistFromDB
   // firstPlaylistOfUser,
   // secondPlaylistOfUser,
@@ -102,7 +112,7 @@ const userPlaylist: PlaylistObject[] = [
   if (IS_DATABASE_ACTIVE) {
     allPlaylistTsoRenderinLOCAL_STORAGE.forEach(pair => {
       const [slug, listOfSongs] = pair;
-      const jsonBrands = JSON.stringify(listOfSongs);
+      const jsonBrands = JSON.stringify(listOfSongs ?? []);
       createCustomPlaylist(slug, jsonBrands);
     });
 
@@ -417,8 +427,8 @@ const userPlaylist: PlaylistObject[] = [
             userPlaylist
               .sort((a, b) => {
                 // Forzar que 'favoriteBrands' vaya primero
-                if (a?.isPlaylistFavorites) return -1;
-                if (b?.isPlaylistFavorites) return 1;
+                if (a?.isPlaylistFavorites === 'TRUE') return -1;
+                if (b?.isPlaylistFavorites === 'TRUE') return 1;
                 return a.title.localeCompare(b.title);
               })
               .map((pItem, i) => (

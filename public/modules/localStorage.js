@@ -1,6 +1,13 @@
 
 export const PREFIX_LS = 'playlist_hub_';
 
+export function addSongInPlaylist(slugPlaylist, songObject) {
+  //Si no existe lo crea, y si ya existe lo pushea
+  const playlistArray = getPlaylistAsArray(slugPlaylist);
+  playlistArray.push(songObject);
+  createPlaylist(slugPlaylist, JSON.stringify(playlistArray));
+}
+
 export const FAVORITE_SLUG = 'favorite-brands';
 export const convertInValidSlug = text =>
   text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
@@ -40,13 +47,6 @@ export function getPlaylistAsJSON(slug) {
 export function getPlaylistAsArray(slug) {
   const playlistString = getPlaylistAsJSON(slug) ?? '[]';
   return JSON.parse(playlistString);
-}
-
-export function addSongInPlaylist(slugPlaylist, songObject) {
-  //Si no existe lo crea, y si ya existe lo pushea
-  const playlistArray = getPlaylistAsArray(slugPlaylist);
-  playlistArray.push(songObject);
-  createPlaylist(slugPlaylist, JSON.stringify(playlistArray));
 }
 
 export function existThisSongInTheCurrentPlaylist(slugPlaylist, songObject) {
@@ -117,4 +117,3 @@ export function obtenerElementoAleatorio(arr) {
   const indiceAleatorio = Math.floor(Math.random() * arr.length);
   return arr[indiceAleatorio];
 }
-
