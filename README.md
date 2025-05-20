@@ -28,8 +28,7 @@ Además, la comparación es justa, ya que ambas —tanto ChatGPT como PlaylistHu
 
 > [!NOTE]
 > [PlaylistHub](https://20essentials.github.io/project-000-949/assets/vid1.mp4)
-
-> [!WEb de]
+> 
 > [ChatGpt](https://20essentials.github.io/project-000-949/assets/vid2.mp4)
 
 [![Foto Preview](https://20essentials.github.io/project-000-949/assets/cover1.png)](https://playlist-hub.vercel.app/)
