@@ -26,7 +26,10 @@ Ahora te comparto una comparación sobre cómo ChatGPT utiliza medidas fijas en 
 Ahora, piensa en PlaylistHub, que sí es una página responsive y usa unidades relativas como vmax.
 Además, la comparación es justa, ya que ambas —tanto ChatGPT como PlaylistHub— siguen la filosofía de "OnePage websites", es decir, páginas cuyo alto máximo es 100dvh.
 
+> [!NOTE]
 > [PlaylistHub](https://20essentials.github.io/project-000-949/assets/vid1.mp4)
+
+> [!WEb de]
 > [ChatGpt](https://20essentials.github.io/project-000-949/assets/vid2.mp4)
 
 [![Foto Preview](https://20essentials.github.io/project-000-949/assets/cover1.png)](https://playlist-hub.vercel.app/)
