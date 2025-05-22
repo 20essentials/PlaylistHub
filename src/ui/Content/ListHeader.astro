@@ -33,6 +33,18 @@
           z-index: 5;
         }
 
+        @keyframes crecer {
+          0% {
+            transform: scale(1)
+          }
+          50% {
+            transform: scale(1.1)
+          }
+          100% {
+            transform: scale(1)
+          }
+        }
+
         .texting-strong {
           font-size: 1.5vmax;
 
@@ -48,7 +60,7 @@
           display: flex;
           gap: 0.5vmax;
           visibility: hidden;
-          pointer-events:none;
+          pointer-events: none;
           
           
           button {
@@ -125,7 +137,6 @@
 
           &.menu-invisible {
             display: none;
-            pointer-events:none;
           }
 
           .toggle {
@@ -208,7 +219,7 @@
 
               &:hover {
                 svg {
-                  filter: brightness(150%);
+                  animation: crecer 1s ease;
                 }
               }
             }
@@ -218,7 +229,7 @@
 
               &:hover {
                 svg {
-                  filter: brightness(150%);
+                  animation: crecer 1s ease;
                 }
               }
             }
@@ -228,7 +239,7 @@
 
               &:hover {
                 svg {
-                  filter: brightness(150%);
+                  animation: crecer 1s ease;
                 }
               }
             }
@@ -261,7 +272,6 @@
                 width: 58%;
                 height: 58%;
                 color: var(--theme-color);
-                transition: filter .4s ease;
                 display: flex;
               }
             }
@@ -785,6 +795,20 @@
           }
 
           $('.menu-tooltip-user .toggle')?.click();
+          return;
+        }
+
+        if (
+          e.target.matches('.circle-box-play-all-songs-of-the-user') ||
+          e.target.matches('.circle-box-play-all-songs-of-the-user *')
+        ) {
+          const firsPlay = document.querySelector('song-item[index="0"]');
+          if (firsPlay) {
+            const numberElementOftheRow =
+              firsPlay.shadowRoot.querySelector('.first-column-num');
+            console.log(numberElementOftheRow);
+            firsPlay.click();
+          }
         }
       });
     }
@@ -824,9 +848,9 @@
               <label for="toggle" class="toggle" title="Config">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M2.256 15.632c.034-.323.268-.583.736-1.104l1.031-1.153c.252-.32.431-.875.431-1.375s-.179-1.056-.43-1.375L2.991 9.472c-.468-.52-.702-.781-.736-1.104s.14-.627.49-1.234l.494-.857c.373-.648.56-.972.878-1.1c.317-.13.676-.028 1.395.176l1.22.343c.459.106.94.046 1.358-.169l.337-.194a2 2 0 0 0 .788-.968l.334-.997c.22-.66.33-.99.591-1.18C10.403 2 10.75 2 11.444 2h1.115c.694 0 1.042 0 1.303.189s.371.519.59 1.179l.335.997a2 2 0 0 0 .788.968l.337.194c.418.215.9.275 1.358.17l1.22-.344c.719-.204 1.078-.306 1.395-.177c.318.13.505.453.878 1.101l.493.857c.35.607.525.91.491 1.234s-.268.583-.736 1.104l-1.031 1.153c-.252.319-.431.875-.431 1.375s.179 1.056.43 1.375l1.032 1.153c.468.52.702.781.736 1.104s-.14.627-.49 1.234l-.494.857c-.373.648-.56.972-.878 1.1c-.317.13-.676.028-1.395-.176l-1.22-.343a2 2 0 0 0-1.359.169l-.336.194c-.36.23-.636.57-.788.968l-.334.997c-.22.66-.33.99-.591 1.18c-.261.188-.609.188-1.303.188h-1.115c-.694 0-1.041 0-1.303-.189c-.261-.189-.371-.518-.59-1.178"/><path d="M2.737 18.78c1.08-1.08 4.752-4.716 5.112-5.136c.381-.444.072-1.044.256-2.904c.089-.9.282-1.574.836-2.076c.66-.624 1.2-.624 3.06-.666c1.62.042 1.812-.138 1.98.282c.12.3-.24.48-.672.96c-.96.96-1.524 1.44-1.578 1.74c-.39 1.32 1.146 2.1 1.986 1.26c.318-.318 1.788-1.8 1.932-1.92c.108-.096.367-.092.492.06c.108.106.12.12.108.6c-.01.444-.006 1.082-.004 1.74c.001.852-.044 1.8-.404 2.28c-.72 1.08-1.92 1.14-3 1.188c-1.02.06-1.86-.048-2.124.144c-.216.108-1.356 1.308-2.736 2.688l-2.46 2.46c-2.04 1.62-4.284-.9-2.784-2.7"/></g></svg>  
               </label>
-              <li style="--i: 0" class="circle-box circle-box-share-playlist-of-the-user" title="Share Playlist">
+              <li style="--i: 0" class="circle-box circle-box-play-all-songs-of-the-user" title="Play Playlist">
                 <button class="anchor">
-                    <svg  viewBox="0 0 24 24"><path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81c1.66 0 3-1.34 3-3s-1.34-3-3-3s-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65c0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92M18 4c.55 0 1 .45 1 1s-.45 1-1 1s-1-.45-1-1s.45-1 1-1M6 13c-.55 0-1-.45-1-1s.45-1 1-1s1 .45 1 1s-.45 1-1 1m12 7.02c-.55 0-1-.45-1-1s.45-1 1-1s1 .45 1 1s-.45 1-1 1"/></svg>
+                  <svg  viewBox="0 0 24 24"><path fill="currentColor" d="m9.5 16.5l7-4.5l-7-4.5zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg> 
                 </button>
               </li>
               <li style="--i: 1" class="circle-box circle-box-edit-playlist-name-of-the-user" title="Edit Playlist Name">

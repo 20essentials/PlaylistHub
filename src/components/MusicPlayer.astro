@@ -93,9 +93,9 @@
       setTimeout(() => {
         const infoSong = musicPlayer.getInfoSong();
         if (!infoSong) return;
-        if (localStorage.getItem('the-song-item-deletes-itself') === 'TRUE') {
+        if (localStorage.getItem('the-song-item-deletes-itself') === 'true') {
           musicPlayer.setCurrentSongIndex(-1);
-          localStorage.setItem('the-song-item-deletes-itself', 'FALSE');
+          localStorage.setItem('the-song-item-deletes-itself', 'false');
           return;
         }
 
@@ -111,14 +111,18 @@
   songPlaylist.addEventListener('click', ev => {
     const isClick = ev.detail === 1;
 
-    if (isClick || ev.target.classList.contains('cell-title')) {
+    if (
+      ev.target.matches('song-item') ||
+      ev.target.classList.contains('cell-title')
+    ) {
       const newSongs = [...document.querySelectorAll('song-item')].map(song =>
         song.getData()
       );
       musicPlayer.setSongs(newSongs);
-      const rowItem = ev
-        .composedPath()
-        .find(tag => tag.classList?.contains('row-item'));
+
+      if (ev.target.classList.contains('cell-title')) return;
+      const rowItem = ev.target.shadowRoot.querySelector('.row-item');
+
       if (!rowItem) return;
 
       let id = Number(rowItem.dataset?.id);
@@ -133,5 +137,29 @@
         musicPlayer.togglePlayPause(true);
       }
     }
+
+    // if (isClick || ev.target.classList.contains('cell-title')) {
+    //   // const newSongs = [...document.querySelectorAll('song-item')].map(song =>
+    //   //   song.getData()
+    //   // );
+    //   // musicPlayer.setSongs(newSongs);
+    //   // let rowItem = ev
+    //   //   .composedPath()
+    //   //   .find(tag => tag.classList?.contains('row-item'));
+    //   // if (!rowItem) return;
+    //   // console.log(rowItem);
+
+    //   let id = Number(rowItem.dataset?.id);
+    //   let newIndex = id;
+    //   if (musicPlayer.isShuffle) {
+    //     newIndex = musicPlayer.songList.findIndex(song => song.index === id);
+    //   }
+
+    //   if (rowItem) {
+    //     musicPlayer.prepare(newIndex);
+    //     musicPlayer.play();
+    //     musicPlayer.togglePlayPause(true);
+    //   }
+    // }
   });
 </script>
