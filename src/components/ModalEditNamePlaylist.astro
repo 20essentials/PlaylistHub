@@ -1,0 +1,368 @@
+<section class='modalEditNamePlaylist'>
+  <section class='container-edit-playlist'>
+    <aside class='edit-playlist-container'>
+      <article class='second-tab-edit'>
+        <div class='container-inputs-edit'>
+          <input
+            type='text'
+            id='editPlaylistInput'
+            placeholder='New Name of The Playlist...'
+            maxlength='20'
+            autocomplete='off'
+            translate='no'
+            spellcheck='false'
+          />
+          <span class='longitud-max-edit'><output>0</output>/20</span>
+        </div>
+        <div class='container-send-edit'>
+          <button class='btn-add-playlist-edit'>
+            <span class='back-edit'></span>
+            <span class='front-edit'></span>
+          </button>
+        </div>
+      </article>
+    </aside>
+  </section>
+</section>
+
+<style>
+  .modalEditNamePlaylist {
+    font-family: 'Open Sans';
+    position: absolute;
+    z-index: 70;
+    width: 100%;
+    height: calc(100vh - var(--player-height));
+    backdrop-filter: blur(0.9vmax);
+    background-color: #0003;
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    transform: scale(0);
+    transition: transform 0.1s ease;
+
+    &.modal-open {
+      transform: scale(1);
+    }
+
+    .container-edit-playlist {
+      min-width: 28vmax;
+      width: fit-content;
+      max-width: 32vmax;
+      min-height: 5vmax;
+      max-height: 86%;
+      background-color: #fff3;
+      border-radius: 1.7vmax;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5vmax;
+      overflow: hidden;
+      gap: 1vmax;
+
+      .edit-playlist-container {
+        border: 0.1vmax solid #0004;
+        border-radius: 0.8vmax;
+        backdrop-filter: blur(10vmax);
+        background-color: #222;
+
+        .second-tab-edit {
+          display: flex;
+          justify-content: center;
+          padding: 1vmax;
+          --validate-color: lime;
+          --invalid-color: #fb0404;
+          width: 100%;
+          margin-inline: auto;
+
+          .container-inputs-edit {
+            display: flex;
+            width: 70%;
+            position: relative;
+            padding-bottom: 1vmax;
+            transition: opacity 0.2s ease;
+
+            .longitud-max-edit {
+              position: absolute;
+              left: 78%;
+              font-size: 0.8vmax;
+              color: #fff8;
+              position: relative;
+              font-style: italic;
+              bottom: -1.8vmax;
+
+              &.valid {
+                color: var(--validate-color);
+              }
+
+              &.invalid {
+                color: var(--invalid-color);
+              }
+            }
+
+            #editPlaylistInput {
+              border: none;
+              outline: none;
+              font-family: Arial, Helvetica, sans-serif;
+              color: var(--validate-color);
+              font-weight: 600;
+
+              &[type='text'] {
+                width: 88%;
+                background-color: transparent;
+                height: 1.5vmax;
+                position: absolute;
+                top: 0%;
+                font-size: 1vmax;
+                border-bottom: 0.1vmax solid currentColor;
+                caret-color: currentColor;
+
+                &::placeholder {
+                  color: #fff8;
+                }
+
+                &.valid {
+                  color: var(--validate-color);
+                }
+
+                &.invalid {
+                  color: var(--invalid-color);
+                  border-bottom-color: var(--invalid-color);
+                }
+              }
+            }
+          }
+
+          .container-send-edit {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+
+            .btn-add-playlist-edit {
+              --primary: 255, 90, 120;
+              --secondary: 150, 50, 60;
+              --secondary2: rgb(128, 30, 40);
+              border: none;
+              outline: none;
+              cursor: pointer;
+              user-select: none;
+              touch-action: manipulation;
+              width: 3.9063vmax;
+              height: 3.2552vmax;
+              outline: 0.651vmax solid rgb(var(--primary), 0.5);
+              border-radius: 100%;
+              position: relative;
+              zoom: 0.7;
+
+              .back-edit {
+                background: var(--secondary2);
+                border-radius: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+              }
+
+              .front-edit {
+                background: linear-gradient(
+                  0deg,
+                  rgba(var(--primary), 0.6) 20%,
+                  rgba(var(--primary)) 50%
+                );
+                border-radius: 100%;
+                position: absolute;
+                box-shadow: 0 0.5208vmax 1.0417vmax -0.2083vmax rgba(var(--secondary), 0.5);
+                border: 0.0651vmax solid rgb(var(--secondary));
+                font-size: 1.25vmax;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 600;
+                font-family: inherit;
+                transform: translateY(-15%);
+                transition:
+                  transform 0.15s ease,
+                  box-shadow 0.15s ease;
+                color: rgb(var(--secondary));
+              }
+
+              &:active .front {
+                transform: translateY(0%);
+                box-shadow: 0 0;
+              }
+
+              &.to-bottom .front {
+                transform: translateY(0%);
+                box-shadow: 0 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  import { $, $$ } from '@/utils/functions';
+  import {
+    existsPlaylist,
+    getPlaylistAsArray,
+    createPlaylistElement,
+    createPlaylist,
+    convertInValidSlug,
+    deletePlaylistFromLs,
+    PREFIX_LS,
+    convertSlugToText,
+    obtenerElementoAleatorio
+  } from '@/utils/localStorage';
+  let regExP = /^(?![\s0-9\-_])[\w\s\-]{1,20}(?<![\-])$/;
+  const $longituMaxOfInput = $('.longitud-max-edit') as HTMLOutputElement;
+  const inputAddPlaylist = $('#editPlaylistInput') as HTMLInputElement;
+  let $output = $('.container-inputs-edit output') as HTMLOutputElement;
+  import playlist from '@/data/playlist.json';
+  const arrayOfColorsRandoms = playlist.map(el => el.color);
+
+  //new
+  import { actions } from 'astro:actions';
+
+  function closeModal() {
+    const $modal = $('.modalEditNamePlaylist') as HTMLElement;
+    if (!$modal) return;
+    $modal.classList.remove('modal-open');
+  }
+
+  async function renameNameOfPlaylist() {
+    const inputValor = inputAddPlaylist.value;
+    if (!inputAddPlaylist) return;
+    if (regExP.test(inputValor) && inputAddPlaylist.classList.contains('valid')) {
+      inputAddPlaylist.value = '';
+      $output.value = '0';
+
+      const newPlaylistToRename = localStorage?.getItem('newPlaylistToRename');
+      if (!newPlaylistToRename) return;
+      const newPlaylistToRenameArray = JSON.parse(newPlaylistToRename);
+      const { id_playlist, id_user, title } = newPlaylistToRenameArray;
+
+      const allPlaylistFromDB = localStorage.getItem('allPlaylistFromDB') ?? '[]';
+      const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+      const newPlaylistFromDbArray = allPlaylistFromDbArray.map((el: any) => {
+        if (el.id_playlist === id_playlist && el.id_user === id_user) {
+          return {
+            ...el,
+            title: inputValor
+          };
+        }
+        return el;
+      });
+
+      const lastPlaylistItemClicked = [...$$('.playlist-item')].find(
+        el => el.querySelector('.title')?.textContent === title
+      );
+      lastPlaylistItemClicked?.remove();
+
+      localStorage.setItem(
+        'allPlaylistFromDB',
+        JSON.stringify(newPlaylistFromDbArray)
+      );
+
+      //LocalStorageSingle
+      const slug = convertInValidSlug(title);
+      const arrayOfThePlaylist = getPlaylistAsArray(slug);
+      deletePlaylistFromLs(slug);
+      createPlaylist(inputValor, JSON.stringify(arrayOfThePlaylist));
+
+      const $tabActive = $('.sidb-active') as HTMLElement;
+      $tabActive.click();
+
+      //@ts-ignore
+
+      (async () => {
+        try {
+          const { data, error } = await actions.renamePlaylistName({
+            id_playlist,
+            id_user,
+            newNameOfPlaylist: inputValor
+          });
+          console.log('Rename exitoso');
+        } catch (err) {
+          console.error('Error inesperado:', err);
+        }
+      })();
+
+      setTimeout(() => {
+        closeModal();
+      }, 50);
+    }
+  }
+
+  document.addEventListener('click', async e => {
+    const target = e.target as HTMLElement;
+
+    if (
+      target.matches('.btn-add-playlist-edit') ||
+      target.matches('.btn-add-playlist-edit *')
+    ) {
+      renameNameOfPlaylist();
+      return;
+    }
+
+    if (target.matches('.modalEditNamePlaylist')) {
+      closeModal();
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    const { key } = e;
+    const target = e.target as HTMLInputElement;
+    if (target.matches('#editPlaylistInput')) {
+      if (key === 'Enter') {
+        renameNameOfPlaylist();
+        const buttonSubmit = $('.btn-add-playlist-edit') as HTMLButtonElement;
+        buttonSubmit.classList.toggle('to-bottom', true);
+
+        setTimeout(() => {
+          buttonSubmit.classList.remove('to-bottom');
+        }, 250);
+      }
+    }
+
+    if (key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('input', e => {
+    const target = e.target as HTMLInputElement;
+    if (target.matches('#editPlaylistInput')) {
+      $output.innerHTML = `${target.value.length}`;
+
+      if (target.value.length === 0) {
+        target.classList.remove('valid');
+        target.classList.remove('invalid');
+        $longituMaxOfInput.classList.remove('valid');
+        $longituMaxOfInput.classList.remove('invalid');
+        return;
+      }
+
+      if (
+        regExP.test(target.value) &&
+        !existsPlaylist(convertInValidSlug(target.value))
+      ) {
+        target.classList.remove('invalid');
+        target.classList.add('valid');
+        $longituMaxOfInput.classList.remove('invalid');
+        $longituMaxOfInput.classList.add('valid');
+      } else {
+        target.classList.remove('valid');
+        target.classList.add('invalid');
+        $longituMaxOfInput.classList.remove('valid');
+        $longituMaxOfInput.classList.add('invalid');
+      }
+    }
+  });
+</script>

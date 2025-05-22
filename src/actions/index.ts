@@ -312,5 +312,24 @@ export const server = {
         args: [id_playlist, id_user]
       });
     }
+  }),
+  renamePlaylistName: defineAction({
+    input: z.object({
+      id_playlist: z.string(),
+      id_user: z.string(),
+      newNameOfPlaylist: z.string()
+    }),
+    handler: async ({ id_playlist, id_user, newNameOfPlaylist }) => {
+      const result = await client.execute({
+        sql: `
+        UPDATE playlists
+        SET title = ?
+        WHERE id_playlist = ? AND id_user = ?
+      `,
+        args: [newNameOfPlaylist, id_playlist, id_user]
+      });
+
+      return result.rows;
+    }
   })
 };

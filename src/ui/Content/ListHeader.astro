@@ -774,7 +774,6 @@
               el =>
                 el.title !== titleOfThePlaylist || el.id_playlist !== id_playlist
             );
-            console.log(newAllPlaylistFromTheUser);
             localStorage.setItem(
               'allPlaylistFromDB',
               JSON.stringify(newAllPlaylistFromTheUser)
@@ -806,9 +805,31 @@
           if (firsPlay) {
             const numberElementOftheRow =
               firsPlay.shadowRoot.querySelector('.first-column-num');
-            console.log(numberElementOftheRow);
             firsPlay.click();
           }
+        }
+
+        if (
+          e.target.matches('.circle-box-edit-playlist-name-of-the-user') ||
+          e.target.matches('.circle-box-edit-playlist-name-of-the-user *')
+        ) {
+          const $modalEditNameOfPlaylist = document.querySelector(
+            '.modalEditNamePlaylist'
+          );
+          $modalEditNameOfPlaylist.classList.add('modal-open');
+          const titleOfThePlaylist = $('.texting-h1').textContent;
+          const arrayOfAllPlaylistFromUser =
+            getTheTheArrayAlreadyConvertedFromLS('allPlaylistFromDB');
+          const playlistToDelete = arrayOfAllPlaylistFromUser.find(
+            el => el.title === titleOfThePlaylist
+          );
+          const { id_playlist, id_user, title } = playlistToDelete;
+          
+          localStorage.setItem('newPlaylistToRename', JSON.stringify({
+            id_playlist,
+            id_user,
+            title
+          }))
         }
       });
     }
