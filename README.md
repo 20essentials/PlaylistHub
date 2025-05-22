@@ -18,7 +18,9 @@ Si eres desarrollador, algunas cosas interesantes que podrías ver en este proye
 - El uso del evento storage para sincronizar cambios entre pestañas cuando cambia el localStorage.
 - El uso de Custom Events para evitar, en algunas ocasiones, tener que usar estados globales o estar pensando en más de dos cosas a la vez.
 - El uso de la función RegExp.test() para validar un input.
+- El uso de las Actions de Astro para llamar a funciones desde el cliente y ejecutarlas en el Servidor
 - Y finalmente, el uso de vmax, mi unidad de medida favorita actualmente en CSS, que facilita bastante el diseño responsive.
+
 
 [![Foto Preview](https://20essentials.github.io/project-000-949/assets/cover2.png)](https://playlist-hub.vercel.app/)
 

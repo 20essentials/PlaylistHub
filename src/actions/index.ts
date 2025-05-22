@@ -290,5 +290,27 @@ export const server = {
         args: [inp.title, inp.artist, inp.id_playlist]
       });
     }
+  }),
+  deletePlaylistFromTheUser: defineAction({
+    input: z.object({
+      id_playlist: z.string(),
+      id_user: z.string()
+    }),
+    handler: async input => {
+      console.log(input);
+      const { id_playlist, id_user } = input;
+
+      // Primero borra las relaciones con canciones
+      await client.execute({
+        sql: 'DELETE FROM playlist_songs WHERE id_playlist = ?',
+        args: [id_playlist]
+      });
+
+      // Luego borra la playlist
+      const result = await client.execute({
+        sql: 'DELETE FROM playlists WHERE id_playlist = ? AND id_user = ?',
+        args: [id_playlist, id_user]
+      });
+    }
   })
 };

@@ -508,6 +508,13 @@ const userPlaylist: PlaylistObject[] = [
         return el;
       });
 
+      //MenuItem
+      const listHeader = $('list-header');
+      const menuItem =
+        listHeader?.shadowRoot?.querySelector('.menu-tooltip-user');
+      menuItem?.classList.toggle('menu-invisible', true);
+      /////
+
       setTimeout(() => {
         const lastIndex =
           localStorage.getItem('lastIndexOfPlaylistItemClicked') ?? '0';
@@ -533,6 +540,15 @@ const userPlaylist: PlaylistObject[] = [
       }
       $$('.sidb-active').forEach(el => el.classList.remove('sidb-active'));
       target.classList.add('sidb-active');
+
+      setTimeout(() => {
+        //MenuItem
+        const listHeader = $('list-header');
+        const menuItem =
+          listHeader?.shadowRoot?.querySelector('.menu-tooltip-user');
+        menuItem?.classList.toggle('menu-invisible', false);
+        /////
+      }, 10);
 
       let originalPlaylist_ = [...$sideBarPlaylist?.children];
       const lastElement = originalPlaylist_[originalPlaylist_.length - 1];

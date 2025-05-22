@@ -8,6 +8,11 @@ export function addSongInPlaylist(slugPlaylist, songObject) {
   createPlaylist(slugPlaylist, JSON.stringify(playlistArray));
 }
 
+export function getTheTheArrayAlreadyConvertedFromLS(key) {
+  const playlistString = localStorage.getItem(key) ?? '[]';
+  return JSON.parse(playlistString);
+}
+
 export const FAVORITE_SLUG = 'favorite-brands';
 export const convertInValidSlug = text =>
   text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
@@ -19,6 +24,11 @@ export const convertSlugToText = slug =>
 
 export function getPlaylistName(slug) {
   return `${PREFIX_LS}${slug}`;
+}
+
+export function deletePlaylistFromLs(slug) {
+  const playlistName = getPlaylistName(slug);
+  localStorage.removeItem(playlistName);
 }
 
 export function obtenerFechaActualISO() {

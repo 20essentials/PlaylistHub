@@ -1,6 +1,7 @@
 <aside class='servilleta servilleta1'></aside>
 <aside class='servilleta servilleta2'></aside>
 <aside class='servilleta servilleta3'></aside>
+<aside class='servilleta servilleta4'></aside>
 
 <script>
   import { actions } from 'astro:actions';
@@ -89,6 +90,25 @@
         }
       })();
     }
+    if (target.matches('.servilleta4')) {
+      const playlistToDelete = localStorage?.getItem('playlistToDelete') ?? '{}';
+      const playlistToDeleteObject = JSON.parse(playlistToDelete);
+      const { id_playlist, id_user } = playlistToDeleteObject;
+
+
+      (async () => {
+        try {
+          const { data, error } = await actions.deletePlaylistFromTheUser({
+            id_playlist,
+            id_user
+          });
+          console.log('Correctly Elimination of The Playlist');
+          console.log(data, error)
+        } catch (error) {
+          console.log(`Error deleting the playlist`);
+        }
+      })();
+    }
   });
 </script>
 
@@ -115,6 +135,12 @@
     &.servilleta3 {
       left: 60%;
       background-color: skyblue;
+    }
+
+    &.servilleta4 {
+      left: 70%;
+      background-color: springgreen;
+      opacity: 1;
     }
   }
 </style>

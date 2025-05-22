@@ -6,6 +6,11 @@ export function addSongInPlaylist(slugPlaylist, songObject) {
   createPlaylist(slugPlaylist, JSON.stringify(playlistArray));
 }
 
+export function getTheTheArrayAlreadyConvertedFromLS(key) {
+  const playlistString = localStorage.getItem(key) ?? '[]';
+  return JSON.parse(playlistString);
+}
+
 export const FAVORITE_SLUG = 'favorite-brands';
 export const convertInValidSlug = text =>
   text.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
@@ -30,6 +35,11 @@ export function obtenerFechaActualISO() {
 export function createPlaylist(slug, data) {
   const playlistName = getPlaylistName(slug);
   localStorage.setItem(playlistName, data);
+}
+
+export function deletePlaylistFromLs(slug) {
+  const playlistName = getPlaylistName(slug);
+  localStorage.removeItem(playlistName);
 }
 
 export function existsPlaylist(slug) {
@@ -115,4 +125,3 @@ export function obtenerElementoAleatorio(arr) {
   const indiceAleatorio = Math.floor(Math.random() * arr.length);
   return arr[indiceAleatorio];
 }
-

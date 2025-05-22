@@ -152,10 +152,23 @@ const columnsPlaylistsInVieport = user ? `8% 1fr 14% 10%` : '8% 1fr 14%';
     showPlaylisIcon();
   }, 600);
 
+      //MenuItem
+    const listHeader = $('list-header');
+    const menuItemUser =
+      listHeader?.shadowRoot?.querySelector('.menu-tooltip-user');
+    /////
+
   document.addEventListener('click', e => {
     const target = e.target as HTMLElement;
 
     if (target.matches('.playlist-item')) {
+
+      if (!menuItemUser?.classList.contains('menu-invisible')) {
+        //Signica que estamos en las playlists que solo el usuatio tiene
+        const isFavorites = target?.getAttribute('data-id') === 'favorite-brands';
+       menuItemUser?.classList.toggle('esconder-delete-playlist', isFavorites);
+      }
+      
       setTimeout(() => {
         showPlaylisIcon();
       }, 600);
