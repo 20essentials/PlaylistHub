@@ -268,5 +268,10 @@
     "title": "Wrestling Themes",
     "color": "#008000",
     "whatColorIs": "Green"
+  },
+  {
+    "title": "Baladas",
+    "color": "#ADFF2F",
+    "whatColorIs": "GreenYellow"
   }
 ]
