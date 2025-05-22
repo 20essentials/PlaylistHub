@@ -259,9 +259,14 @@
     "color": "#FFD700",
     "whatColorIs": "Gold"
   },
-    {
+  {
     "title": "Glam Rock",
     "color": "#808080",
     "whatColorIs": "Gray"
+  },
+  {
+    "title": "Wrestling Themes",
+    "color": "#008000",
+    "whatColorIs": "Green"
   }
 ]
