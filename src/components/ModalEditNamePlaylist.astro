@@ -278,8 +278,6 @@
       const $tabActive = $('.sidb-active') as HTMLElement;
       $tabActive.click();
 
-      //@ts-ignore
-
       (async () => {
         try {
           const { data, error } = await actions.renamePlaylistName({

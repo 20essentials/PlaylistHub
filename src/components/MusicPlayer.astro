@@ -109,7 +109,6 @@
 
   const songPlaylist = document.querySelector('.song.playlist');
   songPlaylist.addEventListener('click', ev => {
-    const isClick = ev.detail === 1;
 
     if (
       ev.target.matches('song-item') ||
@@ -138,28 +137,6 @@
       }
     }
 
-    // if (isClick || ev.target.classList.contains('cell-title')) {
-    //   // const newSongs = [...document.querySelectorAll('song-item')].map(song =>
-    //   //   song.getData()
-    //   // );
-    //   // musicPlayer.setSongs(newSongs);
-    //   // let rowItem = ev
-    //   //   .composedPath()
-    //   //   .find(tag => tag.classList?.contains('row-item'));
-    //   // if (!rowItem) return;
-    //   // console.log(rowItem);
-
-    //   let id = Number(rowItem.dataset?.id);
-    //   let newIndex = id;
-    //   if (musicPlayer.isShuffle) {
-    //     newIndex = musicPlayer.songList.findIndex(song => song.index === id);
-    //   }
-
-    //   if (rowItem) {
-    //     musicPlayer.prepare(newIndex);
-    //     musicPlayer.play();
-    //     musicPlayer.togglePlayPause(true);
-    //   }
-    // }
+    
   });
 </script>

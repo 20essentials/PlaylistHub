@@ -510,9 +510,15 @@ const userPlaylist: PlaylistObject[] = [
 
       //MenuItem
       const listHeader = $('list-header');
+      //User
       const menuItem =
         listHeader?.shadowRoot?.querySelector('.menu-tooltip-user');
       menuItem?.classList.toggle('menu-invisible', true);
+      //Global
+      const menuItemGlobal = listHeader?.shadowRoot?.querySelector(
+        '.menu-tooltip-global'
+      );
+      menuItemGlobal?.classList.toggle('menu-invisible', false);
       /////
 
       setTimeout(() => {
@@ -547,6 +553,12 @@ const userPlaylist: PlaylistObject[] = [
         const menuItem =
           listHeader?.shadowRoot?.querySelector('.menu-tooltip-user');
         menuItem?.classList.toggle('menu-invisible', false);
+        //Global
+        const menuItemGlobal = listHeader?.shadowRoot?.querySelector(
+          '.menu-tooltip-global'
+        );
+        menuItemGlobal?.classList.toggle('menu-invisible', true);
+        /////
         /////
       }, 10);
 
