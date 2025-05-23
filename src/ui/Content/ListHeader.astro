@@ -16,7 +16,34 @@
       this.currentIndex = 0;
 
       setTimeout(() => {
+        const params = new URLSearchParams(window.location.search);
+        const playlistSlug = params.get('playlist');
         const sidebarPlaylist = document.querySelector('.sidebarPlaylist');
+
+        if (playlistSlug) {
+          const targetItem = document.querySelector(
+            `.playlist-item[data-id="${playlistSlug}"]`
+          );
+          if (targetItem) {
+            document
+              .querySelectorAll('.playlist-item-active')
+              .forEach(el => el.classList.remove('playlist-item-active'));
+            targetItem.classList.add('playlist-item-active');
+            targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const index = [...sidebarPlaylist.children].indexOf(targetItem);
+            this.currentIndex = index;
+            targetItem.click();
+
+            setTimeout(() => {
+              const url = new URL(window.location);
+              url.searchParams.delete('playlist');
+              history.replaceState({}, null, url);
+            }, 3000);
+          }
+
+          return;
+        }
+
         const activeTabElement = document.querySelector(
           '.playlist-item.playlist-item-active'
         );
@@ -210,6 +237,12 @@
             opacity: 0;
             display: flex;
 
+            &:active {
+              .anchor {
+                opacity: 0.5;
+              }
+            }
+
 
             &:nth-of-type(1) .anchor  {
               box-shadow: inset 0.25vmax 0.25vmax 0.25vmax #0003, inset -0.25vmax -0.25vmax 0.375vmax #fff7, 0.375vmax 0.625vmax 0.5vmax #0001, 0.5vmax 0.375vmax 0.625vmax #0001;
@@ -264,6 +297,7 @@
               aspect-ratio: 1;
               background-color: transparent;
               padding: 0 !important;
+              transition: opacity .3s ease;
 
               svg {
                 width: 58%;
@@ -880,6 +914,28 @@
                 .classList.add('title-green');
             }
           }, 500);
+
+          return;
+        }
+
+        if (
+          e.target.matches('.circle-box-share-playlist-global') ||
+          e.target.matches('.circle-box-share-playlist-global *')
+        ) {
+          const titleOfPlaylist = document.querySelector(
+            '.playlist-item.playlist-item-active .title'
+          ).textContent;
+
+          if (!titleOfPlaylist) return;
+          const slugTile = convertInValidSlug(titleOfPlaylist);
+          console.log({ titleOfPlaylist, slugTile });
+
+          const params = new URLSearchParams(window.location.search);
+          params.set('playlist', slugTile);
+
+          const nuevaUrl = `${window.location.pathname}?${params.toString()}`;
+          window.history.pushState({}, '', nuevaUrl);
+          navigator.clipboard.writeText(window.location);
         }
       });
     }
