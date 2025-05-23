@@ -796,14 +796,15 @@
 
         if (
           e.target.matches('.circle-box-play-all-songs-of-the-user') ||
-          e.target.matches('.circle-box-play-all-songs-of-the-user *')
+          e.target.matches('.circle-box-play-all-songs-of-the-user *') ||
+          e.target.matches('.circle-box-play-all-songs-global') ||
+          e.target.matches('.circle-box-play-all-songs-global *')
         ) {
           const firsPlay = document.querySelector('song-item[index="0"]');
           if (firsPlay) {
-            const numberElementOftheRow =
-              firsPlay.shadowRoot.querySelector('.first-column-num');
             firsPlay.click();
           }
+          return;
         }
 
         if (
@@ -821,12 +822,64 @@
             el => el.title === titleOfThePlaylist
           );
           const { id_playlist, id_user, title } = playlistToDelete;
-          
-          localStorage.setItem('newPlaylistToRename', JSON.stringify({
-            id_playlist,
-            id_user,
-            title
-          }))
+
+          localStorage.setItem(
+            'newPlaylistToRename',
+            JSON.stringify({
+              id_playlist,
+              id_user,
+              title
+            })
+          );
+
+          return;
+        }
+
+        if (
+          e.target.matches('.circle-box-random-list-global') ||
+          e.target.matches('.circle-box-random-list-global *')
+        ) {
+          localStorage.setItem('sortRandomButtonPressed', 'TRUE');
+
+          const songItems = document.querySelectorAll('song-item');
+
+          const matchingElement = Array.from(songItems).find(item => {
+            const internal = item.shadowRoot.querySelector(
+              '.row-item.title-green'
+            );
+            return internal !== null;
+          });
+
+          const rowItem = matchingElement?.shadowRoot.querySelector('.row-item');
+
+          const shuffleButton = document.querySelector('.buttons .shuffle');
+          shuffleButton.click();
+
+          setTimeout(() => {
+            shuffleButton.click();
+
+            if (rowItem) {
+              const text = rowItem.querySelector('div.text.titulin').textContent;
+              const artist = rowItem.querySelector('div.artist.text').textContent;
+
+              const songItems = document.querySelectorAll('song-item');
+
+              const matchingElement = Array.from(songItems).find(item => {
+                const rowItem = item.shadowRoot.querySelector('.row-item');
+                const titulo_ =
+                  rowItem.querySelector('div.text.titulin').textContent;
+                const artist_ =
+                  rowItem.querySelector('div.artist.text').textContent;
+                return titulo_ === text && artist_ === artist;
+              });
+
+              if (!matchingElement) return;
+
+              matchingElement.shadowRoot
+                ?.querySelector('.row-item')
+                .classList.add('title-green');
+            }
+          }, 500);
         }
       });
     }

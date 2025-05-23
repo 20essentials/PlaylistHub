@@ -175,7 +175,8 @@ export class MusicPlayer {
         );
         const attributeIsFromUser =
           currentSidebarPlaylistItem?.getAttribute('data-from-user') ?? 'FALSE';
-        const PlaylistItemIsFromUser = attributeIsFromUser === 'TRUE' ? 'TRUE' : 'FALSE';
+        const PlaylistItemIsFromUser =
+          attributeIsFromUser === 'TRUE' ? 'TRUE' : 'FALSE';
 
         const attributeIsFavoritePlaylist =
           currentSidebarPlaylistItem?.getAttribute(
@@ -205,6 +206,54 @@ export class MusicPlayer {
     setTimeout(() => {
       if (this.isShuffle) {
         this.songList = shuffle(this.songList);
+
+        if (localStorage.getItem('sortRandomButtonPressed') === 'TRUE') {
+          (async () => {
+            const playlistName = this.musicList.currentId;
+            // const songs = await this.musicList.get(playlistName);
+            const { color, title, imgSrc } = getPlaylistInfo(playlistName);
+            await this.selectList(playlistName, title, color, imgSrc);
+            await this.updateList(this.songList);
+            localStorage.setItem('sortRandomButtonPressed', 'FALSE');
+            ///Agregado o quitado del icon Playlist
+            const $ = el => document.querySelector(el);
+            const headerDataClass = $('.header-data-items-class');
+            const existUser = headerDataClass.dataset.lastColumn;
+            const songItems = document.querySelectorAll('song-item');
+            songItems.forEach(el => {
+              const row = el.shadowRoot?.querySelector('.row-item');
+              const isFlex = el.getAttribute('displayValueOfLastIcon');
+              const playListIcon = row?.querySelector('.playlist-icon');
+              if (existUser === 'true' || isFlex === 'flex') {
+                playListIcon?.classList.remove('escondido');
+                return;
+              }
+
+              playListIcon?.classList.toggle('escondido', true);
+            });
+
+            //Agregar el ultijo rowItem
+
+            setTimeout(() => {
+              const songItems = document.querySelectorAll('song-item');
+
+              const matchingElement = Array.from(songItems).find(item => {
+                const internal = item.shadowRoot.querySelector(
+                  '.row-item.title-green'
+                );
+                return internal !== null;
+              });
+
+              const rowItem =
+                matchingElement?.shadowRoot.querySelector('.row-item');
+
+              if (!rowItem) return;
+
+              this.lastSongItemClicked =rowItem;
+            }, 400);
+          })();
+        }
+
         this.currentSongIndex = this.songList.findIndex(
           ({ index }) => index === this.currentSongIndex
         );
@@ -379,7 +428,7 @@ export class MusicPlayer {
   }
 
   setCurrentSongIndex(newSongIndex) {
-    this.currentSongIndex = newSongIndex
+    this.currentSongIndex = newSongIndex;
   }
 
   async nextList(forcePlay = true) {
