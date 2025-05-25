@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Can You Love Me?",
+    "artist": "Croixx",
+    "album": "Atom",
+    "date": "2029-04-01T00:00:00",
+    "duration": "02:24",
+    "urlSong": "https://20essentials.github.io/croixx-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/croixx-album/assets/n1.avif"
+  },
+  {
+    "title": "Summer Overture",
+    "artist": "Clint Mansell",
+    "album": "Atom",
+    "date": "2029-04-02T00:00:00",
+    "duration": "02:36",
+    "urlSong": "https://20essentials.github.io/clint-mansell-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/clint-mansell-band/assets/n2.avif"
+  },
+  {
+    "title": "End Of Empire",
+    "artist": "Arcade Fire",
+    "album": "Atom",
+    "date": "2029-04-03T00:00:00",
+    "duration": "05:23",
+    "urlSong": "https://20essentials.github.io/arcade-fire/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/arcade-fire/assets/n3.avif"
+  },
+  {
+    "title": "Transgender",
+    "artist": "Crystal Castles",
+    "album": "Atom",
+    "date": "2029-04-04T00:00:00",
+    "duration": "03:42",
+    "urlSong": "https://20essentials.github.io/crystal-castles-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/crystal-castles-band/assets/n4.avif"
+  },
+  {
+    "title": "Black Madonna",
+    "artist": "Cage The Elephant",
+    "album": "Atom",
+    "date": "2029-04-05T00:00:00",
+    "duration": "03:48",
+    "urlSong": "https://20essentials.github.io/cage-the-elephant-band/songs/n7.mp3",
+    "urlPoster": "https://20essentials.github.io/cage-the-elephant-band/assets/n4.avif"
+  },
+  {
+    "title": "Popcorn",
+    "artist": "Culture Code",
+    "album": "Atom",
+    "date": "2029-04-06T00:00:00",
+    "duration": "03:10",
+    "urlSong": "https://20essentials.github.io/culture-code-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-code-album/assets/n3.avif"
+  },
+  {
+    "title": "Bow Down",
+    "artist": "Chvrches",
+    "album": "Atom",
+    "date": "2029-04-07T00:00:00",
+    "duration": "04:38",
+    "urlSong": "https://20essentials.github.io/chvrches-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/chvrches-band/assets/n4.avif"
+  },
+  {
+    "title": "Cybernetic",
+    "artist": "Craspore",
+    "album": "Atom",
+    "date": "2029-04-08T00:00:00",
+    "duration": "04:45",
+    "urlSong": "https://20essentials.github.io/craspore-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/craspore-album/assets/n3.avif"
+  },
+  {
+    "title": "Party",
+    "artist": "Clint Mansell",
+    "album": "Atom",
+    "date": "2029-04-09T00:00:00",
+    "duration": "00:28",
+    "urlSong": "https://20essentials.github.io/clint-mansell-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/clint-mansell-band/assets/n3.avif"
+  },
+  {
+    "title": "Stay Ugly",
+    "artist": "Crimes",
+    "album": "Atom",
+    "date": "2029-04-10T00:00:00",
+    "duration": "02:45",
+    "urlSong": "https://20essentials.github.io/crimes-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/crimes-band/assets/n3.avif"
+  },
+  {
+    "title": "Apocalypsie",
+    "artist": "Cigarretes After Sex",
+    "album": "Atom",
+    "date": "2029-04-11T00:00:00",
+    "duration": "04:45",
+    "urlSong": "https://20essentials.github.io/cigarretes-after-sex-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/cigarretes-after-sex-band/assets/n1.avif"
+  },
+  {
+    "title": "Quieres Ser Mi Amante",
+    "artist": "Camilo Sesto",
+    "album": "Atom",
+    "date": "2029-04-12T00:00:00",
+    "duration": "04:06",
+    "urlSong": "https://20essentials.github.io/camilo-sesto-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/camilo-sesto-album/assets/n3.avif"
+  },
+  {
+    "title": "Mr. Blue Sky",
+    "artist": "Electric Light Orchestra",
+    "album": "Atom",
+    "date": "2029-04-13T00:00:00",
+    "duration": "04:54",
+    "urlSong": "https://20essentials.github.io/elo-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/elo-album/assets/n1.avif"
+  },
+  {
+    "title": "Saca Las Manos",
+    "artist": "Eva Ayllón",
+    "album": "Atom",
+    "date": "2029-04-14T00:00:00",
+    "duration": "04:01",
+    "urlSong": "https://20essentials.github.io/eva-ayllon-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/eva-ayllon-album/assets/n3.avif"
+  },
+  {
+    "title": "El Loco De La Calle",
+    "artist": "El Último De La Fila",
+    "album": "Atom",
+    "date": "2029-04-15T00:00:00",
+    "duration": "04:17",
+    "urlSong": "https://20essentials.github.io/el-ultimo-de-la-fila-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/el-ultimo-de-la-fila-band/assets/n1.avif"
+  },
+  {
+    "title": "Shape Of You",
+    "artist": "Ed Sheeran",
+    "album": "Atom",
+    "date": "2029-04-16T00:00:00",
+    "duration": "03:18",
+    "urlSong": "https://20essentials.github.io/ed-sheeran-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/ed-sheeran-album/assets/n1.avif"
+  },
+  {
+    "title": "Return To Innocence",
+    "artist": "Enigma",
+    "album": "Atom",
+    "date": "2029-04-17T00:00:00",
+    "duration": "04:15",
+    "urlSong": "https://20essentials.github.io/enigma-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/enigma-band/assets/n1.avif"
+  },
+  {
+    "title": "Bring Me To Life",
+    "artist": "Evanescence",
+    "album": "Atom",
+    "date": "2029-04-18T00:00:00",
+    "duration": "04:40",
+    "urlSong": "https://20essentials.github.io/evanescence-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/evanescence-album/assets/n1.avif"
+  },
+  {
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "album": "Atom",
+    "date": "2029-04-19T00:00:00",
+    "duration": "06:31",
+    "urlSong": "https://20essentials.github.io/eagles-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/eagles-album/assets/n1.avif"
+  },
+  {
+    "title": "Your Song",
+    "artist": "Earth",
+    "album": "Atom",
+    "date": "2029-04-20T00:00:00",
+    "duration": "04:13",
+    "urlSong": "https://20essentials.github.io/earth-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-band/assets/n1.avif"
+  }
+]

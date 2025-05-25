@@ -273,5 +273,10 @@
     "title": "Baladas",
     "color": "#ADFF2F",
     "whatColorIs": "GreenYellow"
+  },
+  {
+    "title": "Urban Music",
+    "color": "#F0FFF0",
+    "whatColorIs": "HoneyDew"
   }
 ]

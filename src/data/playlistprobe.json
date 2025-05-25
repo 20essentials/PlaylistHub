@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Progressive Pop",
+    "color": "#9708ef",
+    "whatColorIs": "Purple Clear"
+  },
+  {
+    "title": "Alternative",
+    "color": "#5F9EA0",
+    "whatColorIs": "Cadetblue"
+  },
+  {
+    "title": "Ambient",
+    "color": "#9932CC",
+    "whatColorIs": "DarkOrchid"
+  },
+  {
+    "title": "Electronic",
+    "color": "#08d437",
+    "whatColorIs": "Clear Green"
+  },
+  {
+    "title": "Urban Music",
+    "color": "#F0FFF0",
+    "whatColorIs": "HoneyDew"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Hey Dj",
+    "artist": "CNCO",
+    "album": "Urban Music",
+    "date": "2029-03-01T00:00:00",
+    "duration": "03:26",
+    "urlSong": "https://20essentials.github.io/cnco-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/cnco-band/assets/n2.avif"
+  },
+  {
+    "title": "Gyal You A Party Animal",
+    "artist": "Charly Black",
+    "album": "Urban Music",
+    "date": "2029-03-02T00:00:00",
+    "duration": "03:34",
+    "urlSong": "https://20essentials.github.io/charly-black-ost/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/charly-black-ost/assets/n1.avif"
+  },
+  {
+    "title": "Se Acabó",
+    "artist": "Chino Y Nacho",
+    "album": "Urban Music",
+    "date": "2029-03-03T00:00:00",
+    "duration": "03:34",
+    "urlSong": "https://20essentials.github.io/chino-y-nacho-duo/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/chino-y-nacho-duo/assets/n4.avif"
+  },
+  {
+    "title": "Echame La Culpa",
+    "artist": "Luis Fonsi",
+    "album": "Urban Music",
+    "date": "2029-03-04T00:00:00",
+    "duration": "03:08",
+    "urlSong": "https://20essentials.github.io/luis-fonsi-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/luis-fonsi-album/assets/n2.avif"
+  },
+  {
+    "title": "El Amante",
+    "artist": "Nicky Jam",
+    "album": "Urban Music",
+    "date": "2029-03-05T00:00:00",
+    "duration": "03:27",
+    "urlSong": "https://20essentials.github.io/nicky-jam-soundtrack/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/nicky-jam-soundtrack/assets/n3.avif"
+  },
+  {
+    "title": "Tan Fácil",
+    "artist": "CNCO",
+    "album": "Urban Music",
+    "date": "2029-03-06T00:00:00",
+    "duration": "03:33",
+    "urlSong": "https://20essentials.github.io/cnco-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/cnco-band/assets/n3.avif"
+  },
+  {
+    "title": "Solo mia",
+    "artist": "Camilo Sesto",
+    "album": "Urban Music",
+    "date": "2029-03-07T00:00:00",
+    "duration": "04:22",
+    "urlSong": "https://20essentials.github.io/camilo-sesto-album/songs/n15.mp3",
+    "urlPoster": "https://20essentials.github.io/camilo-sesto-album/assets/n1.avif"
+  },
+  {
+    "title": "Propuesta Indecente",
+    "artist": "Romeo Santos",
+    "album": "Urban Music",
+    "date": "2029-03-08T00:00:00",
+    "duration": "03:55",
+    "urlSong": "https://20essentials.github.io/romeo-santos-ost/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/romeo-santos-ost/assets/n1.avif"
+  },
+  {
+    "title": "Ese Hombre Soy Yo",
+    "artist": "Alex Bueno",
+    "album": "Urban Music",
+    "date": "2029-03-09T00:00:00",
+    "duration": "04:00",
+    "urlSong": "https://20essentials.github.io/alex-bueno-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/alex-bueno-album/assets/n4.avif"
+  },
+  {
+    "title": "Darte Un Beso",
+    "artist": "Prince Royce",
+    "album": "Urban Music",
+    "date": "2029-03-10T00:00:00",
+    "duration": "04:26",
+    "urlSong": "https://20essentials.github.io/prince-royce-ost/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/prince-royce-ost/assets/n2.avif"
+  },
+  {
+    "title": "Three Little Birds",
+    "artist": "Bob Marley",
+    "album": "Urban Music",
+    "date": "2029-03-11T00:00:00",
+    "duration": "03:01",
+    "urlSong": "https://20essentials.github.io/bob-marley-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/bob-marley-album/assets/n1.avif"
+  },
+  {
+    "title": "Pose",
+    "artist": "Daddy Yankee",
+    "album": "Urban Music",
+    "date": "2029-03-12T00:00:00",
+    "duration": "03:37",
+    "urlSong": "https://20essentials.github.io/daddy-yankee-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/daddy-yankee-band/assets/n1.avif"
+  },
+  {
+    "title": "Perdoname",
+    "artist": "Deorro",
+    "album": "Urban Music",
+    "date": "2029-03-13T00:00:00",
+    "duration": "04:23",
+    "urlSong": "https://20essentials.github.io/deorro-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/deorro-band/assets/n2.avif"
+  },
+  {
+    "title": "Andas En Mi Cabeza",
+    "artist": "Chino Y Nacho",
+    "album": "Urban Music",
+    "date": "2029-03-14T00:00:00",
+    "duration": "04:07",
+    "urlSong": "https://20essentials.github.io/chino-y-nacho-duo/songs/n13.mp3",
+    "urlPoster": "https://20essentials.github.io/chino-y-nacho-duo/assets/n1.avif"
+  },
+  {
+    "title": "Mal Paso",
+    "artist": "Eva Ayllón",
+    "album": "Urban Music",
+    "date": "2029-03-15T00:00:00",
+    "duration": "03:45",
+    "urlSong": "https://20essentials.github.io/eva-ayllon-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/eva-ayllon-album/assets/n2.avif"
+  },
+  {
+    "title": "Bailando",
+    "artist": "Enrique Iglesias",
+    "album": "Urban Music",
+    "date": "2029-03-16T00:00:00",
+    "duration": "04:02",
+    "urlSong": "https://20essentials.github.io/enrique-iglesias-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/enrique-iglesias-album/assets/n1.avif"
+  },
+  {
+    "title": "Una Vaina Loca",
+    "artist": "Fuego",
+    "album": "Urban Music",
+    "date": "2029-03-17T00:00:00",
+    "duration": "03:08",
+    "urlSong": "https://20essentials.github.io/fuego-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/fuego-album/assets/n1.avif"
+  },
+  {
+    "title": "Llamado De Emergencia",
+    "artist": "Daddy Yankee",
+    "album": "Urban Music",
+    "date": "2029-03-18T00:00:00",
+    "duration": "03:59",
+    "urlSong": "https://20essentials.github.io/daddy-yankee-band/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/daddy-yankee-band/assets/n3.avif"
+  },
+  {
+    "title": "Hasta El Amanecer",
+    "artist": "Nicky Jam",
+    "album": "Urban Music",
+    "date": "2029-03-19T00:00:00",
+    "duration": "03:17",
+    "urlSong": "https://20essentials.github.io/nicky-jam-soundtrack/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/nicky-jam-soundtrack/assets/n4.avif"
+  },
+  {
+    "title": "Imitadora",
+    "artist": "Romeo Santos",
+    "album": "Urban Music",
+    "date": "2029-03-20T00:00:00",
+    "duration": "03:53",
+    "urlSong": "https://20essentials.github.io/romeo-santos-ost/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/romeo-santos-ost/assets/n3.avif"
+  }
+]
