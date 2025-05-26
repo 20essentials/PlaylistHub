@@ -124,6 +124,16 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
         position: relative;
         scale: 1.05;
 
+        @media (width <= 1111px) {
+          pointer-events: none;
+
+          &.openLogin {
+            img {
+              display: none;
+            }
+          }
+        }
+
         &::after {
           content: '';
           position: absolute;
@@ -151,6 +161,13 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
           transition: all 0.33s ease;
           mix-blend-mode: color-dodge;
           opacity: 0.8;
+
+          @media (width <= 1111px) {
+            background-image: url('/assets/favicon.webp');
+            background-size: 80%;
+            opacity: 1;
+            mix-blend-mode: normal;
+          }
         }
       }
 
@@ -175,10 +192,14 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
     </button>
 
     <SignedIn>
-      <button class='profile profile-open-manage-and-logout' style="--bg: url('/assets/v1.gif')">
+      <button
+        class='profile profile-open-manage-and-logout'
+        style="--bg: url('/assets/v1.gif')"
+      >
         <UserButton />
       </button>
     </SignedIn>
+
     <SignedOut>
       <button class='profile openLogin' style="--bg: url('/assets/v1.gif')">
         <img src='/assets/profile1.png' alt='profile' />
