@@ -283,5 +283,10 @@
     "title": "Atom",
     "color": "#FF69B4",
     "whatColorIs": "HotPink"
+  },
+  {
+    "title": "Rainglow",
+    "color": "#CD5C5C",
+    "whatColorIs": "IndianRed"
   }
 ]

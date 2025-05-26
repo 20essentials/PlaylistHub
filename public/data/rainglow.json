@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Make Me Love",
+    "artist": "Culture Code",
+    "album": "Rainglow",
+    "date": "2029-05-01T00:00:00",
+    "duration": "03:16",
+    "urlSong": "https://20essentials.github.io/culture-code-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-code-album/assets/n1.avif"
+  },
+  { 
+    "title": "Get Out",
+    "artist": "Chvrches",
+    "album": "Rainglow",
+    "date": "2029-05-02T00:00:00",
+    "duration": "03:52",
+    "urlSong": "https://20essentials.github.io/chvrches-band/songs/n12.mp3",
+    "urlPoster": "https://20essentials.github.io/chvrches-band/assets/n4.avif"
+  },
+  {
+    "title": "History Of Us",
+    "artist": "Earth",
+    "album": "Rainglow",
+    "date": "2029-05-03T00:00:00",
+    "duration": "04:13",
+    "urlSong": "https://20essentials.github.io/earth-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-band/assets/n4.avif"
+  },
+  {
+    "title": "Fly Again",
+    "artist": "Cadmium",
+    "album": "Rainglow",
+    "date": "2029-05-04T00:00:00",
+    "duration": "03:39",
+    "urlSong": "https://20essentials.github.io/cadmium-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/cadmium-band/assets/n4.avif"
+  },
+  {
+    "title": "Future Days",
+    "artist": "Can",
+    "album": "Rainglow",
+    "date": "2029-05-05T00:00:00",
+    "duration": "09:29",
+    "urlSong": "https://20essentials.github.io/can-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/can-band/assets/n2.avif"
+  },
+  {
+    "title": "Vivir Así Es Morir De Amor",
+    "artist": "Camilo Sesto",
+    "album": "Rainglow",
+    "date": "2029-05-06T00:00:00",
+    "duration": "03:38",
+    "urlSong": "https://20essentials.github.io/camilo-sesto-album/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/camilo-sesto-album/assets/n1.avif"
+  },
+  {
+    "title": "Suffocation (Slowed)",
+    "artist": "Crystal Castles",
+    "album": "Rainglow",
+    "date": "2029-05-07T00:00:00",
+    "duration": "05:15",
+    "urlSong": "https://20essentials.github.io/crystal-castles-band/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/crystal-castles-band/assets/n4.avif"
+  },
+  {
+    "title": "A Long December",
+    "artist": "Counting Crows",
+    "album": "Rainglow",
+    "date": "2029-05-08T00:00:00",
+    "duration": "04:54",
+    "urlSong": "https://20essentials.github.io/counting-crows-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/counting-crows-band/assets/n1.avif"
+  },
+  {
+    "title": "Euphorion",
+    "artist": "Clovis Reyes",
+    "album": "Rainglow",
+    "date": "2029-05-09T00:00:00",
+    "duration": "03:59",
+    "urlSong": "https://20essentials.github.io/clovis-reyes-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/clovis-reyes-album/assets/n1.avif"
+  },
+  {
+    "title": "Runaway",
+    "artist": "Cher",
+    "album": "Rainglow",
+    "date": "2029-05-10T00:00:00",
+    "duration": "04:46",
+    "urlSong": "https://20essentials.github.io/cher-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/cher-album/assets/n1.avif"
+  },
+  {
+    "title": "Five Hours 7 Levels",
+    "artist": "Deorro",
+    "album": "Rainglow",
+    "date": "2029-05-11T00:00:00",
+    "duration": "03:31",
+    "urlSong": "https://20essentials.github.io/deorro-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/deorro-band/assets/n3.avif"
+  },
+  {
+    "title": "Miserable Man",
+    "artist": "David Kushner",
+    "album": "Rainglow",
+    "date": "2029-05-12T00:00:00",
+    "duration": "03:43",
+    "urlSong": "https://20essentials.github.io/david-kushner-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/david-kushner-album/assets/n1.avif"
+  },
+  {
+    "title": "Chandle In The Wind",
+    "artist": "Elton John",
+    "album": "Rainglow",
+    "date": "2029-05-13T00:00:00",
+    "duration": "03:03",
+    "urlSong": "https://20essentials.github.io/elton-john-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/elton-john-album/assets/n1.avif"
+  },
+  {
+    "title": "Perfect",
+    "artist": "Ed Sheeran",
+    "album": "Rainglow",
+    "date": "2029-05-14T00:00:00",
+    "duration": "03:55",
+    "urlSong": "https://20essentials.github.io/ed-sheeran-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/ed-sheeran-album/assets/n4.avif"
+  },
+  {
+    "title": "Chains Of Love",
+    "artist": "Erasure",
+    "album": "Rainglow",
+    "date": "2029-05-15T00:00:00",
+    "duration": "03:43",
+    "urlSong": "https://20essentials.github.io/erasure-album/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/erasure-album/assets/n3.avif"
+  },
+  {
+    "title": "Who's That Girl",
+    "artist": "Eurythmics",
+    "album": "Rainglow",
+    "date": "2029-05-16T00:00:00",
+    "duration": "03:46",
+    "urlSong": "https://20essentials.github.io/eurythmics-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/eurythmics-album/assets/n1.avif"
+  },
+  {
+    "title": "Advent One-Winged",
+    "artist": "Final Fantasy VII",
+    "album": "Rainglow",
+    "date": "2029-05-17T00:00:00",
+    "duration": "06:59",
+    "urlSong": "https://20essentials.github.io/final-fantasy-7-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/final-fantasy-7-album/assets/n3.avif"
+  },
+  {
+    "title": "Outta Love",
+    "artist": "Fool's Garden",
+    "album": "Rainglow",
+    "date": "2029-05-18T00:00:00",
+    "duration": "03:29",
+    "urlSong": "https://20essentials.github.io/fools-garden-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/fools-garden-album/assets/n1.avif"
+  },
+  {
+    "title": "Apparition",
+    "artist": "Forhill",
+    "album": "Rainglow",
+    "date": "2029-05-19T00:00:00",
+    "duration": "04:40",
+    "urlSong": "https://20essentials.github.io/forhill-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/forhill-band/assets/n4.avif"
+  },
+  {
+    "title": "Crying In The Rain",
+    "artist": "Culture Beat",
+    "album": "Rainglow",
+    "date": "2029-05-20T00:00:00",
+    "duration": "03:56",
+    "urlSong": "https://20essentials.github.io/culture-beat-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-beat-band/assets/n2.avif"
+  }
+]
