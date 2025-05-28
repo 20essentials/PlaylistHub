@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Silent Warrior",
+    "artist": "Enigma",
+    "album": "Andromeda",
+    "date": "2029-06-01T00:00:00",
+    "duration": "06:09",
+    "urlSong": "https://20essentials.github.io/enigma-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/enigma-band/assets/n3.avif"
+  },
+  {
+    "title": "Arrival",
+    "artist": "Fantom 87",
+    "album": "Andromeda",
+    "date": "2029-06-02T00:00:00",
+    "duration": "05:09",
+    "urlSong": "https://20essentials.github.io/fantom-87-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/fantom-87-album/assets/n1.avif"
+  },
+  {
+    "title": "Telephone Line",
+    "artist": "Electric Light Orchestra",
+    "album": "Andromeda",
+    "date": "2029-06-03T00:00:00",
+    "duration": "04:54",
+    "urlSong": "https://20essentials.github.io/elo-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/elo-album/assets/n3.avif"
+  },
+  {
+    "title": "Unconditional",
+    "artist": "Arcade Fire",
+    "album": "Andromeda",
+    "date": "2029-06-04T00:00:00",
+    "duration": "04:56",
+    "urlSong": "https://20essentials.github.io/arcade-fire/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/arcade-fire/assets/n1.avif"
+  },
+  {
+    "title": "Never Let Go",
+    "artist": "Culture Code",
+    "album": "Andromeda",
+    "date": "2029-06-05T00:00:00",
+    "duration": "03:20",
+    "urlSong": "https://20essentials.github.io/culture-code-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-code-album/assets/n4.avif"
+  },
+  {
+    "title": "Crime Wave",
+    "artist": "Crystal Castles",
+    "album": "Andromeda",
+    "date": "2029-06-06T00:00:00",
+    "duration": "04:18",
+    "urlSong": "https://20essentials.github.io/crystal-castles-band/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/crystal-castles-band/assets/n2.avif"
+  },
+  {
+    "title": "Clearest Blue",
+    "artist": "Chvrches",
+    "album": "Andromeda",
+    "date": "2029-06-07T00:00:00",
+    "duration": "03:54",
+    "urlSong": "https://20essentials.github.io/chvrches-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/chvrches-band/assets/n3.avif"
+  },
+  {
+    "title": "Chocolate Charms",
+    "artist": "Clint Mansell",
+    "album": "Andromeda",
+    "date": "2029-06-08T00:00:00",
+    "duration": "00:25",
+    "urlSong": "https://20essentials.github.io/clint-mansell-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/clint-mansell-band/assets/n1.avif"
+  },
+  {
+    "title": "Mulita",
+    "artist": "Crimes",
+    "album": "Andromeda",
+    "date": "2029-06-09T00:00:00",
+    "duration": "03:33",
+    "urlSong": "https://20essentials.github.io/crimes-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/crimes-band/assets/n1.avif"
+  },
+  {
+    "title": "Cry",
+    "artist": "Cigarretes After Sex",
+    "album": "Andromeda",
+    "date": "2029-06-10T00:00:00",
+    "duration": "04:16",
+    "urlSong": "https://20essentials.github.io/cigarretes-after-sex-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/cigarretes-after-sex-band/assets/n3.avif"
+  },
+  {
+    "title": "Taxi",
+    "artist": "Cher",
+    "album": "Andromeda",
+    "date": "2029-06-11T00:00:00",
+    "duration": "05:04",
+    "urlSong": "https://20essentials.github.io/cher-album/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/cher-album/assets/n2.avif"
+  },
+  {
+    "title": "Dead To U",
+    "artist": "Croixx",
+    "album": "Andromeda",
+    "date": "2029-06-12T00:00:00",
+    "duration": "02:16",
+    "urlSong": "https://20essentials.github.io/croixx-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/croixx-album/assets/n3.avif"
+  },
+  {
+    "title": "Dead",
+    "artist": "David Kushner",
+    "album": "Andromeda",
+    "date": "2029-06-13T00:00:00",
+    "duration": "04:42",
+    "urlSong": "https://20essentials.github.io/david-kushner-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/david-kushner-album/assets/n2.avif"
+  },
+  {
+    "title": "Lithium",
+    "artist": "Evanescence",
+    "album": "Andromeda",
+    "date": "2029-06-14T00:00:00",
+    "duration": "03:57",
+    "urlSong": "https://20essentials.github.io/evanescence-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/evanescence-album/assets/n3.avif"
+  },
+  {
+    "title": "Tadow",
+    "artist": "Fkj",
+    "album": "Andromeda",
+    "date": "2029-06-15T00:00:00",
+    "duration": "08:06",
+    "urlSong": "https://20essentials.github.io/fkj/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/fkj/assets/n3.avif"
+  },
+  {
+    "title": "Dreams",
+    "artist": "Fleetwood Mac",
+    "album": "Andromeda",
+    "date": "2029-06-16T00:00:00",
+    "duration": "04:17",
+    "urlSong": "https://20essentials.github.io/fleetwood-mac-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/fleetwood-mac-album/assets/n3.avif"
+  },
+  {
+    "title": "Pop That",
+    "artist": "French Montana",
+    "album": "Andromeda",
+    "date": "2029-06-17T00:00:00",
+    "duration": "05:04",
+    "urlSong": "https://20essentials.github.io/french-montana-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/french-montana-album/assets/n2.avif"
+  },
+  {
+    "title": "Outlines",
+    "artist": "Forhill",
+    "album": "Andromeda",
+    "date": "2029-06-18T00:00:00",
+    "duration": "03:26",
+    "urlSong": "https://20essentials.github.io/forhill-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/forhill-band/assets/n1.avif"
+  },
+  {
+    "title": "Ob 14 Theme",
+    "artist": "Free Fire",
+    "album": "Andromeda",
+    "date": "2029-06-19T00:00:00",
+    "duration": "03:14",
+    "urlSong": "https://20essentials.github.io/free-fire-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/free-fire-album/assets/n4.avif"
+  },
+  {
+    "title": "Down Side Of Me",
+    "artist": "Chvrches",
+    "album": "Andromeda",
+    "date": "2029-06-20T00:00:00",
+    "duration": "05:09",
+    "urlSong": "https://20essentials.github.io/chvrches-band/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/chvrches-band/assets/n2.avif"
+  }
+]

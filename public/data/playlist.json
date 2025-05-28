@@ -288,5 +288,10 @@
     "title": "Rainglow",
     "color": "#CD5C5C",
     "whatColorIs": "IndianRed"
+  },
+  {
+    "title": "Andromeda",
+    "color": "#821bce",
+    "whatColorIs": "Indigo"
   }
 ]
