@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Mr. Vain",
+    "artist": "Culture Beat",
+    "album": "Cobalt",
+    "date": "2029-07-01T00:00:00",
+    "duration": "04:17",
+    "urlSong": "https://20essentials.github.io/culture-beat-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-beat-band/assets/n1.avif"
+  },
+  {
+    "title": "Melody",
+    "artist": "Cadmium",
+    "album": "Cobalt",
+    "date": "2029-07-02T00:00:00",
+    "duration": "03:40",
+    "urlSong": "https://20essentials.github.io/cadmium-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/cadmium-band/assets/n1.avif"
+  },
+  {
+    "title": "Perdoname Mashup",
+    "artist": "Deorro",
+    "album": "Cobalt",
+    "date": "2029-07-03T00:00:00",
+    "duration": "03:39",
+    "urlSong": "https://20essentials.github.io/deorro-band/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/deorro-band/assets/n2.avif"
+  },
+  {
+    "title": "Mr. Forgettable",
+    "artist": "David Kushner",
+    "album": "Cobalt",
+    "date": "2029-07-04T00:00:00",
+    "duration": "03:07",
+    "urlSong": "https://20essentials.github.io/david-kushner-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/david-kushner-album/assets/n4.avif"
+  },
+  {
+    "title": "Empathy",
+    "artist": "Crystal Castles",
+    "album": "Cobalt",
+    "date": "2029-07-05T00:00:00",
+    "duration": "04:11",
+    "urlSong": "https://20essentials.github.io/crystal-castles-band/songs/n7.mp3",
+    "urlPoster": "https://20essentials.github.io/crystal-castles-band/assets/n2.avif"
+  },
+  {
+    "title": "Feel Again",
+    "artist": "Culture Code",
+    "album": "Cobalt",
+    "date": "2029-07-06T00:00:00",
+    "duration": "03:53",
+    "urlSong": "https://20essentials.github.io/culture-code-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-code-album/assets/n3.avif"
+  },
+  {
+    "title": "Leave A Trace",
+    "artist": "Chvrches",
+    "album": "Cobalt",
+    "date": "2029-07-07T00:00:00",
+    "duration": "03:57",
+    "urlSong": "https://20essentials.github.io/chvrches-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/chvrches-band/assets/n2.avif"
+  },
+  {
+    "title": "Heavenly",
+    "artist": "Cigarretes After Sex",
+    "album": "Cobalt",
+    "date": "2029-07-08T00:00:00",
+    "duration": "04:46",
+    "urlSong": "https://20essentials.github.io/cigarretes-after-sex-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/cigarretes-after-sex-band/assets/n4.avif"
+  },
+  {
+    "title": "Rain",
+    "artist": "Croixx",
+    "album": "Cobalt",
+    "date": "2029-07-09T00:00:00",
+    "duration": "01:46",
+    "urlSong": "https://20essentials.github.io/croixx-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/croixx-album/assets/n4.avif"
+  },
+  {
+    "title": "Strange Magic",
+    "artist": "Electric Light Orchestra",
+    "album": "Cobalt",
+    "date": "2029-07-10T00:00:00",
+    "duration": "04:07",
+    "urlSong": "https://20essentials.github.io/elo-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/elo-album/assets/n4.avif"
+  },
+  {
+    "title": "Out From The Deep",
+    "artist": "Enigma",
+    "album": "Cobalt",
+    "date": "2029-07-11T00:00:00",
+    "duration": "04:53",
+    "urlSong": "https://20essentials.github.io/enigma-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/enigma-band/assets/n4.avif"
+  },
+  {
+    "title": "Sometimes",
+    "artist": "Erasure",
+    "album": "Cobalt",
+    "date": "2029-07-12T00:00:00",
+    "duration": "03:46",
+    "urlSong": "https://20essentials.github.io/erasure-album/songs/n8.mp3",
+    "urlPoster": "https://20essentials.github.io/erasure-album/assets/n4.avif"
+  },
+  {
+    "title": "Going Under",
+    "artist": "Evanescence",
+    "album": "Cobalt",
+    "date": "2029-07-13T00:00:00",
+    "duration": "03:34",
+    "urlSong": "https://20essentials.github.io/evanescence-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/evanescence-album/assets/n4.avif"
+  },
+  {
+    "title": "Up In Arms",
+    "artist": "Chvrches",
+    "album": "Cobalt",
+    "date": "2029-07-14T00:00:00",
+    "duration": "05:08",
+    "urlSong": "https://20essentials.github.io/chvrches-band/songs/n9.mp3",
+    "urlPoster": "https://20essentials.github.io/chvrches-band/assets/n1.avif"
+  },
+  {
+    "title": "Color Of Seasons",
+    "artist": "Earth",
+    "album": "Cobalt",
+    "date": "2029-07-15T00:00:00",
+    "duration": "04:29",
+    "urlSong": "https://20essentials.github.io/earth-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-band/assets/n2.avif"
+  },
+  {
+    "title": "Losing My Way",
+    "artist": "Fkj",
+    "album": "Cobalt",
+    "date": "2029-07-16T00:00:00",
+    "duration": "04:19",
+    "urlSong": "https://20essentials.github.io/fkj/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/fkj/assets/n2.avif"
+  },
+  {
+    "title": "Rihiannion",
+    "artist": "Fleetwood Mac",
+    "album": "Cobalt",
+    "date": "2029-07-17T00:00:00",
+    "duration": "04:12",
+    "urlSong": "https://20essentials.github.io/fleetwood-mac-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/fleetwood-mac-album/assets/n4.avif"
+  },
+  {
+    "title": "No Stylist",
+    "artist": "French Montana",
+    "album": "Cobalt",
+    "date": "2029-07-18T00:00:00",
+    "duration": "03:32",
+    "urlSong": "https://20essentials.github.io/french-montana-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/french-montana-album/assets/n3.avif"
+  },
+  {
+    "title": "Searching",
+    "artist": "Forhill",
+    "album": "Cobalt",
+    "date": "2029-07-19T00:00:00",
+    "duration": "03:26",
+    "urlSong": "https://20essentials.github.io/forhill-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/forhill-band/assets/n2.avif"
+  },
+  {
+    "title": "Houdiini",
+    "artist": "Foster The People",
+    "album": "Cobalt",
+    "date": "2029-07-20T00:00:00",
+    "duration": "03:22",
+    "urlSong": "https://20essentials.github.io/foster-the-people-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/foster-the-people-band/assets/n4.avif"
+  }
+]
