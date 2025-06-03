@@ -2,8 +2,8 @@ import { defineAction } from 'astro:actions';
 import { client } from '@/db/client';
 import { z } from 'astro:schema';
 
-
 export const server = {
+  /* ✅ */
   createNewPlaylistInDb: defineAction({
     input: z.object({
       id_playlist: z.string(),
@@ -49,6 +49,7 @@ export const server = {
       return result.rows;
     }
   }),
+  /* ✅ */
   insertNewSongInDb: defineAction({
     input: z.object({
       title: z.string(),
@@ -68,28 +69,28 @@ export const server = {
       urlSong,
       urlPoster
     }) => {
-      // Verifica si la canción ya existe
+      // Verifica si ya existe una canción con los mismos datos
       const existing = await client.execute({
         sql: `
-        SELECT title, artist
+        SELECT id_song
         FROM songs
-        WHERE title = ? AND artist = ?
+        WHERE title = ? AND artist = ? AND album = ?
       `,
-        args: [title, artist]
+        args: [title, artist, album]
       });
 
-      const { title: foundTitle = false, artist: foundArtist = false } =
-        existing.rows[0] ?? {};
-
-      if (foundTitle && foundArtist) {
+      if (existing.rows.length > 0) {
         // Ya existe, no la insertamos
         return existing.rows[0];
       }
 
+      const id_song = crypto.randomUUID(); // o usa tu generador de ID preferido
+
       // Inserta la nueva canción
-      const result = await client.execute({
+      await client.execute({
         sql: `
         INSERT INTO songs (
+          id_song,
           title,
           artist,
           album,
@@ -97,51 +98,68 @@ export const server = {
           duration,
           urlSong,
           urlPoster
-        ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
       `,
-        args: [title, artist, album, date, duration, urlSong, urlPoster]
+        args: [id_song, title, artist, album, date, duration, urlSong, urlPoster]
       });
 
-      return result.rows;
+      return { id_song };
     }
   }),
+  /* ✅ */
   insertDataIntoPlaylistsSong: defineAction({
     input: z.object({
       id_playlist: z.string(),
       title: z.string(),
-      artist: z.string()
+      artist: z.string(),
+      album: z.string() // Recomendado si hay canciones con mismo título y artista en álbumes distintos
     }),
-    handler: async ({ id_playlist, title, artist }) => {
-      // Verificar si ya existe la entrada
-      const existing = await client.execute({
+    handler: async ({ id_playlist, title, artist, album }) => {
+      // Buscar el id_song a partir del title, artist y album
+      const songResult = await client.execute({
         sql: `
-        SELECT id_playlist, title, artist
-        FROM playlist_songs
-        WHERE id_playlist = ? AND title = ? AND artist = ?
+        SELECT id_song
+        FROM songs
+        WHERE title = ? AND artist = ? AND album = ?
       `,
-        args: [id_playlist, title, artist]
+        args: [title, artist, album]
       });
 
-      const { id_playlist: foundPlaylist = false } = existing.rows[0] ?? {};
+      const { id_song } = songResult.rows[0] ?? {};
 
-      // Si ya existe, no se inserta
-      if (foundPlaylist) return existing.rows[0];
+      if (!id_song) {
+        throw new Error('La canción no existe en la base de datos.');
+      }
+
+      // Verificar si ya existe la entrada en playlist_songs
+      const existing = await client.execute({
+        sql: `
+        SELECT id_playlist, id_song
+        FROM playlist_songs
+        WHERE id_playlist = ? AND id_song = ?
+      `,
+        args: [id_playlist, id_song]
+      });
+
+      if (existing.rows.length > 0) {
+        return existing.rows[0];
+      }
 
       // Insertar nueva relación
-      const result = await client.execute({
+      await client.execute({
         sql: `
         INSERT INTO playlist_songs (
           id_playlist,
-          title,
-          artist
-        ) VALUES (?, ?, ?)
+          id_song
+        ) VALUES (?, ?)
       `,
-        args: [id_playlist, title, artist]
+        args: [id_playlist, id_song]
       });
 
-      return result.rows;
+      return { id_playlist, id_song };
     }
   }),
+  /* ✅ */
   addedFirstPlaylistsIfTheUserIsNew: defineAction({
     input: z.object({
       userId: z.string()
@@ -165,7 +183,7 @@ export const server = {
           await client.execute({
             sql: `INSERT INTO playlists 
             (id_playlist, title, color, whatColorIs, isPlaylistFavorites, fromUser, id_user) 
-          VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            VALUES (?, ?, ?, ?, ?, ?, ?)`,
             args: [
               playlist.id_playlist,
               playlist.title,
@@ -190,10 +208,24 @@ export const server = {
           const { title, artist, album, date, urlPoster, duration, urlSong } =
             song;
           try {
+            const id_song = crypto.randomUUID();
+
             await client.execute({
-              sql: `INSERT INTO songs (title, artist, album, date, urlPoster, duration, urlSong) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-              args: [title, artist, album, date, urlPoster, duration, urlSong]
+              sql: `INSERT INTO songs 
+              (id_song, title, artist, album, date, urlPoster, duration, urlSong) 
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+              args: [
+                id_song,
+                title,
+                artist,
+                album,
+                date,
+                urlPoster,
+                duration,
+                urlSong
+              ]
             });
+
             console.log(
               `🎵 [${label}] Canción "${title}" agregada exitosamente.`
             );
@@ -206,10 +238,11 @@ export const server = {
         }
       }
 
-      await insertSongs([], 'Favorite Brands')
+      const songsToInsert: any[] = []; // Coloca aquí tus canciones iniciales si las tienes
+      await insertSongs(songsToInsert, 'Favorite Brands');
 
       const playlistMap = {
-        'Favorite Brands': { id: uuid4, songs: [] }
+        'Favorite Brands': { id: uuid4, songs: songsToInsert }
       };
 
       for (const [name, { id: id_playlist, songs }] of Object.entries(
@@ -217,13 +250,30 @@ export const server = {
       )) {
         for (const song of songs) {
           const { title, artist } = song;
+
           try {
-            await client.execute({
-              sql: `INSERT INTO playlist_songs (id_playlist, title, artist) VALUES (?, ?, ?)`,
-              args: [id_playlist, title, artist]
+            // Buscar el id_song correspondiente
+            const result = await client.execute({
+              sql: `SELECT id_song FROM songs WHERE title = ? AND artist = ?`,
+              args: [title, artist]
             });
+
+            const { id_song } = result.rows[0] ?? {};
+
+            if (!id_song) {
+              console.warn(
+                `⚠️ [${name}] No se encontró id_song para "${title}" de ${artist}`
+              );
+              continue;
+            }
+
+            await client.execute({
+              sql: `INSERT INTO playlist_songs (id_playlist, id_song) VALUES (?, ?)`,
+              args: [id_playlist, id_song]
+            });
+
             console.log(
-              `🎶 [${name}] Canción "${title}" de ${artist} vinculada a la playlist.`
+              `🎶 [${name}] Canción "${title}" vinculada a la playlist.`
             );
           } catch (error) {
             console.error(
@@ -237,23 +287,40 @@ export const server = {
       return { success: true };
     }
   }),
+  /* ✅ */
   deleteSongFromThePlaylist: defineAction({
     input: z.object({
       title: z.string(),
       artist: z.string(),
       id_playlist: z.string()
     }),
-    handler: async inp => {
-      const remove = await client.execute({
-        sql: `
-        DELETE 
-        FROM playlist_songs
-        WHERE title = ? AND artist = ? AND id_playlist = ?
-      `,
-        args: [inp.title, inp.artist, inp.id_playlist]
+    handler: async ({ title, artist, id_playlist }) => {
+      // Buscar el id_song correspondiente
+      const result = await client.execute({
+        sql: `SELECT id_song FROM songs WHERE title = ? AND artist = ?`,
+        args: [title, artist]
       });
+
+      const { id_song } = result.rows[0] ?? {};
+
+      if (!id_song) {
+        console.warn(`⚠️ No se encontró la canción "${title}" de ${artist}.`);
+        return { success: false, message: 'Canción no encontrada.' };
+      }
+
+      // Eliminar la canción de la playlist
+      await client.execute({
+        sql: `
+        DELETE FROM playlist_songs
+        WHERE id_playlist = ? AND id_song = ?
+      `,
+        args: [id_playlist, id_song]
+      });
+
+      return { success: true };
     }
   }),
+  /* ✅ */
   deletePlaylistFromTheUser: defineAction({
     input: z.object({
       id_playlist: z.string(),
@@ -276,6 +343,7 @@ export const server = {
       });
     }
   }),
+  /* ✅ */
   renamePlaylistName: defineAction({
     input: z.object({
       id_playlist: z.string(),

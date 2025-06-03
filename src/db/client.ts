@@ -7,7 +7,7 @@ export const client = createClient({
   authToken: DATABASE_TOKEN ?? ''
 });
 
-
+/* ✅ */
 export async function readPlaylistsOfTheUser(userId: string) {
   const result = await client.execute({
     sql: 'SELECT * FROM playlists WHERE id_user = ?',
@@ -17,19 +17,20 @@ export async function readPlaylistsOfTheUser(userId: string) {
   return result.rows;
 }
 
+/* ✅ */
 export async function getAllSongsOfOnePlaylist(id_playlist: string) {
   const result = await client.execute({
     sql: `SELECT 
-    s.title,
-    s.artist,
-    s.album,
-    s.date,
-    s.duration,
-    s.urlSong,
-    s.urlPoster
+      s.title,
+      s.artist,
+      s.album,
+      s.date,
+      s.duration,
+      s.urlSong,
+      s.urlPoster
     FROM playlist_songs pls
     INNER JOIN songs s
-      ON pls.title = s.title AND pls.artist = s.artist
+      ON pls.id_song = s.id_song
     WHERE pls.id_playlist = ?;`,
     args: [id_playlist]
   });
@@ -37,6 +38,7 @@ export async function getAllSongsOfOnePlaylist(id_playlist: string) {
   return result.rows;
 }
 
+/* ✅ */
 export async function insertNewUser(
   userId: string,
   userEmail: string,
