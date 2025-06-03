@@ -303,7 +303,20 @@
     "title": "Noctis",
     "color": "#7CFC00",
     "whatColorIs": "LawnGreen"
+  },
+  {
+    "title": "Spotimanz Favorites",
+    "color": "#ec1cce",
+    "whatColorIs": "Purple Elegant"
+  },
+  {
+    "title": "Code Fi",
+    "color": "#08d437",
+    "whatColorIs": "Clear Green"
+  },
+  {
+    "title": "Chill Lofi",
+    "color": "#DAA520",
+    "whatColorIs": "GoldenRod"
   }
 ]
-
-

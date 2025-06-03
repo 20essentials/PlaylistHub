@@ -249,7 +249,7 @@ export class MusicPlayer {
 
               if (!rowItem) return;
 
-              this.lastSongItemClicked =rowItem;
+              this.lastSongItemClicked = rowItem;
             }, 400);
           })();
         }

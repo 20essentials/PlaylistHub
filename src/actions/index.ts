@@ -149,39 +149,8 @@ export const server = {
       userId: z.string()
     }),
     handler: async ({ userId }) => {
-      const uuid1 = crypto.randomUUID();
-      const uuid2 = crypto.randomUUID();
-      const uuid3 = crypto.randomUUID();
       const uuid4 = crypto.randomUUID();
-
       const playlists = [
-        {
-          id_playlist: uuid1,
-          title: 'Spotimanz Favorites',
-          color: '#ec1cce',
-          whatColorIs: 'Purple Elegant',
-          isPlaylistFavorites: 'FALSE',
-          fromUser: 'TRUE',
-          id_user: userId
-        },
-        {
-          id_playlist: uuid2,
-          title: 'Code Fi',
-          color: '#08d437',
-          whatColorIs: 'Clear Green',
-          isPlaylistFavorites: 'FALSE',
-          fromUser: 'TRUE',
-          id_user: userId
-        },
-        {
-          id_playlist: uuid3,
-          title: 'Chill Lofi',
-          color: '#DAA520',
-          whatColorIs: 'GoldenRod',
-          isPlaylistFavorites: 'FALSE',
-          fromUser: 'TRUE',
-          id_user: userId
-        },
         {
           id_playlist: uuid4,
           title: 'Favorite Brands',
@@ -244,9 +213,7 @@ export const server = {
       await insertSongs(CodeFi, 'CodeFi');
 
       const playlistMap = {
-        'Spotimanz Favorites': { id: uuid1, songs: SpotiManz },
-        'Chill Lofi': { id: uuid3, songs: ChillLofi },
-        'Code-Fi': { id: uuid2, songs: CodeFi }
+        'Favorite Brands': { id: uuid4, songs: [] }
       };
 
       for (const [name, { id: id_playlist, songs }] of Object.entries(

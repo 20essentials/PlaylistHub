@@ -443,18 +443,24 @@ import CheckedFull from '@/icons/checkedfull.astro';
         const lastSong = localStorage.getItem(
           'lastPlaylistClickedPreparedToAddANewPlaylist'
         );
-        const objectLastSongAdded = JSON.parse(lastSong ?? '{}');
+        const objectLastSongAdded = { ...JSON.parse(lastSong ?? '{}') };
         const slugName = target.dataset.playlistTitulo;
 
+        //Si guardamos en la  playlists
         if (playlistEmpty.classList.contains('isSavedInPlaylist')) {
           if (existThisSongInTheCurrentPlaylist(slugName, objectLastSongAdded))
             return;
-
-          addSongInPlaylist(slugName, objectLastSongAdded);
           const playlistNombre = convertSlugToText(slugName);
+          const objectLastSongAddedWithAlbumUpdate = {
+            ...objectLastSongAdded,
+            album: playlistNombre
+          };
+          addSongInPlaylist(slugName, objectLastSongAddedWithAlbumUpdate);
           const allPlaylistFromDB =
             localStorage.getItem('allPlaylistFromDB') ?? '[]';
           const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+
+          console.info(objectLastSongAddedWithAlbumUpdate);
 
           const thePlaylistWithId = allPlaylistFromDbArray.find(
             (el: any) => el.title === playlistNombre
@@ -463,53 +469,56 @@ import CheckedFull from '@/icons/checkedfull.astro';
           const { id_playlist } = thePlaylistWithId;
 
           const { title, album, artist, date, duration, urlSong, urlPoster } =
-            objectLastSongAdded;
+            objectLastSongAddedWithAlbumUpdate;
 
           updateListOfSongsItemsAfterAnUpdateOrDelete();
 
-          (async () => {
-            try {
-              const { data, error } = await actions.insertNewSongInDb({
-                title,
-                artist,
-                album,
-                date,
-                duration,
-                urlSong,
-                urlPoster
-              });
-
-              if (error) {
-                console.error('Error al insertar nueva canción:', error);
-                return;
-              }
-
-              const { data: datita, error: errorcito } =
-                await actions.insertDataIntoPlaylistsSong({
+          setTimeout(() => {
+            (async () => {
+              try {
+                const { data, error } = await actions.insertNewSongInDb({
                   title,
                   artist,
-                  id_playlist
+                  album,
+                  date,
+                  duration,
+                  urlSong,
+                  urlPoster
                 });
 
-              if (errorcito) {
-                console.error(
-                  'Error al insertar canción en la playlist:',
-                  errorcito
-                );
-                return;
-              }
+                if (error) {
+                  console.error('Error al insertar nueva canción:', error);
+                  return;
+                }
 
-              console.log(
-                'Canción insertada correctamente en la base de datos y en la playlist.'
-              );
-            } catch (err) {
-              console.error('Error inesperado:', err);
-            }
-          })();
+                const { data: datita, error: errorcito } =
+                  await actions.insertDataIntoPlaylistsSong({
+                    title,
+                    artist,
+                    id_playlist
+                  });
+
+                if (errorcito) {
+                  console.error(
+                    'Error al insertar canción en la playlist:',
+                    errorcito
+                  );
+                  return;
+                }
+
+                console.log(
+                  'Canción insertada correctamente en la base de datos y en la playlist.'
+                );
+              } catch (err) {
+                console.error('Error inesperado:', err);
+              }
+            })();
+          }, 30);
 
           return;
         }
 
+        //Si quitamos de la playlist
         const currentSongHasTitleGreen =
           localStorage.getItem('thisSongIsCurrentlyInReproduction') === 'true';
 
@@ -538,7 +547,7 @@ import CheckedFull from '@/icons/checkedfull.astro';
               ...objectLastSongAdded,
               id_playlist
             });
-            console.log('Eliminicacion exitosa')
+            console.log('Eliminacion exitosa');
           } catch (err) {
             console.error('Error inesperado:', err);
           }

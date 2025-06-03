@@ -1,7 +1,6 @@
 ---
 import playlist from '@/data/playlist.json';
 import PlayListItem from '@/components/PlayListItem.astro';
-import { IS_DATABASE_ACTIVE } from 'astro:env/server';
 import {
   readPlaylistsOfTheUser,
   getAllSongsOfOnePlaylist,
@@ -29,7 +28,6 @@ if (user) {
 
   //Si el usuario nunca existio en la base de datos
   if (!thisUserExists && user) {
-    //@ts-ignore
     const { data, error } = await Astro.callAction(
       actions.addedFirstPlaylistsIfTheUserIsNew,
       { userId }
@@ -50,8 +48,6 @@ const userImg = user?.imageUrl;
 const containerHeight = user
   ? 'calc(100vh - var(--player-height) - 10.3vmax)'
   : 'calc(100vh - var(--player-height) - 8vmax)';
-//Aqui podria traer la playlist favorite del usuario de una base de datos
-//Aqui podria traer todas las playlist creadas por el usuario
 
 // const favoriteBrands = {
 //   fromUser: 'TRUE',
@@ -59,27 +55,6 @@ const containerHeight = user
 //   title: 'Favorite Brands',
 //   color: '#f00',
 //   whatColorIs: 'red'
-// };
-
-// const firstPlaylistOfUser = {
-//   title: 'Code-Fi',
-//   color: '#08d437',
-//   fromUser: 'TRUE',
-//   whatColorIs: 'Clear Green'
-// };
-
-// const secondPlaylistOfUser = {
-//   title: 'Chill Lofi',
-//   color: '#DAA520',
-//   fromUser: 'TRUE',
-//   whatColorIs: 'GoldenRod'
-// };
-
-// const thirdPlaylistOfUser = {
-//   title: 'SpotiManz Favorites',
-//   color: '#ec1cce',
-//   fromUser: 'TRUE',
-//   whatColorIs: 'Purple Elegant'
 // };
 
 interface PlaylistObject {
@@ -93,18 +68,12 @@ interface PlaylistObject {
 
 const globalPlaylist: PlaylistObject[] = [...playlist];
 
-const userPlaylist: PlaylistObject[] = [
-  ...allPlaylistFromDB
-  // firstPlaylistOfUser,
-  // secondPlaylistOfUser,
-  // thirdPlaylistOfUser
-];
+const userPlaylist: PlaylistObject[] = [...allPlaylistFromDB];
 ---
 
 <script
   is:inline
   define:vars={{
-    IS_DATABASE_ACTIVE,
     allPlaylistTsoRenderinLOCAL_STORAGE,
     allPlaylistFromDB,
     local_id
@@ -120,7 +89,6 @@ const userPlaylist: PlaylistObject[] = [
     localStorage.setItem(playlistName, data);
   }
 
-  if (IS_DATABASE_ACTIVE) {
     allPlaylistTsoRenderinLOCAL_STORAGE.forEach(pair => {
       const [slug, listOfSongs] = pair;
       const jsonBrands = JSON.stringify(listOfSongs ?? []);
@@ -129,7 +97,6 @@ const userPlaylist: PlaylistObject[] = [
 
     localStorage.setItem('allPlaylistFromDB', JSON.stringify(allPlaylistFromDB));
     localStorage.setItem('local_id', local_id);
-  }
 </script>
 
 <style define:vars={{ containerHeight }}>

@@ -8,11 +8,7 @@ export default defineConfig({
   env: {
     schema: {
       DATABASE_URL: envField.string({ context: 'server', access: 'secret' }),
-      DATABASE_TOKEN: envField.string({ context: 'server', access: 'secret' }),
-      IS_DATABASE_ACTIVE: envField.boolean({
-        context: 'server',
-        access: 'public'
-      })
+      DATABASE_TOKEN: envField.string({ context: 'server', access: 'secret' })
     }
   },
   
