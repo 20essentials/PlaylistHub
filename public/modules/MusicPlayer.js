@@ -4,6 +4,10 @@ import { togglePlayIcon } from './ui/play.js';
 import { shuffle } from './shuffle.js';
 import { MusicList } from './MusicList.js';
 import { convertInValidSlug } from './generalUtils.js';
+import {
+  existThisSongInTheCurrentPlaylist,
+  FAVORITE_SLUG
+} from './localStorage.js';
 
 const getPlaylistInfo = playlistName => {
   const playlists = [...document.querySelectorAll('.playlist-item')];
@@ -425,6 +429,21 @@ export class MusicPlayer {
     this.prepare(index);
     this.play();
     this.togglePlayPause(true);
+    //New
+    const { title, artist } = this.getInfoSong();
+    const existInFavoritesBrands = existThisSongInTheCurrentPlaylist(
+      FAVORITE_SLUG,
+      {
+        title,
+        artist
+      }
+    );
+
+    emitEvent('updateNewSongInFavoriteBrands', document, {
+      title,
+      artist,
+      updating: existInFavoritesBrands
+    });
   }
 
   setCurrentSongIndex(newSongIndex) {
@@ -465,6 +484,21 @@ export class MusicPlayer {
     this.prepare(index);
     this.play();
     this.togglePlayPause(true);
+    //New
+    const { title, artist } = this.getInfoSong();
+    const existInFavoritesBrands = existThisSongInTheCurrentPlaylist(
+      FAVORITE_SLUG,
+      {
+        title,
+        artist
+      }
+    );
+
+    emitEvent('updateNewSongInFavoriteBrands', document, {
+      title,
+      artist,
+      updating: existInFavoritesBrands
+    });
   }
 
   sendInfo(options = { autoplay: true }) {
