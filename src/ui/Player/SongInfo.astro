@@ -7,7 +7,6 @@ const user = await Astro.locals.currentUser();
 ---
 
 <style>
-
   .song-info-container {
     display: flex;
     width: fit-content;
@@ -175,13 +174,41 @@ const user = await Astro.locals.currentUser();
       const currentSonginPlayer = JSON.parse(
         localStorage.getItem('currentSongInPlayer')
       );
-      
+
+      const allPlaylistFromDB = localStorage.getItem('allPlaylistFromDB') ?? '[]';
+      const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+      const thePlaylistWithId = allPlaylistFromDbArray.find(
+        el => el.title === 'Favorite Brands'
+      );
+      const { id_playlist } = thePlaylistWithId;
+
       if (heartEmpty.classList.contains('isSaved')) {
         addSongInPlaylist(FAVORITE_SLUG, currentSonginPlayer);
         updateListOfSongsItemsAfterAnUpdateOrDelete();
+        //New
+
+        localStorage.setItem(
+          'NewSongToAddInFavorites',
+          JSON.stringify({
+            ...currentSonginPlayer,
+            id_playlist
+          })
+        );
+
+        document.querySelector('.servilleta2').click();
+
         return;
       }
 
+      localStorage.setItem(
+        'playlistToDeleteFromFavorites',
+        JSON.stringify({
+          ...currentSonginPlayer,
+          id_playlist
+        })
+      );
+
+      document.querySelector('.servilleta3').click();
       removeSongFromPlaylist(FAVORITE_SLUG, currentSonginPlayer);
       updateListOfSongsItemsAfterAnUpdateOrDelete();
     }

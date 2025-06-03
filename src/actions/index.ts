@@ -1,9 +1,7 @@
 import { defineAction } from 'astro:actions';
 import { client } from '@/db/client';
 import { z } from 'astro:schema';
-import SpotiManz from '@/data/spotimanz-favorites.json';
-import ChillLofi from '@/data/chill-lofi.json';
-import CodeFi from '@/data/code-fi.json';
+
 
 export const server = {
   createNewPlaylistInDb: defineAction({
@@ -208,9 +206,7 @@ export const server = {
         }
       }
 
-      await insertSongs(SpotiManz, 'Spotimanz');
-      await insertSongs(ChillLofi, 'ChillLofi');
-      await insertSongs(CodeFi, 'CodeFi');
+      await insertSongs([], 'Favorite Brands')
 
       const playlistMap = {
         'Favorite Brands': { id: uuid4, songs: [] }
