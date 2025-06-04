@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Got To Get It",
+    "artist": "Culture Beat",
+    "album": "Punk Rock",
+    "date": "2029-09-01T00:00:00",
+    "duration": "05:21",
+    "urlSong": "https://20essentials.github.io/culture-beat-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-beat-band/assets/n3.avif"
+  },
+  {
+    "title": "Johnny B. Goode",
+    "artist": "Chuck Berry",
+    "album": "Punk Rock",
+    "date": "2029-09-02T00:00:00",
+    "duration": "03:04",
+    "urlSong": "https://20essentials.github.io/chuck-berry-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/chuck-berry-album/assets/n1.avif"
+  },
+  {
+    "title": "Love To Hate You",
+    "artist": "Erasure",
+    "album": "Punk Rock",
+    "date": "2029-09-03T00:00:00",
+    "duration": "03:52",
+    "urlSong": "https://20essentials.github.io/erasure-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/erasure-album/assets/n4.avif"
+  },
+  {
+    "title": "Total Eclipse Of The Heart",
+    "artist": "Bonnie Tyler",
+    "album": "Punk Rock",
+    "date": "2029-09-04T00:00:00",
+    "duration": "06:57",
+    "urlSong": "https://20essentials.github.io/bonnie-tyler/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/bonnie-tyler/assets/n2.avif"
+  },
+  {
+    "title": "Shinning Start",
+    "artist": "Earth Wind And Fire",
+    "album": "Punk Rock",
+    "date": "2029-09-05T00:00:00",
+    "duration": "02:50",
+    "urlSong": "https://20essentials.github.io/earth-wind-and-fire-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-wind-and-fire-band/assets/n4.avif"
+  },
+  {
+    "title": "Missionary Man",
+    "artist": "Eurythmics",
+    "album": "Punk Rock",
+    "date": "2029-09-06T00:00:00",
+    "duration": "03:45",
+    "urlSong": "https://20essentials.github.io/eurythmics-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/eurythmics-album/assets/n4.avif"
+  },
+  {
+    "title": "Gemini",
+    "artist": "Fantom 87",
+    "album": "Punk Rock",
+    "date": "2029-09-07T00:00:00",
+    "duration": "03:39",
+    "urlSong": "https://20essentials.github.io/fantom-87-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/fantom-87-album/assets/n3.avif"
+  },
+  {
+    "title": "Av. Larco",
+    "artist": "Fragil",
+    "album": "Punk Rock",
+    "date": "2029-09-08T00:00:00",
+    "duration": "03:47",
+    "urlSong": "https://20essentials.github.io/fragil-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/fragil-band/assets/n1.avif"
+  },
+  {
+    "title": "Save The World Tomorrow",
+    "artist": "Fool's Garden",
+    "album": "Punk Rock",
+    "date": "2029-09-09T00:00:00",
+    "duration": "03:31",
+    "urlSong": "https://20essentials.github.io/fools-garden-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/fools-garden-album/assets/n3.avif"
+  },
+  {
+    "title": "The Anthem",
+    "artist": "Good Charlotte",
+    "album": "Punk Rock",
+    "date": "2029-09-10T00:00:00",
+    "duration": "02:53",
+    "urlSong": "https://20essentials.github.io/good-charlote-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/good-charlote-band/assets/n1.avif"
+  },
+  {
+    "title": "Imagination",
+    "artist": "Foster The People",
+    "album": "Punk Rock",
+    "date": "2029-09-11T00:00:00",
+    "duration": "04:17",
+    "urlSong": "https://20essentials.github.io/foster-the-people-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/foster-the-people-band/assets/n3.avif"
+  },
+  {
+    "title": "We Come",
+    "artist": "Faithless",
+    "album": "Punk Rock",
+    "date": "2029-09-12T00:00:00",
+    "duration": "04:02",
+    "urlSong": "https://20essentials.github.io/faithless-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/faithless-band/assets/n2.avif"
+  },
+  {
+    "title": "Liar",
+    "artist": "Folder 5",
+    "album": "Punk Rock",
+    "date": "2029-09-13T00:00:00",
+    "duration": "03:45",
+    "urlSong": "https://20essentials.github.io/folder-5-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/folder-5-band/assets/n2.avif"
+  },
+  {
+    "title": "Everlong",
+    "artist": "Foo Fighters",
+    "album": "Punk Rock",
+    "date": "2029-09-14T00:00:00",
+    "duration": "04:46",
+    "urlSong": "https://20essentials.github.io/foo-fighters-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/foo-fighters-band/assets/n1.avif"
+  },
+  {
+    "title": "Tiny Dancertiny Dancer",
+    "artist": "Elton John",
+    "album": "Punk Rock",
+    "date": "2029-09-15T00:00:00",
+    "duration": "06:12",
+    "urlSong": "https://20essentials.github.io/elton-john-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/elton-john-album/assets/n3.avif"
+  },
+  {
+    "title": "Strong Enough",
+    "artist": "Cher",
+    "album": "Punk Rock",
+    "date": "2029-09-16T00:00:00",
+    "duration": "03:43",
+    "urlSong": "https://20essentials.github.io/cher-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/cher-album/assets/n3.avif"
+  },
+  {
+    "title": "Mushroom",
+    "artist": "Can",
+    "album": "Punk Rock",
+    "date": "2029-09-17T00:00:00",
+    "duration": "04:01",
+    "urlSong": "https://20essentials.github.io/can-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/can-band/assets/n3.avif"
+  },
+  {
+    "title": "Tongue Tied",
+    "artist": "Grouplove",
+    "album": "Punk Rock",
+    "date": "2029-09-18T00:00:00",
+    "duration": "03:38",
+    "urlSong": "https://20essentials.github.io/grouplove-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/grouplove-band/assets/n1.avif"
+  },
+  {
+    "title": "Lost In The Fire",
+    "artist": "Gesaffelstein",
+    "album": "Punk Rock",
+    "date": "2029-09-19T00:00:00",
+    "duration": "03:19",
+    "urlSong": "https://20essentials.github.io/gesaffelstein-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/gesaffelstein-band/assets/n1.avif"
+  },
+  {
+    "title": "Round Here",
+    "artist": "Counting Crows",
+    "album": "Punk Rock",
+    "date": "2029-09-20T00:00:00",
+    "duration": "05:39",
+    "urlSong": "https://20essentials.github.io/counting-crows-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/counting-crows-band/assets/n3.avif"
+  }
+]

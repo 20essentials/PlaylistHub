@@ -318,5 +318,10 @@
     "title": "Chill Lofi",
     "color": "#DAA520",
     "whatColorIs": "GoldenRod"
+  },
+  {
+    "title": "Punk Rock",
+    "color": "#FFFACD",
+    "whatColorIs": "LemonChiffon"
   }
 ]
