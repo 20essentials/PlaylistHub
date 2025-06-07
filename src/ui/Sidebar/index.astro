@@ -514,6 +514,7 @@ const userPlaylist: PlaylistObject[] = [...allPlaylistFromDB];
       $$('.sidb-active').forEach(el => el.classList.remove('sidb-active'));
       target.classList.add('sidb-active');
 
+      //Show or hidden the menutooltip
       setTimeout(() => {
         //MenuItem
         const listHeader = $('list-header');
@@ -584,12 +585,14 @@ const userPlaylist: PlaylistObject[] = [...allPlaylistFromDB];
         }
       }
 
+
+      //Click en favorite playlist
       setTimeout(() => {
         const favoritePlaylist = [...$sideBarPlaylist.children][
           globalPlaylistLength
         ] as HTMLElement;
 
-        favoritePlaylist.click();
+        favoritePlaylist?.click();
       }, 100);
       return;
     }

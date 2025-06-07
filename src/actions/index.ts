@@ -194,7 +194,7 @@ export const server = {
               playlist.id_user
             ]
           });
-          console.log(`✅ Playlist "${playlist.title}" creada correctamente.`);
+          console.info(`✅ Playlist "${playlist.title}" creada correctamente.`);
         } catch (error) {
           console.error(
             `❌ Error al crear la playlist "${playlist.title}":`,
@@ -226,7 +226,7 @@ export const server = {
               ]
             });
 
-            console.log(
+            console.info(
               `🎵 [${label}] Canción "${title}" agregada exitosamente.`
             );
           } catch (error) {
@@ -272,7 +272,7 @@ export const server = {
               args: [id_playlist, id_song]
             });
 
-            console.log(
+            console.info(
               `🎶 [${name}] Canción "${title}" vinculada a la playlist.`
             );
           } catch (error) {
@@ -327,7 +327,6 @@ export const server = {
       id_user: z.string()
     }),
     handler: async input => {
-      console.log(input);
       const { id_playlist, id_user } = input;
 
       // Primero borra las relaciones con canciones

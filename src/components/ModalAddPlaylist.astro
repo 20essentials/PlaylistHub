@@ -98,17 +98,23 @@ import CheckedFull from '@/icons/checkedfull.astro';
           box-shadow: none;
           background-color: transparent;
           position: absolute;
-          right: 0;
-          top: 0;
+          right: 0.8vmax;
+          top: 50%;
+          transform: translateY(-50%);
           width: 1.7vmax;
           height: 1.7vmax;
           background-image: url('/assets/cross.png');
           background-size: cover;
+          display: none;
         }
 
         h2 {
-          font-size: 1.3vmax;
+          font-size: 1.2vmax;
           text-align: center;
+          background-color: #222;
+          padding: 1vmax;
+          border-radius: 0.9vmax;
+          padding-inline: 2vmax;
 
           .pintado {
             color: var(--theme-color);
@@ -373,8 +379,11 @@ import CheckedFull from '@/icons/checkedfull.astro';
     updateListOfSongsItemsAfterAnUpdateOrDelete,
     convertInValidSlug,
     convertSlugToText,
-    obtenerElementoAleatorio
+    obtenerElementoAleatorio,
+    PREFIX_LS,
+    createSidePlaylistItem
   } from '@/utils/localStorage';
+
   let regExP = /^(?![\s0-9\-_])[\w\s\-]{1,20}(?<![\-])$/;
   const $longituMaxOfInput = $('.longitud-max') as HTMLOutputElement;
   const inputAddPlaylist = $('#agregarPlaylistInput') as HTMLInputElement;
@@ -382,6 +391,14 @@ import CheckedFull from '@/icons/checkedfull.astro';
   import playlist from '@/data/playlist.json';
   const arrayOfColorsRandoms = playlist.map(el => el.color);
   const arrayOfNameOfColores = playlist.map(el => el.whatColorIs);
+
+  const arrayOfSlugs = playlist.map(el => convertInValidSlug(el.title));
+  const randomSlug = obtenerElementoAleatorio(arrayOfSlugs);
+  const response = await fetch(`../../data/${randomSlug}.json`);
+  const playlistRandomObject = await response.json();
+  const arrayOfRandomPosters = playlistRandomObject.map(
+    (el: any) => el.urlPoster
+  );
 
   //new
   import { actions } from 'astro:actions';
@@ -423,12 +440,75 @@ import CheckedFull from '@/icons/checkedfull.astro';
         JSON.stringify(allPlaylistFromDbArray)
       );
 
-      const $tabActive = $('.sidb-active') as HTMLElement;
+      const $tabActive = $('.sidebar-right') as HTMLElement;
       $tabActive.click();
       containerOfPlaylists.scrollTop = containerOfPlaylists.scrollHeight;
 
+      setTimeout(() => {
+        const $tabActive = $('.sidebar-left') as HTMLElement;
+        $tabActive.click();
+      }, 100);
+
       //@ts-ignore
       const { data, error } = await actions.createNewPlaylistInDb(newPlaylist);
+
+      // (() => {
+      //   const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
+      //   let originalPlaylist_ = [...$sideBarPlaylist?.children];
+      //   const lastElement = originalPlaylist_[originalPlaylist_.length - 1];
+      //   const newElement = lastElement.cloneNode(true) as HTMLElement;
+      //   let startTabIndex = Number(newElement.getAttribute('tabindex'));
+
+      //   for (const key in localStorage) {
+      //     if (key.startsWith(PREFIX_LS)) {
+      //       startTabIndex += 1;
+      //       const currentPlaylistString = localStorage.getItem(key) ?? '[]';
+      //       const currenPlaylistJson = JSON.parse(currentPlaylistString);
+      //       const $sideBarPlaylist = $('.sidebarPlaylist') as HTMLElement;
+      //       const slug = key.replace(PREFIX_LS, '');
+      //       const existAlreadyThisPlaylists = [...$sideBarPlaylist.children].some(
+      //         el => {
+      //           return el.getAttribute('data-id') === slug;
+      //         }
+      //       );
+      //       //New
+      //       const allPlaylistFromDB =
+      //         localStorage.getItem('allPlaylistFromDB') ?? '[]';
+      //       const allPlaylistFromDbArray = JSON.parse(allPlaylistFromDB);
+
+      //       if (!existAlreadyThisPlaylists) {
+      //         const arrayOfPosters = currenPlaylistJson.map(
+      //           (el: any) => el.urlPoster
+      //         );
+
+      //         const img =
+      //           currenPlaylistJson.length > 0
+      //             ? obtenerElementoAleatorio(arrayOfPosters)
+      //             : obtenerElementoAleatorio(arrayOfRandomPosters);
+
+      //         const title = convertSlugToText(slug);
+      //         const someElementWithTheTitle = allPlaylistFromDbArray.find(
+      //           (el: any) => el.title === title
+      //         );
+
+      //         let theColor = obtenerElementoAleatorio(arrayOfColorsRandoms);
+
+      //         if (someElementWithTheTitle) {
+      //           const { color } = someElementWithTheTitle;
+      //           theColor = color;
+      //         }
+
+      //         createSidePlaylistItem({
+      //           tabindex: startTabIndex,
+      //           slug,
+      //           color: theColor,
+      //           poster: img,
+      //           title
+      //         });
+      //       }
+      //     }
+      //   }
+      // })();
     }
   }
 
