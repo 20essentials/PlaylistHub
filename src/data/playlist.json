@@ -323,5 +323,15 @@
     "title": "Punk Rock",
     "color": "#FFFACD",
     "whatColorIs": "LemonChiffon"
+  },
+  {
+    "title": "Rockabilly",
+    "color": "#ADD8E6",
+    "whatColorIs": "LightBlue"
+  },
+  {
+    "title": "Grunge",
+    "color": "#F08080",
+    "whatColorIs": "LightCoral"
   }
 ]

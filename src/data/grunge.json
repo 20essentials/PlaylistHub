@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Holding Out For A Hero",
+    "artist": "Bonnie Tyler",
+    "album": "Grunge",
+    "date": "2029-11-01T00:00:00",
+    "duration": "04:44",
+    "urlSong": "https://20essentials.github.io/bonnie-tyler/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/bonnie-tyler/assets/n1.avif"
+  },
+  {
+    "title": "Got To Me",
+    "artist": "Cadmium",
+    "album": "Grunge",
+    "date": "2029-11-02T00:00:00",
+    "duration": "03:17",
+    "urlSong": "https://20essentials.github.io/cadmium-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/cadmium-band/assets/n1.avif"
+  },
+  {
+    "title": "Yee",
+    "artist": "Deorro",
+    "album": "Grunge",
+    "date": "2029-11-03T00:00:00",
+    "duration": "02:58",
+    "urlSong": "https://20essentials.github.io/deorro-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/deorro-band/assets/n1.avif"
+  },
+  {
+    "title": "Propiedad Privada",
+    "artist": "Eva Ayllón",
+    "album": "Grunge",
+    "date": "2029-11-04T00:00:00",
+    "duration": "02:52",
+    "urlSong": "https://20essentials.github.io/eva-ayllon-album/songs/n15.mp3",
+    "urlPoster": "https://20essentials.github.io/eva-ayllon-album/assets/n3.avif"
+  },
+  {
+    "title": "Your Song",
+    "artist": "Elton John",
+    "album": "Grunge",
+    "date": "2029-11-05T00:00:00",
+    "duration": "06:12",
+    "urlSong": "https://20essentials.github.io/elton-john-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/elton-john-album/assets/n4.avif"
+  },
+  {
+    "title": "Photograph",
+    "artist": "Ed Sheeran",
+    "album": "Grunge",
+    "date": "2029-11-06T00:00:00",
+    "duration": "04:16",
+    "urlSong": "https://20essentials.github.io/ed-sheeran-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/ed-sheeran-album/assets/n1.avif"
+  },
+  {
+    "title": "After The Love Has Gone",
+    "artist": "Earth Wind And Fire",
+    "album": "Grunge",
+    "date": "2029-11-07T00:00:00",
+    "duration": "04:40",
+    "urlSong": "https://20essentials.github.io/earth-wind-and-fire-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-wind-and-fire-band/assets/n1.avif"
+  },
+  {
+    "title": "Boys Like That",
+    "artist": "Earth",
+    "album": "Grunge",
+    "date": "2029-11-08T00:00:00",
+    "duration": "02:33",
+    "urlSong": "https://20essentials.github.io/earth-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-band/assets/n1.avif"
+  },
+  {
+    "title": "Discovery",
+    "artist": "Fantom 87",
+    "album": "Grunge",
+    "date": "2029-11-09T00:00:00",
+    "duration": "04:36",
+    "urlSong": "https://20essentials.github.io/fantom-87-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/fantom-87-album/assets/n4.avif"
+  },
+  {
+    "title": "All Or Nothing",
+    "artist": "Cher",
+    "album": "Grunge",
+    "date": "2029-11-10T00:00:00",
+    "duration": "03:43",
+    "urlSong": "https://20essentials.github.io/cher-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/cher-album/assets/n4.avif"
+  },
+  {
+    "title": "Suzi",
+    "artist": "Fool's Garden",
+    "album": "Grunge",
+    "date": "2029-11-11T00:00:00",
+    "duration": "03:55",
+    "urlSong": "https://20essentials.github.io/fools-garden-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/fools-garden-album/assets/n4.avif"
+  },
+  {
+    "title": "Iridescent",
+    "artist": "Forhill",
+    "album": "Grunge",
+    "date": "2029-11-12T00:00:00",
+    "duration": "03:14",
+    "urlSong": "https://20essentials.github.io/forhill-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/forhill-band/assets/n1.avif"
+  },
+  {
+    "title": "The River",
+    "artist": "Good Charlotte",
+    "album": "Grunge",
+    "date": "2029-11-13T00:00:00",
+    "duration": "03:15",
+    "urlSong": "https://20essentials.github.io/good-charlote-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/good-charlote-band/assets/n4.avif"
+  },
+  {
+    "title": "Ob 17 Theme",
+    "artist": "Free Fire",
+    "album": "Grunge",
+    "date": "2029-11-14T00:00:00",
+    "duration": "01:09",
+    "urlSong": "https://20essentials.github.io/free-fire-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/free-fire-album/assets/n1.avif"
+  },
+  {
+    "title": "Spoon",
+    "artist": "Can",
+    "album": "Grunge",
+    "date": "2029-11-15T00:00:00",
+    "duration": "04:01",
+    "urlSong": "https://20essentials.github.io/can-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/can-band/assets/n4.avif"
+  },
+  {
+    "title": "Big Yellow",
+    "artist": "Counting Crows",
+    "album": "Grunge",
+    "date": "2029-11-16T00:00:00",
+    "duration": "03:46",
+    "urlSong": "https://20essentials.github.io/counting-crows-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/counting-crows-band/assets/n4.avif"
+  },
+  {
+    "title": "School Days",
+    "artist": "Chuck Berry",
+    "album": "Grunge",
+    "date": "2029-11-17T00:00:00",
+    "duration": "02:43",
+    "urlSong": "https://20essentials.github.io/chuck-berry-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/chuck-berry-album/assets/n4.avif"
+  },
+  {
+    "title": "Shake It Out",
+    "artist": "Florence And The Machine",
+    "album": "Grunge",
+    "date": "2029-11-18T00:00:00",
+    "duration": "04:37",
+    "urlSong": "https://20essentials.github.io/florence-and-the-machine/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/florence-and-the-machine/assets/n2.avif"
+  },
+  {
+    "title": "Stop",
+    "artist": "Erasure",
+    "album": "Grunge",
+    "date": "2029-11-19T00:00:00",
+    "duration": "02:59",
+    "urlSong": "https://20essentials.github.io/erasure-album/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/erasure-album/assets/n1.avif"
+  },
+  {
+    "title": "Aviones Plateados",
+    "artist": "El Último De La Fila",
+    "album": "Grunge",
+    "date": "2029-11-20T00:00:00",
+    "duration": "03:51",
+    "urlSong": "https://20essentials.github.io/el-ultimo-de-la-fila-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/el-ultimo-de-la-fila-band/assets/n1.avif"
+  }
+]

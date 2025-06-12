@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Accidentally In Love",
+    "artist": "Counting Crows",
+    "album": "Rockabilly",
+    "date": "2029-10-01T00:00:00",
+    "duration": "03:08",
+    "urlSong": "https://20essentials.github.io/counting-crows-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/counting-crows-band/assets/n1.avif"
+  },
+  {
+    "title": "Halleluwah",
+    "artist": "Can",
+    "album": "Rockabilly",
+    "date": "2029-10-02T00:00:00",
+    "duration": "03:38",
+    "urlSong": "https://20essentials.github.io/can-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/can-band/assets/n1.avif"
+  },
+  {
+    "title": "If I Could Turn Back Time",
+    "artist": "Cher",
+    "album": "Rockabilly",
+    "date": "2029-10-03T00:00:00",
+    "duration": "04:07",
+    "urlSong": "https://20essentials.github.io/cher-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/cher-album/assets/n2.avif"
+  },
+  {
+    "title": "If You Were A Woman",
+    "artist": "Bonnie Tyler",
+    "album": "Rockabilly",
+    "date": "2029-10-04T00:00:00",
+    "duration": "04:40",
+    "urlSong": "https://20essentials.github.io/bonnie-tyler/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/bonnie-tyler/assets/n2.avif"
+  },
+  {
+    "title": "Reelin' And Rockin'",
+    "artist": "Chuck Berry",
+    "album": "Rockabilly",
+    "date": "2029-10-05T00:00:00",
+    "duration": "03:18",
+    "urlSong": "https://20essentials.github.io/chuck-berry-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/chuck-berry-album/assets/n3.avif"
+  },
+  {
+    "title": "Como Un Burro Amarrado",
+    "artist": "El Último De La Fila",
+    "album": "Rockabilly",
+    "date": "2029-10-06T00:00:00",
+    "duration": "03:36",
+    "urlSong": "https://20essentials.github.io/el-ultimo-de-la-fila-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/el-ultimo-de-la-fila-band/assets/n2.avif"
+  },
+  {
+    "title": "I'm Still Standing",
+    "artist": "Elton John",
+    "album": "Rockabilly",
+    "date": "2029-10-07T00:00:00",
+    "duration": "03:03",
+    "urlSong": "https://20essentials.github.io/elton-john-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/elton-john-album/assets/n1.avif"
+  },
+  {
+    "title": "A Little Respect",
+    "artist": "Erasure",
+    "album": "Rockabilly",
+    "date": "2029-10-08T00:00:00",
+    "duration": "03:33",
+    "urlSong": "https://20essentials.github.io/erasure-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/erasure-album/assets/n1.avif"
+  },
+  {
+    "title": "Boogie Wonderland",
+    "artist": "Earth Wind And Fire",
+    "album": "Rockabilly",
+    "date": "2029-10-09T00:00:00",
+    "duration": "04:48",
+    "urlSong": "https://20essentials.github.io/earth-wind-and-fire-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-wind-and-fire-band/assets/n2.avif"
+  },
+  {
+    "title": "There Must Be An Angel",
+    "artist": "Eurythmics",
+    "album": "Rockabilly",
+    "date": "2029-10-10T00:00:00",
+    "duration": "04:40",
+    "urlSong": "https://20essentials.github.io/eurythmics-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/eurythmics-album/assets/n2.avif"
+  },
+  {
+    "title": "Inside",
+    "artist": "Culture Beat",
+    "album": "Rockabilly",
+    "date": "2029-10-11T00:00:00",
+    "duration": "05:55",
+    "urlSong": "https://20essentials.github.io/culture-beat-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/culture-beat-band/assets/n4.avif"
+  },
+  {
+    "title": "I Can't Tell You Why",
+    "artist": "Eagles",
+    "album": "Rockabilly",
+    "date": "2029-10-12T00:00:00",
+    "duration": "04:55",
+    "urlSong": "https://20essentials.github.io/eagles-album/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/eagles-album/assets/n4.avif"
+  },
+  {
+    "title": "Mundo Raro",
+    "artist": "Fragil",
+    "album": "Rockabilly",
+    "date": "2029-10-13T00:00:00",
+    "duration": "04:52",
+    "urlSong": "https://20essentials.github.io/fragil-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/fragil-band/assets/n3.avif"
+  },
+  {
+    "title": "Little Lies",
+    "artist": "Fleetwood Mac",
+    "album": "Rockabilly",
+    "date": "2029-10-14T00:00:00",
+    "duration": "03:38",
+    "urlSong": "https://20essentials.github.io/fleetwood-mac-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/fleetwood-mac-album/assets/n1.avif"
+  },
+  {
+    "title": "Lemon Tree",
+    "artist": "Fool's Garden",
+    "album": "Rockabilly",
+    "date": "2029-10-15T00:00:00",
+    "duration": "03:11",
+    "urlSong": "https://20essentials.github.io/fools-garden-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/fools-garden-album/assets/n1.avif"
+  },
+  {
+    "title": "The Pretender",
+    "artist": "Five Finger Death Band",
+    "album": "Rockabilly",
+    "date": "2029-10-16T00:00:00",
+    "duration": "04:30",
+    "urlSong": "https://20essentials.github.io/five-finger-death-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/five-finger-death-band/assets/n2.avif"
+  },
+  {
+    "title": "Pumped Of Kicks",
+    "artist": "Foster The People",
+    "album": "Rockabilly",
+    "date": "2029-10-17T00:00:00",
+    "duration": "04:15",
+    "urlSong": "https://20essentials.github.io/foster-the-people-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/foster-the-people-band/assets/n1.avif"
+  },
+  {
+    "title": "Urgent",
+    "artist": "Foreigner",
+    "album": "Rockabilly",
+    "date": "2029-10-18T00:00:00",
+    "duration": "04:20",
+    "urlSong": "https://20essentials.github.io/foreigner-band/songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/foreigner-band/assets/n4.avif"
+  },
+  {
+    "title": "All my Life",
+    "artist": "Foo Fighters",
+    "album": "Rockabilly",
+    "date": "2029-10-19T00:00:00",
+    "duration": "04:23",
+    "urlSong": "https://20essentials.github.io/foo-fighters/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/foo-fighters/assets/n3.avif"
+  },
+  {
+    "title": "Last December",
+    "artist": "Good Charlotte",
+    "album": "Rockabilly",
+    "date": "2029-10-20T00:00:00",
+    "duration": "03:09",
+    "urlSong": "https://20essentials.github.io/good-charlote-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/good-charlote-band/assets/n2.avif"
+  }
+]
