@@ -333,5 +333,10 @@
     "title": "Grunge",
     "color": "#F08080",
     "whatColorIs": "LightCoral"
+  },
+  {
+    "title": "Glitch",
+    "color": "#E0FFFF",
+    "whatColorIs": "LightCyan"
   }
 ]

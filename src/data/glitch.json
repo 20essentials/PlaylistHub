@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Five Hours",
+    "artist": "Deorro",
+    "album": "Glitch",
+    "date": "2029-12-01T00:00:00",
+    "duration": "03:31",
+    "urlSong": "https://20essentials.github.io/deorro-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/deorro-band/assets/n1.avif"
+  },
+  {
+    "title": "Llanto De Pasion",
+    "artist": "El Último De La Fila",
+    "album": "Glitch",
+    "date": "2029-12-02T00:00:00",
+    "duration": "05:04",
+    "urlSong": "https://20essentials.github.io/el-ultimo-de-la-fila-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/el-ultimo-de-la-fila-band/assets/n3.avif"
+  },
+  {
+    "title": "Always",
+    "artist": "Erasure",
+    "album": "Glitch",
+    "date": "2029-12-03T00:00:00",
+    "duration": "04:01",
+    "urlSong": "https://20essentials.github.io/erasure-album/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/erasure-album/assets/n2.avif"
+  },
+  {
+    "title": "September",
+    "artist": "Earth Wind And Fire",
+    "album": "Glitch",
+    "date": "2029-12-04T00:00:00",
+    "duration": "03:34",
+    "urlSong": "https://20essentials.github.io/earth-wind-and-fire-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/earth-wind-and-fire-band/assets/n1.avif"
+  },
+  {
+    "title": "Sweet Dreams",
+    "artist": "Eurythmics",
+    "album": "Glitch",
+    "date": "2029-12-05T00:00:00",
+    "duration": "04.53",
+    "urlSong": "https://20essentials.github.io/eurythmics-album/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/eurythmics-album/assets/n1.avif"
+  },
+  {
+    "title": "One Of These Nights",
+    "artist": "Eagles",
+    "album": "Glitch",
+    "date": "2029-12-06T00:00:00",
+    "duration": "04:51",
+    "urlSong": "https://20essentials.github.io/eagles-album/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/eagles-album/assets/n3.avif"
+  },
+  {
+    "title": "Jenova",
+    "artist": "Final Fantasy 7",
+    "album": "Glitch",
+    "date": "2029-12-07T00:00:00",
+    "duration": "02:36",
+    "urlSong": "https://20essentials.github.io/final-fantasy-7-album//songs/n4.mp3",
+    "urlPoster": "https://20essentials.github.io/final-fantasy-7-album//assets/n4.avif"
+  },
+  {
+    "title": "Obertura",
+    "artist": "Fragil",
+    "album": "Glitch",
+    "date": "2029-12-08T00:00:00",
+    "duration": "04:29",
+    "urlSong": "https://20essentials.github.io/fragil-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/fragil-band/assets/n2.avif"
+  },
+  {
+    "title": "Lifestyles Of The Riach",
+    "artist": "Good Charlotte",
+    "album": "Glitch",
+    "date": "2029-12-09T00:00:00",
+    "duration": "03:10",
+    "urlSong": "https://20essentials.github.io/good-charlote-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/good-charlote-band/assets/n3.avif"
+  },
+  {
+    "title": "Ob 7 Theme",
+    "artist": "Free Fire",
+    "album": "Glitch",
+    "date": "2029-12-10T00:00:00",
+    "duration": "04:27",
+    "urlSong": "https://20essentials.github.io/free-fire-album/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/free-fire-album/assets/n2.avif"
+  },
+  {
+    "title": "Believe Instrumental",
+    "artist": "Folder 5",
+    "album": "Glitch",
+    "date": "2029-12-11T00:00:00",
+    "duration": "03:47",
+    "urlSong": "https://20essentials.github.io/folder-5-band/songs/n5.mp3",
+    "urlPoster": "https://20essentials.github.io/folder-5-band/assets/n1.avif"
+  },
+  {
+    "title": "All My Life",
+    "artist": "Foo Fighters",
+    "album": "Glitch",
+    "date": "2029-12-12T00:00:00",
+    "duration": "04:23",
+    "urlSong": "https://20essentials.github.io/foo-fighters-band/songs/n3.mp3",
+    "urlPoster": "https://20essentials.github.io/foo-fighters-band/assets/n3.avif"
+  },
+  {
+    "title": "I Know Better",
+    "artist": "Glwzbll",
+    "album": "Glitch",
+    "date": "2029-12-13T00:00:00",
+    "duration": "03:15",
+    "urlSong": "https://20essentials.github.io/glwzbll-band/songs/n6.mp3",
+    "urlPoster": "https://20essentials.github.io/glwzbll-band/assets/n2.avif"
+  },
+  {
+    "title": "Itichin",
+    "artist": "Grouplove",
+    "album": "Glitch",
+    "date": "2029-12-14T00:00:00",
+    "duration": "04:19",
+    "urlSong": "https://20essentials.github.io/grouplove-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/grouplove-band/assets/n2.avif"
+  },
+  {
+    "title": "Runaway",
+    "artist": "Galantis",
+    "album": "Glitch",
+    "date": "2029-12-15T00:00:00",
+    "duration": "03:47",
+    "urlSong": "https://20essentials.github.io/galantis-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/galantis-band/assets/n1.avif"
+  },
+  {
+    "title": "Heat Waves",
+    "artist": "Glass Animals",
+    "album": "Glitch",
+    "date": "2029-12-16T00:00:00",
+    "duration": "03:58",
+    "urlSong": "https://20essentials.github.io/glass-animals-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/glass-animals-band/assets/n1.avif"
+  },
+  {
+    "title": "Welcome To The Jungle",
+    "artist": "Guns N' Roses",
+    "album": "Glitch",
+    "date": "2029-12-17T00:00:00",
+    "duration": "04:30",
+    "urlSong": "https://20essentials.github.io/guns-n-roses-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/guns-n-roses-band/assets/n1.avif"
+  },
+  {
+    "title": "So Be It",
+    "artist": "Glhf",
+    "album": "Glitch",
+    "date": "2029-12-18T00:00:00",
+    "duration": "06:28",
+    "urlSong": "https://20essentials.github.io/glhf-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/glhf-band/assets/n1.avif"
+  },
+  {
+    "title": "Stupid Girl",
+    "artist": "Garbage",
+    "album": "Glitch",
+    "date": "2029-12-19T00:00:00",
+    "duration": "04:31",
+    "urlSong": "https://20essentials.github.io/garbage-band/songs/n1.mp3",
+    "urlPoster": "https://20essentials.github.io/garbage-band/assets/n1.avif"
+  },
+  {
+    "title": "No Money",
+    "artist": "Galantis",
+    "album": "Glitch",
+    "date": "2029-12-20T00:00:00",
+    "duration": "03:12",
+    "urlSong": "https://20essentials.github.io/galantis-band/songs/n2.mp3",
+    "urlPoster": "https://20essentials.github.io/galantis-band/assets/n2.avif"
+  }
+]
