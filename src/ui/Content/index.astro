@@ -124,7 +124,8 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
         position: relative;
         scale: 1.05;
 
-        @media (width <= 1111px) {
+        /* @media (width <= 1111px) { */
+        @media (width >= 50px) {
           pointer-events: none;
 
           img {
@@ -166,7 +167,8 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
           mix-blend-mode: color-dodge;
           opacity: 0.8;
 
-          @media (width <= 1111px) {
+          /* @media (width <= 1111px) { */
+          @media (width >= 50px) {
             background-image: url('/assets/favicon.webp');
             background-size: 80%;
             opacity: 1;

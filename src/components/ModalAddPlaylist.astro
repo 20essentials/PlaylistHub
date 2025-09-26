@@ -395,10 +395,30 @@ import CheckedFull from '@/icons/checkedfull.astro';
   const arrayOfSlugs = playlist.map(el => convertInValidSlug(el.title));
   const randomSlug = obtenerElementoAleatorio(arrayOfSlugs);
   const response = await fetch(`../../data/${randomSlug}.json`);
+
   const playlistRandomObject = await response.json();
   const arrayOfRandomPosters = playlistRandomObject.map(
     (el: any) => el.urlPoster
   );
+  //new get arrayOfSongsTotal
+
+  // const arrayOfPromises = arrayOfSlugs.map(async (slugi) => {
+  //   const response = await fetch(`../../data/${slugi}.json`);
+  //   const json = await response.json();
+  //   return json;
+  // });
+  // console.log(arrayOfSlugs);
+  // let total = [];
+  // const all = Promise.all(arrayOfPromises).then(arrayOfArray => {
+    
+  //   arrayOfArray.map((arr) => {
+  //     arr.map(song => {
+  //       total.push(song.urlSong)
+  //     })
+  //   })
+  // });
+
+  // console.log(total);
 
   //new
   import { actions } from 'astro:actions';
