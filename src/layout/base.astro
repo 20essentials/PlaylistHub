@@ -4,7 +4,7 @@ import ModalAddPlaylist from '@/components/ModalAddPlaylist.astro';
 import ModalEditNamePlaylist from '@/components/ModalEditNamePlaylist.astro';
 import ServilletaToDeleteAPlaylist from '@/components/ServilletaToDeleteAPlaylist.astro';
 import '@/styles/globalStyles.css';
-import { SignInButton } from '@clerk/astro/components';
+
 
 const canonicalHref = Astro.site;
 const faviconHref = '/assets/favicon.webp';
@@ -43,7 +43,6 @@ const siteName = 'PlaylistHub';
     <ServilletaToDeleteAPlaylist />
     <slot />
 
-    <SignInButton class={'buttonModalSignin'} mode='modal' />
     <button class='hidden-button-for-remove-nav-on-pointerout'></button>
   </body>
 </html>

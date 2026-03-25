@@ -1,7 +1,7 @@
 ---
 import Playlist from './Playlist.astro';
 import ListHeader from './ListHeader.astro';
-import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
+// import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
 ---
 
 <style>
@@ -36,7 +36,8 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
     &::before {
       content: '';
       position: absolute;
-      background: linear-gradient(to right, transparent, #000 45%),
+      background:
+        linear-gradient(to right, transparent, #000 45%),
         linear-gradient(
           to bottom,
           var(--theme-color),
@@ -148,7 +149,8 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
           bottom: 0;
           top: 0;
           background-repeat: no-repeat;
-          background-image: url('/assets/profile1.png'), var(--bg),
+          background-image:
+            url('/assets/profile1.png'), var(--bg),
             linear-gradient(
               125deg,
               #ff008450 15%,
@@ -197,20 +199,24 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/astro/components';
       <img src='/assets/prev.svg' alt='prev' />
     </button>
 
-    <SignedIn>
+    <!--  <SignedIn>
       <button
         class='profile profile-open-manage-and-logout'
         style="--bg: url('/assets/v1.gif')"
       >
         <UserButton />
       </button>
-    </SignedIn>
+    </SignedIn> -->
 
-    <SignedOut>
+    <!--     <SignedOut>
       <button class='profile openLogin' style="--bg: url('/assets/v1.gif')">
         <img src='/assets/profile1.png' alt='profile' />
       </button>
-    </SignedOut>
+    </SignedOut> -->
+
+    <button class='profile openLogin' style="--bg: url('/assets/v1.gif')">
+      <img src='/assets/profile1.png' alt='profile' />
+    </button>
 
     <button class='next-list next-list-visible'>
       <img src='/assets/next.svg' alt='next' />

@@ -3,7 +3,9 @@ const title = '';
 const artist = '';
 import HeartEmpty from '@/icons/heartvoid.astro';
 import HeartFull from '@/icons/heartfull.astro';
-const user = await Astro.locals.currentUser();
+// const user = await Astro.locals.currentUser();
+// const user = await Astro.locals.currentUser();
+const user = false;
 ---
 
 <style>
@@ -162,7 +164,7 @@ const user = await Astro.locals.currentUser();
       const artistCurrent = artistOfTheCurrentSong.textContent;
 
       if (artistCurrent === artistDetail && titleCurrent === titleDetail) {
-        $heartEmpty.classList.toggle('isSaved', updating);
+        $heartEmpty?.classList.toggle('isSaved', updating);
       }
     }, 50);
   });
